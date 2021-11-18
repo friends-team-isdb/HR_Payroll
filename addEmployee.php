@@ -30,6 +30,14 @@
   <link href="assets/css/header-colors.css" rel="stylesheet" />
 
   <title>HR PAYROLL SOFTWARE</title>
+  
+  <style>
+    
+      .forms-body{
+          margin:10px;
+      }
+    
+    </style>
 </head>
 
 <body>
@@ -53,12 +61,15 @@
           <main class="page-content">
               
 <!--           Enter Your Code here-->
-
+<div class="modal-content">
+   <div class="forms-body">
+       
+   
     <form action="" method="post" enctype="multipart/form-data">
        
        <div class="row">
            <div class="col-md-12">
-               <h3>Add Employee</h3>
+               <h3 style="margin:10px;">Add Employee</h3>
            </div>
        </div>
        <hr>
@@ -78,8 +89,8 @@
        </div>
         
     </form>
-
-
+</div>
+</div>
            
            
            
