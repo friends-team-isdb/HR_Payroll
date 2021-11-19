@@ -65,33 +65,11 @@
         <form action="" method="post" enctype="multipart/form-data">      
             <div class="row">
                 <div class="col-md-12">
-                  <h3 style="margin:10px;">Attendance Report</h3>
+                  <h3 style="margin:10px;">Add Salary Type</h3>
                 </div>
             </div><hr>
-<!--            Jakir vai code here-->
-            <div class="row">
-                <div class="col-md-4">            
-                    <select class="form-control" name="" id="">
-                        <option value="">Select Employees</option>
-                        <option value="All Employees">All Employees</option>
-                    </select>
-                </div>
-                <div class="col-md-3">            
-                    <select class="form-control" name="" id="">
-                        <option value="">Select Year</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                                
-                    <select class="form-control" name="" id="">
-                        <option value="">Select Month</option>
-                    </select>
-                                
-                </div>
-                <div class="col-md-2">
-                    <input class="btn btn-primary" type="submit" name="" id="" value="Show Report">
-                </div>
-            </div>
+
+              
                
         </form>
       </div>
