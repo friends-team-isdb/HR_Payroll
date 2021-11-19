@@ -74,13 +74,13 @@
        <div class="row">  
 <!--         jakir vai code here-->
             <div class="col-md-4 ">
-                <input type="text" name=""  id="" placeholder="Please Write User Role Name" required> 
+                <input type="text" class="form-control" name=""  id="" placeholder="Please Write User Role Name" required> 
             </div>
             <div class="col-md-3 ">
-                <input type="text" name=""  id="" placeholder="User Role Permission" required> 
+                <input type="text" name="" class="form-control"  id="" placeholder="User Role Permission" required> 
             </div>
             <div class="col-md-3">
-                <select  name="" id="">
+                <select  name="" class="form-control" id="">
                     <option value="">Select Your Status</option>
                 </select>
             </div>
