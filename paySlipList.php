@@ -71,13 +71,13 @@
                         <hr>
                         <div class="row">
                             <div class="col-md-4">
-                                Year
+                                
                                 <select class="form-control" name="" id="">
                                     <option value="">Select Year</option>
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                Month
+                                
                                 <select class="form-control" name="" id="">
                                     <option value="">Select Month</option>
                                 </select>
