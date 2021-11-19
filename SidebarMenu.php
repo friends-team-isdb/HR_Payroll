@@ -67,6 +67,8 @@
                 </li>
                 <li> <a href="attendanceReport.php"><i class="bi bi-arrow-right-short"></i>Attendance Report</a>
                 </li>
+                <li> <a href="attendanceSchedule.php"><i class="bi bi-arrow-right-short"></i>Attendance Schedule</a>
+                </li>
               </ul>
             </li>
             <li>
@@ -103,7 +105,7 @@
               <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bi bi-cloud-arrow-down"></i>
                 </div>
-                <div class="menu-title">Salary</div>
+                <div class="menu-title">Salary Management</div>
               </a>
               <ul>
                 <li> <a href="addSalary.php"><i class="bi bi-arrow-right-short"></i>Add Salary</a>
@@ -113,17 +115,17 @@
                 
               </ul>
             </li>
-            <li class="menu-label">Forms & Tables</li>
+            
             <li>
               <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bi bi-file-earmark-break"></i>
                 </div>
-                <div class="menu-title">Forms</div>
+                <div class="menu-title">User Management</div>
               </a>
               <ul>
-                <li> <a href="form-elements.html"><i class="bi bi-arrow-right-short"></i>Form Elements</a>
+                <li> <a href="addUser.php"><i class="bi bi-arrow-right-short"></i>Add User</a>
                 </li>
-                <li> <a href="form-input-group.html"><i class="bi bi-arrow-right-short"></i>Input Groups</a>
+                <li> <a href="userRole.php"><i class="bi bi-arrow-right-short"></i>User Role</a>
                 </li>
                 <li> <a href="form-layouts.html"><i class="bi bi-arrow-right-short"></i>Forms Layouts</a>
                 </li>
