@@ -65,7 +65,7 @@
               <ul>
                 <li> <a href="dailyAttendance.php"><i class="bi bi-arrow-right-short"></i>Daily Attendance</a>
                 </li>
-                <li> <a href="#"><i class="bi bi-arrow-right-short"></i>Attendance Report</a>
+                <li> <a href="attendanceReport.php"><i class="bi bi-arrow-right-short"></i>Attendance Report</a>
                 </li>
               </ul>
             </li>
