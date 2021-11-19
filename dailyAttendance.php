@@ -88,11 +88,11 @@
                         </div>
 
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-12">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel dolorum id consectetur ducimus molestias. Quia recusandae laborum quibusdam natus quod aspernatur distinctio, quis fugit officiis ipsam sunt nisi, repudiandae, adipisci?</p>
+                                
                             </div>
-                        </div>
+                        </div> -->
 
                     </form>
                 </div>

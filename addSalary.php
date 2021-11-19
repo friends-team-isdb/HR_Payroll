@@ -68,8 +68,30 @@
                   <h3 style="margin:10px;">Salary Details</h3>
                 </div>
             </div><hr>
-
+            <!-- add salary table start -->
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+                
+                  <input type="number" name="" id="" class="form-control mt-3" placeholder="Basic Salary">
+                
+                  <input type="number" name="" id="" class="form-control mt-3" placeholder="Medical">
+                
+                  <input type="number" name="" id="" class="form-control mt-3" placeholder="House Rent">
+               
+                  <input type="number" name="" id="" class="form-control mt-3" placeholder="Food">
               
+                
+                  <input type="number" name="" id="" class="form-control mt-3" placeholder="Provident Fund">
+                  <input type="number" name="" id="" class="form-control mt-3" placeholder="Net Salary">
+                  <input type="number" name="" id="" class="form-control mt-3" placeholder="Gross Salary">
+                
+                  <input type="submit" name="" id="" class="btn btn-primary pull-right mt-3" value="Save">
+               
+                  
+              </div>
+              <div class="col-md-3"></div>
+            </div>
                
         </form>
       </div>

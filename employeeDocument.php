@@ -66,22 +66,20 @@
        
        <div class="row">
            <div class="col-md-12">
-               <h3 style="margin:10px;">Add Leave</h3>
+               <h3 style="margin:10px;">Employee Documents</h3>
            </div>
        </div>
        <hr>
        
        <div class="row">
-               <div class="col-md-2"></div>
-               <div class="col-md-8">
-                   <select class="form-control" name="" id="">
-                       <option value="">Select Employee</option>
-                   </select>
-                   
-               </div>
-               <div class="col-md-2"></div>
                
-           
+          <div class="col-md-3"></div> 
+          <div class="col-md-6">
+            <input type="text" name="" id="" class="form-control mt-3" placeholder="Document Name">
+            <input type="text" name="" id="" class="form-control mt-3" placeholder="Document Status">
+            <input type="submit" name="" id="" class="btn btn-primary pull-right mt-3" value="Save">
+          </div>
+          <div class="col-md-3"></div>
            
        </div>
         

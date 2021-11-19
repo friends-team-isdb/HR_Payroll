@@ -37,7 +37,8 @@
                 </li>
                 <li> <a href="addEmployee.php"><i class="bi bi-arrow-right-short"></i>Manage Employee</a>
                 </li>
-               
+                <li> <a href="employeeDocument.php"><i class="bi bi-arrow-right-short"></i>Employee Document</a>
+                </li>
               </ul>
             </li>
             <li>
@@ -51,6 +52,7 @@
                 </li>
                 <li> <a href="app-chat-box.html"><i class="bi bi-arrow-right-short"></i>Manage Department</a>
                 </li>
+                
               </ul>
             </li>
             
@@ -88,42 +90,12 @@
               <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bi bi-bookmark-star"></i>
                 </div>
-                <div class="menu-title">Components</div>
+                <div class="menu-title">Payroll Management</div>
               </a>
               <ul>
-                <li> <a href="component-alerts.html"><i class="bi bi-arrow-right-short"></i>Alerts</a>
+                <li> <a href="createPaySlip.php"><i class="bi bi-arrow-right-short"></i>Create Pay Slip</a>
                 </li>
-                <li> <a href="component-accordions.html"><i class="bi bi-arrow-right-short"></i>Accordions</a>
-                </li>
-                <li> <a href="component-badges.html"><i class="bi bi-arrow-right-short"></i>Badges</a>
-                </li>
-                <li> <a href="component-buttons.html"><i class="bi bi-arrow-right-short"></i>Buttons</a>
-                </li>
-                <li> <a href="component-cards.html"><i class="bi bi-arrow-right-short"></i>Cards</a>
-                </li>
-                <li> <a href="component-carousels.html"><i class="bi bi-arrow-right-short"></i>Carousels</a>
-                </li>
-                <li> <a href="component-list-groups.html"><i class="bi bi-arrow-right-short"></i>List Groups</a>
-                </li>
-                <li> <a href="component-media-object.html"><i class="bi bi-arrow-right-short"></i>Media Objects</a>
-                </li>
-                <li> <a href="component-modals.html"><i class="bi bi-arrow-right-short"></i>Modals</a>
-                </li>
-                <li> <a href="component-navs-tabs.html"><i class="bi bi-arrow-right-short"></i>Navs & Tabs</a>
-                </li>
-                <li> <a href="component-navbar.html"><i class="bi bi-arrow-right-short"></i>Navbar</a>
-                </li>
-                <li> <a href="component-paginations.html"><i class="bi bi-arrow-right-short"></i>Pagination</a>
-                </li>
-                <li> <a href="component-popovers-tooltips.html"><i class="bi bi-arrow-right-short"></i>Popovers & Tooltips</a>
-                </li>
-                <li> <a href="component-progress-bars.html"><i class="bi bi-arrow-right-short"></i>Progress</a>
-                </li>
-                <li> <a href="component-spinners.html"><i class="bi bi-arrow-right-short"></i>Spinners</a>
-                </li>
-                <li> <a href="component-notifications.html"><i class="bi bi-arrow-right-short"></i>Notifications</a>
-                </li>
-                <li> <a href="component-avtars-chips.html"><i class="bi bi-arrow-right-short"></i>Avatrs & Chips</a>
+                <li> <a href="paySlipList.php"><i class="bi bi-arrow-right-short"></i>Pay Slip List</a>
                 </li>
               </ul>
             </li>
@@ -131,15 +103,14 @@
               <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bi bi-cloud-arrow-down"></i>
                 </div>
-                <div class="menu-title">Icons</div>
+                <div class="menu-title">Salary</div>
               </a>
               <ul>
-                <li> <a href="icons-line-icons.html"><i class="bi bi-arrow-right-short"></i>Line Icons</a>
+                <li> <a href="addSalary.php"><i class="bi bi-arrow-right-short"></i>Add Salary</a>
                 </li>
-                <li> <a href="icons-boxicons.html"><i class="bi bi-arrow-right-short"></i>Boxicons</a>
+                <li> <a href="addSalaryType.php"><i class="bi bi-arrow-right-short"></i>Add Salary Type</a>
                 </li>
-                <li> <a href="icons-feather-icons.html"><i class="bi bi-arrow-right-short"></i>Feather Icons</a>
-                </li>
+                
               </ul>
             </li>
             <li class="menu-label">Forms & Tables</li>
