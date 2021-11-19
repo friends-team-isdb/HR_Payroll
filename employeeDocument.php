@@ -72,8 +72,14 @@
        <hr>
        
        <div class="row">
-               <h2>	Under Development</h2>
-           
+               
+          <div class="col-md-3"></div> 
+          <div class="col-md-6">
+            <input type="text" name="" id="" class="form-control mt-3" placeholder="Document Name">
+            <input type="text" name="" id="" class="form-control mt-3" placeholder="Document Status">
+            <input type="submit" name="" id="" class="btn btn-primary pull-right mt-3" value="Save">
+          </div>
+          <div class="col-md-3"></div>
            
        </div>
         
