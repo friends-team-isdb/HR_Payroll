@@ -72,10 +72,30 @@
        <hr>
        
        <div class="row">
-               <p>Under Development</p>
-          
+           <div class="col-md-12">
+               Login Time:<input type="time" name="" class="form-control mt-3 mb-3 " >
+           </div>
        </div>
-        
+         <div class="row">
+           <div class="col-md-12">
+               Logout Time:<input type="time" name="" class="form-control mt-3 mb-3 " >
+           </div>
+       </div>
+        <div class="row">
+           <div class="col-md-12">
+               Date:<input type="date" name="" class="form-control mt-3 mb-3 " >
+           </div>
+       </div>
+        <div class="row">
+           <div class="col-md-12">
+               User Ip:<input type="text" name="" class="form-control mt-3 mb-3 " >
+           </div>
+       </div>
+        <div class="row">
+           <div class="col-md-12">
+               <input class="btn btn-primary mt-3 mb-3  " type="submit" name="" id="" value="Submit">
+           </div>
+       </div>
     </form>
     </div>
     </div>
