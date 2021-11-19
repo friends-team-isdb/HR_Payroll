@@ -72,9 +72,7 @@
               <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                  <select class="form-control" name="" id="">
-                    <option value="">select</option>
-                  </select>
+                <input type="text" name="" id="" class="form-control mt-3" placeholder="Add Salary Type">
                   <input type="submit" name="" id="" class="btn btn-primary pull-right mt-3" value="Save">
                 </div>
                 <div class="col-md-3"></div>
