@@ -65,11 +65,116 @@
         <form action="" method="post" enctype="multipart/form-data">      
             <div class="row">
                 <div class="col-md-12">
-                  <h3 style="margin:10px;">Attendance Report</h3>
+                  <h3 style="margin:10px;">Add Users</h3>
                 </div>
             </div><hr>
 <!--            Jakir vai code here-->
-              
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 style="margin:10px;">Profile Details</h4>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" name="" class="form-control" id="" placeholder="Please Write Your User Name" required> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" name="" class="form-control" id="" placeholder="Please Write Your Full Name" required> 
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="number" name="" class="form-control" id="" placeholder="Please Write Your Phone Number" required> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                        <input type="email" name="" class="form-control" id="" placeholder="Please Write Your Email Address" required> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="password" class="form-control" name="" id="" placeholder="Please Write Your Password" required> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                               <select class="form-control" name="" id="">
+                                    <option value="">Select Your Status</option>
+                               </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h4 style="margin:10px;">Module Access</h4>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12">
+                            Employee: <input type="checkbox"  name="" id="" value="">View
+                            <input type="checkbox"  name="" id="" value="">Add
+                            <input type="checkbox"  name="" id="" value="">Edit
+                            <input type="checkbox"  name="" id="" value="">Delete
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            Department: <input type="checkbox"  name="" id="" value="">View
+                            <input type="checkbox"  name="" id="" value="">Add
+                            <input type="checkbox"  name="" id="" value="">Edit
+                            <input type="checkbox"  name="" id="" value="">Delete
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            Attendance: <input type="checkbox"  name="" id="" value="">View
+                            <input type="checkbox"  name="" id="" value="">Add
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            Leave: <input type="checkbox"  name="" id="" value="">View
+                            <input type="checkbox"  name="" id="" value="">Add
+                            <input type="checkbox"  name="" id="" value="">Edit
+                            <input type="checkbox"  name="" id="" value="">Delete
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            Payslip: <input type="checkbox"  name="" id="" value="">View
+                            <input type="checkbox"  name="" id="" value="">Add
+                            <input type="checkbox"  name="" id="" value="">Delete
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            Holiday: <input type="checkbox"  name="" id="" value="">View
+                            <input type="checkbox"  name="" id="" value="">Add
+                            <input type="checkbox"  name="" id="" value="">Edit
+                            <input type="checkbox"  name="" id="" value="">Delete
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    
+                </div>
+                <div class="col-md-4">
+                    <input class="btn btn-primary" type="submit" name="" id="" value="Save">
+                </div>
+                <div class="col-md-4">
+                   
+                </div>
+            </div>
                
         </form>
       </div>
