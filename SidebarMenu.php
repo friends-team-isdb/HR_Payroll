@@ -37,7 +37,8 @@
                 </li>
                 <li> <a href="addEmployee.php"><i class="bi bi-arrow-right-short"></i>Manage Employee</a>
                 </li>
-               
+                <li> <a href="employeeDocument.php"><i class="bi bi-arrow-right-short"></i>Employee Document</a>
+                </li>
               </ul>
             </li>
             <li>
@@ -51,6 +52,7 @@
                 </li>
                 <li> <a href="app-chat-box.html"><i class="bi bi-arrow-right-short"></i>Manage Department</a>
                 </li>
+                
               </ul>
             </li>
             
