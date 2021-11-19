@@ -53,17 +53,17 @@
                 </li>
               </ul>
             </li>
-            <li class="menu-label">UI Elements</li>
+            
             <li>
               <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bi bi-award"></i>
                 </div>
-                <div class="menu-title">Widgets</div>
+                <div class="menu-title">Attendance Managment</div>
               </a>
               <ul>
-                <li> <a href="widgets-static-widgets.html"><i class="bi bi-arrow-right-short"></i>Static Widgets</a>
+                <li> <a href="dailyAttendance.php"><i class="bi bi-arrow-right-short"></i>Daily Attendance</a>
                 </li>
-                <li> <a href="widgets-data-widgets.html"><i class="bi bi-arrow-right-short"></i>Data Widgets</a>
+                <li> <a href="#"><i class="bi bi-arrow-right-short"></i>Attendance Report</a>
                 </li>
               </ul>
             </li>
