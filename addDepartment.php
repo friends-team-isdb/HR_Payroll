@@ -66,23 +66,29 @@
        
        <div class="row">
            <div class="col-md-12">
-               <h3 style="margin:10px;">Add Leave</h3>
+               <h3 style="margin:10px;">Add Department</h3>
            </div>
        </div>
        <hr>
        
-       <div class="row">
-               <div class="col-md-2"></div>
-               <div class="col-md-8">
-                   <select class="form-control" name="" id="">
-                       <option value="">Select Employee</option>
-                   </select>
-               </div>
-               <div class="col-md-2"></div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Department">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Designation">
+          </div>
+        </div>
+        <div class="col-md-4">
+            <input type="submit" class="btn btn-primary" value="Save">
+        </div>
                
            
            
-       </div>
+      </div>
         
     </form>
     </div>
