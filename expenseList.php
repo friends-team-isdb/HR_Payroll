@@ -66,16 +66,31 @@
        
        <div class="row">
            <div class="col-md-12">
-               <h3 style="margin:10px;">Add Expence List</h3>
+               <h3 style="margin:10px;">Add Expense List</h3>
            </div>
        </div>
        <hr>
        
        <div class="row">
-               <p>Under Development</p>
-          
+           <div class="col-md-12">
+               Date:<input type="date" name="" id="" class="form-control mt-3 mb-3 ">
+           </div>
        </div>
-        
+       <div class="row">
+           <div class="col-md-12">
+               Expense Description:<textarea  row="3"  name="" id="" class="form-control mt-3 mb-3 "></textarea>
+           </div>
+       </div>
+       <div class="row">
+           <div class="col-md-12">
+               Amount:<input type="number" name="" id="" class="form-control mt-3 mb-3 ">
+           </div>
+       </div>
+        <div class="row">
+           <div class="col-md-12">
+               <input class="btn btn-primary mt-3 mb-3  " type="submit" name="" id="" value="Submit">
+           </div>
+       </div>
     </form>
     </div>
     </div>
