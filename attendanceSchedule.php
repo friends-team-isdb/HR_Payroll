@@ -71,10 +71,11 @@
        </div>
        <hr>
        
-       <div class="row">
-               
+       <div class="row">  
 <!--         jakir vai code here-->
-           
+            <div class="col-md-12">
+                
+            </div> 
        </div>
         
     </form>
