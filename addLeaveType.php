@@ -72,11 +72,11 @@
        <hr>
        
        <div class="row">
-               <div class="col-md-2"></div>
-               <div class="col-md-8">
+               <div class="col-md-3"></div>
+               <div class="col-md-6">
                    <input class="form-control" type="text" name="" id="" placeholder="Add Leave Type">
                </div>
-               <div class="col-md-2">
+               <div class="col-md-3">
                    <input class="btn btn-primary" type="submit" name="" id="" value="Add">
                </div>
                
