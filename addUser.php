@@ -75,33 +75,33 @@
                     <hr>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" name="" class="form-control" id="" placeholder="Please Write Your User Name" required> 
+                            <input type="text" name="" class="form-control mt-3" id="" placeholder="Please Write Your User Name" required> 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" name="" class="form-control" id="" placeholder="Please Write Your Full Name" required> 
+                            <input type="text" name="" class="form-control mt-3" id="" placeholder="Please Write Your Full Name" required> 
                         </div>
                     </div>
                     
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="number" name="" class="form-control" id="" placeholder="Please Write Your Phone Number" required> 
+                            <input type="number" name="" class="form-control mt-3" id="" placeholder="Please Write Your Phone Number" required> 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                        <input type="email" name="" class="form-control" id="" placeholder="Please Write Your Email Address" required> 
+                        <input type="email" name="" class="form-control mt-3" id="" placeholder="Please Write Your Email Address" required> 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="password" class="form-control" name="" id="" placeholder="Please Write Your Password" required> 
+                            <input type="password" class="form-control mt-3" name="" id="" placeholder="Please Write Your Password" required> 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                               <select class="form-control" name="" id="">
+                               <select class="form-control mt-3" name="" id="">
                                     <option value="">Select Your Status</option>
                                </select>
                         </div>
@@ -169,7 +169,7 @@
                     
                 </div>
                 <div class="col-md-4">
-                    <input class="btn btn-primary" type="submit" name="" id="" value="Save">
+                    <input class="btn btn-primary mt-3 " type="submit" name="" id="" value="Save">
                 </div>
                 <div class="col-md-4">
                    
