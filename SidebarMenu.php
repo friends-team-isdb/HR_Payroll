@@ -74,11 +74,14 @@
                 <div class="menu-title">Leave Management</div>
               </a>
               <ul>
-                <li> <a href="ecommerce-products-list.html"><i class="bi bi-arrow-right-short"></i>Add Leave</a>
+                <li> <a href="addLeave.php"><i class="bi bi-arrow-right-short"></i>Add Leave</a>
                 </li>
-                <li> <a href="ecommerce-products-grid.html"><i class="bi bi-arrow-right-short"></i>Manage Leave</a>
+                <li> <a href="#"><i class="bi bi-arrow-right-short"></i>Manage Leave</a>
                 </li>
-                
+                <li> <a href="addLeaveType.php"><i class="bi bi-arrow-right-short"></i>Add Leave Type</a>
+                </li>
+                <li> <a href="#"><i class="bi bi-arrow-right-short"></i>Manage Leave type</a>
+                </li>
               </ul>
             </li>
             <li>
