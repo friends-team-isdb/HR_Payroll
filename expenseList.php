@@ -83,7 +83,7 @@
        </div>
        <div class="row">
            <div class="col-md-12">
-               Amount:<input type="number" name="" id="" class="form-control mt-3 mb-3 ">
+               Amount:<input type="number" name="" id="" class="form-control mt-3 mb-3 " placeholder="please enter your amount" >
            </div>
        </div>
         <div class="row">
