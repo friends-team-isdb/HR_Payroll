@@ -127,16 +127,6 @@
                 </li>
                 <li> <a href="userRole.php"><i class="bi bi-arrow-right-short"></i>User Role</a>
                 </li>
-                <li> <a href="form-layouts.html"><i class="bi bi-arrow-right-short"></i>Forms Layouts</a>
-                </li>
-                <li> <a href="form-validations.html"><i class="bi bi-arrow-right-short"></i>Form Validation</a>
-                </li>
-                <li> <a href="form-wizard.html"><i class="bi bi-arrow-right-short"></i>Form Wizard</a>
-                </li>
-                <li> <a href="form-date-time-pickes.html"><i class="bi bi-arrow-right-short"></i>Date Pickers</a>
-                </li>
-                <li> <a href="form-select2.html"><i class="bi bi-arrow-right-short"></i>Select2</a>
-                </li>
               </ul>
             </li>
             <li>
