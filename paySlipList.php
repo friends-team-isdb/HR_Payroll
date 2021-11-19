@@ -58,41 +58,39 @@
         <!--start content-->
         <main class="page-content">
 
-            <!--           Enter Your Code here-->
+            <!--Enter Your Code here-->
             <div class="modal-content">
                 <div class="forms-body">
                     <form action="" method="post" enctype="multipart/form-data">
 
                         <div class="row">
                             <div class="col-md-12">
-                                <h3 style="margin:10px;">Daily Attendance</h3>
+                                <h3 style="margin:10px;">Pay Slip List</h3>
                             </div>
                         </div>
                         <hr>
-
                         <div class="row">
                             <div class="col-md-4">
+                                Year
                                 <select class="form-control" name="" id="">
-                                    <option value="">Select Employee</option>
+                                    <option value="">Select Year</option>
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <input class="form-control" type="date" name="" id="">
+                                Month
+                                <select class="form-control" name="" id="">
+                                    <option value="">Select Month</option>
+                                </select>
                             </div>
                             <div class="col-md-4">
                                 <input class="btn btn-primary" type="submit" name="" id="" value="Get Employee List">
                             </div>
-
-
-
                         </div>
 
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel dolorum id consectetur ducimus molestias. Quia recusandae laborum quibusdam natus quod aspernatur distinctio, quis fugit officiis ipsam sunt nisi, repudiandae, adipisci?</p>
+                        <!-- <div class="row">
+                            <div class="col-md-12">                                
                             </div>
-                        </div>
+                        </div> -->
 
                     </form>
                 </div>
