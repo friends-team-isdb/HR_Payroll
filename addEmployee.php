@@ -65,7 +65,7 @@
 
           <div class="row">
             <div class="col-md-12">
-              <h3 class="text-info text-center" style="margin:10px;">Add Employee</h3>
+              <h3  style="margin:10px;">Add Employee</h3>
             </div>
           </div>
           <hr>
@@ -93,6 +93,7 @@
                   <input class="form-control" type="text" name="employ_religion" id="" placeholder="Employee Religion"><br>
                   <input class="form-control" type="text" name="employ_district" id="" placeholder="Employee District"><br>
                   <input class="form-control" type="text" name="employ_countris" id="" placeholder="Employee Countris"><br>
+                  <input class="form-control" type="text" name="phone" id="" placeholder="Employee Phone"><br>
                   <input class="form-control" type="text" name="employ_postal_code" id="" placeholder="Employee Postal Code"><br>
                   <input class="form-control" type="text" name="employ_nationality" id="" placeholder="Employee Nationality"><br>
                   <textarea class="form-control" name="present_address" placeholder="Present Address" cols="" rows=""></textarea><br>
@@ -126,10 +127,24 @@
                   <h4 class="modal-title text-info" >Company Details</h4>
                 </div>
                 <div class="modal-body">
-                  <input class="form-control" type="text" name="employment_id" id="" placeholder="Employee Type ID"><br>
-                  <input class="form-control" type="text" name="department_id" id="" placeholder="Department ID"><br>
-                  <input class="form-control" type="text" name="designation_id" id="" placeholder="Designation ID"><br>
-                  <input class="form-control" type="text" name="user_id" id="" placeholder="User ID"><br>
+                <select class="form-control" name="employment_id">
+                      <option value="">Select Employee Type ID</option>
+                      <option value="">1</option>
+                      <option value="">2</option>
+                    </select> <br>
+                <select class="form-control" name="department_id">
+                      <option value="">Select Department ID</option>
+                      <option value="">1</option>
+                      <option value="">2</option>
+                    </select> <br>
+                <select class="form-control" name="designation_id">
+                      <option value="">Select Designation ID</option>
+                      <option value="">1</option>
+                      <option value="">2</option>
+                    </select> <br>
+                  
+                  
+                  
                   <label class="form-control" for="">Appointment Date: <input class="form-control" type="date"name="appointment_date"></label><br>
                   <label class="form-control" for="">Joining Date: <input class="form-control" type="date"name="joining_date" ></label><br>
                   <input class="form-control" type="text" name="employee_code" id="" placeholder="Employee Code"><br>
