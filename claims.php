@@ -72,10 +72,49 @@
        <hr>
        
        <div class="row">
-               <p>Under Development</p>
-          
+           <div class="col-md-12">
+               Date:<input type="date" name="" class="form-control mt-3 mb-3 " >
+           </div>
        </div>
-        
+       <div class="row">
+           <div class="col-md-12">
+               Type Of Expenses:<input type="text" name="" class="form-control mt-3 mb-3 " placeholder="Please enter your expense type" >
+           </div>
+       </div>
+       <div class="row">
+           <div class="col-md-12">
+               Total Amount:<input type="number" name="" class="form-control mt-3 mb-3 " placeholder="Please enter your amount" >
+           </div>
+       </div>
+       <div class="row">
+           <div class="col-md-12">
+               Description:<textarea  row="3"  name="" id="" class="form-control mt-3 mb-3 " placeholder="Plese write your message" ></textarea>
+           </div>
+       </div>
+       <div class="row">
+           <div class="col-md-12">
+               File:<input type="file" name="" class="form-control mt-3 mb-3 " >
+           </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <select class="form-control mt-3 mb-3" name="" id="">
+                    <option value="">Select Claims Status</option>
+                </select>
+           </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <select class="form-control mt-3 mb-3" name="" id="">
+                    <option value="">Select Your Status</option>
+                </select>
+           </div>
+       </div>
+       <div class="row">
+           <div class="col-md-12">
+               <input class="btn btn-primary mt-3 mb-3  " type="submit" name="" id="" value="Submit">
+           </div>
+       </div>
     </form>
     </div>
     </div>

@@ -78,7 +78,7 @@
        </div>
        <div class="row">
            <div class="col-md-12">
-               Expense Description:<textarea  row="3"  name="" id="" class="form-control mt-3 mb-3 "></textarea>
+               Expense Description:<textarea  row="3"  name="" id="" class="form-control mt-3 mb-3 " placeholder="Plese write your expense description"></textarea>
            </div>
        </div>
        <div class="row">

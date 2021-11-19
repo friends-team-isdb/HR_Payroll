@@ -88,7 +88,7 @@
        </div>
         <div class="row">
            <div class="col-md-12">
-               User Ip:<input type="text" name="" class="form-control mt-3 mb-3 " >
+               User Ip:<input type="text" name="" class="form-control mt-3 mb-3 " placeholder="Plese write your user ip" >
            </div>
        </div>
         <div class="row">
