@@ -61,62 +61,31 @@
               
 <!--           Enter Your Code here-->
     <div class="modal-content">
-      <div class="forms-body">
-        <form action="" method="post" enctype="multipart/form-data">      
-            <div class="row">
-                <div class="col-md-12">
-                  <h3 style="margin:10px;">Add Leave</h3>
-                </div>
-            </div><hr>
-            <div class="row">
-              <div class="col-md-3"></div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="exampleFormControlSelect1">Select Employee</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option value="">select</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label>Leave Type</label>
-                  <select class="form-control" name="leave_type_id" id="">
-                    <option value="">Select</option>
-                  </select>
-                </div>
-              
-                <div class="form-group">
-                    <label>Leave Start Date</label>
-                    <input class="form-control" name="leave_start_date" id="" type="date">
-                </div>
-                <div class="form-group">      
-                    <label>Leave Ends Date</label>
-                    <input class="form-control" name="leave_ends_date" id="" type="date">
-                </div>
-                <div class="form-group">
-                    <label>Leave For</label>
-                    <textarea class="form-control" name="" id="" cols="10" rows="2"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Supported Document</label>
-                    <input class="form-control" name="supported_document" id="" type="file">
-                </div>
-                <div class="form-group">
-                    <label>Leave Status</label>
-                    <select class="form-control" name="leave_id" id="">
-                      <option value="">Select</option>
-                      <option value="pending">Pending</option>
-                      <option value="aproved">Aproved</option>
-                    </select> 
-                </div>
-                <div class="form-group">
-                  <input class="btn btn-primary bx-pull-right mt-3" type="submit" name="submit" value="save">
-                </div>
-
-              </div>
-              <div class="col-md-3"></div>
-            </div>
-        </form>
-      </div>
+<div class="forms-body">
+    <form action="" method="post" enctype="multipart/form-data">
+       
+       <div class="row">
+           <div class="col-md-12">
+               <h3 style="margin:10px;">Add Leave</h3>
+           </div>
+       </div>
+       <hr>
+       
+       <div class="row">
+               <div class="col-md-2"></div>
+               <div class="col-md-8">
+                   <select class="form-control" name="" id="">
+                       <option value="">Select Employee</option>
+                   </select>
+               </div>
+               <div class="col-md-2"></div>
+               
+           
+           
+       </div>
+        
+    </form>
+    </div>
     </div>
 
 
