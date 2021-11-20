@@ -133,18 +133,16 @@
               <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bi bi-file-earmark-spreadsheet"></i>
                 </div>
-                <div class="menu-title">Tables</div>
+                <div class="menu-title">Bank Details</div>
               </a>
               <ul>
-                <li> <a href="table-basic-table.html"><i class="bi bi-arrow-right-short"></i>Basic Table</a>
+                <li> <a href="addBank.php"><i class="bi bi-arrow-right-short"></i>Add Bank Details </a>
                 </li>
-                <li> <a href="table-advance-tables.html"><i class="bi bi-arrow-right-short"></i>Advance Tables</a>
-                </li>
-                <li> <a href="table-datatable.html"><i class="bi bi-arrow-right-short"></i>Data Table</a>
-                </li>
+             
+                
               </ul>
             </li>
-            <li class="menu-label">Pages</li>
+            
             <li>
               <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bi bi-lock"></i>
@@ -177,7 +175,7 @@
               <a href="pages-timeline.html">
                 <div class="parent-icon"><i class="bi bi-collection-play"></i>
                 </div>
-                <div class="menu-title">Timeline</div>
+                <div class="menu-title">Asset</div>
               </a>
             </li>
             <li>
