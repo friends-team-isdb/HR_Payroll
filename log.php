@@ -88,17 +88,17 @@
             </div>
             <div class="row">
                <div class="col-md-12">
-                   Date:<input type="date" name="" class="form-control mt-3 mb-3 " >
+                   <input type="date" name="" class="form-control mt-3 mb-3 " >
                </div>
             </div>
             <div class="row">
                <div class="col-md-12">
-                   User Ip:<input type="text" name="" class="form-control mt-3 mb-3 " placeholder="Plese write your user ip" >
+                   <input type="text" name="" class="form-control mt-3 mb-3 " placeholder="Plese write your user ip" >
                </div>
             </div>
             <div class="row">
                <div class="col-md-12">
-                   <input class="btn btn-primary mt-3 mb-3  " type="submit" name="" id="" value="Submit">
+                   <input class="btn btn-primary mt-3 mb-3 bx-pull-right  " type="submit" name="" id="" value="Submit">
                </div>
             </div>
            </div>
