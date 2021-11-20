@@ -72,7 +72,33 @@
        <hr>
        
        <div class="row">
-               <p>Under Development</p>
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <input class="form-control mt-3" type="number" name="" id="" placeholder="Addition Code">
+          <textarea class="form-control mt-3" name=""placeholder="Description"></textarea>
+          <input class="form-control mt-3" type="number" name="" id="" placeholder="Amount">
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row">
+              <div class="col-md-6">
+                <input class="form-control mt-3" type="date" name="" id="">
+              </div>
+              <div class="col-md-6">
+                <input class="form-control mt-3" type="date" name="" id="">
+              </div>             
+            </div>
+            </div>
+            
+          </div>
+          <select class="form-control mt-3" name="" id="">
+            <option value="">Status</option>
+          </select>
+          
+          <input type="submit" class="btn btn-primary mt-3" name="" id="" value="Save">
+
+        </div>
+        <div class="col-md-3"></div>
           
        </div>
         
