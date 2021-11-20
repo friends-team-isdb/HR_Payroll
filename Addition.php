@@ -95,7 +95,7 @@
             <option value="">Status</option>
           </select>
           
-          <input type="submit" class="btn btn-primary mt-3" name="" id="" value="Save">
+          <input type="submit" class="btn btn-primary mt-3 bx-pull-right" name="" id="" value="Save">
 
         </div>
         <div class="col-md-3"></div>
