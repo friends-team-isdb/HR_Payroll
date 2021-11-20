@@ -85,15 +85,15 @@
                                             </select>
                                         </div>
                                         <div class="col-md-2">
-                                             <select class="form-control" name="year" id="">
-                                        <option class="form-control" value="" selected>Select Year</option>
+                                            <select class="form-control" name="year" id="">
+                                                <option class="form-control" value="" selected>Select Year</option>
 
-                                    </select>
+                                            </select>
                                         </div>
                                         <div class="col-md-2">
-                                             <select class="form-control" name="month" id="">
-                                        <option class="form-control" value="" selected>Select Month</option>
-                                    </select>
+                                            <select class="form-control" name="month" id="">
+                                                <option class="form-control" value="" selected>Select Month</option>
+                                            </select>
                                         </div>
                                         <div class="col-md-2">
                                             <input type="submit" class="btn btn-primary" name="" id="" value="Find">
@@ -102,9 +102,9 @@
                                     </div>
 
 
-                                   
-                                   
-                                    
+
+
+
                                 </div>
 
                             </div>
@@ -130,38 +130,68 @@
                                     <input type="text" placeholder="amount" name="amount" id="">
                                 </div>
 
-
                             </div>
                         </div>
+
 
                         <div class="col-md-6">
                             <div class="modal-content">
                                 <div class="modal-body">
                                     <h6 class="modal-title text-primary">Deductions</h6>
                                     <hr>
-                                    <select name="deductions" id="">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <select class="form-control" name="deductions" id="">
                                         <option class="form-control" value="" selected> Select Deductions</option>
-                                        <option class="form-control" value="">Item</option>
+
                                     </select>
-                                    <input type="text" name="" id=""><br>
-                                    <h6 style="margin-top:10px;" class="modal-title text-primary padding-top">Other Deductions</h6>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input class="form-control" type="text" name="" id="">
+                                    
+                                        </div>
+                                    </div>
+                                    
+
+                                    
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                             <h6 style="margin:10px;" class="modal-title text-primary padding-top">Other Deductions</h6>
+                                        </div>
+                                    </div>
                                     <hr>
-                                    <input type="text" placeholder="Title" name="title" id="">
-                                    <input type="text" placeholder="amount" name="amount" id="">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input class="form-control" type="text" placeholder="Title" name="title" id="">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input class="form-control" type="text" placeholder="amount" name="amount" id="">
+                                        </div>
+                                    </div>
+                                    
+                                    
                                 </div>
 
 
                             </div>
                         </div>
                     </div>
+
+
                     <hr>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h3 class="text-primary" style="margin:10px;">Summary</h3>
+                    <div class="modal-content">
+                        <div class="forms-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3 style="margin:10px;">Summary</h3>
                                 </div>
-                                <div class="modal-body">
+                            </div>
+                            <hr>
+
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+
                                     <input type="text" placeholder="Basic" class="form-control" name="" id=""><br>
                                     <input type="text" placeholder="Total Allowances" class="form-control" name=""><br>
                                     <input type="text" placeholder="Total Deductions" class="form-control" name="" id=""><br>
@@ -174,36 +204,40 @@
                                         <option class="form-control" value="" selected> Status</option>
                                         <option class="form-control" value="">Item</option>
                                     </select><br>
-                                    <button type="submit" style="min-width:130px;" class="btn btn-outline-primary btn-sm bx-pull-right" name="finde">Create Payslip</button>
+
+
                                 </div>
 
+                                <div class="col-md-3"></div>
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
+ 
+   
 
 
-            <!-- creating paySlip end -->>
-
-
-
-
-
+    <!-- creating paySlip end -->>
 
 
 
 
-        </main>
-        <!--end page main-->
 
-        <!--start overlay-->
-        <div class="overlay nav-toggle-icon"></div>
-        <!--end overlay-->
 
-        <!--Start Back To Top Button-->
-        <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
-        <!--End Back To Top Button-->
+
+
+
+    </main>
+    <!--end page main-->
+
+    <!--start overlay-->
+    <div class="overlay nav-toggle-icon"></div>
+    <!--end overlay-->
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+    <!--End Back To Top Button-->
 
     </div>
     <!--end wrapper-->
