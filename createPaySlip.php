@@ -117,18 +117,41 @@
                         <div class="col-md-6">
                             <div class="modal-content">
                                 <div class="modal-body">
-                                    <h6 class="modal-title text-primary">Allowances</h6>
+                                    <h6 class="modal-title text-primary">Allownes</h6>
                                     <hr>
-                                    <select name="allowances" id="">
-                                        <option class="form-control" value="" selected> Select Allowances</option>
-                                        <option class="form-control" value="">Item</option>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <select class="form-control" name="deductions" id="">
+                                        <option class="form-control" value="" selected> Select Allownes</option>
+
                                     </select>
-                                    <input type="text" name="" id=""><br>
-                                    <h6 style="margin-top:10px;" class="modal-title text-primary padding-top">Other Allowances</h6>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input class="form-control" type="text" name="" id="">
+                                    
+                                        </div>
+                                    </div>
+                                    
+
+                                    
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                             <h6 style="margin:10px;" class="modal-title text-primary padding-top">Other Allownes</h6>
+                                        </div>
+                                    </div>
                                     <hr>
-                                    <input type="text" placeholder="Title" name="title" id="">
-                                    <input type="text" placeholder="amount" name="amount" id="">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input class="form-control" type="text" placeholder="Title" name="title" id="">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input class="form-control" type="text" placeholder="amount" name="amount" id="">
+                                        </div>
+                                    </div>
+                                    
+                                    
                                 </div>
+
 
                             </div>
                         </div>
