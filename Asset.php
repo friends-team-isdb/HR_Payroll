@@ -63,34 +63,85 @@
           <form action="" method="post" enctype="multipart/form-data">
 
             <div class="row">
-              <div class="col-md-12">
-                <h3 style="margin:10px;">Add Asset</h3>
-                <hr>
-                <input type="text" placeholder="Asset Code" class="form-control" name="assets_code" id=""><br>
-                <input type="text" placeholder="Asset Name" class="form-control" name="assets_name" id=""><br>
-                <input type="text" placeholder="Invice No" class="form-control" name="invice_no" id=""><br>
-                <input type="text" placeholder="Manufacturee" class="form-control" name="manufacturee" id=""><br>
-                <input type="text" placeholder="Serial" class="form-control" name="serial" id=""><br>
-                <select class="form-control" name="department" id="">
-                  <option class="form-control" value="" selected>Select Department</option>
-                  <option class="form-control" value="it">IT</option>
-                </select><br>
-                <label class="form-control" for="">Purchase Date: <input class="form-control" type="date" name="purchase_date"></label><br>
-                <select class="form-control" name="product_wrrenty" id="">
-                  <option class="form-control" value="" selected>Select Product Wrrenty</option>
-                  <option class="form-control" value="it">1 year</option>
-                </select><br>
-                <select class="form-control" name="salary_status" id="">
-                  <option class="form-control" value="" selected>Select Salary Status</option>
-                  <option class="form-control" value="it">pade</option>
-                </select><br>
-                <button type="submit" style="min-width:130px;" class="btn btn-outline-primary btn-sm bx-pull-right" name="submit">Save</button>
-              </div>
+                <div class="col-md-12">
+                    <h3 style="margin:10px;">Add Asset</h3>
+                </div>
             </div>
             <hr>
-
-
-
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" placeholder="Asset Code" class="form-control mt-3 mb-3" name="" id="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" placeholder="Asset Name" class="form-control mt-3 mb-3" name="" id="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" placeholder="Invice No" class="form-control mt-3 mb-3" name="" id="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" placeholder="Manufacturee" class="form-control mt-3 mb-3" name="" id="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" placeholder="Serial" class="form-control mt-3 mb-3" name="" id="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <select class="form-control mt-3 mb-3" name="" id="">
+                                <option  value="" selected>Select Department</option>
+                                <option  value="it">IT</option>
+                            </select>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-md-12">
+                            Purchase Date: <input class="form-control mt-3 mb-3" type="date" name="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <select class="form-control mt-3 mb-3" name="" id="">
+                                <option  value="" selected>Select Product Wrrenty</option>
+                                <option  value="it">1 year</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <select class="form-control mt-3 mb-3" name="" id="">
+                                <option  value="" selected>Select Salary Status</option>
+                                <option  value="it">pade</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="submit" value="submit" class="btn btn-outline-primary btn-sm bx-pull-right mt-3 mb-3 " name="">
+                        </div>
+                    </div>
+                <div class="col-md-3"></div>
+            </div>
           </form>
         </div>
       </div>
