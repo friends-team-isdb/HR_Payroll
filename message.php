@@ -80,7 +80,7 @@
                </div>
                <div class="row">
                    <div class="col-md-12">
-                       <input type="email" name="" class="form-control mt-3 mb-2" placeholder="Please enter your name" >
+                       <input type="email" name="" class="form-control mt-3 mb-2" placeholder="Please enter your email address" >
                    </div>
                </div>
                <div class="row">
