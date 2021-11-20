@@ -91,7 +91,7 @@
                     <input class="form-control mt-3  " name="leave_ends_date" id="" type="date">
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control mt-3" name="" id="" cols="10" rows="2"></textarea>
+                    <textarea class="form-control mt-3" name="" id="" cols="10" rows="2" placeholder="Please enter your message"></textarea>
                 </div>
                 <div class="form-group">
                     <select class="form-control mt-3" name="leave_id" id="">
