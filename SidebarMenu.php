@@ -172,7 +172,7 @@
               </a>
             </li>
             <li>
-              <a href="pages-timeline.html">
+              <a href="Asset.php">
                 <div class="parent-icon"><i class="bi bi-collection-play"></i>
                 </div>
                 <div class="menu-title">Asset</div>
@@ -182,7 +182,7 @@
               <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-error"></i>
                 </div>
-                <div class="menu-title">Errors</div>
+                <div class="menu-title">Asset</div>
               </a>
               <ul>
                 <li> <a href="pages-errors-404-error.html" target="_blank"><i class="bi bi-arrow-right-short"></i>404 Error</a>
