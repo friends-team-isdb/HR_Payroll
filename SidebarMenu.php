@@ -41,6 +41,8 @@
                 </li>
                 <li> <a href="AwardList.php"><i class="bi bi-arrow-right-short"></i>Employee Award</a>
                 </li>
+                <li> <a href="claims.php"><i class="bi bi-arrow-right-short"></i>Claims</a>
+                </li>
               </ul>
             </li>
             <li>
@@ -135,10 +137,18 @@
               <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bi bi-file-earmark-spreadsheet"></i>
                 </div>
-                <div class="menu-title">Bank Details</div>
+                <div class="menu-title">Finace Details</div>
               </a>
               <ul>
                 <li> <a href="addBank.php"><i class="bi bi-arrow-right-short"></i>Add Bank Details </a>
+                </li>
+                <li> <a href="Asset.php"><i class="bi bi-arrow-right-short"></i>Add Asset </a>
+                </li>
+                <li> <a href="Addition.php"><i class="bi bi-arrow-right-short"></i>Add Addition </a>
+                </li>
+                <li> <a href="deduction.php"><i class="bi bi-arrow-right-short"></i>Add Deduction </a>
+                </li>
+                 <li> <a href="expenseList.php"><i class="bi bi-arrow-right-short"></i>Expense List </a>
                 </li>
              
                 
@@ -173,13 +183,7 @@
                 <div class="menu-title">User Profile</div>
               </a>
             </li>
-            <li>
-              <a href="Asset.php">
-                <div class="parent-icon"><i class="bi bi-collection-play"></i>
-                </div>
-                <div class="menu-title">Asset</div>
-              </a>
-            </li>
+           
             <li>
               <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-error"></i>
@@ -204,43 +208,8 @@
                 <div class="menu-title">FAQ</div>
               </a>
             </li>
-            <li>
-              <a href="pages-pricing-tables.html">
-                <div class="parent-icon"><i class="bi bi-credit-card-2-front"></i>
-                </div>
-                <div class="menu-title">Pricing Tables</div>
-              </a>
-            </li>
-            <li class="menu-label">Charts & Maps</li>
-            <li>
-              <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class="bi bi-graph-down"></i>
-                </div>
-                <div class="menu-title">Charts</div>
-              </a>
-              <ul>
-                <li> <a href="charts-apex-chart.html"><i class="bi bi-arrow-right-short"></i>Apex</a>
-                </li>
-                <li> <a href="charts-chartjs.html"><i class="bi bi-arrow-right-short"></i>Chartjs</a>
-                </li>
-                <li> <a href="charts-highcharts.html"><i class="bi bi-arrow-right-short"></i>Highcharts</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class="bi bi-pin-map"></i>
-                </div>
-                <div class="menu-title">Maps</div>
-              </a>
-              <ul>
-                <li> <a href="map-google-maps.html"><i class="bi bi-arrow-right-short"></i>Google Maps</a>
-                </li>
-                <li> <a href="map-vector-maps.html"><i class="bi bi-arrow-right-short"></i>Vector Maps</a>
-                </li>
-              </ul>
-            </li>
-            <li class="menu-label">Others</li>
+           
+
             <li>
               <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bi bi-list-task"></i>
