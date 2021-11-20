@@ -155,7 +155,7 @@
                     <option class="form-control" value="" selected> Status</option>
                     <option class="form-control" value="">Item</option>
                   </select><br>
-                  <button type="submit" style="min-width:130px;" class="btn btn-outline-primary btn-sm " name="finde">Create Payslip</button>
+                  <button type="submit" style="min-width:130px;" class="btn btn-outline-primary btn-sm dx-pull-right" name="finde">Create Payslip</button>
                 </div>
 
               </div>
