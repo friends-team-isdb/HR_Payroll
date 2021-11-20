@@ -131,6 +131,8 @@
                 </li>
                 <li> <a href="userRole.php"><i class="bi bi-arrow-right-short"></i>User Role</a>
                 </li>
+                <li> <a href="userManage.php"><i class="bi bi-arrow-right-short"></i>Manage User</a>
+                </li>
               </ul>
             </li>
             <li>
