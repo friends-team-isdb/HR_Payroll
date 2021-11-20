@@ -143,19 +143,19 @@
                   <h3 class="text-primary" style="margin:10px;">Summary</h3>
                 </div>
                 <div class="modal-body">
-                  <input type="text" placeholder="Basic" class="form-control" name="" id="">
-                  <input type="text" placeholder="Total Allowances" class="form-control" name="">
-                  <input type="text" placeholder="Total Deductions" class="form-control" name="" id="">
-                  <input type="text" placeholder="Net Salary" class="form-control" name="" id="">
+                  <input type="text" placeholder="Basic" class="form-control" name="" id=""><br>
+                  <input type="text" placeholder="Total Allowances" class="form-control" name=""><br>
+                  <input type="text" placeholder="Total Deductions" class="form-control" name="" id=""><br>
+                  <input type="text" placeholder="Net Salary" class="form-control" name="" id=""><br>
                   <select class="form-control" name="deductions" id="">
                     <option class="form-control" value="" selected> Payment Method</option>
                     <option class="form-control" value="">Item</option>
-                  </select>
+                  </select><br>
                   <select class="form-control" name="deductions" id="">
                     <option class="form-control" value="" selected> Status</option>
                     <option class="form-control" value="">Item</option>
                   </select><br>
-                  <button type="submit" style="min-width:130px;" class="btn btn-outline-primary btn-sm dx-pull-right" name="finde">Create Payslip</button>
+                  <button type="submit" style="min-width:130px;" class="btn btn-outline-primary btn-sm bx-pull-right" name="finde">Create Payslip</button>
                 </div>
 
               </div>
