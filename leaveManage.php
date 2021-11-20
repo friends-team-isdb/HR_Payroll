@@ -70,7 +70,23 @@
        </div>
        <hr>
       
-<!--      Enter Code Here-->
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <table class="table table-striped">
+              <tr>
+                <th>SL</th>
+                <th>Employee Name</th>
+                <th>Leave Type</th>
+                <th>Duration</th>
+                <th>Leave Status</th>
+                <th>Comment</th>
+                <th>Support Document</th>
+                <th>Action</th>
+              </tr>
+
+            </table>
+          </div>
+        </div>
       
       
       </div>
