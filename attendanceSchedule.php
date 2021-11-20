@@ -97,7 +97,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <input class="btn btn-primary mt-3 mb-3  " type="submit" name="" id="" value="Save">
+                        <input class="btn btn-primary mt-3 mb-3 bx-pull-right " type="submit" name="" id="" value="Save">
                     </div>
                 </div>
            </div>
