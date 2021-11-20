@@ -52,7 +52,7 @@
               <ul>
                 <li> <a href="addDepartment.php"><i class="bi bi-arrow-right-short"></i>Add Department</a>
                 </li>
-                <li> <a href="app-chat-box.html"><i class="bi bi-arrow-right-short"></i>Manage Department</a>
+                <li> <a href="departmentManage.php"><i class="bi bi-arrow-right-short"></i>Manage Department</a>
                 </li>
                 
               </ul>
