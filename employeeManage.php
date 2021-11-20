@@ -70,6 +70,22 @@
        </div>
        <hr>
 <!--       Enter Code Here-->
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <table class="table table-striped">
+              <tr>
+                <th>SL</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Department</th>
+                <th>Designation</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+
+            </table>
+          </div>
+        </div>
         
       </div>
     </div>
