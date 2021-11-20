@@ -137,7 +137,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="submit" value="submit" class="btn btn-outline-primary btn-sm bx-pull-right mt-3 mb-3 " name="">
+                            <input type="submit" value="submit" class="btn btn-primary bx-pull-right mt-2 mb-2  " name="">
                         </div>
                     </div>
                 <div class="col-md-3"></div>
