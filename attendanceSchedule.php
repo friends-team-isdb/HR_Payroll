@@ -71,28 +71,38 @@
        </div>
        <hr>
        <div class="row">
-           <div class="col-md-12">
-               Signin Time Setup:<input type="time" name="" class="form-control mt-3 mb-3 " >
+           <div class="col-md-3">
+               
            </div>
-       </div>
-       <div class="row">
-           <div class="col-md-12">
-               Signout Time Setup:<input type="time" name="" class="form-control mt-3 mb-3 " >
+           <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        Signin Time Setup:<input type="time" name="" class="form-control mt-3 mb-3 " >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        Signout Time Setup:<input type="time" name="" class="form-control mt-3 mb-3 " >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        Late Count Time:<input type="time" name="" class="form-control mt-3 mb-3 "  >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                       Absent Time: <input type="time" name="" class="form-control mt-3 mb-3 ">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input class="btn btn-primary mt-3 mb-3  " type="submit" name="" id="" value="Save">
+                    </div>
+                </div>
            </div>
-       </div>
-       <div class="row">
-           <div class="col-md-12">
-               Late Count Time:<input type="time" name="" class="form-control mt-3 mb-3 "  >
-           </div>
-       </div>
-       <div class="row">
-           <div class="col-md-12">
-              Absent Time: <input type="time" name="" class="form-control mt-3 mb-3 ">
-           </div>
-       </div>
-       <div class="row">
-           <div class="col-md-12">
-               <input class="btn btn-primary mt-3 mb-3  " type="submit" name="" id="" value="Save">
+           <div class="col-md-3">
+               
            </div>
        </div>
     </form>
