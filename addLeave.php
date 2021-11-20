@@ -72,38 +72,35 @@
               <div class="col-md-3"></div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="exampleFormControlSelect1">Select Employee</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option value="">select</option>
+                  <select class="form-control mt-3 " id="exampleFormControlSelect1">
+                    <option value="">Select Employee</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label>Leave Type</label>
-                  <select class="form-control" name="leave_type_id" id="">
-                    <option value="">Select</option>
+                  <select class="form-control mt-3 mb-3" name="leave_type_id" id="">
+                    <option value="">Select Leave Type</option>
                   </select>
                 </div>
               
                 <div class="form-group">
-                    <label>Leave Start Date</label>
-                    <input class="form-control" name="leave_start_date" id="" type="date">
+                    Leave Start Date
+                    <input class="form-control mt-3 mb-3 " name="leave_start_date" id="" type="date">
                 </div>
                 <div class="form-group">      
-                    <label>Leave Ends Date</label>
-                    <input class="form-control" name="leave_ends_date" id="" type="date">
+                    Leave Ends Date
+                    <input class="form-control mt-3  " name="leave_ends_date" id="" type="date">
                 </div>
                 <div class="form-group">
-                    <label>Leave For</label>
-                    <textarea class="form-control" name="" id="" cols="10" rows="2"></textarea>
+                    <textarea class="form-control mt-3" name="" id="" cols="10" rows="2" placeholder="Please enter your message"></textarea>
                 </div>
                 <div class="form-group">
-                    <label>Supported Document</label>
-                    <input class="form-control" name="supported_document" id="" type="file">
+                    <select class="form-control mt-3" name="leave_id" id="">
+                      <option value="">Select Support Document</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label>Leave Status</label>
-                    <select class="form-control" name="leave_id" id="">
-                      <option value="">Select</option>
+                    <select class="form-control mt-3" name="leave_id" id="">
+                      <option value="">Select Status</option>
                       <option value="pending">Pending</option>
                       <option value="aproved">Aproved</option>
                     </select> 
@@ -111,7 +108,6 @@
                 <div class="form-group">
                   <input class="btn btn-primary bx-pull-right mt-3" type="submit" name="submit" value="save">
                 </div>
-
               </div>
               <div class="col-md-3"></div>
             </div>
