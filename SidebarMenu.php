@@ -268,7 +268,7 @@
               </a>
             </li>
             <li>
-              <a href="https://themeforest.net/user/codervent" target="_blank">
+              <a href="message.php">
                 <div class="parent-icon"><i class="bi bi-headset"></i>
                 </div>
                 <div class="menu-title">Support</div>
