@@ -78,7 +78,7 @@
            <div class="col-md-6">
                <div class="row">
                    <div class="col-md-12">
-                       <input type="text" class="form-control mt-3 mb-3" name="" id="" placeholder="please enter your deduction code">
+                       <input type="text" class="form-control mt-3 mb-3" name="" id="" placeholder="Please enter your deduction code">
                    </div>
                </div>
                <div class="row">
