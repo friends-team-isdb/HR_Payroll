@@ -77,18 +77,18 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <select class="form-control mt-3 mb-3" name="leave_type_id" id="">
+                  <select class="form-control mt-3 mb-1" name="leave_type_id" id="">
                     <option value="">Select Leave Type</option>
                   </select>
                 </div>
               
                 <div class="form-group">
                     Leave Start Date
-                    <input class="form-control mt-3 mb-3 " name="leave_start_date" id="" type="date">
+                    <input class="form-control mt-1 mb-1 " name="leave_start_date" id="" type="date">
                 </div>
                 <div class="form-group">      
                     Leave Ends Date
-                    <input class="form-control mt-3  " name="leave_ends_date" id="" type="date">
+                    <input class="form-control mt-1  " name="leave_ends_date" id="" type="date">
                 </div>
                 <div class="form-group">
                     <textarea class="form-control mt-3" name="" id="" cols="10" rows="2" placeholder="Please enter your message"></textarea>
