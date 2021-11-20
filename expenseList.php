@@ -77,17 +77,17 @@
            <div class="col-md-6">
                <div class="row">
                     <div class="col-md-12">
-                        Date:<input type="date" name="" id="" class="form-control mt-3 mb-3 ">
+                        <input type="date" name="" id="" class="form-control mt-3 mb-3 ">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        Expense Description:<textarea  row="3"  name="" id="" class="form-control mt-3 mb-3 " placeholder="Plese write your expense description"></textarea>
+                      <textarea  row="3"  name="" id="" class="form-control mt-3 mb-3 " placeholder="Plese write your expense description"></textarea>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        Amount:<input type="number" name="" id="" class="form-control mt-3 mb-3 " placeholder="please enter your amount" >
+                        <input type="number" name="" id="" class="form-control mt-3 mb-3 " placeholder="please enter your amount" >
                     </div>
                 </div>
                 <div class="row">
