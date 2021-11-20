@@ -72,8 +72,49 @@
        <hr>
        
        <div class="row">
-               <p>Under Development</p>
-          
+           <div class="col-md-3">
+               
+           </div>
+           <div class="col-md-6">
+               <div class="row">
+                   <div class="col-md-12">
+                       <input type="date" class="form-control mt-3 mb-3" name="" id="">
+                   </div>
+               </div>
+               <div class="row">
+                   <div class="col-md-12">
+                       <input type="text" class="form-control mt-3 mb-3" name="" id="" placeholder="Please enter award employee name">
+                   </div>
+               </div>
+               <div class="row">
+                   <div class="col-md-12">
+                       <input type="number" class="form-control mt-3 mb-3" name="" id="" placeholder="Please Enter award amount">
+                   </div>
+               </div>
+               <div class="row">
+                   <div class="col-md-12">
+                       <textarea name="" rows="3" id="" placeholder="Please enter your message" class="form-control mt-3 mb-3"></textarea>
+                   </div>
+               </div>
+               <div class="row">
+                   <div class="col-md-12">
+                       <input type="date" class="form-control mt-3 mb-3" name="" id="">
+                   </div>
+               </div>
+               <div class="row">
+                   <div class="col-md-12">
+                       <input type="date" class="form-control mt-3 mb-3" name="" id="">
+                   </div>
+               </div>
+               <div class="row">
+                    <div class="col-md-12">
+                        <input class="btn btn-primary mt-3 mb-3 bx-pull-right " type="submit" name="" id="" value="Save">
+                    </div>
+                </div>
+           </div>
+           <div class="col-md-3">
+               
+           </div>
        </div>
         
     </form>
