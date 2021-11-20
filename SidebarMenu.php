@@ -82,11 +82,11 @@
               <ul>
                 <li> <a href="addLeave.php"><i class="bi bi-arrow-right-short"></i>Add Leave</a>
                 </li>
-                <li> <a href="#"><i class="bi bi-arrow-right-short"></i>Manage Leave</a>
+                <li> <a href="leaveManage.php"><i class="bi bi-arrow-right-short"></i>Manage Leave</a>
                 </li>
                 <li> <a href="addLeaveType.php"><i class="bi bi-arrow-right-short"></i>Add Leave Type</a>
                 </li>
-                <li> <a href="#"><i class="bi bi-arrow-right-short"></i>Manage Leave type</a>
+                <li> <a href="leaveTypeManage.php"><i class="bi bi-arrow-right-short"></i>Manage Leave type</a>
                 </li>
               </ul>
             </li>
