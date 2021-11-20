@@ -39,6 +39,8 @@
                 </li>
                 <li> <a href="employeeDocument.php"><i class="bi bi-arrow-right-short"></i>Employee Document</a>
                 </li>
+                <li> <a href="AwardList.php"><i class="bi bi-arrow-right-short"></i>Employee Award</a>
+                </li>
               </ul>
             </li>
             <li>
