@@ -1,3 +1,4 @@
+<?php require "connect.php";?>
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -70,6 +71,20 @@
        </div>
        <hr>
 <!--       Enter Code Here-->
+      <div class="row">
+          <div class="col-md-12">
+              <table class="table table-striped">
+                 <tr>
+                     <th>Sl</th>
+                     <th>Leave Type</th>
+                     <th>Action</th>
+                 </tr> 
+                  
+                  
+              </table>
+          </div>
+      </div>
+       
         
       </div>
     </div>
