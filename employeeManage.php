@@ -93,36 +93,6 @@
           while($row=mysqli_fetch_array($query)){
               
 
-<!--           Enter Your Code here-->
-    <div class="modal-content">
-      <div class="forms-body">
-        
-        <div class="row">
-           <div class="col-md-12">
-               <h3 style="margin:10px;">Manage Employee</h3>
-           </div>
-       </div>
-       <hr>
-<!--       Enter Code Here-->
-        <div class="row">
-          <div class="col-md-12 col-sm-12">
-            <table class="table table-striped">
-              <tr>
-                <th>SL</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Department</th>
-                <th>Designation</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-             
-            </table>
-          </div>
-        </div>
-        
-      </div>
-    </div>
 
                 ?>
                                 <tr>
