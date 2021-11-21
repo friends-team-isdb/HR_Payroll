@@ -1,13 +1,3 @@
-<?php
-    require "connect.php";
-    if(isset($_POST['submit'])){
-        $select=$_POST['select'];
-        $dates=$_POST['dates'];
-    }
-
-
-?>
-
 
 <!doctype html>
 <html lang="en" class="light-theme">
@@ -83,15 +73,15 @@
 
                         <div class="row">
                             <div class="col-md-4">
-                                <select class="form-control" name="select" id="">
+                                <select class="form-control" name="" id="">
                                     <option value="">Select Employee</option>
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <input class="form-control" type="date" name="dates" id="">
+                                <input class="form-control" type="date" name="" id="">
                             </div>
                             <div class="col-md-4">
-                                <input class="btn btn-primary" type="submit" name="submit" id="" value="Get Employee List">
+                                <input class="btn btn-primary" type="submit" name="" id="" value="Get Employee List">
                             </div>
 
 
