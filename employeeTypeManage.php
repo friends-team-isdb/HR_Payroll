@@ -75,11 +75,27 @@
           <div class="col-md-12 col-sm-12">
             <table class="table table-striped">
               <tr>
-                <th>Department</th>
-                <th>Designation</th>
-                <th>Total Employees</th>
+                <th>SL</th>
+                <th>Employee Type</th>
                 <th>Action</th>
               </tr>
+              <?php 
+              include 'connect.php';
+              $n=1;
+              $sql = "SELECT * FROM employee_type";
+              $query=mysqli_query($conn,$sql);
+              while($row=mysqli_fetch_array($query)){
+              ?>
+              <tr>
+                <td><?php echo $n++?></td>
+                <td><?php echo $row[1]?></td>
+                <td>
+                  <a class="btn btn-danger" href="delete.php?aid=<?php echo $row[0]?>">Delete</a>
+                  <a class="btn btn-success" href="update.php?aid=<?php echo $row[0]?>">Update</a>
+                </td>
+              </tr>
+              <?php }?>
+              
 
             </table>
           </div>
