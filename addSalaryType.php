@@ -1,3 +1,29 @@
+<?php 
+require "connect.php";
+if(isset($_POST['submit'])){
+    
+    $salaryType=$_POST['salaryType'];
+    
+    $s="SELECT * FROM salary_type WHERE salary_Type='$salaryType'";
+    $qurey=mysqli_query($conn,$s);
+    $num=mysqli_num_rows($qurey);
+    if($num==1){
+        echo "Salary Type Already Exits";
+    }else{
+        $sql="INSERT INTO salary_type(salary_Type) VAlues('$salaryType')";
+        $qurey=mysqli_query($conn,$sql);
+        echo "Salay type Added";
+        
+        
+    }
+    
+    
+}
+
+
+?>
+
+
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -72,11 +98,11 @@
               <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                <input type="text" name="" id="" class="form-control mt-3" placeholder="Add Salary Type">
+                <input type="text" name="salaryType" id="" class="form-control mt-3" placeholder="Add Salary Type">
                 
                 </div>
                 <div class="col-md-3">
-                      <input type="submit" name="" id="" class="btn btn-primary pull-right mt-3" value="Save">
+                      <input type="submit" name="submit" id="" class="btn btn-primary pull-right mt-3" value="Save">
                 </div>
               </div>
         </form>

@@ -1,3 +1,26 @@
+<?php require "connect.php";
+
+if(isset($_POST['submit'])){
+    $department=$_POST['department'];
+    $degination=$_POST['degination'];
+    $s="SELECT * FROM department WHERE department_Name='$department'";
+    $result=mysqli_query($conn,$s);
+    $num=mysqli_num_rows($result);
+    if($num==1){
+        echo "Department Already Exits";
+    }else{
+       $sqls="INSERT INTO department(department_Name)Values('$department')";
+    $sql="INSERT INTO designation(designation)Values('$degination')";
+    $query=mysqli_query($conn,$sqls);
+    $query=mysqli_query($conn,$sql);  
+        header("location:Desboard.php");
+    }
+   
+   
+}
+
+
+?>
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -74,16 +97,16 @@
       <div class="row">
         <div class="col-md-4">
           <div class="col">
-            <input type="text" class="form-control" placeholder="Department">
+            <input type="text" name="department" class="form-control" placeholder="Department" required>
           </div>
         </div>
         <div class="col-md-4">
           <div class="col">
-            <input type="text" class="form-control" placeholder="Designation">
+            <input type="text" name="degination" class="form-control" placeholder="Designation" required>
           </div>
         </div>
         <div class="col-md-4">
-            <input type="submit" class="btn btn-primary" value="Save">
+            <input type="submit" name="submit" class="btn btn-primary" value="Save">
         </div>
                
            
