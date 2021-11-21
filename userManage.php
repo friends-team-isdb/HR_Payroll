@@ -66,7 +66,7 @@
         
         <div class="row">
            <div class="col-md-12">
-               <h3 style="margin:10px;">Manage Leave Type</h3>
+               <h3 style="margin:10px;">User Manage</h3>
            </div>
        </div>
        <hr>
@@ -76,7 +76,11 @@
               <table class="table table-striped">
                  <tr>
                      <th>Sl</th>
-                     <th>Leave Type</th>
+                     <th>Name</th>
+                     <th>Email</th>
+                     <th>Phone</th>
+                     <th>Status</th>
+                     <th>Account Creation Date</th>
                      <th>Action</th>
                  </tr> 
                   
