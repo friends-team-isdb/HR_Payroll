@@ -1,3 +1,23 @@
+<?php 
+require "connect.php";
+if(isset($_POST['submit'])){
+    
+    $leaveType=$_POST['leavetype'];
+    $paymentstatus="pending";
+    
+    $sel="SELECT * FROM leave_type WHERE leave_type='$leaveType'";
+    $qurey=mysqli_query($conn,$sel);
+    $num=mysqli_num_rows($qurey);
+    if($num==1){
+        echo "Leave Type Already Exits";
+    }else{
+        $sql="INSERT INTO leave_type(leave_type , payment_status) Values('$leaveType','$paymentstatus')";
+        $qureyss=mysqli_query($conn,$sql);
+        echo "Leave type Added";              
+    }   
+}
+?>
+
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -74,7 +94,7 @@
        <div class="row">
                <div class="col-md-3"></div>
                <div class="col-md-6">
-                   <input class="form-control" type="text" name="" id="" placeholder="Add Leave Type">
+                   <input class="form-control" type="text" name="leavetype" id="" placeholder="Add Leave Type">
                </div>
                <div class="col-md-3">
                    <input class="btn btn-primary" type="submit" name="" id="" value="Add">
