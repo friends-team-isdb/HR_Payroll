@@ -92,7 +92,7 @@
           
           while($row=mysqli_fetch_array($query)){
               
-<<<<<<< HEAD
+
 <!--           Enter Your Code here-->
     <div class="modal-content">
       <div class="forms-body">
