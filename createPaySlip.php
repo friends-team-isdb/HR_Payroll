@@ -1,3 +1,6 @@
+<?php require "connect.php";?>
+
+
 <!doctype html>
 <html lang="en" class="light-theme">
 
