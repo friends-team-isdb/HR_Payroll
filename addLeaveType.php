@@ -97,7 +97,7 @@ if(isset($_POST['submit'])){
                    <input class="form-control" type="text" name="leavetype" id="" placeholder="Add Leave Type">
                </div>
                <div class="col-md-3">
-                   <input class="btn btn-primary" type="submit" name="" id="" value="Add">
+                   <input class="btn btn-primary" type="submit" name="submit" id="" value="Add">
                </div>
                
            
