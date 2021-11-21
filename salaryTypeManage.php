@@ -72,7 +72,7 @@
       
         <div class="row">
           <div class="col-md-12 col-sm-12">
-            <table class="table table-striped">
+            <table class="table table-striped" >
               <tr>
                 <th>SL</th>
                 <th>Salary Type</th>
@@ -88,9 +88,9 @@
 		    <tr>
 		        <td><?php echo $n++?></td>
 		        <td><?php echo $row[1]?></td>
-		        <td>
-		            <a href="delete.php?aid=<?php echo $row[0]?>">Delete</a>
-		            <a href="update.php?aid=<?php echo $row[0]?>">Update</a>
+                        <td>
+                            <a class="btn btn-danger" href="delete.php?aid=<?php echo $row[0]?>">Delete</a>
+		            <a class="btn btn-success" href="update.php?aid=<?php echo $row[0]?>">Update</a>
 		        </td>
 		    </tr>
 		    <?php }?>
