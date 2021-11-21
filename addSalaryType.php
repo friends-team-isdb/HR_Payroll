@@ -12,15 +12,9 @@ if(isset($_POST['submit'])){
     }else{
         $sql="INSERT INTO salary_type(salary_Type) VAlues('$salaryType')";
         $qurey=mysqli_query($conn,$sql);
-        echo "Salay type Added";
-        
-        
-    }
-    
-    
+        echo "Salay type Added";              
+    }   
 }
-
-
 ?>
 
 
