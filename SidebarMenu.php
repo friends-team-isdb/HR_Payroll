@@ -120,6 +120,8 @@
                 </li>
                 <li> <a href="addSalaryType.php"><i class="bi bi-arrow-right-short"></i>Add Salary Type</a>
                 </li>
+                <li> <a href="salaryTypeManage.php"><i class="bi bi-arrow-right-short"></i>Salary Type Manage</a>
+                </li>
                 
               </ul>
             </li>
