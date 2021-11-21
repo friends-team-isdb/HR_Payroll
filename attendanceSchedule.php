@@ -1,3 +1,23 @@
+<?php 
+require "connect.php";
+if(isset($_POST['submit'])){
+    
+    $signin=$_POST['signin'];
+    $signout=$_POST['signout'];
+    $latecount=$_POST['latecount'];
+    $absent=$_POST['absent'];
+
+    
+   
+    
+   
+    
+        $sql="INSERT INTO attendance_schedule(signin_in,sign_out,late_count_time,absent_time) Values('$signin','$signout','$latecount','$absent')";
+        $qureyss=mysqli_query($conn,$sql);
+                     
+       
+}
+?>
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -77,27 +97,27 @@
            <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-12">
-                        Signin Time Setup:<input type="time" name="" class="form-control mt-3 mb-3 " >
+                        Signin Time Setup:<input type="time" name="signin" class="form-control mt-3 mb-3 " >
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        Signout Time Setup:<input type="time" name="" class="form-control mt-3 mb-3 " >
+                        Signout Time Setup:<input type="time" name="signout" class="form-control mt-3 mb-3 " >
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        Late Count Time:<input type="time" name="" class="form-control mt-3 mb-3 "  >
+                        Late Count Time:<input type="time" name="latecount" class="form-control mt-3 mb-3 "  >
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                       Absent Time: <input type="time" name="" class="form-control mt-3 mb-3 ">
+                       Absent Time: <input type="time" name="absent" class="form-control mt-3 mb-3 ">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <input class="btn btn-primary mt-3 mb-3 bx-pull-right " type="submit" name="" id="" value="Save">
+                        <input class="btn btn-primary mt-3 mb-3 bx-pull-right " type="submit" name="submit" id="" value="Save">
                     </div>
                 </div>
            </div>
