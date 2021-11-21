@@ -41,7 +41,7 @@
                 </li>
                 <li> <a href="AddEmployeeType.php"><i class="bi bi-arrow-right-short"></i> Add Employee type</a>
                 </li>
-                <li> <a href="#"><i class="bi bi-arrow-right-short"></i> Manage Employee type</a>
+                <li> <a href="employeeTypeManage.php"><i class="bi bi-arrow-right-short"></i> Manage Employee type</a>
                 </li>
                 <li> <a href="AwardList.php"><i class="bi bi-arrow-right-short"></i>Employee Award</a>
                 </li>
