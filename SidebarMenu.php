@@ -39,6 +39,10 @@
                 </li>
                 <li> <a href="employeeDocument.php"><i class="bi bi-arrow-right-short"></i>Employee Document</a>
                 </li>
+                <li> <a href="AddEmployeeType.php"><i class="bi bi-arrow-right-short"></i> Add Employee type</a>
+                </li>
+                <li> <a href="#"><i class="bi bi-arrow-right-short"></i> Manage Employee type</a>
+                </li>
                 <li> <a href="AwardList.php"><i class="bi bi-arrow-right-short"></i>Employee Award</a>
                 </li>
                 <li> <a href="claims.php"><i class="bi bi-arrow-right-short"></i>Claims</a>
@@ -115,6 +119,8 @@
                 <li> <a href="addSalary.php"><i class="bi bi-arrow-right-short"></i>Add Salary</a>
                 </li>
                 <li> <a href="addSalaryType.php"><i class="bi bi-arrow-right-short"></i>Add Salary Type</a>
+                </li>
+                <li> <a href="salaryTypeManage.php"><i class="bi bi-arrow-right-short"></i>Salary Type Manage</a>
                 </li>
                 
               </ul>
