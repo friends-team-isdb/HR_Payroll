@@ -2,26 +2,21 @@
 require "connect.php";
 if(isset($_POST['submit'])){
     
-    $salaryType=$_POST['salaryType'];
+    $employeeType=$_POST['employeeType'];
     
-    $s="SELECT * FROM salary_type WHERE salary_Type='$salaryType'";
+    $s="SELECT * FROM employee_Type WHERE employee_Type='$employeeType'";
     $qurey=mysqli_query($conn,$s);
     $num=mysqli_num_rows($qurey);
     if($num==1){
-        echo "Salary Type Already Exits";
+        echo "Employee Type Already Exits";
     }else{
-        $sql="INSERT INTO salary_type(salary_Type) VAlues('$salaryType')";
+        $sql="INSERT INTO employee_Type(employee_Type) VAlues('$employeeType')";
         $qurey=mysqli_query($conn,$sql);
-        echo "Salay type Added";
-        
-        
-    }
-    
-    
+        echo "Employee type Added";              
+    }   
 }
-
-
 ?>
+
 
 
 <!doctype html>
@@ -98,7 +93,7 @@ if(isset($_POST['submit'])){
               <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                <input type="text" name="salaryType" id="" class="form-control mt-3" placeholder="Add Salary Type">
+                <input type="text" name="employeeType" id="" class="form-control mt-3" placeholder="Add Employee Type">
                 
                 </div>
                 <div class="col-md-3">
