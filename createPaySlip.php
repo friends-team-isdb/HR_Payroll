@@ -76,6 +76,12 @@
                                     <div class="row">
                                         <div class="col-md-3">
                                             <select class="form-control" name="department" id="">
+                                                
+                                                <?php 
+                                                
+                                                
+                                                
+                                                ?>
 
                                                 <option class="form-control" value="" selected>Select Department</option>
 
