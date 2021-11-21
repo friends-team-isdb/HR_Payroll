@@ -75,7 +75,7 @@
           <div class="col-md-12">
               <table class="table table-striped">
                  <tr>
-                     <th>Sl</th>
+                     <th>SL</th>
                      <th>Name</th>
                      <th>Email</th>
                      <th>Phone</th>
@@ -83,7 +83,27 @@
                      <th>Account Creation Date</th>
                      <th>Action</th>
                  </tr> 
-                  
+                
+                 <?php 
+              include 'connect.php';
+              $n=1;
+              $sql = "SELECT * FROM user_table";
+              $query=mysqli_query($conn,$sql);
+              while($row=mysqli_fetch_array($query)){
+              ?>
+              <tr>
+                <td><?php echo $n++?></td>
+                <td><?php echo $row[1]?></td>
+                <td><?php echo $row[2]?></td>
+                <td><?php echo $row[3]?></td>
+                <td><?php echo $row[4]?></td>
+                <td><?php echo $row[5]?></td>
+                <td>
+                  <a class="btn btn-danger" href="delete.php?aid=<?php echo $row[0]?>">Delete</a>
+                  <a class="btn btn-success" href="update.php?aid=<?php echo $row[0]?>">Update</a>
+                </td>
+              </tr>
+              <?php } ?>
                   
               </table>
           </div>
