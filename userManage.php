@@ -64,21 +64,15 @@
     <div class="modal-content">
       <div class="forms-body">
         
-      <div class="col-md-12">
-                        <div class="row">
-                        <div class="col-md-6">
-                            <h3 style="margin:10px;">Manage User</h3>
-                        </div>
-                        <div class="col-md-3"></div>
-                        <div class="col-md-3">
-                            <a href="addUser.php" class="btn btn-primary mt-3">Add User</a>
-                        </div>
-                        </div> 
-                  </div>
+        <div class="row">
+           <div class="col-md-12">
+               <h3 style="margin:10px;">User Manage</h3>
+           </div>
        <hr>
 <!--       Enter Code Here-->
       <div class="row">
           <div class="col-md-12">
+          <a href="addUser.php" class="btn btn-primary bx-pull-right mb-3">Add User</a>
               <table class="table table-striped">
                  <tr>
                      <th>SL</th>

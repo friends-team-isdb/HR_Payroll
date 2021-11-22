@@ -64,21 +64,16 @@
     <div class="modal-content">
       <div class="forms-body">
         
-      <div class="col-md-12">
-                        <div class="row">
-                        <div class="col-md-6">
-                            <h3 style="margin:10px;">Manage Leave Type</h3>
-                        </div>
-                        <div class="col-md-3"></div>
-                        <div class="col-md-3">
-                            <a href="addLeaveType.php" class="btn btn-primary mt-3">Add Leave Type</a>
-                        </div>
-                        </div> 
-                  </div>
+        <div class="row">
+           <div class="col-md-12">
+               <h3 style="margin:10px;">Manage Leave Type</h3>
+           </div>
+       </div>
        <hr>
 <!--       Enter Code Here-->
       <div class="row">
           <div class="col-md-12">
+          <a href="addLeaveType.php" class="btn btn-primary bx-pull-right mb-3">Add Leave Type</a>
               <table class="table table-striped">
                  <tr>
                      <th>Sl</th>
