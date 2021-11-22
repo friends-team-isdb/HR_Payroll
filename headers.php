@@ -90,7 +90,7 @@ session_start();
                        </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="changePassword.php">
                          <div class="d-flex align-items-center">
                            <div class="setting-icon"><i class="bi bi-gear-fill"></i></div>
                            <div class="setting-text ms-3"><span>Setting</span></div>
