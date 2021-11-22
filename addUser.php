@@ -1,5 +1,4 @@
 <?php require "connect.php";
-
 if(isset($_POST['submit'])){
     $username=$_POST['username'];
     $fullname=$_POST['fullname'];
