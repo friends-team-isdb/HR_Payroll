@@ -8,14 +8,22 @@ if(isset($_POST['submit'])){
     $password=$_POST['password'];
     $accountCreation=date("Y-m-d");
     $status=$_POST['status'];
+<<<<<<< HEAD
 
+=======
+    $accountCreation=date("Y-m-d");
+>>>>>>> 4c2836f1bfa57654d29acc6a5f4ea5a20041d3d1
     $s="SELECT * FROM user_table WHERE email='$email'";
     $result=mysqli_query($conn,$s);
     $num=mysqli_num_rows($result);
     if($num==1){
         echo "Email  Already Exits";
     }else{
+<<<<<<< HEAD
        $sqls="INSERT INTO `user_table`( `user_name`, `full_name`, `email`, `phone`, `passwords`,`account_creation_date`,`user_status`)Values('$username','$fullname','$email','$phone','$password','$accountCreation','$status')";
+=======
+       $sqls="INSERT INTO `user_table`( `user_name`, `full_name`, `email`, `phone`, `passwords`,`account_creation_date``user_status`)Values('$username','$fullname','$email','$phone','$password','$accountCreation',$status')";
+>>>>>>> 4c2836f1bfa57654d29acc6a5f4ea5a20041d3d1
     $query=mysqli_query($conn,$sqls);
         header("location:Desboard.php");
     }
