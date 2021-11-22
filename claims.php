@@ -1,28 +1,6 @@
-<?php
-    require "connect.php";
+<?php require "connect.php";?>
     
-    
-    if(isset($_POST['submit'])){
-        $dates=$_POST['dates'];
-        $expensename=$_POST['expensename'];
-        $amount=$_POST['amount'];
-        $message=$_POST['message'];
-        $files="Samad";
-        $status=$_POST['status'];
-        $employee="1";
-        $select="Jakir";
-        $sql="INSERT INTO claims(employee_id,claims_date,type_of_expense,total_amount,file,claims_status,claim_status)VALUES('$employee','$dates','$expensename','$amount','$message','$files','$status','$select') ";
-        $query= mysqli_query($conn, $sql);
-        if($query){
-            echo 'Insert Data Successfully';
-        }
-        else{
-            echo 'Data Insert Failed!';
-        }
-    }
-
-
-?>
+ 
 
 
 <!doctype html>
@@ -119,11 +97,6 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <textarea  row="3"  name="message" id="" class="form-control mt-3 mb-3 " placeholder="Plese write your message" ></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
                         <input type="file" name="files" class="form-control mt-3 mb-3 " >
                     </div>
                 </div>
@@ -149,7 +122,27 @@
     </form>
     </div>
     </div>
+<?php 
+       
+    if(isset($_POST['submit'])){
+        $dates=$_POST['dates'];
+        $expensename=$_POST['expensename'];
+        $amount=$_POST['amount'];
+        $picture="Samad";
+        $status=$_POST['status'];
+        $select="Jakir";
+        $sql="INSERT INTO `claims` (`claims_date`, `type_of_expense`, `total_amount`, `file`, `claims_status`, `claim_status`) VALUES ('$dates', '$expensename', '$amount', '$picture', '$status', '$select') ";
+        $query= mysqli_query($conn, $sql);
+        if($query){
+            echo 'Insert Data Successfully';
+        }
+        else{
+            echo 'Data Insert Failed!';
+        }
+    }
 
+
+?>
 
            
            
