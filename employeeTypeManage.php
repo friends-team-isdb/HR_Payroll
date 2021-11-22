@@ -63,7 +63,7 @@
     <div class="modal-content">
       <div class="forms-body">
         
-        <div class="row">
+        
            <div class="col-md-12">
              <div class="row">
                <div class="col-md-6">
@@ -75,7 +75,7 @@
                </div>
               </div> 
            </div>
-       </div>
+       
        <hr>
       
 <!--      Enter Code Here-->
