@@ -75,17 +75,33 @@
                                 <div class="modal-body  ">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <select class="form-control" name="department" id="">
+                                           
                                                 
                                                 <?php 
-                                                
-                                                
-                                                
-                                                ?>
-
-                                                <option class="form-control" value="" selected>Select Department</option>
-
-                                            </select>
+    
+                                                $sql="SELECT employee_name FROM employee";
+                                                $query=mysqli_query($conn,$sql);
+            $rowcount=mysqli_num_rows($query);
+            ?>
+            <select class="form-control" name="" id="">
+                
+                <option value="">Select Employee</option>
+                
+                <?php 
+                for($i=1;$i<=$rowcount;$i++){
+                    $row=mysqli_fetch_array($query);
+                    ?>
+                    <option value="<?php echo $row['employee_name'];?>"><?php echo $row['employee_name'];?></option>
+                    <?php
+                }
+                
+                ?>
+                
+            </select>
+            
+   
+                                            
+                                            
                                         </div>
                                         <div class="col-md-3">
                                             <select class="form-control" name="employee" id="">
