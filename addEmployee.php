@@ -197,8 +197,15 @@
     $joindate=$_POST['joining_date'];
     $Empcode=$_POST['employee_code'];
     $Empstatus=$_POST['employee_status'];
+        $dir='uploads/';
+    $path=$dir.basename($_FILES['employmet_picture']['name']);
+    $temp=$_FILES['picupl']['tmp_name'];
+    if(move_uploaded_file($temp,$path)){
+        
+        
+    }
     
-    $sql="INSERT INTO employee (employee_name, appointment_date, date_of_birth, employee_code, email, joining_date, employee_status, religion, nationality, district, Countries, postal_code, Passport_or_NID, gender, maritial_Status, present_address, permanent_address, picture, phone, employement_status) VALUES (   '$fullname', '$appointdate', '$DOB', '$Empcode', '$email', '$joindate', '$status', '$religion', '$nationality', '$distic', '$country', '$postCode', '$passNid', '$gender', '$marital_status', '$preaddress', '$peraddress', '$picture', '$phone', '$Empstatus');";
+    $sql="INSERT INTO employee (employee_name, appointment_date, date_of_birth, employee_code, email, joining_date, employee_status, religion, nationality, district, Countries, postal_code, Passport_or_NID, gender, maritial_Status, present_address, permanent_address, picture, phone, employement_status) VALUES (   '$fullname', '$appointdate', '$DOB', '$Empcode', '$email', '$joindate', '$status', '$religion', '$nationality', '$distic', '$country', '$postCode', '$passNid', '$gender', '$marital_status', '$preaddress', '$peraddress', '$path', '$phone', '$Empstatus');";
     $query= mysqli_query($conn, $sql);
         if($query){
             echo 'Insert Data Successfully';
