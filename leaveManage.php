@@ -63,11 +63,17 @@
     <div class="modal-content">
       <div class="forms-body">
         
-        <div class="row">
-           <div class="col-md-12">
-               <h3 style="margin:10px;">Manage Leave</h3>
-           </div>
-       </div>
+                  <div class="col-md-12">
+                        <div class="row">
+                        <div class="col-md-6">
+                            <h3 style="margin:10px;">Manage Leave</h3>
+                        </div>
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3">
+                            <a href="addLeave.php" class="btn btn-primary mt-3">Add Leave</a>
+                        </div>
+                        </div> 
+                  </div>
        <hr>
       
         <div class="row">
