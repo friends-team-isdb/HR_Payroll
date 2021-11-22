@@ -36,12 +36,6 @@ session_start();
               <li class="nav-item">
               <a class="nav-link" href="Desboard.php">Dashboard</a>
               </li>
-              <li class="nav-item d-none d-xxl-block">
-              <a class="nav-link" href="javascript:;">Events</a>
-              </li>
-              <li class="nav-item d-none d-xxl-block">
-              <a class="nav-link" href="app-to-do.html">Todo</a>
-              </li>
             </ul>
             </div>
             <div class="search-toggle-icon d-xl-none ms-auto">
