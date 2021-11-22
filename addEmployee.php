@@ -119,8 +119,8 @@
                   <h4 class="modal-title text-info">Login Information</h4>
                 </div>
                 <div class="modal-body">
-                  <input class="form-control" type="text" name="" id="" placeholder="Employee Email"><br>
-                  <input class="form-control" type="password" name="" id="" placeholder="Employee Password">
+                  <input class="form-control" type="text" name="employeeemail" id="" placeholder="Employee Email"><br>
+                  <input class="form-control" type="password" name="employeepass" id="" placeholder="Employee Password">
                 </div>
               </div>
               <hr>
@@ -152,7 +152,7 @@
                   <label class="form-control" for="">Appointment Date: <input class="form-control" type="date"name="appointment_date"></label><br>
                   <label class="form-control" for="">Joining Date: <input class="form-control" type="date"name="joining_date" ></label><br>
                   <input class="form-control" type="text" name="employee_code" id="" placeholder="Employee Code"><br>
-                  <input class="form-control" type="text" name="employment_status" id="" placeholder="Employee Status"><br>
+                  <input class="form-control" type="text" name="employee_status" id="" placeholder="Employee Status"><br>
 
                 </div>
                 <div class="modal-footer">
@@ -184,12 +184,32 @@
     $nationality=$_POST['employ_nationality'];
     $presentAddress=$_POST['present_address'];
     $nationality=$_POST['employ_nationality'];
+    $preaddress=$_POST['present_address'];
+    $peraddress=$_POST['permanent_address'];
+    $passNid=$_POST['employ_nid'];
+    $status=$_POST['employment_status'];
+    $Empemail=$_POST['employeeemail'];
+    $Emppass=$_POST['employeepass'];
+    $EmptypeId=$_POST['employment_id'];
+    $deptId=$_POST['department_id'];
+    $designationId=$_POST['designation_id'];
+    $appointdate=$_POST['appointment_date'];
+    $joindate=$_POST['joining_date'];
+    $Empcode=$_POST['employee_code'];
+    $Empstatus=$_POST['employee_status'];
+    
+    $sql="INSERT INTO employee (employee_name, appointment_date, date_of_birth, employee_code, email, joining_date, employee_status, religion, nationality, district, Countries, postal_code, Passport_or_NID, gender, maritial_Status, present_address, permanent_address, picture, phone, employement_status) VALUES (   '$fullname', '$appointdate', '$DOB', '$Empcode', '$email', '$joindate', '$status', '$religion', '$nationality', '$distic', '$country', '$postCode', '$passNid', '$gender', '$marital_status', '$preaddress', '$peraddress', '$picture', '$phone', '$Empstatus');";
+    $query= mysqli_query($conn, $sql);
+        if($query){
+            echo 'Insert Data Successfully';
+        }
+        else{
+            echo 'Data Insert Failed!';
+        }
     
     }
-        
-        
-        
-        ?>
+    
+  ?>
 
 
 
