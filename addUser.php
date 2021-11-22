@@ -1,25 +1,22 @@
 <?php require "connect.php";
-
 if(isset($_POST['submit'])){
     $username=$_POST['username'];
     $fullname=$_POST['fullname'];
     $phone=$_POST['phone'];
     $email=$_POST['email'];
     $password=$_POST['password'];
-    $status=$_POST['status'];
     $accountCreation=date("Y-m-d");
+    $status=$_POST['status'];
     $s="SELECT * FROM user_table WHERE email='$email'";
     $result=mysqli_query($conn,$s);
     $num=mysqli_num_rows($result);
     if($num==1){
         echo "Email  Already Exits";
     }else{
-       $sqls="INSERT INTO `user_table`( `user_name`, `full_name`, `email`, `phone`, `passwords`,`account_creation_date``user_status`)Values('$username','$fullname','$email','$phone','$password','$accountCreation',$status')";
+       $sqls="INSERT INTO `user_table`( `user_name`, `full_name`, `email`, `phone`, `passwords`,`account_creation_date`,`user_status`)Values('$username','$fullname','$email','$phone','$password','$accountCreation','$status')";
     $query=mysqli_query($conn,$sqls);
         header("location:Desboard.php");
     }
-   
-   
 }
 
 
