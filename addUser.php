@@ -15,7 +15,7 @@ if(isset($_POST['submit'])){
     }else{
        $sqls="INSERT INTO `user_table`( `user_name`, `full_name`, `email`, `phone`, `passwords`,`account_creation_date`,`user_status`)Values('$username','$fullname','$email','$phone','$password','$accountCreation','$status')";
     $query=mysqli_query($conn,$sqls);
-        header("location:Desboard.php");
+        header("location:userManage.php");
     }
 }
 ?>
