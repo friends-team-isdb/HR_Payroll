@@ -199,7 +199,7 @@
     $Empstatus=$_POST['employee_status'];
         $dir='uploads/';
     $path=$dir.basename($_FILES['employmet_picture']['name']);
-    $temp=$_FILES['picupl']['tmp_name'];
+    $temp=$_FILES['employmet_picture']['tmp_name'];
     if(move_uploaded_file($temp,$path)){
         
         

@@ -51,7 +51,14 @@ session_start();
               <li class="nav-item dropdown dropdown-large">
                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown">
                   <div class="user-setting d-flex align-items-center gap-1">
-                    <img src="assets/images/avatars/avatar-1.png" class="user-img" alt="">
+                   <?php
+                      $user=$_SESSION['userName'];
+                      $sql="SELECT picture from employee Where email='$user'";
+                      $query=mysqli_query($conn,$sql);
+                      while($row=mysqli_fetch_array($query)){
+                      ?>
+                    <img src="<?php echo $row['picture'];?>" class="user-img" alt="">
+                    <?php }?>
                    <?php
                       $user=$_SESSION['userName'];
                       $sql="SELECT full_name from user_table Where email='$user'";
