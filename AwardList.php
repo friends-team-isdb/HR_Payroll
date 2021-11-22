@@ -1,3 +1,27 @@
+<?php 
+
+require "connect.php";
+if(isset($_POST['submit'])){
+    
+    $awarddate=$_POST['awarddate'];
+    $EmployeeName=$_POST['EmployeeName'];
+    $AwardAmount=$_POST['AwardAmount'];
+    $Description=$_POST['Description'];
+    $datet=$_POST['datet'];
+     
+
+    $s="SELECT award_date FROM award_list WHERE award_date='$awarddate'";
+    $qurey=mysqli_query($conn,$s);
+    $num=mysqli_num_rows($qurey);
+    if($num==1){
+        echo "Award Already Exits";
+    }else{
+        $sql="INSERT INTO award_list(award_date,award_of_name,total_amount,description,month_year) Values('$awarddate','$EmployeeName','$AwardAmount','$Description','$datet')";
+        $qurey=mysqli_query($conn,$sql);
+        echo "Award Added!";
+    }   
+}
+?>
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -78,37 +102,33 @@
            <div class="col-md-6">
                <div class="row">
                    <div class="col-md-12">
-                       <input type="date" class="form-control mt-3 mb-3" name="" id="">
+                       Award Date<input type="date" class="form-control mt-3 mb-3" name="awarddate" id="">
                    </div>
                </div>
                <div class="row">
                    <div class="col-md-12">
-                       <input type="text" class="form-control mt-3 mb-3" name="" id="" placeholder="Please enter award employee name">
+                       <input type="text" class="form-control mt-3 mb-3" name="EmployeeName" id="" placeholder="Employee Name" required>
                    </div>
                </div>
                <div class="row">
                    <div class="col-md-12">
-                       <input type="number" class="form-control mt-3 mb-3" name="" id="" placeholder="Please Enter award amount">
+                       <input type="number" class="form-control mt-3 mb-3" name="AwardAmount" id="" placeholder="Award Amount">
                    </div>
                </div>
                <div class="row">
                    <div class="col-md-12">
-                       <textarea name="" rows="3" id="" placeholder="Please enter your message" class="form-control mt-3 mb-3"></textarea>
+                       <textarea name="Description" rows="3" id="" placeholder="Description" class="form-control mt-3 mb-3"></textarea>
                    </div>
                </div>
                <div class="row">
                    <div class="col-md-12">
-                       <input type="date" class="form-control mt-3 mb-3" name="" id="">
+                       <input type="date" class="form-control mt-3 mb-3" name="datet" id="">
                    </div>
                </div>
-               <div class="row">
-                   <div class="col-md-12">
-                       <input type="date" class="form-control mt-3 mb-3" name="" id="">
-                   </div>
-               </div>
+               
                <div class="row">
                     <div class="col-md-12">
-                        <input class="btn btn-primary mt-3 mb-3 bx-pull-right " type="submit" name="" id="" value="Save">
+                        <input class="btn btn-primary mt-3 mb-3 bx-pull-right " type="submit" name="submit" id="" value="Save">
                     </div>
                 </div>
            </div>
