@@ -1,3 +1,6 @@
+<?php require "connect.php";?>
+
+
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -72,14 +75,51 @@
               <div class="col-md-3"></div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <select class="form-control mt-3 " id="exampleFormControlSelect1">
-                    <option value="">Select Employee</option>
-                  </select>
+                 <?php 
+    
+                                                $sql="SELECT employee_name FROM employee";
+                                                $query=mysqli_query($conn,$sql);
+            $rowcount=mysqli_num_rows($query);
+            ?>
+            <select class="form-control" name="" id="">
+                
+                <option value="">Select Employee</option>
+                
+                <?php 
+                for($i=1;$i<=$rowcount;$i++){
+                    $row=mysqli_fetch_array($query);
+                    ?>
+                    <option value="<?php echo $row['employee_name'];?>"><?php echo $row['employee_name'];?></option>
+                    <?php
+                }
+                
+                ?>
+                
+            </select><br>
+            
                 </div>
                 <div class="form-group">
-                  <select class="form-control mt-3 mb-1" name="leave_type_id" id="">
-                    <option value="">Select Leave Type</option>
-                  </select>
+                  <?php 
+    
+                                                $sql="SELECT leave_type FROM leave_type";
+                                                $query=mysqli_query($conn,$sql);
+            $rowcount=mysqli_num_rows($query);
+            ?>
+            <select class="form-control" name="" id="">
+                
+                <option value="">Select Leave Type</option>
+                
+                <?php 
+                for($i=1;$i<=$rowcount;$i++){
+                    $row=mysqli_fetch_array($query);
+                    ?>
+                    <option value="<?php echo $row['leave_type'];?>"><?php echo $row['leave_type'];?></option>
+                    <?php
+                }
+                
+                ?>
+                
+            </select>
                 </div>
               
                 <div class="form-group">
@@ -91,12 +131,28 @@
                     <input class="form-control mt-1  " name="leave_ends_date" id="" type="date">
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control mt-3" name="" id="" cols="10" rows="2" placeholder="Please enter your message"></textarea>
+                    <textarea class="form-control mt-3" name="" id="" cols="10" rows="2" placeholder="Please enter your message"></textarea><br>
                 </div>
                 <div class="form-group">
-                    <select class="form-control mt-3" name="leave_id" id="">
-                      <option value="">Select Support Document</option>
-                    </select>
+                      <?php 
+    
+                                                $sql="SELECT document_Name FROM employee_document";
+                                                $query=mysqli_query($conn,$sql);
+            $rowcount=mysqli_num_rows($query);
+            ?>
+            <select class="form-control" name="" id="">
+                
+                <option value="">Select Support Document</option>
+                
+                <?php 
+                for($i=1;$i<=$rowcount;$i++){
+                    $row=mysqli_fetch_array($query);
+                    ?>
+                    <option value="<?php echo $row['document_Name'];?>"><?php echo $row['document_Name'];?></option>
+                    <?php
+                }
+                
+                ?>
                 </div>
                 <div class="form-group">
                     <select class="form-control mt-3" name="leave_id" id="">
