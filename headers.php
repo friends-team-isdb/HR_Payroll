@@ -1,3 +1,7 @@
+<?php require "connect.php";
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +58,14 @@
                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown">
                   <div class="user-setting d-flex align-items-center gap-1">
                     <img src="assets/images/avatars/avatar-1.png" class="user-img" alt="">
-                    <div class="user-name d-none d-sm-block">Jhon Deo</div>
+                   <?php
+                      $user=$_SESSION['userName'];
+                      $sql="SELECT full_name from user_table Where email='$user'";
+                      $query=mysqli_query($conn,$sql);
+                      while($row=mysqli_fetch_array($query)){
+                      ?>
+                    <div class="user-name d-none d-sm-block"><?php echo $row['full_name'];?></div>
+                    <?php }?>
                   </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
@@ -112,7 +123,7 @@
                     </li>
                     <li><hr class="dropdown-divider"></li>
                     <li>
-                      <a class="dropdown-item" href="authentication-signup-with-header-footer.html">
+                      <a class="dropdown-item" href="logOut.php">
                          <div class="d-flex align-items-center">
                            <div class="setting-icon"><i class="bi bi-lock-fill"></i></div>
                            <div class="setting-text ms-3"><span>Logout</span></div>
