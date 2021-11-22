@@ -1,3 +1,24 @@
+<?php 
+
+require "connect.php";
+if(isset($_POST['submit'])){
+    
+    $date=$_POST['date'];
+    $ExpenseDescription=$_POST['ExpenseDescription'];
+    $ExpenseAmount=$_POST['ExpenseAmount'];
+    
+    $s="SELECT expense_description FROM expense_list WHERE expense_description='$ExpenseDescription'";
+    $qurey=mysqli_query($conn,$s);
+    $num=mysqli_num_rows($qurey);
+    if($num==1){
+        echo "Expense Already Exits";
+    }else{
+        $sql="INSERT INTO expense_list(expense_date,expense_description,amount) Values('$date','$ExpenseDescription','$ExpenseAmount')";
+        $qurey=mysqli_query($conn,$sql);
+        echo "Expense Added!";
+    }   
+}
+?>
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -77,22 +98,22 @@
            <div class="col-md-6">
                <div class="row">
                     <div class="col-md-12">
-                        <input type="date" name="" id="" class="form-control mt-3 mb-3 ">
+                        <input type="date" name="date" id="" class="form-control mt-3 mb-3 ">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                      <textarea  row="3"  name="" id="" class="form-control mt-3 mb-3 " placeholder="Plese write your expense description"></textarea>
+                      <textarea  row="3"  name="ExpenseDescription" id="" class="form-control mt-3 mb-3 " placeholder="Expense Description"></textarea>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <input type="number" name="" id="" class="form-control mt-3 mb-3 " placeholder="please enter your amount" >
+                        <input type="number" name="ExpenseAmount" id="" class="form-control mt-3 mb-3 " placeholder="Expense Amount" >
                     </div>
                 </div>
                 <div class="row">
                    <div class="col-md-12">
-                       <input class="btn btn-primary mt-3 mb-3 bx-pull-right " type="submit" name="" id="" value="Submit">
+                       <input class="btn btn-primary mt-3 mb-3 bx-pull-right " type="submit" name="submit" id="" value="Submit">
                    </div>
                 </div>
            </div>

@@ -1,3 +1,4 @@
+<?php require 'connect.php'; ?>
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -75,8 +76,8 @@
                
           <div class="col-md-3"></div> 
           <div class="col-md-6">
-            <input type="text" name="" id="" class="form-control mt-3" placeholder="Document Name">
-            <input type="text" name="" id="" class="form-control mt-3" placeholder="Document Status">
+              <input type="text" name="document_name" id="" class="form-control mt-3" placeholder="Document Name" required>
+              <input type="text" name="document_status" id="" class="form-control mt-3" placeholder="Document Status" required>
             
           </div>
           <div class="col-md-3"></div>
@@ -85,7 +86,7 @@
        <div class="row">
            <div class="col-md-3"></div>
            <div class="col-md-6">
-               <input type="submit" name="" id="" class="btn btn-primary bx-pull-right mt-3" value="Save">
+               <input type="submit" name="submit" id="" class="btn btn-primary bx-pull-right mt-3" value="Save">
            </div>
            <div class="col-md-3"></div>
        </div>
@@ -93,7 +94,25 @@
     </form>
     </div>
     </div>
-
+    
+        <?php
+            
+        if(isset($_POST['submit'])){
+            $document_name=$_POST['document_name'];
+            $document_status=$_POST['document_status'];
+            
+           $sql="INSERT INTO employee_document(emlpoyee_id, document_Name, document_Status) VALUES (NULL, '$document_name', '$document_status');";
+           $querry= mysqli_query($conn, $sql);
+           
+           if($querry){
+               echo 'Document Added Successfully';
+           }
+           else{
+               echo 'Document is not  Added!';
+           }
+        }
+        
+        ?>
 
            
            

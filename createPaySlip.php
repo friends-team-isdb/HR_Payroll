@@ -79,19 +79,19 @@
                                                 
                                                 <?php 
     
-                                                $sql="SELECT employee_name FROM employee";
+                                                $sql="SELECT department_Name FROM department";
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
             <select class="form-control" name="" id="">
                 
-                <option value="">Select Employee</option>
+                <option value="">Select Department</option>
                 
                 <?php 
                 for($i=1;$i<=$rowcount;$i++){
                     $row=mysqli_fetch_array($query);
                     ?>
-                    <option value="<?php echo $row['employee_name'];?>"><?php echo $row['employee_name'];?></option>
+                    <option value="<?php echo $row['department_Name'];?>"><?php echo $row['department_Name'];?></option>
                     <?php
                 }
                 
@@ -104,10 +104,33 @@
                                             
                                         </div>
                                         <div class="col-md-3">
-                                            <select class="form-control" name="employee" id="">
-                                                <option class="form-control" value="" selected>Select Employee</option>
-
+                                           <?php 
+                                            $sqls="SELECT employee_name FROM employee";
+                                            $querys=mysqli_query($conn,$sqls);
+                                            $rowcounts=mysqli_num_rows($querys);
+                                            ?>
+                                            
+                                            <select class="form-control" name="" id="">
+                                                <option value="">Select Employee</option>
+                                                
+                                            <?php 
+                                                for($i=1;$i<=$rowcounts;$i++){
+                                                    
+                                                    $rows=mysqli_fetch_array($querys);
+                                                    
+                                                    ?>
+                                                    
+                                                    <option value="<?php echo $rows['employee_name'];?>"><?php echo $rows['employee_name'];?></option>
+                                                    
+                                                    <?php
+                                                }
+                                                
+                                                
+                                                ?>    
+                                                
                                             </select>
+                                            
+                                            
                                         </div>
                                         <div class="col-md-2">
                                             <select class="form-control" name="year" id="">

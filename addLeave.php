@@ -81,7 +81,7 @@
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-control" name="" id="">
+            <select class="form-control" name="select_employee" id="">
                 
                 <option value="">Select Employee</option>
                 
@@ -105,7 +105,7 @@
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-control" name="" id="">
+            <select class="form-control" name="leave_type" id="">
                 
                 <option value="">Select Leave Type</option>
                 
@@ -131,7 +131,7 @@
                     <input class="form-control mt-1  " name="leave_ends_date" id="" type="date">
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control mt-3" name="" id="" cols="10" rows="2" placeholder="Please enter your message"></textarea><br>
+                    <textarea class="form-control mt-3" name="description" id="" cols="10" rows="2" placeholder="Please enter your message"></textarea><br>
                 </div>
                 <div class="form-group">
                       <?php 
@@ -140,7 +140,7 @@
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-control" name="" id="">
+            <select class="form-control" name="support_document" id="">
                 
                 <option value="">Select Support Document</option>
                 
@@ -153,9 +153,10 @@
                 }
                 
                 ?>
+                </select>
                 </div>
                 <div class="form-group">
-                    <select class="form-control mt-3" name="leave_id" id="">
+                    <select class="form-control mt-3" name="leave_status" id="">
                       <option value="">Select Status</option>
                       <option value="pending">Pending</option>
                       <option value="aproved">Aproved</option>
@@ -172,6 +173,34 @@
     </div>
 
 
+<!--  php insert code-->>
+
+<?php 
+
+        if(isset($_POST['submit'])){
+            $select_employee=$_POST['select_employee'];
+            $leave_type=$_POST['leave_type'];
+            $leave_start_date=$_POST['leave_start_date'];
+            $leave_ends_date=$_POST['leave_ends_date'];
+            $description=$_POST['description'];
+            $support_document=$_POST['support_document'];
+            $leave_status=$_POST['leave_status'];
+            
+            $sql="INSERT INTO leaves ( leave_start_date, leave_end_date, leave_for, supported_document, leave_status) VALUES ('$leave_start_date', '$leave_ends_date', '$description', '$support_document', '$leave_status')";
+            $query= mysqli_query($conn, $sql);
+            
+            if($query){
+                echo 'Your leave document added successfully';
+            }
+            else{
+                echo 'Your leave document is not added';
+            }
+            
+        }
+
+
+
+?>
            
            
            

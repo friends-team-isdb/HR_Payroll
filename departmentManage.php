@@ -73,6 +73,8 @@
 <!--      Enter Code Here-->
         <div class="row">
           <div class="col-md-12 col-sm-12">
+
+          <a href="addDepartment.php" class="btn btn-primary bx-pull-right mb-3">Add Department</a>
             <table class="table table-striped">
               <tr>
                 <th>SL</th>

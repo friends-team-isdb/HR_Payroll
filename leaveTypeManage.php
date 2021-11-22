@@ -73,6 +73,7 @@
 <!--       Enter Code Here-->
       <div class="row">
           <div class="col-md-12">
+          <a href="addLeaveType.php" class="btn btn-primary bx-pull-right mb-3">Add Leave Type</a>
               <table class="table table-striped">
                  <tr>
                      <th>Sl</th>

@@ -198,7 +198,7 @@
     $Empcode=$_POST['employee_code'];
     $Empstatus=$_POST['employee_status'];
     
-    $sql="INSERT INTO employee (employee_type_id, department_id, designation_id, user_id, employee_name, appointment_date, date_of_birth, employee_code, email, joining_date, employee_status, religion, nationality, district, Countries, postal_code, Passport_or_NID, gender, maritial_Status, present_address, permanent_address, picture, phone, employement_status) VALUES ('$EmptypeId', '$deptId', '$designationId', 'NULL', '$fullname', '$appointdate', '$DOB', '$Empcode', '$email', '$joindate', '$status', '$religion', '$nationality', '$distic', '$country', '$postCode', '$passNid', '$gender', '$marital_status', '$preaddress', '$peraddress', '$picture', '$phone', '$Empstatus');";
+    $sql="INSERT INTO employee (employee_name, appointment_date, date_of_birth, employee_code, email, joining_date, employee_status, religion, nationality, district, Countries, postal_code, Passport_or_NID, gender, maritial_Status, present_address, permanent_address, picture, phone, employement_status) VALUES (   '$fullname', '$appointdate', '$DOB', '$Empcode', '$email', '$joindate', '$status', '$religion', '$nationality', '$distic', '$country', '$postCode', '$passNid', '$gender', '$marital_status', '$preaddress', '$peraddress', '$picture', '$phone', '$Empstatus');";
     $query= mysqli_query($conn, $sql);
         if($query){
             echo 'Insert Data Successfully';
