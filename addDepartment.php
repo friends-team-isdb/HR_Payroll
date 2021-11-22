@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
     $sql="INSERT INTO designation(designation)Values('$degination')";
     $query=mysqli_query($conn,$sqls);
     $query=mysqli_query($conn,$sql);  
-        header("location:Desboard.php");
+        header("location:departmentManage.php");
     }
    
    
