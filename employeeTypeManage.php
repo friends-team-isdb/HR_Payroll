@@ -63,11 +63,19 @@
     <div class="modal-content">
       <div class="forms-body">
         
-        <div class="row">
+        
            <div class="col-md-12">
-               <h3 style="margin:10px;">Manage Employee Type</h3>
+             <div class="row">
+               <div class="col-md-6">
+                <h3 style="margin:10px;">Manage Employee Type</h3>
+               </div>
+               <div class="col-md-3"></div>
+               <div class="col-md-3">
+                 <a href="AddEmployeeType.php" class="btn btn-primary mt-3">Add Employee Type</a>
+               </div>
+              </div> 
            </div>
-       </div>
+       
        <hr>
       
 <!--      Enter Code Here-->
