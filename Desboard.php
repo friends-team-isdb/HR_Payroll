@@ -60,7 +60,7 @@
                           <div>
                               <p class="mb-0 text-secondary">Total Employees</p>
                               <h4 class="my-1">4805</h4>
-<!--                              <p class="mb-0 font-13 text-success"><i class="bi bi-caret-up-fill"></i> 5% from last week</p>-->
+                         
                           </div>
                           <div class="widget-icon-large bg-gradient-purple text-white ms-auto"><i class="bi bi-basket2-fill"></i>
                           </div>
