@@ -63,21 +63,16 @@
             <div class="modal-content">
                 <div class="forms-body">
 
-                    <div class="col-md-12">
-                        <div class="row">
-                        <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
                             <h3 style="margin:10px;">Manage Employee</h3>
                         </div>
-                        <div class="col-md-3"></div>
-                        <div class="col-md-3">
-                            <a href="addEmployee.php" class="btn btn-primary mt-3">Add Employee</a>
-                        </div>
-                        </div> 
                     </div>
                     <hr>
                     <!--       Enter Code Here-->
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
+                        <a href="addEmployee.php" class="btn btn-primary bx-pull-right mb-3">Add Employee</a>
                             <table class="table table-striped">
                                 <tr>
                                     <th>SL</th>
