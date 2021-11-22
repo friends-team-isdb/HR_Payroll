@@ -8,13 +8,10 @@ if(isset($_POST['submit'])){
     $Purchasedate=$_POST['Purchasedate'];
     $inviceno=$_POST['inviceno'];
     $Manufacturee=$_POST['Manufacturee'];
-    $Serial=$_POST['Serial'];
-    
+    $Serial=$_POST['Serial']; 
     $Warrenty=$_POST['Warrenty'];
-    $SalaryStatus=$_POST['SalaryStatus'];
-    
+    $SalaryStatus=$_POST['SalaryStatus'];   
     $s="SELECT asset_code FROM asset WHERE asset_code='$assetcode'";
-
     $qurey=mysqli_query($conn,$s);
     $num=mysqli_num_rows($qurey);
     if($num==1){
