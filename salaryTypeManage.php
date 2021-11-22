@@ -90,7 +90,7 @@
 		        <td><?php echo $n++?></td>
 		        <td><?php echo $row[1]?></td>
                         <td>
-                            <a class="btn btn-danger" href="delete.php?aid=<?php echo $row[0]?>">Delete</a>
+                            <a class="btn btn-danger" href="salarymanagedelete.php?aid=<?php echo $row[0]?>">Delete</a>
 		            <a class="btn btn-success" href="update.php?aid=<?php echo $row[0]?>">Update</a>
 		        </td>
 		    </tr>
