@@ -1,3 +1,4 @@
+<?php require "connect.php";?>
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -80,8 +81,11 @@
                 <div class="modal-body">
                   <input class="form-control" type="text" name="employ_name" id="" placeholder="Employee Name"><br>
                   <input class="form-control" type="text" name="employ_email" id="" placeholder="Employee Email"><br>
-                  <label class="form-control" for="gender" class="col-sm-2 control-label"> Gender: <input type="radio" name="gender" value="male" id="">Male
-                    <input type="radio" name="gender" value="female" id="">Female</label><br>
+                <select class="form-control" name="gen" id="">
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select><br>
 
                   <label class="form-control" for="marital_status">Marital Status: <select name="marital_status">
                       <option value="">Select</option>
@@ -152,8 +156,8 @@
 
                 </div>
                 <div class="modal-footer">
-                <button type="reset" name="reset" class="btn btn-warning">Reset</button>
-                <button type="submit" class="btn btn-info">Submit</button>
+                <input class="btn btn-secondary" type="reset" name="reset" id="" value="Reset">
+                <input class="btn btn-primary" type="submit" name="submit" id="" value="Add Employee">
                 </div>
               </div>
               <!-- Company information End -->
@@ -162,6 +166,30 @@
 
         </form>
       </div>
+      
+      <?php 
+    if(isset($_POST['submit'])){
+
+    $fullname=$_POST['employ_name'];
+    $email=$_POST['employ_email'];
+    $gender=$_POST['gen'];
+    $marital_status=$_POST['marital_status'];
+    $DOB=$_POST['employ_date_of_birth'];
+    $picture=$_POST['employmet_picture'];
+    $religion=$_POST['employ_religion'];
+    $distic=$_POST['employ_district'];
+    $country=$_POST['employ_countris'];
+    $phone=$_POST['phone'];
+    $postCode=$_POST['employ_postal_code'];
+    $nationality=$_POST['employ_nationality'];
+    $presentAddress=$_POST['present_address'];
+    $nationality=$_POST['employ_nationality'];
+    
+    }
+        
+        
+        
+        ?>
 
 
 

@@ -1,3 +1,32 @@
+<?php 
+
+require "connect.php";
+if(isset($_POST['submit'])){
+    
+    $assetcode=$_POST['assetcode'];
+    $assetname=$_POST['assetname'];
+    $Purchasedate=$_POST['Purchasedate'];
+    $inviceno=$_POST['inviceno'];
+    $Manufacturee=$_POST['Manufacturee'];
+    $Serial=$_POST['Serial'];
+    
+    $Warrenty=$_POST['Warrenty'];
+    $SalaryStatus=$_POST['SalaryStatus'];
+    
+    $s="SELECT asset_code FROM asset WHERE asset_code='$assetcode'";
+
+    $qurey=mysqli_query($conn,$s);
+    $num=mysqli_num_rows($qurey);
+    if($num==1){
+        echo "Asset Already Exits";
+    }else{
+        $sql="INSERT INTO asset(asset_code,asset_name,purchase_date,inovice_no,manufacturer,serial,product_wrrenty,salary_status) Values('$assetcode','$assetname','$Purchasedate','$inviceno','$Manufacturee','$Serial','$Warrenty','$SalaryStatus')";
+        $qurey=mysqli_query($conn,$sql);
+        echo "Asset Added";              
+    }   
+}
+?>
+
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -83,61 +112,53 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" placeholder="Asset Code" class="form-control mt-3 mb-3" name="" id="">
+                            <input type="text" placeholder="Asset Code" class="form-control mt-3 mb-3" name="assetcode" id="">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" placeholder="Asset Name" class="form-control mt-3 mb-3" name="" id="">
+                            <input type="text" placeholder="Asset Name" class="form-control mt-3 mb-3" name="assetname" id="">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" placeholder="Invice No" class="form-control mt-3 mb-3" name="" id="">
+                            <input type="text" placeholder="Invoce No" class="form-control mt-3 mb-3" name="inviceno" id="">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" placeholder="Manufacturee" class="form-control mt-3 mb-3" name="" id="">
+                            <input type="text" placeholder="Manufacturee" class="form-control mt-3 mb-3" name="Manufacturee" id="">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" placeholder="Serial" class="form-control mt-3 mb-3" name="" id="">
+                            <input type="text" placeholder="Serial" class="form-control mt-3 mb-3" name="Serial" id="">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <select class="form-control mt-3 mb-3" name="" id="">
-                                <option  value="" selected>Select Department</option>
-                                <option  value="it">IT</option>
-                            </select>
-                        </div>
-                    </div> 
-                    <div class="row">
-                        <div class="col-md-12">
-                            Purchase Date: <input class="form-control mt-3 mb-3" type="date" name="">
+                            Purchase Date: <input class="form-control mt-3 mb-3" type="date" name="Purchasedate">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <select class="form-control mt-3 mb-3" name="" id="">
-                                <option  value="" selected>Select Product Wrrenty</option>
-                                <option  value="it">1 year</option>
+                            <select class="form-control mt-3 mb-3" name="Warrenty" id="">
+                                <option  value="" selected>Select Product Warrenty</option>
+                                <option  value="1 Year">1 year</option>
                             </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <select class="form-control mt-3 mb-3" name="" id="">
+                            <select class="form-control mt-3 mb-3" name="SalaryStatus" id="">
                                 <option  value="" selected>Select Salary Status</option>
-                                <option  value="it">pade</option>
+                                <option  value="Paid">Paid</option>
                             </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="submit" value="submit" class="btn btn-primary bx-pull-right mt-2 mb-2  " name="">
+                            <input type="submit" value="submit" class="btn btn-primary bx-pull-right mt-2 mb-2  " name="submit">
                         </div>
                     </div>
                 <div class="col-md-3"></div>
