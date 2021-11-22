@@ -13,7 +13,8 @@ if(isset($_POST['submit'])){
     }else{
         $sql="INSERT INTO leave_type(leave_type , payment_status) Values('$leaveType','$paymentstatus')";
         $qureyss=mysqli_query($conn,$sql);
-        echo "Leave type Added";              
+        echo "Leave type Added"; 
+        header("location:leaveTypeManage.php");
     }   
 }
 ?>

@@ -12,7 +12,8 @@ if(isset($_POST['submit'])){
     }else{
         $sql="INSERT INTO employee_Type(employee_Type) VAlues('$employeeType')";
         $qurey=mysqli_query($conn,$sql);
-        echo "Employee type Added";              
+        echo "Employee type Added"; 
+        header("location:employeeTypeManage.php");
     }   
 }
 ?>

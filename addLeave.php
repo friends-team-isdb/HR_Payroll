@@ -191,6 +191,7 @@
             
             if($query){
                 echo 'Your leave document added successfully';
+                header("location:leaveManage.php");
             }
             else{
                 echo 'Your leave document is not added';
