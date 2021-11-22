@@ -72,6 +72,7 @@
       
         <div class="row">
           <div class="col-md-12 col-sm-12">
+           <a class="btn btn-primary bx-pull-right mb-2 mt-0" href="addLeave.php">Add Leave</a>
             <table class="table table-striped">
               <tr>
                 <th>SL</th>
