@@ -1,3 +1,30 @@
+<?php
+    require "connect.php";
+    
+    
+    if(isset($_POST['submit'])){
+        $dates=$_POST['dates'];
+        $expensename=$_POST['expensename'];
+        $amount=$_POST['amount'];
+        $message=$_POST['message'];
+        $files="Samad";
+        $status=$_POST['status'];
+        $employee="1";
+        $select="Jakir";
+        $sql="INSERT INTO claims(employee_id,claims_date,type_of_expense,total_amount,file,claims_status,claim_status)VALUES('$employee','$dates','$expensename','$amount','$message','$files','$status','$select') ";
+        $query= mysqli_query($conn, $sql);
+        if($query){
+            echo 'Insert Data Successfully';
+        }
+        else{
+            echo 'Data Insert Failed!';
+        }
+    }
+
+
+?>
+
+
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -77,46 +104,41 @@
            <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-12">
-                       <input type="date" name="" class="form-control mt-3 mb-3 " >
+                       <input type="date" name="dates" class="form-control mt-3 mb-3 " >
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <input type="text" name="" class="form-control mt-3 mb-3 " placeholder="Please enter your expense type" >
+                        <input type="text" name="expensename" class="form-control mt-3 mb-3 " placeholder="Please enter your expense type" >
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <input type="number" name="" class="form-control mt-3 mb-3 " placeholder="Please enter your amount" >
+                        <input type="number" name="amount" class="form-control mt-3 mb-3 " placeholder="Please enter your amount" >
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <textarea  row="3"  name="" id="" class="form-control mt-3 mb-3 " placeholder="Plese write your message" ></textarea>
+                        <textarea  row="3"  name="message" id="" class="form-control mt-3 mb-3 " placeholder="Plese write your message" ></textarea>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <input type="file" name="" class="form-control mt-3 mb-3 " >
+                        <input type="file" name="files" class="form-control mt-3 mb-3 " >
                     </div>
                 </div>
                 <div class="row">
                      <div class="col-md-12">
-                         <select class="form-control mt-3 mb-3" name="" id="">
-                             <option value="">Select Claims Status</option>
-                         </select>
-                    </div>
-                </div>
-                <div class="row">
-                     <div class="col-md-12">
-                         <select class="form-control mt-3 mb-3" name="" id="">
-                             <option value="">Select Your Status</option>
+                         <select class="form-control mt-3 mb-3" name="status" id="">
+                             <option value="Select">Select Claims Status</option>
+                             <option value="Paid">Paid</option>
+                             <option value="Unpaid">Unpaid</option>
                          </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <input class="btn btn-primary mt-3 mb-3 bx-pull-right" type="submit" name="" id="" value="Submit">
+                        <input class="btn btn-primary mt-3 mb-3 bx-pull-right" type="submit" name="submit" id="" value="Submit">
                     </div>
                 </div>
            </div>
