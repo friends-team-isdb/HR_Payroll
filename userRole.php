@@ -1,3 +1,21 @@
+<?php require "connect.php";
+if(isset($_POST['submit'])){
+    $role_name=$_POST['rolename'];
+    $permission=$_POST['permission'];
+    $user_role_status=$_POST['status'];
+    $s="SELECT * FROM user_role WHERE role_name='$role_name'";
+    $result=mysqli_query($conn,$s);
+    $num=mysqli_num_rows($result);
+    if($num==1){
+        echo "Role  Already Exits";
+    }else{
+       
+       $sqls="INSERT INTO `user_role` (`role_name`, `permission`, `user_role_status`) VALUES ('$role_name','$permission','$user_role_status');";
+    $query=mysqli_query($conn,$sqls);
+        header("location:Desboard.php");
+    }
+}
+?>
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -74,18 +92,24 @@
       <div class="row">  
 <!--         jakir vai code here-->
             <div class="col-md-4 ">
-                <input type="text" class="form-control" name=""  id="" placeholder="Please Write User Role Name" required> 
-            </div>
-            <div class="col-md-3 ">
-                <input type="text" name="" class="form-control"  id="" placeholder="User Role Permission" required> 
+                <input type="text" class="form-control" name="rolename"  id="" placeholder="Please Write User Role Name" required> 
             </div>
             <div class="col-md-3">
-                <select  name="" class="form-control" id="">
-                    <option value="">Select Your Status</option>
+                <select  name="permission" class="form-control" id="">
+                    <option >Select Your Permission</option>
+                    <option value="employe">Employe</option>
+                    <option value="administratot">Admin</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select  name="status" class="form-control" id="">
+                    <option >Select Your Status</option>
+                    <option value="active" >Active</option>
+                    <option value="inactive">Inactive</option>
                 </select>
             </div>
             <div class="col-md-2">
-                <input class="btn btn-primary  " type="submit" name="" id="" value="Submit">
+                <input class="btn btn-primary  " type="submit" name="submit" id="" >
             </div>
        </div>
         
