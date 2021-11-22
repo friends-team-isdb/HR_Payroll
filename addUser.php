@@ -1,3 +1,29 @@
+<?php require "connect.php";
+
+if(isset($_POST['submit'])){
+    $username=$_POST['username'];
+    $fullname=$_POST['fullname'];
+    $phone=$_POST['phone'];
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+    $status=$_POST['status'];
+    $s="SELECT * FROM user_table WHERE email='$email'";
+    $result=mysqli_query($conn,$s);
+    $num=mysqli_num_rows($result);
+    if($num==1){
+        echo "Email  Already Exits";
+    }else{
+       $sqls="INSERT INTO `user_table`( `user_name`, `full_name`, `email`, `phone`, `passwords`,`user_status`)Values('$username','$fullname','$email','$phone','$password','$status')";
+    $query=mysqli_query($conn,$sqls);
+        header("location:Desboard.php");
+    }
+   
+   
+}
+
+
+?>
+
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -75,34 +101,36 @@
                     <hr>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" name="" class="form-control mt-3" id="" placeholder="Please Write Your User Name" required> 
+                            <input type="text" name="username" class="form-control mt-3" id="" placeholder="Please Write Your User Name" required> 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" name="" class="form-control mt-3" id="" placeholder="Please Write Your Full Name" required> 
+                            <input type="text" name="fullname" class="form-control mt-3" id="" placeholder="Please Write Your Full Name" required> 
                         </div>
                     </div>
                     
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="number" name="" class="form-control mt-3" id="" placeholder="Please Write Your Phone Number" required> 
+                            <input type="number" name="phone" class="form-control mt-3" id="" placeholder="Please Write Your Phone Number" required> 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                        <input type="email" name="" class="form-control mt-3" id="" placeholder="Please Write Your Email Address" required> 
+                        <input type="email" name="email" class="form-control mt-3" id="" placeholder="Please Write Your Email Address" required> 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="password" class="form-control mt-3" name="" id="" placeholder="Please Write Your Password" required> 
+                            <input type="password" class="form-control mt-3" name="password" id="" placeholder="Please Write Your Password" required> 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                               <select class="form-control mt-3" name="" id="">
+                               <select name="status" class="form-control mt-3"id="">
                                     <option value="">Select Your Status</option>
+                                    <option value="active" selected>Active</option>
+                                    <option value="inactive">Inactive</option>
                                </select>
                         </div>
                     </div>
@@ -169,7 +197,7 @@
                     
                 </div>
                 <div class="col-md-4">
-                    <input class="btn btn-primary mt-3 " type="submit" name="" id="" value="Save">
+                    <input class="btn btn-primary mt-3 " type="submit" name="submit" id="" value="Save">
                 </div>
                 <div class="col-md-4">
                    
