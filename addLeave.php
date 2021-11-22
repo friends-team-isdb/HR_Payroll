@@ -153,6 +153,7 @@
                 }
                 
                 ?>
+                </select>
                 </div>
                 <div class="form-group">
                     <select class="form-control mt-3" name="leave_id" id="">
