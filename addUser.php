@@ -1,4 +1,5 @@
 <?php require "connect.php";
+date_default_timezone_set("Asia/Dhaka");
 if(isset($_POST['submit'])){
     $username=$_POST['username'];
     $fullname=$_POST['fullname'];
