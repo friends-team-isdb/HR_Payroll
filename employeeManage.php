@@ -86,7 +86,7 @@
 
                                 <?php 
                 $sl=1;
-          $sql="SELECT employee_name,email,employee_status From employee";
+          $sql="SELECT * From employee";
           
           $query=mysqli_query($conn,$sql);
          
@@ -99,44 +99,10 @@
                                 <tr>
                                     <td><?php echo $sl++;?></td>
                                     <td><?php echo $row['employee_name'];?></td>
-                                    <td><?php echo $row['email'];?></td>
-                                    <?php } ?>
-
-                                    <?php 
-                    $sqls="SELECT department_Name From department";
-                     $querys=mysqli_query($conn,$sqls);
-                    
-              while($rows=mysqli_fetch_array($querys)){
-                    
-                    ?>
-                                    <td><?php echo $rows['department_Name'];?></td>
-<?php } ?>
-                               
-                               <?php 
-                                    
-                                    $sqlss="SELECT designation from designation";
-                                    $queryss=mysqli_query($conn,$sqlss);
-                                    
-                                    while($rowss=mysqli_fetch_array($queryss)){
-
-                                    ?>
-                                <td><?php echo $rowss['designation'];?></td>
-                                <?php }?>
-                                
-                                
-                                <?php 
-                                     $sql="SELECT employee_name,email,employee_status From employee";
-          
-          $query=mysqli_query($conn,$sql);
-         
-          
-          while($row=mysqli_fetch_array($query)){
-              
-    
-                                    
-                                    
-                                    ?>
-                                    
+                                    <td><?php echo $row['email'];?></td> 
+                                    <td><?php echo $row['department_id'];?></td> 
+                                    <td><?php echo $row['designation_id'];?></td>
+                                 
                                     <td style="color:green;"><?php echo $row['employee_status']?></td>
                                     <td> <a class="btn btn-danger" href="">Delete</a>
                                      <a class="btn btn-success" href="">Update</a>

@@ -132,7 +132,7 @@ if(isset($_POST['submit'])){
                 </div>
                 <div class="row">
                    <div class="col-md-12">
-                       <input type="text" class="form-control mt-3 mb-3" name="EmployeeName" id="" placeholder="Employee Name" required>
+                       <input type="text" class="form-control mt-3 mb-3" name="EmployeeName" id="" placeholder="Award Name" required>
                    </div>
                 </div>
                 <div class="row">

@@ -203,7 +203,7 @@ session_start();
                                         <?php echo $row['employee_name'];?>
                                     </h5>
                                     <h6>
-                                        Web Developer and Designer
+                                    <?php echo $row['designation_id'];?>
                                     </h6>
                                     
                                     <p class="proile-rating">RANKINGS : <span>8/10</span></p>
@@ -263,14 +263,15 @@ session_start();
                                                 <p><?php echo $row['phone'];?></p>
                                             </div>
                                         </div>
-                                        <?php } ?>
+                                        
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Designation</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Web Developer and Designer</p>
+                                                <p><?php echo $row['designation_id'];?></p>
                                             </div>
+                                            <?php } ?>
                                         </div>
                             </div>
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
