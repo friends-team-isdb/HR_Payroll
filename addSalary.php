@@ -1,3 +1,6 @@
+<?php require "connect.php";?>
+
+
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -72,7 +75,13 @@
             <div class="row">
               <div class="col-md-3"></div>
               <div class="col-md-6">
-                
+            <select class="form-control" name="" id="">
+                <option value="">Select Salary Type</option>
+            </select><br>
+                 
+                 <select class="form-control" name="" id="">
+                     <option value="">Select Employee</option>
+                 </select>
                   <input type="number" name="" id="" class="form-control mt-3" placeholder="Basic Salary">
                 
                   <input type="number" name="" id="" class="form-control mt-3" placeholder="Medical">
