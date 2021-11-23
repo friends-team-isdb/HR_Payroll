@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -61,50 +62,43 @@
               
 <!--           Enter Your Code here-->
     <div class="modal-content">
-      <div class="forms-body">
-        
-        <div class="row">
+<div class="forms-body">
+    
+    <?php
+    
+    require "connect.php";
+    
+    $Id=$_GET['aid'];
+    $sql="SELECT * FROM department WHERE department_Id='$Id';";
+    $query= mysqli_query($conn,$sql);
+    while ($row= mysqli_fetch_array($query)){
+    
+    ?>
+    <form action="departmentupdatedetails.php" method="post" enctype="multipart/form-data">
+       
+       <div class="row">
            <div class="col-md-12">
-               <h3 style="margin:10px;">Manage Department</h3>
+               <h3 style="margin:10px;">Update Department</h3>
            </div>
        </div>
        <hr>
-      
-<!--      Enter Code Here-->
-        <div class="row">
-          <div class="col-md-12 col-sm-12">
-
-          <a href="addDepartment.php" class="btn btn-primary bx-pull-right mb-3">Add Department</a>
-            <table class="table table-striped">
-              <tr>
-                <th>SL</th>
-                <th>Department Name</th>                
-                <th>Action</th>
-              </tr>
-                <?php 
-                include 'connect.php';
-                $n=1;
-                $sql = "SELECT * FROM department";
-                $query=mysqli_query($conn,$sql);
-                while($row=mysqli_fetch_array($query)){
-                ?>
-              <tr>
-                  <td><?php echo $n++ ?></td>
-                  <td><?php echo $row[1] ?></td>
-                  <td>
-                    <a class="btn btn-danger" href="departmentmanagedelete.php?aid=<?php echo $row[0]?>">Delete</a>
-                    <a class="btn btn-success" href="departmentupdate.php?aid=<?php echo $row[0]?>">Update</a>
-                  </td>
-              </tr>
-                <?php } ?>
-
-
-            </table>
+       
+      <div class="row">
+        <div class="col-md-4">
+          <div class="col">
+              <input type="text" value="<?php echo $row['0'];?>" name="Id" />
+              <input type="text" name="department" class="form-control" value="<?php echo $row['1'];?>" >
           </div>
         </div>
-      
-      
+        <div class="col-md-4">
+            <input type="submit" name="update" class="btn btn-primary" value="Update">
+        </div>
       </div>
+        
+    </form>
+    
+    <?php }?>
+    </div>
     </div>
 
 
