@@ -1,8 +1,22 @@
-<?php require "connect.php";?>
+<?php 
+
+require "connect.php";
+if(isset($_POST['submit'])){
     
- 
-
-
+    $SelectEmployee=$_POST['SelectEmployee'];
+    $dates=$_POST['dates'];
+    $expensename=$_POST['expensename'];
+    $amount=$_POST['amount'];
+    $files=$_POST['files'];
+    $status=$_POST['status'];
+    
+    
+        $sql="INSERT INTO claims(employee_id,claims_date,type_of_expense,total_amount,claims_status) Values('$SelectEmployee','$dates','$expensename','$amount','$status')";
+        $qurey=mysqli_query($conn,$sql);
+        echo "Expense Added!";
+       
+}
+?>
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -88,7 +102,7 @@
                                 $query=mysqli_query($conn,$sql);
                                 $rowcount=mysqli_num_rows($query);
                                 ?>
-                                <select class="form-control" name="" id="">
+                                <select class="form-control" name="SelectEmployee" id="">
 
                                     <option value="">Select Employee</option>
 
