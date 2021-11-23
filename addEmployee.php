@@ -131,21 +131,70 @@
                   <h4 class="modal-title text-info" >Company Details</h4>
                 </div>
                 <div class="modal-body">
-                <select class="form-control" name="employment_id">
-                      <option value="">Select Employee Type ID</option>
-                      <option value="">1</option>
-                      <option value="">2</option>
-                    </select> <br>
-                <select class="form-control" name="department_id">
-                      <option value="">Select Department ID</option>
-                      <option value="">1</option>
-                      <option value="">2</option>
-                    </select> <br>
-                <select class="form-control" name="designation_id">
-                      <option value="">Select Designation ID</option>
-                      <option value="">1</option>
-                      <option value="">2</option>
-                    </select> <br>
+                       <?php 
+    
+                                                $sql="SELECT employee_type FROM employee_type";
+                                                $query=mysqli_query($conn,$sql);
+            $rowcount=mysqli_num_rows($query);
+            ?>
+            <select class="form-control" name="" id="">
+                
+                <option value="">Select Employee Type</option>
+                
+                <?php 
+                for($i=1;$i<=$rowcount;$i++){
+                    $row=mysqli_fetch_array($query);
+                    ?>
+                    <option value="<?php echo $row['employee_type'];?>"><?php echo $row['employee_type'];?></option>
+                    <?php
+                }
+                
+                ?>
+                
+            </select><br>
+               <?php 
+    
+                                                $sql="SELECT department_Name FROM department";
+                                                $query=mysqli_query($conn,$sql);
+            $rowcount=mysqli_num_rows($query);
+            ?>
+            <select class="form-control" name="" id="">
+                
+                <option value="">Select Department</option>
+                
+                <?php 
+                for($i=1;$i<=$rowcount;$i++){
+                    $row=mysqli_fetch_array($query);
+                    ?>
+                    <option value="<?php echo $row['department_Name'];?>"><?php echo $row['department_Name'];?></option>
+                    <?php
+                }
+                
+                ?>
+                
+            </select><br>
+            
+                                 <?php 
+    
+                                                $sql="SELECT designation FROM designation";
+                                                $query=mysqli_query($conn,$sql);
+            $rowcount=mysqli_num_rows($query);
+            ?>
+            <select class="form-control" name="" id="">
+                
+                <option value="">Select Designaton</option>
+                
+                <?php 
+                for($i=1;$i<=$rowcount;$i++){
+                    $row=mysqli_fetch_array($query);
+                    ?>
+                    <option value="<?php echo $row['designation'];?>"><?php echo $row['designation'];?></option>
+                    <?php
+                }
+                
+                ?>
+                
+            </select><br>
                   
                   
                   

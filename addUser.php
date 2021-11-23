@@ -103,6 +103,15 @@ if(isset($_POST['submit'])){
                     </div>
                     <div class="row">
                         <div class="col-md-12">
+                        <select class="form-control" name="user_role" id="">
+                    <option value="">Select Role</option>
+                    <option value="">iem</option>
+                    
+                </select><br>> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
                             <input type="text" name="fullname" class="form-control mt-3" id="" placeholder="Please Write Your Full Name" required> 
                         </div>
                     </div>
