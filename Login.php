@@ -14,25 +14,22 @@
 
 <body>
     <div class="login-div">
-        <h1>Matarial Design</h1>
+        <h1>Hr Payroll</h1>
         <p>Design By<span>Abdus Samad</span></p>
-        <img src="apple icon.png" alt="logo" class="logo">
+        <img src="img/apple icon.png" alt="logo" class="logo">
         <h2>Login</h2>
 
     </div>
-    <form class="#" action="index.html" method="post">
+    <form class="#" action="#" method="post">
         <div class="input-div">
-            <input type="email" name="" value="" placeholder="UserName" required><br>
+            <input type="email" name="email" value="" placeholder="UserName" required><br>
             
-            <input type="password" name="" value="" placeholder="Password" required><br>
-            <input type="submit" name="" value="Login">
+            <input type="password" name="password" value="" placeholder="Password" required><br>
+            <input type="submit" name="submit" value="Login">
 
         </div>
     </form>
-    <div class="footer">
-        <p>Not Registration? <span><a href="#">Create an account</a></span></p>
-
-    </div>
+   
 
 </body>
 
