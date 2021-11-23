@@ -42,7 +42,7 @@
         $emails=$_POST['email'];
         $pass=$_POST['password'];
         
-        $sql="Select * from user_table where email='$emails' && passwords='$pass'";
+        $sql="Select * from user_table where email='$emails' && password='$pass'";
         $query=mysqli_query($conn,$sql);
         
         $num=mysqli_num_rows($query);

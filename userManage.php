@@ -87,7 +87,7 @@
                  <?php 
               include 'connect.php';
               $n=1;
-              $sql = "SELECT user_id,full_name,email,phone,user_status,account_creation_date FROM user_table";
+              $sql = "SELECT * FROM user_table";
               $query=mysqli_query($conn,$sql);
               while($row=mysqli_fetch_array($query)){
               ?>
@@ -96,7 +96,7 @@
                 <td><?php echo $row['full_name']?></td>
                 <td><?php echo $row['email']?></td>
                 <td><?php echo $row['phone']?></td>
-                <td><?php echo $row['user_status']?></td>
+                <td><?php echo $row['status']?></td>
                 <td><?php echo $row['account_creation_date']?></td>
                 <td>
                   <a class="btn btn-danger" href="usermanagedelete.php?aid=<?php echo $row['user_id'];?>">Delete</a>

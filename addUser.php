@@ -6,6 +6,7 @@ if(isset($_POST['submit'])){
     $phone=$_POST['phone'];
     $email=$_POST['email'];
     $password=$_POST['password'];
+    $userRole=$_POST['roleId'];
     $accountCreation=date("Y-m-d");
     $status=$_POST['status'];
     $s="SELECT * FROM user_table WHERE email='$email'";
@@ -14,7 +15,7 @@ if(isset($_POST['submit'])){
     if($num==1){
         echo "Email  Already Exits";
     }else{
-       $sqls="INSERT INTO `user_table`( `user_name`, `full_name`, `email`, `phone`, `passwords`,`account_creation_date`,`user_status`)Values('$username','$fullname','$email','$phone','$password','$accountCreation','$status')";
+       $sqls="INSERT INTO `user_table` ( `user_name`, `full_name`, `email`, `phone`, `password`, `role_id`, `account_creation_date`, `status`) VALUES ('$username', '$fullname', '$email', '$phone', '$password', '$userRole', '$accountCreation', '$status')";
     $query=mysqli_query($conn,$sqls);
         header("location:userManage.php");
     }
@@ -109,7 +110,7 @@ if(isset($_POST['submit'])){
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-control" name="" id="">
+            <select class="form-control" name="roleId" id="">
                 
                 <option value="">Select Role</option>
                 

@@ -137,7 +137,7 @@
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-control" name="" id="">
+            <select class="form-control" name="employment_id" id="">
                 
                 <option value="">Select Employee Type</option>
                 
@@ -158,7 +158,7 @@
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-control" name="" id="">
+            <select class="form-control" name="department_id" id="">
                 
                 <option value="">Select Department</option>
                 
@@ -180,7 +180,7 @@
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-control" name="" id="">
+            <select class="form-control" name="designation" id="">
                 
                 <option value="">Select Designaton</option>
                 
@@ -241,7 +241,7 @@
     $Emppass=$_POST['employeepass'];
     $EmptypeId=$_POST['employment_id'];
     $deptId=$_POST['department_id'];
-    $designationId=$_POST['designation_id'];
+    $designationId=$_POST['designation'];
     $appointdate=$_POST['appointment_date'];
     $joindate=$_POST['joining_date'];
     $Empcode=$_POST['employee_code'];
@@ -254,7 +254,7 @@
         
     }
     
-    $sql="INSERT INTO employee (employee_name, appointment_date, date_of_birth, employee_code, email, joining_date, employee_status, religion, nationality, district, Countries, postal_code, Passport_or_NID, gender, maritial_Status, present_address, permanent_address, picture, phone, employement_status) VALUES (   '$fullname', '$appointdate', '$DOB', '$Empcode', '$email', '$joindate', '$status', '$religion', '$nationality', '$distic', '$country', '$postCode', '$passNid', '$gender', '$marital_status', '$preaddress', '$peraddress', '$path', '$phone', '$Empstatus');";
+    $sql="INSERT INTO employee (employee_type_id,department_id,designation_id,employee_name, appointment_date, date_of_birth, employee_code, email, joining_date, employee_status, religion, nationality, district, Countries, postal_code, Passport_or_NID, gender, maritial_Status, present_address, permanent_address, picture, phone, employement_status) VALUES ( '$EmptypeId', '$deptId','$designationId', '$fullname', '$appointdate', '$DOB', '$Empcode', '$email', '$joindate', '$status', '$religion', '$nationality', '$distic', '$country', '$postCode', '$passNid', '$gender', '$marital_status', '$preaddress', '$peraddress', '$path', '$phone', '$Empstatus');";
     $query= mysqli_query($conn, $sql);
         if($query){
             echo 'Insert Data Successfully';
