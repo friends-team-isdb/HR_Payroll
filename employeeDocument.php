@@ -76,13 +76,23 @@
                
           <div class="col-md-3"></div> 
           <div class="col-md-6">
+          <select class="form-control" name="employe_id" id="">
+                    <option value="">Select Employe_ID</option>
+                    <option value="">iem</option>
+                    
+                </select>
               <input type="text" name="document_name" id="" class="form-control mt-3" placeholder="Document Name" required>
               <input type="text" name="document_status" id="" class="form-control mt-3" placeholder="Document Status" required>
-            
+              <select class="form-control" name="document_status" id="">
+                    <option value="">Select Document_Status</option>
+                    <option value="">iem</option>
+                    
+                </select>
           </div>
           <div class="col-md-3"></div>
            
        </div>
+       
        <div class="row">
            <div class="col-md-3"></div>
            <div class="col-md-6">
