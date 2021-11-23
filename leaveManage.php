@@ -87,30 +87,21 @@
               <?php
                 require "connect.php";
                 $n=1;
-                $sql=" SELECT employee_name FROM employee";
+                $sql=" SELECT * FROM leaves";
                 $querry= mysqli_query($conn, $sql);
                 while ($row= mysqli_fetch_array($querry)){
               ?>
                 <tr>
                   <td><?php echo $n++ ?></td>
-                  <td><?php echo $row['employee_name'] ?></td>
-                <?php }?>
-                  <?php 
-                    $sqls="SELECT leave_type FROM leave_type";
-                    $querrys= mysqli_query($conn, $sqls);
-                    while ($rows= mysqli_fetch_array($querrys)){
-                  ?>
-                  <td><?php echo $rows['leave_type'] ?></td>
-                  <?php }?>
-                  <?php
-                    $sqlss="SELECT leave_start_date,leave_end_date,leave_status,leave_for,supported_document  FROM leaves ";
-                    $querryss= mysqli_query($conn, $sqlss);
-                    while ($rowss= mysqli_fetch_array($querryss)){
-                  ?>
-                  <td> <?php echo $rowss['leave_start_date']." <b>To</b> ".$rowss['leave_end_date'] ?></td>
-                  <td><?php echo $rowss['leave_status'] ?></td>
-                  <td><?php echo $rowss['leave_for'] ?></td>
-                  <td><?php echo $rowss['supported_document'] ?></td>
+                  <td><?php echo $row['employee_id'] ?></td>
+                
+                  <td><?php echo $row['leave_type_id'] ?></td>
+                  
+                  
+                  <td> <?php echo $row['leave_start_date']." <b>To</b> ".$row['leave_end_date'] ?></td>
+                  <td><?php echo $row['leave_status'] ?></td>
+                  <td><?php echo $row['leave_for'] ?></td>
+                  <td><?php echo $row['supported_document'] ?></td>
                   <td> 
                       <a class="btn btn-danger" href="">Delete</a>
                       <a class="btn btn-success" href="">Update</a>

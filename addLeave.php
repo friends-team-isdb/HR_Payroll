@@ -185,7 +185,7 @@
         $support_document = $_POST['support_document'];
         $leave_status = $_POST['leave_status'];
 
-        $sql = "INSERT INTO leaves ( leave_start_date, leave_end_date, leave_for, supported_document, leave_status) VALUES ('$leave_start_date', '$leave_ends_date', '$description', '$support_document', '$leave_status')";
+        $sql = "INSERT INTO leaves ( leave_type_id,employee_id,leave_start_date, leave_end_date, leave_for, supported_document, leave_status) VALUES ('$leave_type','$select_employee','$leave_start_date', '$leave_ends_date', '$description', '$support_document', '$leave_status')";
         $query = mysqli_query($conn, $sql);
 
         if ($query) {
