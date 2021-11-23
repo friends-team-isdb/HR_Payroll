@@ -98,9 +98,29 @@ if(isset($_POST['submit'])){
        <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-           <select class="form-control" name="" id="" value="">
+         
+           <?php 
+    
+             $sql="SELECT employee_name FROM employee";
+             $query=mysqli_query($conn,$sql);
+            $rowcount=mysqli_num_rows($query);
+            ?>
+            <select class="form-control" name="" id="">
+                
                 <option value="">Select Employee</option>
-            </select> 
+                
+                <?php 
+                for($i=1;$i<=$rowcount;$i++){
+                    $row=mysqli_fetch_array($query);
+                    ?>
+                    <option value="<?php echo $row['employee_name'];?>"><?php echo $row['employee_name'];?></option>
+                    <?php
+                }
+                
+                ?>
+                
+            </select>
+            
           <input class="form-control mt-3" type="number" name="Deductioncode" id="" placeholder="Deduction Code">
           <textarea class="form-control mt-3" name="Description" placeholder="Description"></textarea>
           <input class="form-control mt-3" type="number" name="Amount" id="" placeholder="Amount" required="required">

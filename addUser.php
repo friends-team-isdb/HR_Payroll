@@ -98,16 +98,32 @@ if(isset($_POST['submit'])){
                     <hr>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" name="username" class="form-control mt-3" id="" placeholder="Please Write Your User Name" required> 
+                            <input type="text" name="username" class="form-control mt-3" id="" placeholder="Please Write Your User Name" required> <br>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                        <select class="form-control" name="user_role" id="">
-                    <option value="">Select Role</option>
-                    <option value="">iem</option>
-                    
-                </select><br>> 
+                        <?php 
+    
+                                                $sql="SELECT role_name FROM user_role";
+                                                $query=mysqli_query($conn,$sql);
+            $rowcount=mysqli_num_rows($query);
+            ?>
+            <select class="form-control" name="" id="">
+                
+                <option value="">Select Role</option>
+                
+                <?php 
+                for($i=1;$i<=$rowcount;$i++){
+                    $row=mysqli_fetch_array($query);
+                    ?>
+                    <option value="<?php echo $row['role_name'];?>"><?php echo $row['role_name'];?></option>
+                    <?php
+                }
+                
+                ?>
+                
+            </select>
                         </div>
                     </div>
                     <div class="row">
