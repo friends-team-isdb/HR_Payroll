@@ -76,74 +76,27 @@ session_start();
                 </div>
             </div>
             <hr>
+            <?php 
+    @$info=$_GET['email'];
+            
+            $sql="SELECT * FROM employee where email='$info'";
+            $query=mysqli_query($conn,$sql);
+            
+            while($row=mysqli_fetch_array($query)){
+            
+                echo "<pre>";
+                print_r($row);
+                echo "</pre>";
 
-
-            <div class="col-md-3"></div>
-
-            <div class="row">
-                <div class="col-6 col-lg-4 align-items-md-center">
-                    <div class="card shadow-sm border-0 overflow-hidden">
-                        <div class="card-body">
-                            <div class="profile-avatar text-center">
-                                <?php
-                      $user=$_SESSION['userName'];
-                      $sql="SELECT picture from employee Where email='$user'";
-                      $query=mysqli_query($conn,$sql);
-                      while($row=mysqli_fetch_array($query)){
-                      ?>
-                                <img src="<?php echo $row['picture'];?>" class="rounded-circle shadow" width="120" height="120" alt="">
-                                <?php }?>
-                            </div>
-                            
-                            <div class="d-flex align-items-center justify-content-around mt-5 gap-3">
-
-                            </div>
-                            <div class="text-center mt-4">
-                                <?php 
-                          $user=$_SESSION['userName'];
-          $sql="SELECT * FROM user_table Where email='$user'";
-          $query=mysqli_query($conn,$sql);
-                          while($row=mysqli_fetch_array($query)){
-                          ?>
-                                <h4 class="mb-1"><?php echo $row['full_name'];?></h4>
-                                
-                                <p class="mb-0 text-secondary">Sydney, Australia</p>
-                                <div class="mt-4"></div>
-                                <h6 class="mb-1">HR Manager - Codervent Technology</h6>
-                                <p class="mb-0 text-secondary">University of Information Technology</p>
-                            </div>
-                            <?php }?>
-                            <hr>
-                            <div class="text-start">
-                                <h5 class="">About</h5>
-                                <p class="mb-0">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem.
-                            </div>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent border-top">
-                                Followers
-                                <span class="badge bg-primary rounded-pill">95</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
-                                Following
-                                <span class="badge bg-primary rounded-pill">75</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
-                                Templates
-                                <span class="badge bg-primary rounded-pill">14</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3"></div>
-
-            </div>
-
-
-
-
-
-
+            
+            
+            }
+            
+    
+            
+            
+            
+            ?>
 
 
 

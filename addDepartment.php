@@ -7,13 +7,13 @@ if(isset($_POST['submit'])){
     $result=mysqli_query($conn,$s);
     $num=mysqli_num_rows($result);
     if($num==1){
-        echo "Department Already Exits";
+        echo "<script> alert('Department Already Exits')</script>";
     }else{
        $sqls="INSERT INTO department(department_Name)Values('$department')";
     $sql="INSERT INTO designation(designation)Values('$degination')";
     $query=mysqli_query($conn,$sqls);
     $query=mysqli_query($conn,$sql);  
-        header("location:departmentManage.php");
+    header("location:departmentManage.php");
     }
    
    
