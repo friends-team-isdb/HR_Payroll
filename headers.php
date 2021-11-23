@@ -53,35 +53,29 @@ session_start();
                   <div class="user-setting d-flex align-items-center gap-1">
                    <?php
                       $user=$_SESSION['userName'];
-                      $sql="SELECT picture from employee Where email='$user'";
+                      $sql="SELECT * from employee Where email='$user'";
                       $query=mysqli_query($conn,$sql);
                       while($row=mysqli_fetch_array($query)){
                       ?>
                    <img src="<?php echo $row['picture'];?>" class="user-img" alt="">
-                    <?php }?>
-                    
-                   <?php
-                      $user=$_SESSION['userName'];
-                      $sql="SELECT full_name from user_table Where email='$user'";
-                      $query=mysqli_query($conn,$sql);
-                      while($row=mysqli_fetch_array($query)){
-                      ?>
-                    <div class="user-name d-none d-sm-block"><?php echo $row['full_name'];?></div>
-                    <?php }?>
+                 
+                    <div class="user-name d-none d-sm-block"><?php echo $row['employee_name'];?></div>
+                   
                   </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                   <li>
                      <a class="dropdown-item" href="#">
                        <div class="d-flex align-items-center">
-                          <img src="assets/images/avatars/avatar-1.png" alt="" class="rounded-circle" width="60" height="60">
+                          <img src="<?php echo $row['picture'];?>" alt="" class="rounded-circle" width="60" height="60">
                           <div class="ms-3">
-                            <h6 class="mb-0 dropdown-user-name">Jhon Deo</h6>
-                            <small class="mb-0 dropdown-user-designation text-secondary">HR Manager</small>
+                            <h6 class="mb-0 dropdown-user-name"><?php echo $row['employee_name'];?></h6>
+                            <small class="mb-0 dropdown-user-designation text-secondary"><?php echo $row['designation_id'];?></small>
                           </div>
                        </div>
                      </a>
                    </li>
+                    <?php }?>
                    <li><hr class="dropdown-divider"></li>
                    <li>
                       <a class="dropdown-item" href="profile.php">

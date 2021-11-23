@@ -87,29 +87,24 @@ session_start();
                             <div class="profile-avatar text-center">
                                 <?php
                       $user=$_SESSION['userName'];
-                      $sql="SELECT picture from employee Where email='$user'";
+                      $sql="SELECT * from employee Where email='$user'";
                       $query=mysqli_query($conn,$sql);
                       while($row=mysqli_fetch_array($query)){
                       ?>
                                 <img src="<?php echo $row['picture'];?>" class="rounded-circle shadow" width="120" height="120" alt="">
-                                <?php }?>
+                                
                             </div>
                             
                             <div class="d-flex align-items-center justify-content-around mt-5 gap-3">
 
                             </div>
                             <div class="text-center mt-4">
-                                <?php 
-                          $user=$_SESSION['userName'];
-          $sql="SELECT * FROM user_table Where email='$user'";
-          $query=mysqli_query($conn,$sql);
-                          while($row=mysqli_fetch_array($query)){
-                          ?>
-                                <h4 class="mb-1"><?php echo $row['full_name'];?></h4>
+                       
+                                <h4 class="mb-1"><?php echo $row['employee_name'];?></h4>
                                 
-                                <p class="mb-0 text-secondary">Sydney, Australia</p>
+                                <p class="mb-0 text-secondary"><?php echo $row['district'].",".$row['Countries'];?></p>
                                 <div class="mt-4"></div>
-                                <h6 class="mb-1">HR Manager - Codervent Technology</h6>
+                                <h6 class="mb-1"><?php echo $row['department_id']."--".$row['designation_id'];?> </h6>
                                 <p class="mb-0 text-secondary">University of Information Technology</p>
                             </div>
                             <?php }?>

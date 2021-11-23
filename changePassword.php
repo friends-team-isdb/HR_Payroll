@@ -84,10 +84,10 @@ session_start();
         $newPass=$_POST['newpass'];
         $confirmPass=$_POST['confirmpass'];
          $user=$_SESSION['userName'];
-          $sql="SELECT passwords FROM user_table Where email='$user'";
+          $sql="SELECT password FROM user_table Where email='$user'";
           $query=mysqli_query($conn,$sql);
                           while($row=mysqli_fetch_array($query)){
-                          $dataBasePassword=$row['passwords'];
+                          $dataBasePassword=$row['password'];
                           
                           }
         if($oldPass==$dataBasePassword){
