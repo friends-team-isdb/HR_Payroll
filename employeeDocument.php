@@ -76,16 +76,33 @@
                
           <div class="col-md-3"></div> 
           <div class="col-md-6">
-          <select class="form-control" name="employe_id" id="">
-                    <option value="">Select Employe_ID</option>
-                    <option value="">iem</option>
-                    
-                </select>
-              <input type="text" name="document_name" id="" class="form-control mt-3" placeholder="Document Name" required>
-              <input type="text" name="document_status" id="" class="form-control mt-3" placeholder="Document Status" required>
+          <?php 
+    
+                                                $sql="SELECT employee_name FROM employee";
+                                                $query=mysqli_query($conn,$sql);
+            $rowcount=mysqli_num_rows($query);
+            ?>
+            <select class="form-control" name="" id="">
+                
+                <option value="">Select Employee</option>
+                
+                <?php 
+                for($i=1;$i<=$rowcount;$i++){
+                    $row=mysqli_fetch_array($query);
+                    ?>
+                    <option value="<?php echo $row['employee_name'];?>"><?php echo $row['employee_name'];?></option>
+                    <?php
+                }
+                
+                ?>
+                
+            </select>
+              <input type="text" name="document_name" id="" class="form-control mt-3" placeholder="Document Name" required><br>
+              
               <select class="form-control" name="document_status" id="">
                     <option value="">Select Document_Status</option>
-                    <option value="">iem</option>
+                    <option value="Valid">Valid</option>
+                    <option value="Invalid">Invalid</option>
                     
                 </select>
           </div>
