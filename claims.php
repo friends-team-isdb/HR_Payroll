@@ -82,6 +82,13 @@
            <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-12">
+                        <select class="form-control" name="" id="" value="">
+                            <option value="">Select Employee</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
                        <input type="date" name="dates" class="form-control mt-3 mb-3 " >
                     </div>
                 </div>

@@ -99,6 +99,9 @@ if(isset($_POST['submit'])){
        <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
+            <select class="form-control" name="" id="" value="">
+                <option value="">Select Employee</option>
+            </select>
           <input class="form-control mt-3" type="number" name="Additioncode" id="" placeholder="Addition Code">
           <textarea class="form-control mt-3" name="Description" placeholder="Description"></textarea>
           <input class="form-control mt-3" type="number" name="Amount" id="" placeholder="Amount" required="required">
