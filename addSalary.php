@@ -75,13 +75,50 @@
             <div class="row">
               <div class="col-md-3"></div>
               <div class="col-md-6">
+                                                <?php 
+    
+                                                $sql="SELECT salary_Type FROM salary_type";
+                                                $query=mysqli_query($conn,$sql);
+            $rowcount=mysqli_num_rows($query);
+            ?>
             <select class="form-control" name="" id="">
-                <option value="">Select Salary Type</option>
+                
+                <option value="">Select Selary Type</option>
+                
+                <?php 
+                for($i=1;$i<=$rowcount;$i++){
+                    $row=mysqli_fetch_array($query);
+                    ?>
+                    <option value="<?php echo $row['salary_Type'];?>"><?php echo $row['salary_Type'];?></option>
+                    <?php
+                }
+                
+                ?>
+                
             </select><br>
+            
                  
-                 <select class="form-control" name="" id="">
-                     <option value="">Select Employee</option>
-                 </select>
+                                                          <?php 
+    
+                                                $sql="SELECT employee_name FROM employee";
+                                                $query=mysqli_query($conn,$sql);
+            $rowcount=mysqli_num_rows($query);
+            ?>
+            <select class="form-control" name="" id="">
+                
+                <option value="">Select Employee</option>
+                
+                <?php 
+                for($i=1;$i<=$rowcount;$i++){
+                    $row=mysqli_fetch_array($query);
+                    ?>
+                    <option value="<?php echo $row['employee_name'];?>"><?php echo $row['employee_name'];?></option>
+                    <?php
+                }
+                
+                ?>
+                
+            </select><br>
                   <input type="number" name="" id="" class="form-control mt-3" placeholder="Basic Salary">
                 
                   <input type="number" name="" id="" class="form-control mt-3" placeholder="Medical">
