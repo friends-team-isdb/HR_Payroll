@@ -100,36 +100,43 @@ if(isset($_POST['submit'])){
                
            </div>
            <div class="col-md-6">
-               <div class="row">
+                <div class="row">
+                    <div class="col-md-12">
+                        <select class="form-control mb-1 " name="" id="" value="">
+                            <option value="">Select Employee</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
                    <div class="col-md-12">
-                       Award Date<input type="date" class="form-control mt-3 mb-3" name="awarddate" id="">
+                       Award Date<input type="date" class="form-control mt-1 mb-3" name="awarddate" id="">
                    </div>
-               </div>
-               <div class="row">
+                </div>
+                <div class="row">
                    <div class="col-md-12">
                        <input type="text" class="form-control mt-3 mb-3" name="EmployeeName" id="" placeholder="Employee Name" required>
                    </div>
-               </div>
-               <div class="row">
-                   <div class="col-md-12">
-                       <input type="number" class="form-control mt-3 mb-3" name="AwardAmount" id="" placeholder="Award Amount">
-                   </div>
-               </div>
-               <div class="row">
-                   <div class="col-md-12">
-                       <textarea name="Description" rows="3" id="" placeholder="Description" class="form-control mt-3 mb-3"></textarea>
-                   </div>
-               </div>
-               <div class="row">
-                   <div class="col-md-12">
-                       <input type="date" class="form-control mt-3 mb-3" name="datet" id="">
-                   </div>
-               </div>
-               
-               <div class="row">
+                </div>
+                <div class="row">
                     <div class="col-md-12">
-                        <input class="btn btn-primary mt-3 mb-3 bx-pull-right " type="submit" name="submit" id="" value="Save">
+                        <input type="number" class="form-control mt-3 mb-3" name="AwardAmount" id="" placeholder="Award Amount">
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <textarea name="Description" rows="3" id="" placeholder="Description" class="form-control mt-3 mb-3"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="date" class="form-control mt-3 mb-3" name="datet" id="">
+                    </div>
+                </div>
+
+                <div class="row">
+                     <div class="col-md-12">
+                         <input class="btn btn-primary mt-3 mb-3 bx-pull-right " type="submit" name="submit" id="" value="Save">
+                     </div>
                 </div>
            </div>
            <div class="col-md-3">

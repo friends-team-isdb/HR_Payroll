@@ -99,12 +99,9 @@ if(isset($_POST['submit'])){
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-12">
-                            
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            
+                             <select class="form-control mb-1 " name="" id="" value="">
+                            <option value="">Select Employee</option>
+                            </select>
                         </div>
                     </div>
                     <div class="row">
