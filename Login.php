@@ -1,40 +1,43 @@
 <?php require "connect.php";?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="css/loginStyle.css">
+    <script src="jquary.js" charset="utf-8"></script>
+    <script src="main.js" charset="utf-8"></script>
+
 </head>
 
 <body>
-
-    <div class="container">
-
-
-
-        <form action="#" method="post">
-            <div class="row line-margin">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <input class="form-control" type="email" name="email" id="" required placeholder="Enter Your Email"><br>
-                    <input class="form-control" type="password" name="password" id="" placeholder="Enter Your Password"><br>
-                    <input class="btn btn-primary pull-right" type="submit" name="submit" id="" value="Login">
-
-
-                </div>
-                <div class="col-md-3"></div>
-            </div>
-
-
-        </form>
-
-
-
+    <div class="login-div">
+        <h1>Matarial Design</h1>
+        <p>Design By<span>Abdus Samad</span></p>
+        <img src="apple icon.png" alt="logo" class="logo">
+        <h2>Login</h2>
 
     </div>
+    <form class="#" action="index.html" method="post">
+        <div class="input-div">
+            <input type="email" name="" value="" placeholder="UserName" required><br>
+            
+            <input type="password" name="" value="" placeholder="Password" required><br>
+            <input type="submit" name="" value="Login">
+
+        </div>
+    </form>
+    <div class="footer">
+        <p>Not Registration? <span><a href="#">Create an account</a></span></p>
+
+    </div>
+
+</body>
+
+</html>
+
 
     <?php 
     session_start();
@@ -48,7 +51,6 @@
         $num=mysqli_num_rows($query);
         if($num==1){
              $_SESSION['userName']=$emails;
-            echo $_SESSION['userName'];
             header("location:Desboard.php");
         }else{
             echo "Email and Password not match";

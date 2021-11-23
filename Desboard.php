@@ -1,3 +1,12 @@
+<?php 
+session_start();
+if(!isset($_SESSION['userName'])){
+  header("location:Login.php");  
+}
+
+?>
+
+
 <!doctype html>
 <html lang="en" class="light-theme">
 

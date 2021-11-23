@@ -57,8 +57,9 @@ session_start();
                       $query=mysqli_query($conn,$sql);
                       while($row=mysqli_fetch_array($query)){
                       ?>
-                    <img src="<?php echo $row['picture'];?>" class="user-img" alt="">
+                   <img src="<?php echo $row['picture'];?>" class="user-img" alt="">
                     <?php }?>
+                    
                    <?php
                       $user=$_SESSION['userName'];
                       $sql="SELECT full_name from user_table Where email='$user'";
