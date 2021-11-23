@@ -72,6 +72,15 @@
             <div class="row">
               <div class="col-md-3"></div>
               <div class="col-md-6">
+              <div class="row">
+                        <div class="col-md-12">
+                        <select class="form-control" name="employe_id" id="">
+                    <option value="">Select Employe_ID</option>
+                    <option value="">iem</option>
+                    
+                </select>
+                        </div>
+                    </div>
                 
                   <input type="text" name="" id="" class="form-control mt-3" placeholder="Bank Name">
                 
