@@ -1,3 +1,10 @@
+<?php require "connect.php";
+
+date_default_timezone_set("Asia/Dhaka");
+
+?>
+
+
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -71,20 +78,37 @@
                         <hr>
                         <div class="row">
                             <div class="col-md-4">
-                                
-                                <select class="form-control" name="" id="">
-                                    <option value="">Select Year</option>
+
+                                <select class="form-control" name="year" id="">
+                                    <?php 
+                                                for($i=1900;$i<=date("Y");$i++){
+                                                
+                                                ?>
+                                    <option class="form-control" value="<?php echo $i;?>" selected><?php echo $i;?></option>
+                                    <?php }?>
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                
-                                <select class="form-control" name="" id="">
+
+                                <select name="month" class=" form-control">
                                     <option value="">Select Month</option>
+                                    <option value="01">Jan</option>
+                                    <option value="02">Feb</option>
+                                    <option value="03">Mar</option>
+                                    <option value="04">Apr</option>
+                                    <option value="05">May</option>
+                                    <option value="06">Jun</option>
+                                    <option value="07">Jul</option>
+                                    <option value="08">Aug</option>
+                                    <option value="09">Sep</option>
+                                    <option value="10">Oct</option>
+                                    <option value="11">Nov</option>
+                                    <option value="12">Dec</option>
                                 </select>
-                                
+
                             </div>
                             <div class="col-md-4">
-                                <input class="btn btn-primary" type="submit" name="" id="" value="Get Employee List">
+                                <input class="btn btn-primary" type="submit" name="submit" id="" value="Get Employee List">
                             </div>
                         </div>
 
@@ -94,6 +118,49 @@
                         </div> -->
 
                     </form>
+                </div>
+            </div>
+            <?php 
+            if(isset($_POST['submit'])){
+                
+                $year=$_POST['year'];
+                $Month=$_POST['month'];
+                $sl=1;
+                $sql="SELECT * From payroll Where Salary_Year='$year' && salary_Month='$Month'";
+                $query=mysqli_query($conn,$sql);
+                while($row=mysqli_fetch_array($query)){
+                    
+            
+            
+            
+            
+            
+            ?>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="modal-content">
+                        <div class="forms-body">
+                        
+                        <table class="table table-striped table-bordered">
+                           
+                           <tr>
+                               <th>S.l</th>
+                               <th>Employee</th>
+                               <th>Salary Year</th>
+                               <th>Salary Month</th>
+                           </tr>
+                            
+                            <tr>
+                                <td><?php echo $sl++;?></td>
+                                <td><?php echo $row['employee_id'];?></td>
+                                <td><?php echo $row['Salary_Year'];?></td>
+                                <td><?php echo $row['salary_Month'];?></td>
+                            </tr>
+                            <?php     }
+                            }?>
+                        </table>
+                        </div>
+                    </div>
                 </div>
             </div>
 

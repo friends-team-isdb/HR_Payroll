@@ -1,4 +1,7 @@
-<?php require "connect.php";?>
+<?php require "connect.php";
+date_default_timezone_set("Asia/Dhaka");
+
+?>
 
 
 <!doctype html>
@@ -75,72 +78,89 @@
                                 <div class="modal-body  ">
                                     <div class="row">
                                         <div class="col-md-3">
-                                           
-                                                
-                                                <?php 
+
+
+                                            <?php 
     
                                                 $sql="SELECT department_Name FROM department";
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-control" name="" id="">
-                
-                <option value="">Select Department</option>
-                
-                <?php 
+                                            <select class="form-control" name="dep" id="">
+
+                                                <option value="">Select Department</option>
+
+                                                <?php 
                 for($i=1;$i<=$rowcount;$i++){
                     $row=mysqli_fetch_array($query);
                     ?>
-                    <option value="<?php echo $row['department_Name'];?>"><?php echo $row['department_Name'];?></option>
-                    <?php
+                                                <option value="<?php echo $row['department_Name'];?>"><?php echo $row['department_Name'];?></option>
+                                                <?php
                 }
                 
                 ?>
-                
-            </select><br>
-            
-   
-                                            
-                                            
+
+                                            </select><br>
+
+
+
+
                                         </div>
                                         <div class="col-md-3">
-                                           <?php 
+                                            <?php 
+                                            @$depart=$_POST['dep'];
                                             $sqls="SELECT employee_name FROM employee";
                                             $querys=mysqli_query($conn,$sqls);
                                             $rowcounts=mysqli_num_rows($querys);
                                             ?>
-                                            
+
                                             <select class="form-control" name="" id="">
                                                 <option value="">Select Employee</option>
-                                                
-                                            <?php 
+
+                                                <?php 
                                                 for($i=1;$i<=$rowcounts;$i++){
                                                     
                                                     $rows=mysqli_fetch_array($querys);
                                                     
                                                     ?>
-                                                    
-                                                    <option value="<?php echo $rows['employee_name'];?>"><?php echo $rows['employee_name'];?></option>
-                                                    
-                                                    <?php
+
+                                                <option value="<?php echo $rows['employee_name'];?>"><?php echo $rows['employee_name'];?></option>
+
+                                                <?php
                                                 }
                                                 
                                                 
-                                                ?>    
-                                                
+                                                ?>
+
                                             </select>
-                                            
-                                            
+
+
                                         </div>
                                         <div class="col-md-2">
                                             <select class="form-control" name="year" id="">
-                                                <option class="form-control" value="" selected>Select Year</option>
-
+                                                <?php 
+                                                for($i=1900;$i<=date("Y");$i++){
+                                                
+                                                ?>
+                                                <option class="form-control" value="<?php echo $i;?>" selected><?php echo $i;?></option>
+                                                <?php }?>
                                             </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <select class="form-control" name="month" id="">
-                                                <option class="form-control" value="" selected>Select Month</option>
+                                            <select  name="dob-month" class=" form-control">
+                                                <option value="">Select Month</option>
+                                                <option value="01">Jan</option>
+                                                <option value="02">Feb</option>
+                                                <option value="03">Mar</option>
+                                                <option value="04">Apr</option>
+                                                <option value="05">May</option>
+                                                <option value="06">Jun</option>
+                                                <option value="07">Jul</option>
+                                                <option value="08">Aug</option>
+                                                <option value="09">Sep</option>
+                                                <option value="10">Oct</option>
+                                                <option value="11">Nov</option>
+                                                <option value="12">Dec</option>
                                             </select>
                                         </div>
                                         <div class="col-md-2">
@@ -170,21 +190,21 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <select class="form-control" name="deductions" id="">
-                                        <option class="form-control" value="" selected> Select Allownes</option>
+                                                <option class="form-control" value="" selected> Select Allownes</option>
 
-                                    </select>
+                                            </select>
                                         </div>
                                         <div class="col-md-6">
                                             <input class="form-control" type="text" name="" id="">
-                                    
+
                                         </div>
                                     </div>
-                                    
 
-                                    
+
+
                                     <div class="row">
                                         <div class="col-md-12">
-                                             <h6 style="margin:10px;" class="modal-title text-primary padding-top">Other Allownes</h6>
+                                            <h6 style="margin:10px;" class="modal-title text-primary padding-top">Other Allownes</h6>
                                         </div>
                                     </div>
                                     <hr>
@@ -196,8 +216,8 @@
                                             <input class="form-control" type="text" placeholder="amount" name="amount" id="">
                                         </div>
                                     </div>
-                                    
-                                    
+
+
                                 </div>
 
 
@@ -213,21 +233,21 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <select class="form-control" name="deductions" id="">
-                                        <option class="form-control" value="" selected> Select Deductions</option>
+                                                <option class="form-control" value="" selected> Select Deductions</option>
 
-                                    </select>
+                                            </select>
                                         </div>
                                         <div class="col-md-6">
                                             <input class="form-control" type="text" name="" id="">
-                                    
+
                                         </div>
                                     </div>
-                                    
 
-                                    
+
+
                                     <div class="row">
                                         <div class="col-md-12">
-                                             <h6 style="margin:10px;" class="modal-title text-primary padding-top">Other Deductions</h6>
+                                            <h6 style="margin:10px;" class="modal-title text-primary padding-top">Other Deductions</h6>
                                         </div>
                                     </div>
                                     <hr>
@@ -239,8 +259,8 @@
                                             <input class="form-control" type="text" placeholder="amount" name="amount" id="">
                                         </div>
                                     </div>
-                                    
-                                    
+
+
                                 </div>
 
 
@@ -285,30 +305,30 @@
                     </div>
                 </form>
             </div>
- 
-   
-
-
-    <!-- creating paySlip end -->>
 
 
 
+
+            <!-- creating paySlip end -->>
 
 
 
 
 
 
-    </main>
-    <!--end page main-->
 
-    <!--start overlay-->
-    <div class="overlay nav-toggle-icon"></div>
-    <!--end overlay-->
 
-    <!--Start Back To Top Button-->
-    <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
-    <!--End Back To Top Button-->
+
+        </main>
+        <!--end page main-->
+
+        <!--start overlay-->
+        <div class="overlay nav-toggle-icon"></div>
+        <!--end overlay-->
+
+        <!--Start Back To Top Button-->
+        <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+        <!--End Back To Top Button-->
 
     </div>
     <!--end wrapper-->
