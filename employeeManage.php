@@ -73,7 +73,7 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
                         <a href="addEmployee.php" class="btn btn-primary bx-pull-right mb-3">Add Employee</a>
-                            <table class="table table-striped">
+                            <table class="table table-striped table-bordered mydataTable" >
                                 <tr>
                                     <th>SL</th>
                                     <th>Name</th>
@@ -170,7 +170,13 @@
     <script>
         new PerfectScrollbar(".best-product")
         new PerfectScrollbar(".top-sellers-list")
+        
+       
 
+    </script>
+    
+    <script>
+         $('.mydataTable').DataTable();
     </script>
 
 </body>

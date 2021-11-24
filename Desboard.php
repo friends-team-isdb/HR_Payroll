@@ -1,4 +1,5 @@
 <?php 
+require "connect.php";
 session_start();
 if(!isset($_SESSION['userName'])){
   header("location:Login.php");  
@@ -67,8 +68,14 @@ if(!isset($_SESSION['userName'])){
                   <div class="card-body">
                       <div class="d-flex align-items-center">
                           <div>
+                             <?php 
+                              $sql="SELECT COUNT(employee_name) as Total From employee";
+                              $query=mysqli_query($conn,$sql);
+                            $num=mysqli_fetch_array($query);
+                              
+                              ?>
                               <p class="mb-0 text-secondary">Total Employees</p>
-                              <h4 class="my-1">4805</h4>
+                              <h4 class="my-1"><?php echo $num['Total'];?></h4>
                          
                           </div>
                           <div class="widget-icon-large bg-gradient-purple text-white ms-auto"><i class="bi bi-basket2-fill"></i>
