@@ -1,5 +1,6 @@
 <?php 
 require "connect.php";
+date_default_timezone_set("Asia/Dhaka");
 session_start();
 if(!isset($_SESSION['userName'])){
   header("location:Login.php");  
@@ -119,9 +120,16 @@ if(!isset($_SESSION['userName'])){
                   <div class="card-body">
                       <div class="d-flex align-items-center">
                           <div>
+                              <?php 
+                              $today=date("Y-m-d");
+                              $sqls="SELECT COUNT(leave_start_date) as leav From leaves WHERE leave_start_date='$today'";
+                              $querys=mysqli_query($conn,$sqls);
+                            $nums=mysqli_fetch_array($querys);
+                              
+                              ?>
                               <p class="mb-0 text-secondary">Onleave Today</p>
-                              <h4 class="my-1">3</h4>
-<!--                              <p class="mb-0 font-13 text-success"><i class="bi bi-caret-up-fill"></i> 12.2% from last week</p>-->
+                              <h4 class="my-1"><?php echo $nums['leav'];?></h4>
+                            
                           </div>
                           <div class="widget-icon-large bg-gradient-info text-white ms-auto"><i class="bi bi-bar-chart-line-fill"></i>
                           </div>

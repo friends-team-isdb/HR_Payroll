@@ -171,13 +171,11 @@
         new PerfectScrollbar(".best-product")
         new PerfectScrollbar(".top-sellers-list")
         
-       
+       $('.mydataTable').DataTable();
 
     </script>
     
-    <script>
-         $('.mydataTable').DataTable();
-    </script>
+    
 
 </body>
 
