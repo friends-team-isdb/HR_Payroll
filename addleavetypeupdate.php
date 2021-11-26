@@ -1,4 +1,3 @@
-<?php require "connect.php";?>
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -62,47 +61,45 @@
               
 <!--           Enter Your Code here-->
     <div class="modal-content">
-      <div class="forms-body">
-        
-        <div class="row">
+<div class="forms-body">
+    <?php
+            
+            require 'connect.php';
+            
+            $Id=$_GET['aid'];
+            $sql="SELECT * FROM leave_type WHERE leave_type_id='$Id';";
+            $query= mysqli_query($conn,$sql);
+            while ($row= mysqli_fetch_array($query)){
+                
+            
+       ?>
+    <form action="addleavetypeupdatedetails.php" method="post" enctype="multipart/form-data">
+       
+       <div class="row">
            <div class="col-md-12">
-               <h3 style="margin:10px;">Manage Leave Type</h3>
+               <h3 style="margin:10px;">Update Leave Type</h3>
            </div>
        </div>
        <hr>
-<!--       Enter Code Here-->
-      <div class="row">
-          <div class="col-md-12">
-          <a href="addLeaveType.php" class="btn btn-primary bx-pull-right mb-3">Add Leave Type</a>
-              <table class="table table-striped">
-                 <tr>
-                     <th>Sl</th>
-                     <th>Leave Type</th>
-                     <th>Action</th>
-                 </tr> 
-                 <?php 
-                    include 'connect.php';
-                    $n=1;
-                    $sql = "SELECT * FROM leave_type";
-                    $query=mysqli_query($conn,$sql);
-                    while($row=mysqli_fetch_array($query)){
-                    ?>
-                    <tr>
-                      <td><?php echo $n++ ?></td>
-                      <td><?php echo $row[1] ?></td>
-                      <td>
-                        <a class="btn btn-danger" href="leavemanagedelete.php?aid=<?php echo $row[0]?>">Delete</a>
-                        <a class="btn btn-success" href="addleavetypeupdate.php?aid=<?php echo $row[0]?>">Update</a>
-                      </td>
-                    </tr>
-                    <?php }?> 
-                  
-              </table>
-          </div>
-      </div>
        
+       <div class="row">
+               <div class="col-md-4"></div>
+               <div class="col-md-4">
+                   <input type="hidden" value="<?php echo $row['0'];?>" name="Id" />
+                   <input class="form-control " type="text" name="leavetype"  value="<?php echo $row['1'];?>">
+               </div>
+               <div class="col-md-4">
+                   <input class="btn btn-primary  " type="submit" name="update"  value="update">
+               </div>
+               
+           
+           
+       </div>
         
-      </div>
+    </form>
+    
+    <?php }?>
+    </div>
     </div>
 
 
@@ -155,3 +152,4 @@
 </body>
 
 </html>
+
