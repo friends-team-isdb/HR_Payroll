@@ -62,47 +62,39 @@
 <!--           Enter Your Code here-->
     <div class="modal-content">
       <div class="forms-body">
-        
-        <div class="row">
-           <div class="col-md-12">
-               <h3 style="margin:10px;">Manage Employee Type</h3>
-           </div>
-       </div>
-       <hr>
-      
-<!--      Enter Code Here-->
-        <div class="row">
-          <div class="col-md-12 col-sm-12">
-          <a href="AddEmployeeType.php" class="btn btn-primary bx-pull-right mb-3">Add Employee Type</a>
-            <table class="table table-striped">
-              <tr>
-                <th>SL</th>
-                <th>Employee Type</th>
-                <th>Action</th>
-              </tr>
-              <?php 
-              include 'connect.php';
-              $n=1;
-              $sql = "SELECT * FROM employee_type";
-              $query=mysqli_query($conn,$sql);
-              while($row=mysqli_fetch_array($query)){
-              ?>
-              <tr>
-                <td><?php echo $n++?></td>
-                <td><?php echo $row[1]?></td>
-                <td>
-                  <a class="btn btn-danger" href="emptypemanagedelete.php?aid=<?php echo $row[0]?>">Delete</a>
-                  <a class="btn btn-success" href="mngemptypeupdate.php?aid=<?php echo $row[0]?>">Update</a>
-                </td>
-              </tr>
-              <?php }?>
-              
+          
+          <?php 
+          
+            require 'connect.php';
+            
+            $Id=$_GET['aid'];
+            $sql="SELECT * FROM employee_type WHERE employee_Type_id='$Id';";
+            $query= mysqli_query($conn,$sql);
+            while ($row= mysqli_fetch_array($query)){
+          
+          
+          ?>
+          
+        <form action="mngemptypeupdatedetails.php" method="post" enctype="multipart/form-data">      
+            <div class="row">
+                <div class="col-md-12">
+                  <h3 style="margin:10px;">Update Employee Type</h3>
+                </div>
+            </div><hr>
 
-            </table>
-          </div>
-        </div>
-      
-      
+              <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <input type="hidden" name="Id" value="<?php echo $row['0'];?>" >
+                    <input type="text" name="employeeType"  class="form-control " value="<?php echo $row['1'];?>">
+                
+                </div>
+                <div class="col-md-3">
+                      <input type="submit" name="update" class="btn btn-primary"  value="Update">
+                </div>
+              </div>
+        </form>
+            <?php }?>
       </div>
     </div>
 
@@ -156,3 +148,4 @@
 </body>
 
 </html>
+
