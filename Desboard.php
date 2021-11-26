@@ -153,6 +153,52 @@ if(!isset($_SESSION['userName'])){
                         </div>
                     </div>
                 </div>
+                
+                <div class="col">
+                    <div class="card radius-10">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div>
+                                    <?php 
+                              $today=date("Y-m-d");
+                              $sqls="SELECT COUNT(leave_start_date) as leav From leaves WHERE leave_start_date='$today'";
+                              $querys=mysqli_query($conn,$sqls);
+                            $nums=mysqli_fetch_array($querys);
+                              
+                              ?>
+                                    <p class="mb-0 text-secondary">Employee Added Today</p>
+                                    <h4 class="my-1"><?php echo $nums['leav'];?></h4>
+
+                                </div>
+                                <div class="widget-icon-large bg-gradient-info text-white ms-auto"><i class="bi bi-bar-chart-line-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card radius-10">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div>
+                                    <?php 
+                              $today=date("Y-m-d");
+                              $sqls="SELECT COUNT(leave_start_date) as leav From leaves WHERE leave_start_date='$today'";
+                              $querys=mysqli_query($conn,$sqls);
+                            $nums=mysqli_fetch_array($querys);
+                              
+                              ?>
+                                    <p class="mb-0 text-secondary">Total Claim</p>
+                                    <h4 class="my-1"><?php echo $nums['leav'];?></h4>
+
+                                </div>
+                                <div class="widget-icon-large bg-gradient-info text-white ms-auto"><i class="bi bi-bar-chart-line-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!--end row-->
 
