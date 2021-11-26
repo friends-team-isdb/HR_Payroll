@@ -65,7 +65,6 @@
     <?php
             
             require 'connect.php';
-            
             $Id=$_GET['aid'];
             $sql="SELECT * FROM leave_type WHERE leave_type_id='$Id';";
             $query= mysqli_query($conn,$sql);
