@@ -103,7 +103,7 @@
                   <td><?php echo $row['leave_for'] ?></td>
                   <td><?php echo $row['supported_document'] ?></td>
                   <td> 
-                      <a class="btn btn-danger" href="">Delete</a>
+                      <a class="btn btn-danger" href="leavemanagedelete.php?aid=<?php echo $row[0];?>">Delete</a>
                       <a class="btn btn-success" href="">Update</a>
                   </td>
                 </tr>
