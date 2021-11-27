@@ -104,7 +104,7 @@
                   <td><?php echo $row['supported_document'] ?></td>
                   <td> 
                       <a class="btn btn-danger" href="leavemanagedelete.php?aid=<?php echo $row[0];?>">Delete</a>
-                      <a class="btn btn-success" href="">Update</a>
+                      <a class="btn btn-success" href="leavemanageupdate.php?id=<?php echo $row[0];?>">Update</a>
                   </td>
                 </tr>
                 <?php }?>
