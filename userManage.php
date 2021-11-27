@@ -100,7 +100,7 @@
                 <td><?php echo $row['account_creation_date']?></td>
                 <td>
                   <a class="btn btn-danger" href="usermanagedelete.php?aid=<?php echo $row['user_id'];?>">Delete</a>
-                  <a class="btn btn-success" href="update.php?aid=<?php echo $row['user_id'];?>">Update</a>
+                  <a class="btn btn-success" href="userupdate.php?aid=<?php echo $row['user_id'];?>">Update</a>
                 </td>
               </tr>
               <?php } ?>
