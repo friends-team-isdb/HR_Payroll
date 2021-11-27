@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -62,44 +63,35 @@
 <!--           Enter Your Code here-->
     <div class="modal-content">
       <div class="forms-body">
+        <?php
+            require 'connect.php';
+            
+            $Id=$_GET['aid'];
+            $sql="SELECT * FROM salary_type WHERE salary_Type_id='$Id'";
+            $query= mysqli_query($conn, $sql);
+            
+            while ($row= mysqli_fetch_array($query)){
         
-        <div class="row">
-           <div class="col-md-12">
-               <h3 style="margin:10px;">Manage Salary Type</h3>
-           </div>
-       </div>
-       <hr>
-      
-        <div class="row">
-          <div class="col-md-12 col-sm-12">
-          <a href="addSalaryType.php" class="btn btn-primary bx-pull-right mb-3">Add Salary Type</a>
-            <table class="table table-striped" >
-              <tr>
-                <th>SL</th>
-                <th>Salary Type</th>
-                <th>Action</th>
-              </tr>
-                <?php 
-                    include 'connect.php';
-		    $n=1;
-                    $sql="SELECT * FROM salary_type";
-                    $qurey=mysqli_query($conn,$sql);
-		    while($row= mysqli_fetch_array($qurey)){
-		?>
-		    <tr>
-		        <td><?php echo $n++?></td>
-		        <td><?php echo $row[1]?></td>
-                        <td>
-                            <a class="btn btn-danger" href="salarymanagedelete.php?aid=<?php echo $row[0]?>">Delete</a>
-		            <a class="btn btn-success" href="addsalaryupdate.php?aid=<?php echo $row[0]?>">Update</a>
-		        </td>
-		    </tr>
-		    <?php }?>
-            </table>
-          </div>
-        </div>
-      
-      
+        ?>
+        <form action="addsalaryupdatedetails.php" method="post" enctype="multipart/form-data">      
+            <div class="row">
+                <div class="col-md-12">
+                  <h3 style="margin:10px;">Update Salary Type</h3>
+                </div>
+            </div><hr>
+
+              <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <input type="hidden" name="Id" value="<?php echo $row['0']?>">    
+                    <input type="text" name="salaryType" value="<?php echo $row['1']?>" class="form-control mt-3" >
+                </div>
+                <div class="col-md-3">
+                      <input type="submit" name="update"  class="btn btn-primary pull-right mt-3" value="Update">
+                </div>
+              </div>
+        </form>
+            <?php } ?>
       </div>
     </div>
 
@@ -153,3 +145,4 @@
 </body>
 
 </html>
+
