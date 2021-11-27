@@ -218,7 +218,9 @@
       
       <?php 
     if(isset($_POST['submit'])){
-
+        
+    date_default_timezone_set("asia/dhaka");
+    $today=date("Y-m-d");
     $fullname=$_POST['employ_name'];
     $email=$_POST['employ_email'];
     $gender=$_POST['gen'];
@@ -253,15 +255,27 @@
         
         
     }
-    
+    $sq="SELECT * FROM employee WHERE email='$email'";
+    $results=mysqli_query($conn,$sq);
+    $nums=mysqli_num_rows($results);
+    if($nums==1){
+        echo "Employee  Already Exits";
+    }else{
     $sql="INSERT INTO employee (employee_type_id,department_id,designation_id,employee_name, appointment_date, date_of_birth, employee_code, email, joining_date, employee_status, religion, nationality, district, Countries, postal_code, Passport_or_NID, gender, maritial_Status, present_address, permanent_address, picture, phone, employement_status) VALUES ( '$EmptypeId', '$deptId','$designationId', '$fullname', '$appointdate', '$DOB', '$Empcode', '$email', '$joindate', '$status', '$religion', '$nationality', '$distic', '$country', '$postCode', '$passNid', '$gender', '$marital_status', '$preaddress', '$peraddress', '$path', '$phone', '$Empstatus');";
     $query= mysqli_query($conn, $sql);
-        if($query){
-            echo 'Insert Data Successfully';
-        }
-        else{
-            echo 'Data Insert Failed!';
-        }
+    header("location:employeeManage.php");
+    } 
+    
+    $s="SELECT * FROM user_table WHERE email='$email'";
+    $result=mysqli_query($conn,$s);
+    $num=mysqli_num_rows($result);
+    if($num==1){
+        echo "User  Already Exits";
+    }else{
+       $sqls="INSERT INTO `user_table` ( `user_name`, `full_name`, `email`, `phone`, `password`, `role_id`, `account_creation_date`, `status`) VALUES ('$fullname', '$fullname', '$email', '$phone', '$Emppass', '', '$today', '$Empstatus')";
+    $query=mysqli_query($conn,$sqls);
+        header("location:userManage.php");
+    }
     
     }
     
