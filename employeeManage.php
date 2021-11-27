@@ -105,7 +105,7 @@
                                  
                                     <td style="color:green;"><?php echo $row['employee_status']?></td>
                                     <td> <a class="btn btn-danger" href="manageemployeedelete.php?aid=<?php echo $row['employee_id']; ?>">Delete</a>
-                                     <a class="btn btn-success" href="">Update</a>
+                                     <a class="btn btn-success" href="empmngupdate.php?aid=<?php echo $row['employee_id']; ?>">Update</a>
                                      <a class="btn btn-info" href="view.php?email=<?php echo $row['email'];?>">View</a>
                                      </td>
                                     
