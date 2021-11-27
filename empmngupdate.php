@@ -167,7 +167,7 @@
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-control" name="employment_id" value="<?php echo $row[''];?>">
+            <select class="form-control" name="employment_id" >
                 
                 <option value="">Select Employee Type</option>
                 
@@ -188,7 +188,7 @@
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-control" name="department_id" value="<?php echo $row[''];?>">
+            <select class="form-control" name="department_id" >
                 
                 <option value="">Select Department</option>
                 
@@ -210,7 +210,7 @@
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-control" name="designation" value="<?php echo $row[''];?>">
+            <select class="form-control" name="designation" >
                 
                 <option value="">Select Designaton</option>
                 
