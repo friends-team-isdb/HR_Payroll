@@ -131,7 +131,7 @@
             $start=$_POST['startdate'];
             $end=$_POST['enddate'];
             
-                $sqll="Select * from attendance Where attendancedate Between '$start' AND  '$end'";
+                $sqll="Select * from attendance Where employee_id='$emp' && attendancedate Between '$start' AND  '$end'";
                 $qurr=mysqli_query($conn,$sqll);
                while($row=mysqli_fetch_array($qurr)) {
                    
