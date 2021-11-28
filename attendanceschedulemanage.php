@@ -74,8 +74,8 @@ require "connect.php";
            <hr>
            <div class="row">
                 <div class="col-md-12 col-sm-12">
-                <a href="attendanceSchedule.php" class="btn btn-primary bx-pull-right mb-3">Add Attendance Schedule</a>
-                    <table class="table table-striped table-bordered mydataTable" >
+                <!--<a href="attendanceSchedule.php" class="btn btn-primary bx-pull-right mb-3">Add Attendance Schedule</a>-->
+                <table class="table table-striped table-bordered mydataTable" style="text-align:center;" >
                         <tr>
                             <th>SL</th>
                             <th>Sign_In_Time</th>
@@ -104,8 +104,8 @@ require "connect.php";
                             <td><?php echo $row['Late_Count_time'];?></td> 
                             <td><?php echo $row['Absent_time'];?></td>
                             <td> 
-                                <a class="btn btn-danger" href="?aid=<?php echo $row['Schedule_id']; ?>">Delete</a>
-                                <a class="btn btn-success" href="?aid=<?php echo $row['Schedule_id']; ?>">Update</a>
+                                <!--<a class="btn btn-danger" href="?aid=<?php echo $row['Schedule_id']; ?>">Delete</a>-->
+                                <a class="btn btn-success" href="attendancescheduleupdate.php?aid=<?php echo $row['Schedule_id']; ?>">Update</a>
                              </td>
 
                         </tr>
