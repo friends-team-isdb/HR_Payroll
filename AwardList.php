@@ -3,9 +3,11 @@
 require "connect.php";
 if(isset($_POST['submit'])){
     
+    $employee=$_POST['employee'];
     $awarddate=$_POST['awarddate'];
     $EmployeeName=$_POST['EmployeeName'];
     $AwardAmount=$_POST['AwardAmount'];
+    $leaves_status=$_POST['leaves_status'];
     $Description=$_POST['Description'];
     $datet=$_POST['datet'];
      
@@ -16,7 +18,7 @@ if(isset($_POST['submit'])){
     if($num==1){
         echo "Award Already Exits";
     }else{
-        $sql="INSERT INTO award_list(award_date,award_of_name,total_amount,description,month_year) Values('$awarddate','$EmployeeName','$AwardAmount','$Description','$datet')";
+        $sql="INSERT INTO `award_list` (`employee_id`, `award_date`, `award_of_name`, `total_amount`, `leave_status`, `description`, `month_year`) VALUES ('$employee', '$awarddate', '$EmployeeName', '$AwardAmount', '$leaves_status', '$Description', '$datet')";
         $qurey=mysqli_query($conn,$sql);
         echo "Award Added!";
     }   
@@ -108,7 +110,7 @@ if(isset($_POST['submit'])){
                            $query=mysqli_query($conn,$sql);
                             $rowcount=mysqli_num_rows($query);
                             ?>
-                            <select class="form-control" name="" id="">
+                            <select class="form-control" name="employee" id="">
 
                                 <option value="">Select Employee</option>
 
@@ -138,6 +140,31 @@ if(isset($_POST['submit'])){
                 <div class="row">
                     <div class="col-md-12">
                         <input type="number" class="form-control mt-3 mb-3" name="AwardAmount" id="" placeholder="Award Amount">
+                    </div>
+                </div>
+               <div class="row">
+                    <div class="col-md-12">
+                       <?php 
+    
+                           $sql="SELECT leave_status FROM leaves";
+                           $query=mysqli_query($conn,$sql);
+                            $rowcount=mysqli_num_rows($query);
+                            ?>
+                            <select class="form-control" name="leaves_status" id="">
+
+                                <option value="">Select Leaves Status</option>
+
+                                <?php 
+                                for($i=1;$i<=$rowcount;$i++){
+                                    $row=mysqli_fetch_array($query);
+                                    ?>
+                                    <option value="<?php echo $row['leave_status'];?>"><?php echo $row['leave_status'];?></option>
+                                    <?php
+                                }
+
+                                 ?>
+
+                            </select>
                     </div>
                 </div>
                 <div class="row">
