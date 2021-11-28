@@ -1,3 +1,22 @@
+<?php 
+require "connect.php";
+if(isset($_POST['submit'])){
+    
+    $BankName=$_POST['BankName'];
+    $BranchName=$_POST['BranchName'];
+    $City=$_POST['City'];
+    $AccountNo=$_POST['AccountNo'];
+    $SwiftCode=$_POST['SwiftCode'];
+    
+    
+    
+        $sqla="INSERT INTO bank(bank_name,branch,city,account_no,swift_code) Values('$BankName','$BranchName','$City','$AccountNo','$SwiftCode')";
+        $qureya=mysqli_query($conn,$sqla);    
+    }   
+
+?>
+
+
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -99,19 +118,19 @@
                         </div>
                     </div>
                 
-                  <input type="text" name="" id="" class="form-control mt-3" placeholder="Bank Name">
+                  <input type="text" name="BankName" id="" class="form-control mt-3" placeholder="Bank Name">
                 
-                  <input type="text" name="" id="" class="form-control mt-3" placeholder="Branch Name">
+                  <input type="text" name="BranchName" id="" class="form-control mt-3" placeholder="Branch Name">
                 
-                  <input type="text" name="" id="" class="form-control mt-3" placeholder="City">
-               
-                  <input type="number" name="" id="" class="form-control mt-3" placeholder="Account No">
+                  <input type="text" name="City" id="" class="form-control mt-3" placeholder="City">
+
+                  <input type="number" name="AccountNo" id="" class="form-control mt-3" placeholder="Account No">
               
                 
-                  <input type="text" name="" id="" class="form-control mt-3" placeholder="Swift Code">
+                  <input type="text" name="SwiftCode" id="" class="form-control mt-3" placeholder="Swift Code">
                 
                 
-                  <input type="submit" name="" id="" class="btn btn-primary pull-right mt-3" value="Save">
+                  <input type="submit" name="submit" id="" class="btn btn-primary pull-right mt-3" value="Save">
                
                   
               </div>
