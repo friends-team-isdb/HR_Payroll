@@ -2,7 +2,7 @@
 
 require "connect.php";
 if(isset($_POST['submit'])){
-    
+    $employee=$_POST['employee'];
     $Additioncode=$_POST['Additioncode'];
     $Description=$_POST['Description'];
     $Amount=$_POST['Amount'];
@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
     if($num==1){
         echo "Additon Already Exits";
     }else{
-        $sql="INSERT INTO addition(addition_code,description,amount,month,addition_year,addition_status) Values('$Additioncode','$Description','$Amount','$month','$year','$Status')";
+        $sql="INSERT INTO `addition` (`employee_id`, `addition_code`, `description`, `amount`, `month`, `addition_year`, `addition_status`) VALUES ('$employee', '$Additioncode', '$Description', '$Amount', '$month', '$year', '$Status')";
         $qurey=mysqli_query($conn,$sql);
         echo "Addition Completed!";
     }   
@@ -105,7 +105,7 @@ if(isset($_POST['submit'])){
                     $query=mysqli_query($conn,$sql);
                     $rowcount=mysqli_num_rows($query);
                     ?>
-                    <select class="form-control" name="" id="">
+                    <select class="form-control" name="employee" id="">
 
                         <option value="">Select Employee</option>
 
