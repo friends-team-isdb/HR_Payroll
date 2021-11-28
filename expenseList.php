@@ -2,7 +2,7 @@
 
 require "connect.php";
 if(isset($_POST['submit'])){
-    
+    $employee=$_POST['employee'];
     $date=$_POST['date'];
     $ExpenseDescription=$_POST['ExpenseDescription'];
     $ExpenseAmount=$_POST['ExpenseAmount'];
@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
     if($num==1){
         echo "Expense Already Exits";
     }else{
-        $sql="INSERT INTO expense_list(expense_date,expense_description,amount) Values('$date','$ExpenseDescription','$ExpenseAmount')";
+        $sql="INSERT INTO `expense_list` (`employee_id`, `expense_date`, `expense_description`, `amount`) VALUES ( '$employee', '$date', '$ExpenseDescription', '$ExpenseAmount')";
         $qurey=mysqli_query($conn,$sql);
         echo "Expense Added!";
     }   
@@ -104,7 +104,7 @@ if(isset($_POST['submit'])){
                             $query=mysqli_query($conn,$sql);
                             $rowcount=mysqli_num_rows($query);
                             ?>
-                            <select class="form-control" name="" id="">
+                            <select class="form-control" name="employee" id="">
 
                                 <option value="">Select Employee</option>
 
