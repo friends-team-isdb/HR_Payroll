@@ -121,8 +121,8 @@
                                 <table class="table-sm table-bordered emply">
                                 <?php
                                             require "connect.php";
-                                            
-                                            $sqlss=" SELECT * FROM salary";
+                                             $idd=$_GET["aid"];
+                                            $sqlss=" SELECT * FROM salary Where employe_id='$idd'";
                                             $querryss= mysqli_query($conn, $sqlss);
                                             while ($rowss= mysqli_fetch_array($querryss)){
                                         ?>
