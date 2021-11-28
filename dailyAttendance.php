@@ -143,11 +143,14 @@ date_default_timezone_set("Asia/Dhaka");
                                     <th>Name</th>
                                     <th>SingIn</th>
                                     <th>Singout</th>
+                                    <th>Late count</th>
                                     <th>Status</th>
                                 </tr>
                                 <tr>
                                     <form action="" method="post">
-                                        <td><?php echo $c['employee_name'];?>
+                                       <input class="form-control" type="hidden" name="n" id="" value="<?php echo $c['employee_name'];?>">
+                                        <td>
+                                            <input class="form-control" type="text" name="n" id="" value="<?php echo $c['employee_name'];?>" disabled>
 
                                         </td>
                                         <td>
@@ -155,6 +158,9 @@ date_default_timezone_set("Asia/Dhaka");
                                         </td>
                                         <td>
                                             <input class="form-control" type="time" name="sinut" id="">
+                                        </td>
+                                        <td>
+                                            <input class="form-control" type="time" name="lateCount" id="">
                                         </td>
                                         <td>
                                             <select class="form-control" name="status" id="">
@@ -179,13 +185,22 @@ date_default_timezone_set("Asia/Dhaka");
 
             <?php 
             if(isset($_POST['attendance'])){
+                 @$nam=$_POST['n'];
                 $today=date("Y-m-d");
                 $In=$_POST['signi'];
                 $Out=$_POST['sinut'];
+                $late=$_POST['lateCount'];
                 $status=$_POST['status'];
-                $t="SELECT * FROM attendance Where employee_id='$name' && attendancedate='$today'";
+                $t="SELECT * FROM attendance Where employee_id='$nam' && attendancedate='$today'";
                 $result=mysqli_query($conn, $t);
-                $num=mysqli_num_rows()
+                $num=mysqli_num_rows($result);
+                if($num==1){
+                    echo "<script>alert('Already Attendaced')</script>";
+                }else{
+                    $sql="INSERT INTO `attendance` (`employee_id`, `singInTime`, `singOutTime`, `lateCountTime`, `attendaneStatus`, `attendancedate`) VALUES ('$nam', '$In', '$Out', '$late', '$status', '$today')";
+                    $q=mysqli_query($conn,$sql);
+                    echo "<script>alert(' Attendaced Inserted')</script>";
+                }
             }
             
             ?>
