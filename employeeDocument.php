@@ -82,7 +82,7 @@
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-control" name="" id="">
+            <select class="form-control" name="employee" id="">
                 
                 <option value="">Select Employee</option>
                 
@@ -125,10 +125,11 @@
         <?php
             
         if(isset($_POST['submit'])){
+            $employee=$_POST['employee'];
             $document_name=$_POST['document_name'];
             $document_status=$_POST['document_status'];
             
-           $sql="INSERT INTO employee_document(emlpoyee_id, document_Name, document_Status) VALUES (NULL, '$document_name', '$document_status');";
+           $sql="INSERT INTO `employee_document` (`Emlpoyee_id`, `Document_Name`, `Document_Status`) VALUES ('$employee', '$document_name', '$document_status')";
            $querry= mysqli_query($conn, $sql);
            
            if($querry){
