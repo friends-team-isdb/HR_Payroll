@@ -2,7 +2,7 @@
 
 require "connect.php";
 if(isset($_POST['submit'])){
-    
+    $employee=$_POST['employee'];
     $Deductioncode=$_POST['Deductioncode'];
     $Description=$_POST['Description'];
     $Amount=$_POST['Amount'];
@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
     if($num==1){
         echo "Deduction Already Exits";
     }else{
-        $sql="INSERT INTO deduction(deduction_code,description,amount,month,deduction_year,deduction_status) Values('$Deductioncode','$Description','$Amount','$month','$year','$Status')";
+        $sql="INSERT INTO `deduction` (`employee_id`, `deduction_code`, `description`, `amount`, `month`, `deduction_year`, `deduction_status`) VALUES ('$employee', '$Deductioncode', '$Description', '$Amount', '$month', '$year', '$Status')";
         $qurey=mysqli_query($conn,$sql);
         echo "Deduction Completed!";
     }   
@@ -105,7 +105,7 @@ if(isset($_POST['submit'])){
              $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-control" name="" id="">
+            <select class="form-control" name="employee" id="">
                 
                 <option value="">Select Employee</option>
                 
