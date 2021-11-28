@@ -34,6 +34,9 @@ body {
     background-color: #f7f8fa;
     overflow-x: hidden;
 }
+.line-margin{
+    margin-top: 10px;
+}
 
 .wrapper{
     width: auto;

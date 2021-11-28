@@ -6,9 +6,20 @@ if(isset($_POST['submit'])){
     $signout=$_POST['signout'];
     $latecount=$_POST['latecount'];
     $absent=$_POST['absent'];
+<<<<<<< HEAD
     $sql="INSERT INTO attendance_schedule(signin_in,sign_out,late_count_time,absent_time) Values('$signin','$signout','$latecount','$absent')";
     $qureyss=mysqli_query($conn,$sql);
     header("location:attendanceschedulemanage.php");
+=======
+
+    
+   
+    
+   
+    
+        $sql="INSERT INTO `attendance_schedule` (`Signin_in_time_setup`, `Sign_out_time_setup`, `Late_Count_time`, `Absent_time`) VALUES ('$signin', '$signout', '$latecount', '$absent')";
+        $qureyss=mysqli_query($conn,$sql);
+>>>>>>> 77400a6b5924a26769f3443fdf7dc0246bc4971b
                      
        
 }
