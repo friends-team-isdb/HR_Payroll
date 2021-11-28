@@ -1,3 +1,8 @@
+<?php 
+date_default_timezone_set("Asia/Dhaka");
+
+?>
+
 
 <!doctype html>
 <html lang="en" class="light-theme">
@@ -29,6 +34,7 @@
     <link href="assets/css/light-theme.css" rel="stylesheet" />
     <link href="assets/css/semi-dark.css" rel="stylesheet" />
     <link href="assets/css/header-colors.css" rel="stylesheet" />
+
 
     <title>HR PAYROLL SOFTWARE</title>
     <style>
@@ -73,7 +79,7 @@
 
                         <div class="row">
                             <div class="col-md-4">
-                            <?php
+                                <?php
 
                                 $sql = "SELECT employee_name FROM employee";
                                 $query = mysqli_query($conn, $sql);
@@ -81,14 +87,14 @@
                                 ?>
                                 <select class="form-control" name="select_employee" id="">
 
-                                <option value="">Select Employee</option>
+                                    <option value="">Select Employee</option>
 
-                                <?php
+                                    <?php
                                 for ($i = 1; $i <= $rowcount; $i++) {
                                     $row = mysqli_fetch_array($query);
                                 ?>
                                     <option value="<?php echo $row['employee_name']; ?>"><?php echo $row['employee_name']; ?></option>
-                                <?php
+                                    <?php
                                 }
 
                                 ?>
@@ -97,10 +103,10 @@
 
                             </div>
                             <div class="col-md-4">
-                                <input class="form-control" type="date" name="" id="">
+                                <input class="form-control" name="" id="" value="<?php echo date("Y-m-d");?>">
                             </div>
                             <div class="col-md-4">
-                                <input class="btn btn-primary" type="submit" name="" id="" value="Get Employee List">
+                                <input class="btn btn-primary" type="submit" name="submit" id="" value="Get Employee List">
                             </div>
 
 
@@ -108,20 +114,81 @@
                         </div>
 
 
-                        <!-- <div class="row">
-                            <div class="col-md-12">
-                                
-                            </div>
-                        </div> -->
+
 
                     </form>
                 </div>
             </div>
 
+            <div class="modal-content line-margin">
+                <div class="forms-body">
+                    <div class="row ">
+                        <div class="col-md-12">
 
 
+                            <?php 
+                            @$name=$_POST['select_employee'];
+                    if(isset($_POST['submit'])){
+                        
+                     
+                        
+                        $a="SELECT * FROM employee Where employee_name='$name'";
+                        $b=mysqli_query($conn, $a);
+                        while($c=mysqli_fetch_array($b)){
+                            
+                        ?>
 
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>SingIn</th>
+                                    <th>Singout</th>
+                                    <th>Status</th>
+                                </tr>
+                                <tr>
+                                    <form action="" method="post">
+                                        <td><?php echo $c['employee_name'];?>
 
+                                        </td>
+                                        <td>
+                                            <input class="form-control" type="time" name="signi" id="">
+                                        </td>
+                                        <td>
+                                            <input class="form-control" type="time" name="sinut" id="">
+                                        </td>
+                                        <td>
+                                            <select class="form-control" name="status" id="">
+                                                <option value="Absent">Absent</option>
+                                                <option value="present">present</option>
+                                                <option value="On Leave">On Leave</option>
+                                            </select>
+                                        </td>
+
+                                        <td> <input class="btn btn-primary" type="submit" name="attendance" id="" value="Submit"></td>
+
+                                    </form>
+
+                                </tr>
+                            </table>
+                            <?php }}?>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <?php 
+            if(isset($_POST['attendance'])){
+                $today=date("Y-m-d");
+                $In=$_POST['signi'];
+                $Out=$_POST['sinut'];
+                $status=$_POST['status'];
+                $t="SELECT * FROM attendance Where employee_id='$name' && attendancedate='$today'";
+                $result=mysqli_query($conn, $t);
+                $num=mysqli_num_rows()
+            }
+            
+            ?>
 
 
 
