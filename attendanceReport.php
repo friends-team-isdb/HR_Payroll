@@ -77,15 +77,11 @@
                     </select>
                 </div>
                 <div class="col-md-3">            
-                    <select class="form-control" name="" id="">
-                        <option value="">Select Year</option>
-                    </select>
+                    <input class="form-control" type="date" name="startdate" id="" placeholder="Start date">
                 </div>
                 <div class="col-md-3">
                                 
-                    <select class="form-control" name="" id="">
-                        <option value="">Select Month</option>
-                    </select>
+                    <input class="form-control" type="date" name="enddate" id="" placeholder="End date">
                                 
                 </div>
                 <div class="col-md-2">
