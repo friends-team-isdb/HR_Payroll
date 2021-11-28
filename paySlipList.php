@@ -158,7 +158,7 @@ date_default_timezone_set("Asia/Dhaka");
                                 <td><?php echo $row['Salary_Year'];?></td>
                                 <td><?php echo $row['salary_Month'];?></td>
                                 <td><?php echo $row['salary_Status'];?></td>
-                                <td><a class="btn btn-primary" href="payslip.php">Pay Slip</a></td>
+                                <td><a class="btn btn-primary" href="payslip.php?aid=<?php echo $row[0];?>">Pay Slip</a></td>
                             </tr>
                             <?php     }
                             }?>
