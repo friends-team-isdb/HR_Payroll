@@ -92,18 +92,18 @@ date_default_timezone_set("Asia/Dhaka");
 
                                 <select name="month" class=" form-control">
                                     <option value="">Select Month</option>
-                                    <option value="01">Jan</option>
-                                    <option value="02">Feb</option>
-                                    <option value="03">Mar</option>
-                                    <option value="04">Apr</option>
-                                    <option value="05">May</option>
-                                    <option value="06">Jun</option>
-                                    <option value="07">Jul</option>
-                                    <option value="08">Aug</option>
-                                    <option value="09">Sep</option>
-                                    <option value="10">Oct</option>
-                                    <option value="11">Nov</option>
-                                    <option value="12">Dec</option>
+                                    <option value="Jan">Jan</option>
+                                    <option value="Feb">Feb</option>
+                                    <option value="Mar">Mar</option>
+                                    <option value="Apr">Apr</option>
+                                    <option value="May">May</option>
+                                    <option value="Jun">Jun</option>
+                                    <option value="Jul">Jul</option>
+                                    <option value="Aug">Aug</option>
+                                    <option value="Sep">Sep</option>
+                                    <option value="Oct">Oct</option>
+                                    <option value="Nov">Nov</option>
+                                    <option value="Dec">Dec</option>
                                 </select>
 
                             </div>
@@ -148,6 +148,8 @@ date_default_timezone_set("Asia/Dhaka");
                                <th>Employee</th>
                                <th>Salary Year</th>
                                <th>Salary Month</th>
+                               <th>Salary Status</th>
+                               <th>Action</th>
                            </tr>
                             
                             <tr>
@@ -155,6 +157,8 @@ date_default_timezone_set("Asia/Dhaka");
                                 <td><?php echo $row['employee_id'];?></td>
                                 <td><?php echo $row['Salary_Year'];?></td>
                                 <td><?php echo $row['salary_Month'];?></td>
+                                <td><?php echo $row['salary_Status'];?></td>
+                                <td><a class="btn btn-primary" href="payslip.php">Pay Slip</a></td>
                             </tr>
                             <?php     }
                             }?>

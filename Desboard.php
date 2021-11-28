@@ -79,7 +79,7 @@ if(!isset($_SESSION['userName'])){
                                     <h4 class="my-1"><?php echo $num['Total'];?></h4>
 
                                 </div>
-                                <div class="widget-icon-large bg-gradient-purple text-white ms-auto"><i class="bi bi-basket2-fill"></i>
+                                <div class="widget-icon-large bg-gradient-purple text-white ms-auto"><i class="bi bi-person-square"></i>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +102,7 @@ if(!isset($_SESSION['userName'])){
                                     <h4 class="my-1"><?php echo $num['presnt'];?></h4>
 
                                 </div>
-                                <div class="widget-icon-large bg-gradient-success text-white ms-auto"><i class="bi bi-currency-exchange"></i>
+                                <div class="widget-icon-large bg-gradient-success text-white ms-auto"><i class="bi bi-person-check-fill"></i>
                                 </div>
                             </div>
                         </div>
@@ -170,7 +170,7 @@ if(!isset($_SESSION['userName'])){
                                     <h4 class="my-1"><?php echo $n['jnt'];?></h4>
 
                                 </div>
-                                <div class="widget-icon-large bg-gradient-info text-white ms-auto"><i class="bi bi-bar-chart-line-fill"></i>
+                                <div class="widget-icon-large bg-gradient-info text-white ms-auto"><i class="bi bi-person-plus-fill"></i>
                                 </div>
                             </div>
                         </div>
@@ -217,7 +217,7 @@ if(!isset($_SESSION['userName'])){
                                     <h4 class="my-1"><?php echo $nums['leav'];?></h4>
 
                                 </div>
-                                <div class="widget-icon-large bg-gradient-info text-white ms-auto"><i class="bi bi-bar-chart-line-fill"></i>
+                                 <div class="widget-icon-large bg-gradient-purple text-white ms-auto"><i class="bi bi-basket2-fill"></i>
                                 </div>
                             </div>
                         </div>
