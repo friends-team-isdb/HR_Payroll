@@ -2,7 +2,9 @@
 require "connect.php";
 if(isset($_POST['submit'])){
     
+    
     $BankName=$_POST['BankName'];
+    $employee=$_POST['employee'];
     $BranchName=$_POST['BranchName'];
     $City=$_POST['City'];
     $AccountNo=$_POST['AccountNo'];
@@ -10,7 +12,7 @@ if(isset($_POST['submit'])){
     
     
     
-        $sqla="INSERT INTO bank(bank_name,branch,city,account_no,swift_code) Values('$BankName','$BranchName','$City','$AccountNo','$SwiftCode')";
+        $sqla="INSERT INTO `bank` (`bank_name`, `employee_id`, `branch`, `city`, `account_no`, `swift_code`) VALUES ( '$BankName','$employee','$BranchName', '$City', '$AccountNo', '$SwiftCode')";
         $qureya=mysqli_query($conn,$sqla);    
     }   
 
@@ -99,7 +101,7 @@ if(isset($_POST['submit'])){
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-control" name="" id="">
+            <select class="form-control" name="employee" id="">
                 
                 <option value="">Select Employee</option>
                 
