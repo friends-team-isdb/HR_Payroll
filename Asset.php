@@ -3,6 +3,7 @@
 require "connect.php";
 if(isset($_POST['submit'])){
     
+    $employee=$_POST['employee'];
     $assetcode=$_POST['assetcode'];
     $assetname=$_POST['assetname'];
     $Purchasedate=$_POST['Purchasedate'];
@@ -17,7 +18,7 @@ if(isset($_POST['submit'])){
     if($num==1){
         echo "Asset Already Exits";
     }else{
-        $sql="INSERT INTO asset(asset_code,asset_name,purchase_date,inovice_no,manufacturer,serial,product_wrrenty,salary_status) Values('$assetcode','$assetname','$Purchasedate','$inviceno','$Manufacturee','$Serial','$Warrenty','$SalaryStatus')";
+        $sql="INSERT INTO `asset` (`employee_id`, `asset_code`, `asset_name`, `purchase_date`, `inovice_no`, `manufacturer`, `serial`, `product_wrrenty`, `salary_status`) VALUES ( '$employee', '$assetcode', '$assetname', '$Purchasedate', '$inviceno', '$Manufacturee', '$Serial', '$Warrenty', '$SalaryStatus')";
         $qurey=mysqli_query($conn,$sql);
         echo "Asset Added";              
     }   
@@ -105,7 +106,7 @@ if(isset($_POST['submit'])){
                                    $query=mysqli_query($conn,$sql);
                                     $rowcount=mysqli_num_rows($query);
                                     ?>
-                                    <select class="form-control" name="" id="">
+                                    <select class="form-control" name="employee" id="">
 
                                         <option value="">Select Employee</option>
 
