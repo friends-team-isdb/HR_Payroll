@@ -1,6 +1,11 @@
 <?php 
 
 require "connect.php";
+date_default_timezone_set("Asia/Dhaka");
+session_start();
+if(!isset($_SESSION['userName'])){
+  header("location:Login.php");  
+}
 if(isset($_POST['submit'])){
     $employee=$_POST['employee'];
     $Additioncode=$_POST['Additioncode'];
