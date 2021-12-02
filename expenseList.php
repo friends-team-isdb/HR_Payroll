@@ -1,7 +1,10 @@
 <?php 
 
 require "connect.php";
+
+date_default_timezone_set("Asia/Dhaka");
 if(isset($_POST['submit'])){
+    $month=date("F");
     $employee=$_POST['employee'];
     $date=$_POST['date'];
     $ExpenseDescription=$_POST['ExpenseDescription'];
@@ -13,7 +16,7 @@ if(isset($_POST['submit'])){
     if($num==1){
         echo "Expense Already Exits";
     }else{
-        $sql="INSERT INTO `expense_list` (`employee_id`, `expense_date`, `expense_description`, `amount`) VALUES ( '$employee', '$date', '$ExpenseDescription', '$ExpenseAmount')";
+        $sql="INSERT INTO `expense_list` (`employee_id`, `expense_date`, `expense_description`, `amount`,`Month`) VALUES ( '$employee', '$date', '$ExpenseDescription', '$ExpenseAmount','$month')";
         $qurey=mysqli_query($conn,$sql);
         echo "Expense Added!";
     }   
