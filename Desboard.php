@@ -229,8 +229,8 @@ if(!isset($_SESSION['userName'])){
                             <div class="d-flex align-items-center">
                                 <div>
                                     <?php 
-                              $month= date("Y-m-d");
-                              $sqls="SELECT SUM(amount) as amt from expense_list Where expense_date='$month'";
+                              $month= date("F");
+                              $sqls="SELECT SUM(amount) as amt from expense_list Where Month='$month'";
                               $querys=mysqli_query($conn,$sqls);
                             $nums=mysqli_fetch_array($querys);
                               
