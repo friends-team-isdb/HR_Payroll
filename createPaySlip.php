@@ -147,20 +147,20 @@ date_default_timezone_set("Asia/Dhaka");
                                             </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <select  name="dob-month" class=" form-control">
+                                            <select name="dob-month" class=" form-control">
                                                 <option value="">Select Month</option>
-                                                <option value="01">Jan</option>
-                                                <option value="02">Feb</option>
-                                                <option value="03">Mar</option>
-                                                <option value="04">Apr</option>
-                                                <option value="05">May</option>
-                                                <option value="06">Jun</option>
-                                                <option value="07">Jul</option>
-                                                <option value="08">Aug</option>
-                                                <option value="09">Sep</option>
-                                                <option value="10">Oct</option>
-                                                <option value="11">Nov</option>
-                                                <option value="12">Dec</option>
+                                                <option value="Jan">Jan</option>
+                                                <option value="Feb">Feb</option>
+                                                <option value="Mar">Mar</option>
+                                                <option value="Apr">Apr</option>
+                                                <option value="May">May</option>
+                                                <option value="Jun">Jun</option>
+                                                <option value="Jul">Jul</option>
+                                                <option value="Aug">Aug</option>
+                                                <option value="Sep">Sep</option>
+                                                <option value="Oct">Oct</option>
+                                                <option value="Nov">Nov</option>
+                                                <option value="Dec">Dec</option>
                                             </select>
                                         </div>
                                         <div class="col-md-2">
@@ -179,6 +179,24 @@ date_default_timezone_set("Asia/Dhaka");
                         </div><!-- col-md-12 end -->
                     </div><!-- row end -->
                     <hr>
+                    <div class="row">
+                       
+                        <div class="col-md-4">
+
+
+                            Present Count:<input class="form-control" type="text" name="" id="" disabled>
+
+                        </div>
+
+                        <div class="col-md-4">
+                            Absent Count:<input class="form-control" type="text" name="" id="" disabled>
+                        </div>
+                        <div class="col-md-4">
+                            Leave Count:<input class="form-control" type="text" name="" id="" disabled>
+                        </div>
+                    </div>
+                    
+                    <hr>
                 </form>
                 <form action="" method="post" enctype="multipart/form-data">
                     <div class="row">
@@ -188,15 +206,21 @@ date_default_timezone_set("Asia/Dhaka");
                                     <h6 class="modal-title text-primary">Allownes</h6>
                                     <hr>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-5">
                                             <select class="form-control" name="deductions" id="">
-                                                <option class="form-control" value="" selected> Select Allownes</option>
+                                                <option value="" selected> Select Allownes</option>
+                                                <option value=""> Home Allownes</option>
+                                                <option value=""> Medical Allownes</option>
+                                                <option value=""> Rent Allownes</option>
 
                                             </select>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-5">
                                             <input class="form-control" type="text" name="" id="">
 
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button class="btn btn-primary">+</button>
                                         </div>
                                     </div>
 
@@ -230,16 +254,19 @@ date_default_timezone_set("Asia/Dhaka");
                                 <div class="modal-body">
                                     <h6 class="modal-title text-primary">Deductions</h6>
                                     <hr>
-                                    <div class="row">
-                                        <div class="col-md-6">
+                                    <div class="row" id="doublehobe">
+                                        <div class="col-md-5">
                                             <select class="form-control" name="deductions" id="">
                                                 <option class="form-control" value="" selected> Select Deductions</option>
 
                                             </select>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-5">
                                             <input class="form-control" type="text" name="" id="">
 
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button class="btn btn-primary addplus" onclick="Addmore()">+</button>
                                         </div>
                                     </div>
 
@@ -356,6 +383,19 @@ date_default_timezone_set("Asia/Dhaka");
     <script>
         new PerfectScrollbar(".best-product")
         new PerfectScrollbar(".top-sellers-list")
+
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            function Addmore() {
+                var div = document.getElementById('#doublehobe');
+                $('.addplus').click(function() {
+                    $('#doublehobe').append(div);
+                });
+            }
+
+        });
 
     </script>
 
