@@ -121,6 +121,7 @@ date_default_timezone_set("Asia/Dhaka");
                     </form>
                 </div>
             </div>
+            <hr>
 
             <div class="modal-content line-margin">
                 <div class="forms-body">

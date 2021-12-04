@@ -125,13 +125,13 @@
                                                 </tr>
                                             </tbody>
 
-                                            <?php }?>
+                                           
                                             <tfoot>
 
 
                                             </tfoot>
 
-
+ <?php }?>
 
 
                                         </table>

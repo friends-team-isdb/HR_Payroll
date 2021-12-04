@@ -119,6 +119,7 @@ if(!isset($_SESSION['userName'])){
 
                 </div>
             </div>
+            <hr>
 
             <div class="modal-content">
                 <div class="forms-body">
