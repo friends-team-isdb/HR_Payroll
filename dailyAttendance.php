@@ -18,6 +18,8 @@ date_default_timezone_set("Asia/Dhaka");
     <link href="assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
     <link href="assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
     <link href="assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+   
     <!-- Bootstrap CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/bootstrap-extended.css" rel="stylesheet" />
@@ -148,24 +150,24 @@ date_default_timezone_set("Asia/Dhaka");
                                 </tr>
                                 <tr>
                                     <form action="" method="post">
-                                       <input class="form-control" type="hidden" name="n" id="" value="<?php echo $c['employee_name'];?>">
+                                        <input class="form-control" type="hidden" name="n" id="" value="<?php echo $c['employee_name'];?>">
                                         <td>
                                             <input class="form-control" type="text" name="n" id="" value="<?php echo $c['employee_name'];?>" disabled>
 
                                         </td>
                                         <td>
-                                            <input class="form-control" type="time" name="signi" id="">
+                                            <input class="form-control timepickers" type="time" name="signi" id="">
                                         </td>
                                         <td>
-                                            <input class="form-control" type="time" name="sinut" id="">
+                                            <input class="form-control timepickers" type="time" name="sinut" id="">
                                         </td>
                                         <td>
-                                            <input class="form-control" type="time" name="lateCount" id="">
+                                            <input class="form-control timepickers" type="time" name="lateCount" id="">
                                         </td>
                                         <td>
                                             <select class="form-control" name="status" id="">
+                                                <option value="Present">Present</option>
                                                 <option value="Absent">Absent</option>
-                                                <option value="present">present</option>
                                                 <option value="On Leave">On Leave</option>
                                             </select>
                                         </td>
@@ -238,6 +240,9 @@ date_default_timezone_set("Asia/Dhaka");
     <script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
     <script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
     <script src="assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>  
+    
+    <script src="jquery-clock-timepicker.min.js"></script>
     <!--app-->
     <script src="assets/js/app.js"></script>
     <script src="assets/js/index.js"></script>
@@ -246,6 +251,27 @@ date_default_timezone_set("Asia/Dhaka");
         new PerfectScrollbar(".best-product")
         new PerfectScrollbar(".top-sellers-list")
 
+    </script>
+    
+    <script>
+//   $(document).ready(function(){  
+// $('.timepickers').timepicker({
+//    timeFormat: 'hh:mm:ss',
+//    interval: 1,
+//    minTime: '9',
+//    maxTime: '8:00pm',
+//    defaultTime: '10',
+//    startTime: '10:00',
+//    dynamic: false,
+//    dropdown: true,
+//    scrollbar: true
+//}); 
+       
+       
+       
+       
+});  
+    
     </script>
 
 </body>

@@ -272,11 +272,11 @@ if(!isset($_SESSION['userName'])){
     $results=mysqli_query($conn,$sq);
     $nums=mysqli_num_rows($results);
     if($nums==1){
-        echo "Employee  Already Exits";
+        echo "<script>alert('Employee  Already Exits')</script>";
     }else{
     $sql="INSERT INTO employee (employee_type_id,department_id,designation_id,employee_name, appointment_date, date_of_birth, employee_code, email, joining_date, employee_status, religion, nationality, district, Countries, postal_code, Passport_or_NID, gender, maritial_Status, present_address, permanent_address, picture, phone, employement_status) VALUES ( '$EmptypeId', '$deptId','$designationId', '$fullname', '$appointdate', '$DOB', '$Empcode', '$email', '$joindate', '$status', '$religion', '$nationality', '$distic', '$country', '$postCode', '$passNid', '$gender', '$marital_status', '$preaddress', '$peraddress', '$path', '$phone', '$Empstatus');";
     $query= mysqli_query($conn, $sql);
-    header("location:employeeManage.php");
+     echo "<script>alert('Add Employee success')</script>";
     } 
     
     $s="SELECT * FROM user_table WHERE email='$email'";
@@ -287,15 +287,13 @@ if(!isset($_SESSION['userName'])){
     }else{
        $sqls="INSERT INTO `user_table` ( `user_name`, `full_name`, `email`, `phone`, `password`, `role_id`, `account_creation_date`, `status`) VALUES ('$fullname', '$fullname', '$email', '$phone', '$Emppass', '', '$today', '$Empstatus')";
     $query=mysqli_query($conn,$sqls);
-        if($query){
-            header("location:userManage.php");
-        }else{
-            echo "<script>alert('Not Add Employee')</script>";
+        
+           
         }
         
     }
     
-    }
+    
     
   ?>
 
