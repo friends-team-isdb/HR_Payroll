@@ -193,7 +193,7 @@ if(!isset($_SESSION['userName'])){
                                     <h4 class="my-1"><?php echo $nums['leav'];?></h4>
 
                                 </div>
-                                <div class="widget-icon-large bg-gradient-info text-white ms-auto"><i class="bi bi-bar-chart-line-fill"></i>
+                                <div class="widget-icon-large bg-gradient-danger text-white ms-auto"><i class="bi bi-bell-slash"></i>
                                 </div>
                             </div>
                         </div>
@@ -207,14 +207,16 @@ if(!isset($_SESSION['userName'])){
                             <div class="d-flex align-items-center">
                                 <div>
                                     <?php 
-                              $today=date("Y-m-d");
-                              $sqls="SELECT COUNT(leave_start_date) as leav From leaves WHERE leave_start_date='$today'";
+                              $month=date("F");
+                              $sqls="SELECT MONTHNAME(`salary_date`)as mnname,
+SUM(`gross_salary`) as amts FROM salary GROUP BY Month(`salary_date`)
+HAVING mnname='$month'";
                               $querys=mysqli_query($conn,$sqls);
                             $nums=mysqli_fetch_array($querys);
                               
                               ?>
                                     <p class="mb-0 text-secondary">Selary Cost</p>
-                                    <h4 class="my-1"><?php echo $nums['leav'];?></h4>
+                                    <h4 class="my-1"><?php echo $nums['amts'];?></h4>
 
                                 </div>
                                  <div class="widget-icon-large bg-gradient-purple text-white ms-auto"><i class="bi bi-basket2-fill"></i>
@@ -230,7 +232,9 @@ if(!isset($_SESSION['userName'])){
                                 <div>
                                     <?php 
                               $month= date("F");
-                              $sqls="SELECT SUM(amount) as amt from expense_list Where Month='$month'";
+                              $sqls="SELECT MONTHNAME(`expense_date`)as mname,
+SUM(amount) as amt FROM expense_list GROUP BY Month(`expense_date`)
+HAVING mname='$month'";
                               $querys=mysqli_query($conn,$sqls);
                             $nums=mysqli_fetch_array($querys);
                               
@@ -239,7 +243,7 @@ if(!isset($_SESSION['userName'])){
                                     <h4 class="my-1"><?php echo $nums['amt'];?></h4>
 
                                 </div>
-                                <div class="widget-icon-large bg-gradient-info text-white ms-auto"><i class="bi bi-bar-chart-line-fill"></i>
+                                <div class="widget-icon-large bg-gradient-success text-white ms-auto"><i class="bi bi-cash"></i>
                                 </div>
                             </div>
                         </div>
