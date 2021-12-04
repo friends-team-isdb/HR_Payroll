@@ -1,3 +1,4 @@
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <?php require "connect.php";
 
 date_default_timezone_set("Asia/Dhaka");
@@ -7,6 +8,33 @@ if(!isset($_SESSION['userName'])){
 }
 
 ?>
+
+<script type="text/javascript">
+    function CheckEmail(){
+        var UserEmail=$("#useremail").val();
+        $.ajax({
+            url:"employeeexits.php",
+            method:"POST",
+            dataType:"html",
+            data:{email:UserEmail},
+            success: function(data){
+                if($.trim(data)==1){
+                    $("#useremail").css("border","3px solid red");
+                    $("#user").css("color"," red");
+                    $("#user").html("User email already exists!");
+                }
+                else{
+                    $("#useremail").css("border","3px solid green");
+                    $("#user").css("color"," green");
+                    $("#user").html("User email is not exists!");
+                }
+            }
+            
+        });
+    }
+</script>
+|
+
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -91,7 +119,8 @@ if(!isset($_SESSION['userName'])){
 
                                 <div class="modal-body">
                                     <input class="form-control" type="text" name="employ_name" id="" placeholder="Employee Name"><br>
-                                    <input class="form-control" type="text" name="employ_email" id="" placeholder="Employee Email"><br>
+                                    <input class="form-control" type="text" name="employ_email" id="useremail" onkeyup="CheckEmail()" onchange="CheckEmail()" placeholder="Employee Email"><br>
+                                    <span id="user"></span>
                                     <select class="form-control" name="gen" id="">
                                         <option value="">Select Gender</option>
                                         <option value="Male">Male</option>
@@ -272,11 +301,11 @@ if(!isset($_SESSION['userName'])){
     $results=mysqli_query($conn,$sq);
     $nums=mysqli_num_rows($results);
     if($nums==1){
-        echo "<script>alert('Employee  Already Exits')</script>";
+        echo "Employee  Already Exits";
     }else{
     $sql="INSERT INTO employee (employee_type_id,department_id,designation_id,employee_name, appointment_date, date_of_birth, employee_code, email, joining_date, employee_status, religion, nationality, district, Countries, postal_code, Passport_or_NID, gender, maritial_Status, present_address, permanent_address, picture, phone, employement_status) VALUES ( '$EmptypeId', '$deptId','$designationId', '$fullname', '$appointdate', '$DOB', '$Empcode', '$email', '$joindate', '$status', '$religion', '$nationality', '$distic', '$country', '$postCode', '$passNid', '$gender', '$marital_status', '$preaddress', '$peraddress', '$path', '$phone', '$Empstatus');";
     $query= mysqli_query($conn, $sql);
-     echo "<script>alert('Add Employee success')</script>";
+    header("location:employeeManage.php");
     } 
     
     $s="SELECT * FROM user_table WHERE email='$email'";
@@ -287,13 +316,15 @@ if(!isset($_SESSION['userName'])){
     }else{
        $sqls="INSERT INTO `user_table` ( `user_name`, `full_name`, `email`, `phone`, `password`, `role_id`, `account_creation_date`, `status`) VALUES ('$fullname', '$fullname', '$email', '$phone', '$Emppass', '', '$today', '$Empstatus')";
     $query=mysqli_query($conn,$sqls);
-        
-           
+        if($query){
+            header("location:userManage.php");
+        }else{
+            echo "<script>alert('Not Add Employee')</script>";
         }
         
     }
     
-    
+    }
     
   ?>
 
