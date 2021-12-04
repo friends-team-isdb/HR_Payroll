@@ -97,7 +97,7 @@
                 <div class="modal-body">
                    <input type="hidden" name="Id" value="<?php echo $row['0'];?>" >
                   <input class="form-control" type="text" name="employ_name" value="<?php echo $row['employee_name'];?>"><br>
-                  <input class="form-control" type="text" name="employ_email" value="<?php echo $row['email'];?>"><br>
+                  
                 <select class="form-control" name="gen" value="<?php echo $row['gender'];?>">
                     <option value="">Select Gender</option>
                     <option value="Male">Male</option>
