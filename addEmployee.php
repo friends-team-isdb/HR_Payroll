@@ -10,28 +10,30 @@ if(!isset($_SESSION['userName'])){
 ?>
 
 <script type="text/javascript">
-    function CheckEmail(){
-        var UserEmail=$("#useremail").val();
+    function CheckEmail() {
+        var UserEmail = $("#useremail").val();
         $.ajax({
-            url:"employeeexits.php",
-            method:"POST",
-            dataType:"html",
-            data:{email:UserEmail},
-            success: function(data){
-                if($.trim(data)==1){
-                    $("#useremail").css("border","3px solid red");
-                    $("#user").css("color"," red");
+            url: "employeeexits.php",
+            method: "POST",
+            dataType: "html",
+            data: {
+                email: UserEmail
+            },
+            success: function(data) {
+                if ($.trim(data) == 1) {
+                    $("#useremail").css("border", "3px solid red");
+                    $("#user").css("color", " red");
                     $("#user").html("User email already exists!");
-                }
-                else{
-                    $("#useremail").css("border","3px solid green");
-                    $("#user").css("color"," green");
+                } else {
+                    $("#useremail").css("border", "3px solid green");
+                    $("#user").css("color", " green");
                     $("#user").html("User email is not exists!");
                 }
             }
-            
+
         });
     }
+
 </script>
 |
 
@@ -119,7 +121,7 @@ if(!isset($_SESSION['userName'])){
 
                                 <div class="modal-body">
                                     <input class="form-control" type="text" name="employ_name" id="" placeholder="Employee Name"><br>
-                                    
+
                                     <select class="form-control" name="gen" id="">
                                         <option value="">Select Gender</option>
                                         <option value="Male">Male</option>
@@ -131,14 +133,14 @@ if(!isset($_SESSION['userName'])){
                                             <option value="married">Married</option>
                                             <option value="unmarried">Unmarried</option>
                                         </select> </label><br>
-                                    <label class="form-control" for="">Birth Date: <input class="form-control datepickers" type="text" name="employ_date_of_birth"></label><br>
+                                    <label class="form-control" for="">Birth Date: <input autocomplete="off" class="form-control datepickers" type="text" name="employ_date_of_birth"></label><br>
                                     <label class="form-control" for="">Photo: <input type="file" name="employmet_picture" id=""> </label><br>
                                     <input class="form-control" type="text" name="employ_religion" id="" placeholder="Employee Religion"><br>
-                                    <input class="form-control" type="text" name="employ_district" id="" placeholder="Employee District"><br>
-                                    <input class="form-control" type="text" name="employ_countris" id="" placeholder="Employee Countris"><br>
+                                    <input class="form-control" type="text" name="employ_district" id="distc" autocomplete="off" placeholder="Employee District"><br>
+                                    <input class="form-control coun" type="text" name="employ_countris" id="" placeholder="Employee Countris"><br>
                                     <input class="form-control" type="text" name="phone" id="" placeholder="Employee Phone"><br>
                                     <input class="form-control" type="text" name="employ_postal_code" id="" placeholder="Employee Postal Code"><br>
-                                    <input class="form-control" type="text" name="employ_nationality" id="" placeholder="Employee Nationality"><br>
+                                    <input class="form-control coun" type="text" name="employ_nationality" id="" placeholder="Employee Nationality"><br>
                                     <textarea class="form-control" name="present_address" placeholder="Present Address" cols="" rows=""></textarea><br>
                                     <textarea class="form-control" name="permanent_address" placeholder="Permanent Address" cols="" rows=""></textarea><br>
                                     <input class="form-control" type="text" name="employ_nid" id="" placeholder="Pasport/NID"><br>
@@ -239,10 +241,22 @@ if(!isset($_SESSION['userName'])){
 
 
                                     <label for="">Appointment Date:</label>
-                                    <input class="form-control datepickers" type="text" name="appointment_date"><br>
+                                    <input class="form-control datepickers" type="text" name="appointment_date" autocomplete="off"><br>
                                     <label for="">Joining Date: </label>
-                                    <input class="form-control datepickers" type="text" name="joining_date"><br>
-                                    <input class="form-control" type="text" name="employee_code" id="" placeholder="Employee Code"><br>
+                                    <input class="form-control datepickers" type="text" name="joining_date" autocomplete="off"><br>
+                                    <?php 
+                                    //$xyz="SELECT Last (`employee_code`) FROM employee  
+                                   // ORDER BY `employee_code` ASC limt 1";
+                                    
+                                   // $zxy=mysqli_query($conn,$xyz);
+                                   // $x=mysqli_fetch_array($zxy);
+                                   //echo $a=$x['employee_code'];
+                                   // $format="Emp100";
+                                    //$res=$format.$a+1;
+                                    
+                                    ?>
+                                    <input class="form-control" type="hidden" name="employee_code" id="" placeholder="Employee Code" value="<?php echo $res?>">
+                                    <input class="form-control" type="text" name="" id="" placeholder="Employee Code" value="<?php echo $res?>" disabled><br>
                                     <input class="form-control" type="text" name="employee_status" id="" placeholder="Employee Status"><br>
 
                                 </div>
@@ -268,7 +282,7 @@ if(!isset($_SESSION['userName'])){
     $gender=$_POST['gen'];
     $marital_status=$_POST['marital_status'];
     $DOB=$_POST['employ_date_of_birth'];
-    $picture=$_POST['employmet_picture'];
+//    $picture=$_POST['employmet_picture'];
     $religion=$_POST['employ_religion'];
     $distic=$_POST['employ_district'];
     $country=$_POST['employ_countris'];
@@ -281,7 +295,7 @@ if(!isset($_SESSION['userName'])){
     $peraddress=$_POST['permanent_address'];
     $passNid=$_POST['employ_nid'];
     $status=$_POST['employment_status'];
-    $Empemail=$_POST['employeeemail'];
+//    $Empemail=$_POST['employeeemail'];
     $Emppass=$_POST['employeepass'];
     $EmptypeId=$_POST['employment_id'];
     $deptId=$_POST['department_id'];
@@ -305,19 +319,19 @@ if(!isset($_SESSION['userName'])){
     }else{
     $sql="INSERT INTO employee (employee_type_id,department_id,designation_id,employee_name, appointment_date, date_of_birth, employee_code, email, joining_date, employee_status, religion, nationality, district, Countries, postal_code, Passport_or_NID, gender, maritial_Status, present_address, permanent_address, picture, phone, employement_status) VALUES ( '$EmptypeId', '$deptId','$designationId', '$fullname', '$appointdate', '$DOB', '$Empcode', '$email', '$joindate', '$status', '$religion', '$nationality', '$distic', '$country', '$postCode', '$passNid', '$gender', '$marital_status', '$preaddress', '$peraddress', '$path', '$phone', '$Empstatus');";
     $query= mysqli_query($conn, $sql);
-    header("location:employeeManage.php");
+    echo "<script>alert('Employee Added')</script>";
     } 
     
     $s="SELECT * FROM user_table WHERE email='$email'";
     $result=mysqli_query($conn,$s);
     $num=mysqli_num_rows($result);
     if($num==1){
-        echo "User  Already Exits";
+        echo "<script>alert('User  Already Exits')</script>";
     }else{
        $sqls="INSERT INTO `user_table` ( `user_name`, `full_name`, `email`, `phone`, `password`, `role_id`, `account_creation_date`, `status`) VALUES ('$fullname', '$fullname', '$email', '$phone', '$Emppass', '', '$today', '$Empstatus')";
     $query=mysqli_query($conn,$sqls);
         if($query){
-            header("location:userManage.php");
+            
         }else{
             echo "<script>alert('Not Add Employee')</script>";
         }
@@ -381,12 +395,45 @@ if(!isset($_SESSION['userName'])){
             $(".datepickers").datepicker({
                 changeMonth: true,
                 changeYear: true,
-                dateFormat:'yy-mm-dd'
-                
+                dateFormat: 'yy-mm-dd'
+
             });
         });
+        
 
     </script>
+    
+
+<script>
+    $(document).ready(function(){
+    $('#distc').autocomplete({
+        source:'get_distric.php',
+        minLength:1,
+        delay:500
+    })
+    
+    
+})
+    
+    
+    
+    </script> 
+    
+    <script>
+    $(document).ready(function(){
+    $('.coun').autocomplete({
+        source:'getCountry.php',
+        minLength:1,
+        delay:500
+    })
+    
+    
+})
+    
+    
+    
+    </script> 
+
 
 </body>
 
