@@ -84,16 +84,16 @@ date_default_timezone_set("Asia/Dhaka");
     
                                                 $sql="SELECT department_Name FROM department";
                                                 $query=mysqli_query($conn,$sql);
-            $rowcount=mysqli_num_rows($query);
-            ?>
+                                            $rowcount=mysqli_num_rows($query);
+                                            ?>
                                             <select class="form-control" name="dep" id="dep" onchange="department()">
 
                                                 <option value="">Select Department</option>
 
                                                 <?php 
-                for($i=1;$i<=$rowcount;$i++){
-                    $row=mysqli_fetch_array($query);
-                    ?>
+                                                    for($i=1;$i<=$rowcount;$i++){
+                                                        $row=mysqli_fetch_array($query);
+                                                ?>
                                                 <option value="<?php echo $row['department_Name'];?>"><?php echo $row['department_Name'];?></option>
                                                 <?php
                 }
@@ -102,19 +102,10 @@ date_default_timezone_set("Asia/Dhaka");
 
                                             </select><br>
 
-
-
-
                                         </div>
                                         <div class="col-md-3">
-
-
-                                            <select class="form-control" name="" id="empt">
-                                                
-
-
+                                            <select class="form-control" name="empnam" id="empt">
                                             </select>
-
 
                                         </div>
                                         <div class="col-md-2">
@@ -130,22 +121,22 @@ date_default_timezone_set("Asia/Dhaka");
                                         <div class="col-md-2">
                                             <select name="dob-month" class=" form-control">
                                                 <option value="">Select Month</option>
-                                                <option value="Jan">Jan</option>
-                                                <option value="Feb">Feb</option>
-                                                <option value="Mar">Mar</option>
-                                                <option value="Apr">Apr</option>
+                                                <option value="January">January</option>
+                                                <option value="February">February</option>
+                                                <option value="March">March</option>
+                                                <option value="April">April</option>
                                                 <option value="May">May</option>
-                                                <option value="Jun">Jun</option>
-                                                <option value="Jul">Jul</option>
-                                                <option value="Aug">Aug</option>
-                                                <option value="Sep">Sep</option>
-                                                <option value="Oct">Oct</option>
-                                                <option value="Nov">Nov</option>
-                                                <option value="Dec">Dec</option>
+                                                <option value="June">June</option>
+                                                <option value="July">July</option>
+                                                <option value="August">August</option>
+                                                <option value="September">September</option>
+                                                <option value="October">October</option>
+                                                <option value="November">November</option>
+                                                <option value="December">December</option>
                                             </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <input type="submit" class="btn btn-primary" name="" id="" value="Find">
+                                            <input type="submit" class="btn btn-primary" name="submit" id="" value="Find">
                                         </div>
 
                                     </div>
@@ -164,16 +155,59 @@ date_default_timezone_set("Asia/Dhaka");
 
                         <div class="col-md-4">
 
+                            <?php 
+                            if(isset($_POST['submit'])){
+                            @$empName=$_POST['empnam'];
+                            @$Year=$_POST['year'];
+                            @$Month=$_POST['dob-month'];
+                            $s="Select MonthName(attendancedate) as mnth,
+Year(attendancedate) as yar, 
+COUNT(attendaneStatus)as ct
+from attendance WHERE attendaneStatus='Present' && employee_id='$empName' Group BY Month(attendancedate) && Year(attendancedate) HAVING mnth='$Month' AND yar='$Year'";
+                            @$t=mysqli_query($conn,$s);
+                            @$u=mysqli_fetch_array($t);
+                            
+                          }  
+                        ?>
 
-                            Present Count:<input class="form-control" type="text" name="" id="" disabled>
+
+                            Present Count:<input class="form-control" type="text" name="" id="" disabled value="<?php echo @$u['ct'] ?>">
 
                         </div>
 
                         <div class="col-md-4">
-                            Absent Count:<input class="form-control" type="text" name="" id="" disabled>
+                              <?php 
+                            if(isset($_POST['submit'])){
+                            @$empName=$_POST['empnam'];
+                            @$Year=$_POST['year'];
+                            @$Month=$_POST['dob-month'];
+                            @$w="Select MonthName(attendancedate) as mnth,
+Year(attendancedate) as yar, 
+COUNT(attendaneStatus)as ct
+from attendance WHERE attendaneStatus='Absent' && employee_id='$empName' Group BY Month(attendancedate) && Year(attendancedate) HAVING mnth='$Month' AND yar='$Year'";
+                            @$x=mysqli_query($conn,$w);
+                            @$z=mysqli_fetch_array($x);
+                            
+                          }  
+                        ?>
+                            Absent Count:<input class="form-control" type="text" name="" id="" disabled value="<?php echo @$z['ct'];?>">
                         </div>
                         <div class="col-md-4">
-                            Leave Count:<input class="form-control" type="text" name="" id="" disabled>
+                                  <?php 
+                            if(isset($_POST['submit'])){
+                            @$empName=$_POST['empnam'];
+                            @$Year=$_POST['year'];
+                            @$Month=$_POST['dob-month'];
+                            @$h="Select MonthName(attendancedate) as mnth,
+Year(attendancedate) as yar, 
+COUNT(attendaneStatus)as ct
+from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group BY Month(attendancedate) && Year(attendancedate) HAVING mnth='$Month' AND yar='$Year'";
+                            @$i=mysqli_query($conn,$h);
+                            @$j=mysqli_fetch_array($i);
+                            
+                          }  
+                        ?>
+                            Leave Count:<input class="form-control" type="text" name="" id="" disabled value="<?php echo @$j['ct'];?>">
                         </div>
                     </div>
 
