@@ -86,7 +86,7 @@ date_default_timezone_set("Asia/Dhaka");
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-                                            <select class="form-control" name="dep" id="">
+                                            <select class="form-control" name="dep" id="dep" onchange="department()">
 
                                                 <option value="">Select Department</option>
 
@@ -107,30 +107,11 @@ date_default_timezone_set("Asia/Dhaka");
 
                                         </div>
                                         <div class="col-md-3">
-                                            <?php 
-                                            @$depart=$_POST['dep'];
-                                            $sqls="SELECT employee_name FROM employee";
-                                            $querys=mysqli_query($conn,$sqls);
-                                            $rowcounts=mysqli_num_rows($querys);
-                                            ?>
 
-                                            <select class="form-control" name="" id="">
-                                                <option value="">Select Employee</option>
 
-                                                <?php 
-                                                for($i=1;$i<=$rowcounts;$i++){
-                                                    
-                                                    $rows=mysqli_fetch_array($querys);
-                                                    
-                                                    ?>
-
-                                                <option value="<?php echo $rows['employee_name'];?>"><?php echo $rows['employee_name'];?></option>
-
-                                                <?php
-                                                }
+                                            <select class="form-control" name="" id="empt">
                                                 
-                                                
-                                                ?>
+
 
                                             </select>
 
@@ -180,7 +161,7 @@ date_default_timezone_set("Asia/Dhaka");
                     </div><!-- row end -->
                     <hr>
                     <div class="row">
-                       
+
                         <div class="col-md-4">
 
 
@@ -195,7 +176,7 @@ date_default_timezone_set("Asia/Dhaka");
                             Leave Count:<input class="form-control" type="text" name="" id="" disabled>
                         </div>
                     </div>
-                    
+
                     <hr>
                 </form>
                 <form action="" method="post" enctype="multipart/form-data">
@@ -206,22 +187,32 @@ date_default_timezone_set("Asia/Dhaka");
                                     <h6 class="modal-title text-primary">Allownes</h6>
                                     <hr>
                                     <div class="row">
-                                        <div class="col-md-5">
-                                            <select class="form-control" name="deductions" id="">
-                                                <option value="" selected> Select Allownes</option>
-                                                <option value=""> Home Allownes</option>
-                                                <option value=""> Medical Allownes</option>
-                                                <option value=""> Rent Allownes</option>
+                                        <ul id="addCol">
+                                            <li>
+                                                <div class="col-md-5">
+                                                    <select class="form-control" name="deductions" id="">
+                                                        <option value="" selected> Select Allownes</option>
+                                                        <option value=""> Home Allownes</option>
+                                                        <option value=""> Medical Allownes</option>
+                                                        <option value=""> Rent Allownes</option>
 
-                                            </select>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <input class="form-control" type="text" name="" id="">
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <input class="form-control" type="text" name="" id="">
 
-                                        </div>
-                                        <div class="col-md-2">
-                                            <button class="btn btn-primary">+</button>
-                                        </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <button class="btn btn-primary" id="add">+</button>
+                                                </div>
+
+                                            </li>
+                                        </ul>
+
+
+
+
                                     </div>
 
 
@@ -386,16 +377,39 @@ date_default_timezone_set("Asia/Dhaka");
 
     </script>
 
-    <script>
-        $(document).ready(function() {
-            function Addmore() {
-                var div = document.getElementById('#doublehobe');
-                $('.addplus').click(function() {
-                    $('#doublehobe').append(div);
-                });
-            }
+    <script type="text/javascript">
+        $("#add").click(function() {
+            var add = '<li><div class="col-md-5"><select class="form-control" name="deductions" id=""><option value="" selected> Select Allownes</option><option value=""> Home Allownes</option><option value=""> Medical Allownes</option><option value=""> Rent Allownes</option></select></div><div class="col-md-5"><input class="form-control" type="text" name="" id=""></div><input type="button" value="Remove" class="remove"></li>';
+
+            $("#addCol").append(add);
+
+            $(".remove").on("click", function() {
+                $(this).parent("li").remove();
+            });
 
         });
+
+    </script>
+    <script>
+        function department() {
+            var departmentName = $('#dep').val();
+            //            console.log(departmentName);
+            $.ajax({
+                url: 'payrollEmployeSelectAjax.php',
+                method: 'POST',
+                dataType: 'html',
+                data: {
+                    departmentName: departmentName
+                },
+                success: function(data) {
+                    $('#empt').html(data);
+
+                }
+
+
+
+            });
+        }
 
     </script>
 
