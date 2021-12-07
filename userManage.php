@@ -93,6 +93,7 @@
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
+                                             <tbody>
                                         <?php 
               include 'connect.php';
               $n=1;
@@ -100,7 +101,7 @@
               $query=mysqli_query($conn,$sql);
               while($row=mysqli_fetch_array($query)){
               ?>
-                                        <tbody>
+                                   
                                             <tr>
                                                 <td><?php echo $n++?></td>
                                                 <td><?php echo $row['full_name']?></td>
@@ -113,8 +114,9 @@
                                                     <a class="btn btn-success" href="userupdate.php?aid=<?php echo $row['user_id'];?>">Update</a>
                                                 </td>
                                             </tr>
+                                              <?php } ?>
                                         </tbody>
-                                        <?php } ?>
+                                      
                                         <tfoot></tfoot>
                                     </table>
                                 </div>

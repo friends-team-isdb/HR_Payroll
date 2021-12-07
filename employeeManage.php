@@ -75,28 +75,28 @@
                             <a href="addEmployee.php" class="btn btn-primary bx-pull-right mb-3">Add Employee</a>
                         </div>
                     </div>
-                    
+
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
 
 
-                                    <div class="table-responsive">
+                            <div class="table-responsive">
 
-                                        <table id="example" class="table table-striped table-bordered">
+                                <table id="example" class="table table-striped table-bordered">
 
-                                            <thead>
-                                                <tr>
-                                                    <th>SL</th>
-                                                    <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Department</th>
-                                                    <th>Designation</th>
-                                                    <th>Status</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-
-                                            <?php 
+                                    <thead>
+                                        <tr>
+                                            <th>SL</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Department</th>
+                                            <th>Designation</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
                 $sl=1;
           $sql="SELECT * From employee";
           
@@ -108,38 +108,38 @@
 
 
                 ?>
-                                            <tbody>
-                                                <tr>
-                                                    <td><?php echo $sl++;?></td>
-                                                    <td><?php echo $row['employee_name'];?></td>
-                                                    <td><?php echo $row['email'];?></td>
-                                                    <td><?php echo $row['department_id'];?></td>
-                                                    <td><?php echo $row['designation_id'];?></td>
 
-                                                    <td style="color:green;"><?php echo $row['employee_status']?></td>
-                                                    <td> <a class="btn btn-danger" onclick="round_success_noti()" href="manageemployeedelete.php?aid=<?php echo $row['employee_id']; ?>">Delete</a>
-                                                        <a class="btn btn-success" href="empmngupdate.php?aid=<?php echo $row['employee_id']; ?>">Update</a>
-                                                        <a class="btn btn-info" href="view.php?email=<?php echo $row['email'];?>">View</a>
-                                                    </td>
+                                        <tr>
+                                            <td><?php echo $sl++;?></td>
+                                            <td><?php echo $row['employee_name'];?></td>
+                                            <td><?php echo $row['email'];?></td>
+                                            <td><?php echo $row['department_id'];?></td>
+                                            <td><?php echo $row['designation_id'];?></td>
 
-                                                </tr>
-                                            </tbody>
+                                            <td style="color:green;"><?php echo $row['employee_status']?></td>
+                                            <td>
+                                                <a class="btn btn-success" href="empmngupdate.php?aid=<?php echo $row['employee_id']; ?>">Update</a>
+                                                <a class="btn btn-info" href="view.php?email=<?php echo $row['email'];?>">View</a>
+                                            </td>
 
-                                           
-                                            <tfoot>
+                                        </tr>
 
-
-                                            </tfoot>
-
- <?php }?>
+                                        <?php } ?>
+                                    </tbody>
 
 
-                                        </table>
-                                    </div>
-                                </div>
+
+
+
+
+
+
+                                </table>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
 
 
