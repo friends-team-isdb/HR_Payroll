@@ -241,22 +241,23 @@ if(!isset($_SESSION['userName'])){
 
 
                                     <label for="">Appointment Date:</label>
-                                    <input class="form-control datepickers" type="text" name="appointment_date" autocomplete="off"><br>
+                                    <input class="form-control datepickers" type="text" name="appointment_date" autocomplete="off" placeholder="Select Date"><br>
                                     <label for="">Joining Date: </label>
-                                    <input class="form-control datepickers" type="text" name="joining_date" autocomplete="off"><br>
+                                    <input class="form-control datepickers" type="text" name="joining_date" autocomplete="off" placeholder="Select Date"><br>
                                     <?php 
-                                    //$xyz="SELECT Last (`employee_code`) FROM employee  
-                                   // ORDER BY `employee_code` ASC limt 1";
+                                    $xyz="SELECT * FROM employee  
+                                    ORDER BY employee_id DESC limit 1";
                                     
-                                   // $zxy=mysqli_query($conn,$xyz);
-                                   // $x=mysqli_fetch_array($zxy);
-                                   //echo $a=$x['employee_code'];
-                                   // $format="Emp100";
-                                    //$res=$format.$a+1;
+                                  $zxy=mysqli_query($conn,$xyz);
+                                    $x=mysqli_fetch_array($zxy);
+                                    $a=$x['employee_code'];
+                                    $format="Emp";
+                                    $res=substr($a,3);
+                                    $result=$format.$res+1;
                                     
                                     ?>
-                                    <input class="form-control" type="hidden" name="employee_code" id="" placeholder="Employee Code" value="<?php echo $res?>">
-                                    <input class="form-control" type="text" name="" id="" placeholder="Employee Code" value="<?php echo $res?>" disabled><br>
+                                    <input class="form-control" type="hidden" name="employee_code" id="" placeholder="Employee Code" value="<?php echo $result?>">
+                                    <input class="form-control" type="text" name="" id="" placeholder="Employee Code" value="<?php echo $result?>" disabled><br>
                                     <input class="form-control" type="text" name="employee_status" id="" placeholder="Employee Status"><br>
 
                                 </div>
