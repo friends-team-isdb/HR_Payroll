@@ -176,15 +176,15 @@ from attendance WHERE attendaneStatus='Present' && employee_id='$empName' Group 
                         </div>
 
                         <div class="col-md-4">
-                              <?php 
+                            <?php 
                             if(isset($_POST['submit'])){
                             @$empName=$_POST['empnam'];
                             @$Year=$_POST['year'];
                             @$Month=$_POST['dob-month'];
                             @$w="Select MonthName(attendancedate) as mnth,
-Year(attendancedate) as yar, 
-COUNT(attendaneStatus)as ct
-from attendance WHERE attendaneStatus='Absent' && employee_id='$empName' Group BY Month(attendancedate) && Year(attendancedate) HAVING mnth='$Month' AND yar='$Year'";
+                                Year(attendancedate) as yar, 
+                                COUNT(attendaneStatus)as ct
+                                from attendance WHERE attendaneStatus='Absent' && employee_id='$empName' Group BY Month(attendancedate) && Year(attendancedate) HAVING mnth='$Month' AND yar='$Year'";
                             @$x=mysqli_query($conn,$w);
                             @$z=mysqli_fetch_array($x);
                             
@@ -193,7 +193,7 @@ from attendance WHERE attendaneStatus='Absent' && employee_id='$empName' Group B
                             Absent Count:<input class="form-control" type="text" name="" id="" disabled value="<?php echo @$z['ct'];?>">
                         </div>
                         <div class="col-md-4">
-                                  <?php 
+                            <?php 
                             if(isset($_POST['submit'])){
                             @$empName=$_POST['empnam'];
                             @$Year=$_POST['year'];
@@ -220,35 +220,38 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
                                 <div class="modal-body">
                                     <h6 class="modal-title text-primary">Allownes</h6>
                                     <hr>
-                                    <div class="row">
-                                        <ul id="addCol">
-                                            <li>
-                                                <div class="col-md-5">
-                                                    <select class="form-control" name="deductions" id="">
-                                                        <option value="" selected> Select Allownes</option>
-                                                        <option value=""> Home Allownes</option>
-                                                        <option value=""> Medical Allownes</option>
-                                                        <option value=""> Rent Allownes</option>
 
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <input class="form-control" type="text" name="" id="">
+                                    <div class="addmores_div">
 
-                                                </div>
 
-                                                <div class="col-md-2">
-                                                    <button class="btn btn-primary" id="add">+</button>
-                                                </div>
-
-                                            </li>
-                                        </ul>
+                                        <div class="row">
 
 
 
+                                            <div class="col-md-5">
+                                                <select class="form-control" name="deductions" id="">
+                                                    <option value="" selected> Select Allownes</option>
+                                                    <option value=""> Home Allownes</option>
+                                                    <option value=""> Medical Allownes</option>
+                                                    <option value=""> Rent Allownes</option>
 
+                                                </select>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <input class="form-control" type="text" name="" id="">
+
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                <p class="btn btn-primary" id="addnew">+</p>
+                                            </div>
+
+
+
+
+
+                                        </div>
                                     </div>
-
 
 
                                     <div class="row">
@@ -291,7 +294,7 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
 
                                         </div>
                                         <div class="col-md-2">
-                                            <button class="btn btn-primary addplus" onclick="Addmore()">+</button>
+                                            <p class="">+</p>
                                         </div>
                                     </div>
 
@@ -412,13 +415,13 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
     </script>
 
     <script type="text/javascript">
-        $("#add").click(function() {
-            var add = '<li><div class="col-md-5"><select class="form-control" name="deductions" id=""><option value="" selected> Select Allownes</option><option value=""> Home Allownes</option><option value=""> Medical Allownes</option><option value=""> Rent Allownes</option></select></div><div class="col-md-5"><input class="form-control" type="text" name="" id=""></div><input type="button" value="Remove" class="remove"></li>';
+        $("#addnew").click(function() {
+            var add = '<div class="row"><div class="col-md-5"><select class="form-control" name="deductions" id=""><option value="" selected> Select Allownes</option><option value=""> Home Allownes</option><option value=""> Medical Allownes</option><option value=""> Rent Allownes</option></select></div><div class="col-md-5"><input class="form-control" type="text" name="" id=""></div><div class="col-md-2"><p class="btn btn-primary remove">-</p></div></div>';
 
-            $("#addCol").append(add);
+            $(".addmores_div").append(add);
 
             $(".remove").on("click", function() {
-                $(this).parent("li").remove();
+                $(this).parent(".row").remove();
             });
 
         });

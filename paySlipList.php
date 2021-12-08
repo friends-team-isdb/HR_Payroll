@@ -68,7 +68,7 @@ date_default_timezone_set("Asia/Dhaka");
             <!--Enter Your Code here-->
             <div class="modal-content">
                 <div class="forms-body">
-                    <form action="" method="post" enctype="multipart/form-data">
+<!--                    <form action="" method="post" enctype="multipart/form-data">-->
 
                         <div class="row">
                             <div class="col-md-12">
@@ -77,9 +77,10 @@ date_default_timezone_set("Asia/Dhaka");
                         </div>
                         <hr>
                         <div class="row">
-                            <div class="col-md-4">
+                           <div class="col-md-3"></div>
+                            <div class="col-md-3">
 
-                                <select class="form-control" name="year" id="">
+                                <select class="form-control" name="year" id="year">
                                     <?php 
                                                 for($i=1900;$i<=date("Y");$i++){
                                                 
@@ -88,9 +89,9 @@ date_default_timezone_set("Asia/Dhaka");
                                     <?php }?>
                                 </select>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
 
-                                <select name="month" class=" form-control">
+                                <select name="month" class=" form-control" id="month" onchange="paySlip()">
                                     <option value="">Select Month</option>
                                     <option value="Jan">Jan</option>
                                     <option value="Feb">Feb</option>
@@ -107,9 +108,7 @@ date_default_timezone_set("Asia/Dhaka");
                                 </select>
 
                             </div>
-                            <div class="col-md-4">
-                                <input class="btn btn-primary" type="submit" name="submit" id="" value="Get Employee List">
-                            </div>
+                            <div class="col-md-3"></div>
                         </div>
 
                         <!-- <div class="row">
@@ -117,52 +116,35 @@ date_default_timezone_set("Asia/Dhaka");
                             </div>
                         </div> -->
 
-                    </form>
+                    
                 </div>
             </div>
-            <?php 
-            if(isset($_POST['submit'])){
-                
-                $year=$_POST['year'];
-                $Month=$_POST['month'];
-                $sl=1;
-                $sql="SELECT * From payroll Where Salary_Year='$year' && salary_Month='$Month'";
-                $query=mysqli_query($conn,$sql);
-                while($row=mysqli_fetch_array($query)){
-                    
-            
-            
-            
-            
-            
-            ?>
+            <hr>
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="modal-content">
                         <div class="forms-body">
-                        
-                        <table class="table table-striped table-bordered">
-                           
-                           <tr>
-                               <th>S.l</th>
-                               <th>Employee</th>
-                               <th>Salary Year</th>
-                               <th>Salary Month</th>
-                               <th>Salary Status</th>
-                               <th>Action</th>
-                           </tr>
-                            
-                            <tr>
-                                <td><?php echo $sl++;?></td>
-                                <td><?php echo $row['employee_id'];?></td>
-                                <td><?php echo $row['Salary_Year'];?></td>
-                                <td><?php echo $row['salary_Month'];?></td>
-                                <td><?php echo $row['salary_Status'];?></td>
-                                <td><a class="btn btn-primary" href="payslip.php?aid=<?php echo $row['employee_id'];?>">Pay Slip</a></td>
-                            </tr>
-                            <?php     }
-                            }?>
-                        </table>
+
+                            <table class="table table-striped table-bordered" >
+
+                                <thead>
+                                    <tr>
+                                        <th>S.l</th>
+                                        <th>Employee</th>
+                                        <th>Salary Year</th>
+                                        <th>Salary Month</th>
+                                        <th>Salary Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="payslipShow">
+                                    
+                                    
+                                </tbody>
+
+
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -213,6 +195,29 @@ date_default_timezone_set("Asia/Dhaka");
     <script>
         new PerfectScrollbar(".best-product")
         new PerfectScrollbar(".top-sellers-list")
+
+    </script>
+
+    <script>
+        function paySlip() {
+            var year = $('#year').val();
+            var Month = $('#month').val();
+            $.ajax({
+                url: 'getPayslipList.php',
+                method: 'POST',
+                dataType: 'html',
+                data: {
+                    year: year,
+                    Month: Month
+                },
+                success: function(data) {
+
+                  $('#payslipShow').html(data);
+
+                }
+
+            })
+        }
 
     </script>
 
