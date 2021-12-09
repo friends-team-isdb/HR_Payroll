@@ -1,11 +1,11 @@
 <?php require "connect.php";
-
+$sl=1;
 $year=$_REQUEST['year'];
 $Month=$_REQUEST['Month'];
 $sql="SELECT * From payroll Where Salary_Year='$year' && salary_Month='$Month'";
 $query=mysqli_query($conn,$sql);
 while($row=mysqli_fetch_array($query)){
-    $sl=1;
+    
 ?>
 
 

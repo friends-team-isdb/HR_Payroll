@@ -116,7 +116,7 @@
                 <div class="menu-title">Salary Management</div>
               </a>
               <ul>
-                <li> <a href="addSalary.php"><i class="bi bi-arrow-right-short"></i>Add Salary</a>
+                <li> <a href="addSalary.php"><i class="bi bi-arrow-right-short"></i>Salary Setup</a>
                 </li>
                 <li> <a href="addSalaryType.php"><i class="bi bi-arrow-right-short"></i>Add Salary Type</a>
                 </li>

@@ -81,27 +81,7 @@ if(!isset($_SESSION['userName'])){
             <div class="row">
               <div class="col-md-3"></div>
               <div class="col-md-6">
-                                                <?php 
-    
-                                                $sql="SELECT salary_Type FROM salary_type";
-                                                $query=mysqli_query($conn,$sql);
-            $rowcount=mysqli_num_rows($query);
-            ?>
-            <select class="form-control" name="" id="">
                 
-                <option value="">Select Selary Type</option>
-                
-                <?php 
-                for($i=1;$i<=$rowcount;$i++){
-                    $row=mysqli_fetch_array($query);
-                    ?>
-                    <option value="<?php echo $row['salary_Type'];?>"><?php echo $row['salary_Type'];?></option>
-                    <?php
-                }
-                
-                ?>
-                
-            </select><br>
             
                  
                                                           <?php 
@@ -110,7 +90,7 @@ if(!isset($_SESSION['userName'])){
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-control" name="" id="">
+            <select class="form-select" name="" id="">
                 
                 <option value="">Select Employee</option>
                 
@@ -125,6 +105,28 @@ if(!isset($_SESSION['userName'])){
                 ?>
                 
             </select><br>
+                 
+                                                 <?php 
+    
+                                                $sql="SELECT salary_Type FROM salary_type";
+                                                $query=mysqli_query($conn,$sql);
+            $rowcount=mysqli_num_rows($query);
+            ?>
+            <select class="form-select" name="" id="">
+                
+                <option value="">Select Selary Type</option>
+                
+                <?php 
+                for($i=1;$i<=$rowcount;$i++){
+                    $row=mysqli_fetch_array($query);
+                    ?>
+                    <option value="<?php echo $row['salary_Type'];?>"><?php echo $row['salary_Type'];?></option>
+                    <?php
+                }
+                
+                ?>
+                
+            </select>
                   <input type="number" name="" id="" class="form-control mt-3" placeholder="Basic Salary">
                 
                   <input type="number" name="" id="" class="form-control mt-3" placeholder="Medical">

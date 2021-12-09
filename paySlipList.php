@@ -80,7 +80,7 @@ date_default_timezone_set("Asia/Dhaka");
                            <div class="col-md-3"></div>
                             <div class="col-md-3">
 
-                                <select class="form-control" name="year" id="year">
+                                <select class="form-select" name="year" id="year">
                                     <?php 
                                                 for($i=1900;$i<=date("Y");$i++){
                                                 
@@ -91,7 +91,7 @@ date_default_timezone_set("Asia/Dhaka");
                             </div>
                             <div class="col-md-3">
 
-                                <select name="month" class=" form-control" id="month" onchange="paySlip()">
+                                <select name="month" class=" form-select" id="month" onchange="paySlip()">
                                     <option value="">Select Month</option>
                                     <option value="Jan">Jan</option>
                                     <option value="Feb">Feb</option>

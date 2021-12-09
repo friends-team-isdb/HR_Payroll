@@ -87,7 +87,7 @@ date_default_timezone_set("Asia/Dhaka");
                                 $query = mysqli_query($conn, $sql);
                                 $rowcount = mysqli_num_rows($query);
                                 ?>
-                                <select class="form-control" name="select_employee" id="select_employee" onchange="dailyAtten()">
+                                <select class="form-select" name="select_employee" id="select_employee" onchange="dailyAtten()">
 
                                     <option value="">Select Employee</option>
 
