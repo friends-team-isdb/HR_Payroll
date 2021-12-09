@@ -17,7 +17,7 @@ for($i=1;$i<=$rowcounts;$i++){
 $rows=mysqli_fetch_array($querys);
 ?>
 
-<option value="<?php echo $rows['employee_name'];?>"><?php echo $rows['employee_name'];?></option>
+<option value="<?php echo $rows['employee_name'];?>" data-tokens="<?php echo $rows['employee_name'];?>"><?php echo $rows['employee_name'];?></option>
 <?php } ?>
 
                                             
