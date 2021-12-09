@@ -106,11 +106,11 @@ date_default_timezone_set("Asia/Dhaka");
 
                                         </div>
                                         <div class="col-md-3">
-<<<<<<< HEAD
-                                            <select class="form-select" name="empnam" id="empt">
-=======
-                                            <select class="form-control selects" data-live-search="true" name="empnam" id="empt">
->>>>>>> 3bfebdd96712ef89cf90edab4886b277082a54a8
+
+                                            
+
+                                            <select class="form-select selects" data-live-search="true" name="empnam" id="empt">
+
                                             </select>
 
                                         </div>
