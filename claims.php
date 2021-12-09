@@ -102,7 +102,7 @@ if(isset($_POST['submit'])){
                                 $query=mysqli_query($conn,$sql);
                                 $rowcount=mysqli_num_rows($query);
                                 ?>
-                                <select class="form-control" name="SelectEmployee" id="">
+                                <select class="form-select" name="SelectEmployee" id="">
 
                                     <option value="">Select Employee</option>
 
@@ -141,7 +141,7 @@ if(isset($_POST['submit'])){
                 </div>
                 <div class="row">
                      <div class="col-md-12">
-                         <select class="form-control mt-3 mb-3" name="status" id="">
+                         <select class="form-select mt-3 mb-3" name="status" id="">
                              <option value="Select">Select Claims Status</option>
                              <option value="Paid">Paid</option>
                              <option value="Unpaid">Unpaid</option>

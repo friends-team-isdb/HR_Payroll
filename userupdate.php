@@ -102,7 +102,7 @@
                             $query=mysqli_query($conn,$sql);
                             $rowcount=mysqli_num_rows($query);
                         ?>
-                        <select class="form-control" name="roleId" value="<?php echo $row['role_id'];?>">
+                        <select class="form-select" name="roleId" value="<?php echo $row['role_id'];?>">
 
                             <option value="">Select Role</option>
 
@@ -158,7 +158,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                               <select name="status" class="form-control mt-3" value="<?php echo $row['status'];?>">
+                               <select name="status" class="form-select mt-3" value="<?php echo $row['status'];?>">
                                     <option value="">Select Your Status</option>
                                     <option value="active" selected>Active</option>
                                     <option value="inactive">Inactive</option>

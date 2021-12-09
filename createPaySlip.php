@@ -86,7 +86,7 @@ date_default_timezone_set("Asia/Dhaka");
                                                 $query=mysqli_query($conn,$sql);
                                             $rowcount=mysqli_num_rows($query);
                                             ?>
-                                            <select class="form-control" name="dep" id="dep" onchange="department()">
+                                            <select class="form-select" name="dep" id="dep" onchange="department()">
 
                                                 <option value="">Select Department</option>
 
@@ -104,22 +104,22 @@ date_default_timezone_set("Asia/Dhaka");
 
                                         </div>
                                         <div class="col-md-3">
-                                            <select class="form-control" name="empnam" id="empt">
+                                            <select class="form-select" name="empnam" id="empt">
                                             </select>
 
                                         </div>
                                         <div class="col-md-2">
-                                            <select class="form-control" name="year" id="">
+                                            <select class="form-select" name="year" id="">
                                                 <?php 
                                                 for($i=1900;$i<=date("Y");$i++){
                                                 
                                                 ?>
-                                                <option class="form-control" value="<?php echo $i;?>" selected><?php echo $i;?></option>
+                                                <option value="<?php echo $i;?>" selected><?php echo $i;?></option>
                                                 <?php }?>
                                             </select>
                                         </div>
                                         <div class="col-md-2">
-                                            <select name="dob-month" class=" form-control">
+                                            <select name="dob-month" class=" form-select">
                                                 <option value="">Select Month</option>
                                                 <option value="January">January</option>
                                                 <option value="February">February</option>
@@ -342,11 +342,11 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
                                     <input type="text" placeholder="Total Allowances" class="form-control" name=""><br>
                                     <input type="text" placeholder="Total Deductions" class="form-control" name="" id=""><br>
                                     <input type="text" placeholder="Net Salary" class="form-control" name="" id=""><br>
-                                    <select class="form-control" name="deductions" id="">
+                                    <select class="form-select" name="deductions" id="">
                                         <option class="form-control" value="" selected> Payment Method</option>
                                         <option class="form-control" value="">Item</option>
                                     </select><br>
-                                    <select class="form-control" name="deductions" id="">
+                                    <select class="form-select" name="deductions" id="">
                                         <option class="form-control" value="" selected> Status</option>
                                         <option class="form-control" value="">Item</option>
                                     </select><br>

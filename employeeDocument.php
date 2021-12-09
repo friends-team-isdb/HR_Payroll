@@ -82,7 +82,7 @@
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-control" name="employee" id="">
+            <select class="form-select" name="employee" id="">
                 
                 <option value="">Select Employee</option>
                 
@@ -99,7 +99,7 @@
             </select>
               <input type="text" name="document_name" id="" class="form-control mt-3" placeholder="Document Name" required><br>
               
-              <select class="form-control" name="document_status" id="">
+              <select class="form-select" name="document_status" id="">
                     <option value="">Select Document_Status</option>
                     <option value="Valid">Valid</option>
                     <option value="Invalid">Invalid</option>

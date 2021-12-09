@@ -105,7 +105,7 @@ if(isset($_POST['submit'])){
              $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-control" name="employee" id="">
+            <select class="form-select" name="employee" id="">
                 
                 <option value="">Select Employee</option>
                 
@@ -129,7 +129,7 @@ if(isset($_POST['submit'])){
             <div class="col-md-12">
               <div class="row">
               <div class="col-md-6">
-                <select class="form-control mt-3" name="month" id="">
+                <select class="form-select mt-3" name="month" id="">
                   <option value="">Select Month</option>
                   <option value="January">January</option>
                   <option value="February">February</option>
@@ -146,7 +146,7 @@ if(isset($_POST['submit'])){
                 </select>
               </div>
               <div class="col-md-6">
-                <select class="form-control mt-3" name="year" id="">
+                <select class="form-select mt-3" name="year" id="">
                   <option value="">Select Year</option>
                   <option value="2020">2020</option>
                   <option value="2021">2021</option>
@@ -166,7 +166,7 @@ if(isset($_POST['submit'])){
             </div>
             
           </div>
-          <select class="form-control mt-3" name="Status" id="">
+          <select class="form-select mt-3" name="Status" id="">
             <option value="">Status</option>
             <option value="Aproved">Aproved</option>
             <option value="Pending">Pending</option>

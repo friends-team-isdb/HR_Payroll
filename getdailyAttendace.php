@@ -25,7 +25,7 @@
                   <input class="form-control timepickers" type="time" name="lateCount" id="">
               </td>
               <td>
-                  <select class="form-control" name="status" id="">
+                  <select class="form-select" name="status" id="">
                       <option value="Present">Present</option>
                       <option value="Absent">Absent</option>
                       <option value="On Leave">On Leave</option>

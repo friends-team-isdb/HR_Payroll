@@ -82,7 +82,7 @@
                   $query = mysqli_query($conn, $sql);
                   $rowcount = mysqli_num_rows($query);
                   ?>
-                  <select class="form-control" name="select_employee" >
+                  <select class="form-select" name="select_employee" >
 
                     <option value="">Select Employee</option>
 
@@ -106,7 +106,7 @@
                   $query = mysqli_query($conn, $sql);
                   $rowcount = mysqli_num_rows($query);
                   ?>
-                  <select class="form-control" name="leave_type" id="">
+                  <select class="form-select" name="leave_type" id="">
 
                     <option value="">Select Leave Type</option>
 
@@ -153,7 +153,7 @@
                   $query = mysqli_query($conn, $sql);
                   $rowcount = mysqli_num_rows($query);
                   ?>
-                  <select class="form-control" name="support_document" id="">
+                  <select class="form-select" name="support_document" id="">
 
                     <option value="">Select Support Document</option>
 
@@ -179,7 +179,7 @@
          
                 ?>   
                 <div class="form-group">
-                  <select class="form-control mt-3" name="leave_status" value="<?php echo $row['leave_status'];?>">
+                  <select class="form-select mt-3" name="leave_status" value="<?php echo $row['leave_status'];?>">
                     <option value="">Select Status</option>
                     <option value="pending">Pending</option>
                     <option value="aproved">Aproved</option>

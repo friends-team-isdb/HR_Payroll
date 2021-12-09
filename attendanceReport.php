@@ -85,7 +85,7 @@ if(!isset($_SESSION['userName'])){
                 $query = mysqli_query($conn, $sql);
                 $rowcount = mysqli_num_rows($query);
                 ?>
-                                <select class="form-control" name="select_employee" id="">
+                                <select class="form-select" name="select_employee" id="">
 
                                     <option value="">Select Employee</option>
 

@@ -87,7 +87,7 @@ if(!isset($_SESSION['userName'])){
                   $query = mysqli_query($conn, $sql);
                   $rowcount = mysqli_num_rows($query);
                   ?>
-                  <select class="form-control" name="select_employee" id="">
+                  <select class="form-select" name="select_employee" id="">
 
                     <option value="">Select Employee</option>
 
@@ -111,7 +111,7 @@ if(!isset($_SESSION['userName'])){
                   $query = mysqli_query($conn, $sql);
                   $rowcount = mysqli_num_rows($query);
                   ?>
-                  <select class="form-control" name="leave_type" id="">
+                  <select class="form-select" name="leave_type" id="">
 
                     <option value="">Select Leave Type</option>
 
@@ -146,7 +146,7 @@ if(!isset($_SESSION['userName'])){
                   $query = mysqli_query($conn, $sql);
                   $rowcount = mysqli_num_rows($query);
                   ?>
-                  <select class="form-control" name="support_document" id="">
+                  <select class="form-select" name="support_document" id="">
 
                     <option value="">Select Support Document</option>
 
@@ -162,7 +162,7 @@ if(!isset($_SESSION['userName'])){
                   </select>
                 </div>
                 <div class="form-group">
-                  <select class="form-control mt-3" name="leave_status" id="">
+                  <select class="form-select mt-3" name="leave_status" id="">
                     <option value="">Select Status</option>
                     <option value="pending">Pending</option>
                     <option value="aproved">Aproved</option>

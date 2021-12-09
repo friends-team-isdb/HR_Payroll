@@ -107,7 +107,7 @@ if(isset($_POST['submit'])){
                             $query=mysqli_query($conn,$sql);
                             $rowcount=mysqli_num_rows($query);
                             ?>
-                            <select class="form-control" name="employee" id="">
+                            <select class="form-select" name="employee" id="">
 
                                 <option value="">Select Employee</option>
 

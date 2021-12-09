@@ -95,14 +95,14 @@ if(isset($_POST['submit'])){
                 <input type="text" class="form-control" name="rolename"  id="" placeholder="Please Write User Role Name" required> 
             </div>
             <div class="col-md-3">
-                <select  name="permission" class="form-control" id="">
+                <select  name="permission" class="form-select" id="">
                     <option >Select Your Permission</option>
                     <option value="employe">Employe</option>
                     <option value="administratot">Admin</option>
                 </select>
             </div>
             <div class="col-md-3">
-                <select  name="status" class="form-control" id="">
+                <select  name="status" class="form-select" id="">
                     <option >Select Your Status</option>
                     <option value="active" >Active</option>
                     <option value="inactive">Inactive</option>

@@ -110,7 +110,7 @@ if(isset($_POST['submit'])){
                            $query=mysqli_query($conn,$sql);
                             $rowcount=mysqli_num_rows($query);
                             ?>
-                            <select class="form-control" name="employee" id="">
+                            <select class="form-select" name="employee" id="">
 
                                 <option value="">Select Employee</option>
 
@@ -142,31 +142,7 @@ if(isset($_POST['submit'])){
                         <input type="number" class="form-control mt-3 mb-3" name="AwardAmount" id="" placeholder="Award Amount">
                     </div>
                 </div>
-               <div class="row">
-                    <div class="col-md-12">
-                       <?php 
-    
-                           $sql="SELECT leave_status FROM leaves";
-                           $query=mysqli_query($conn,$sql);
-                            $rowcount=mysqli_num_rows($query);
-                            ?>
-                            <select class="form-control" name="leaves_status" id="">
-
-                                <option value="">Select Leaves Status</option>
-
-                                <?php 
-                                for($i=1;$i<=$rowcount;$i++){
-                                    $row=mysqli_fetch_array($query);
-                                    ?>
-                                    <option value="<?php echo $row['leave_status'];?>"><?php echo $row['leave_status'];?></option>
-                                    <?php
-                                }
-
-                                 ?>
-
-                            </select>
-                    </div>
-                </div>
+               
                 <div class="row">
                     <div class="col-md-12">
                         <textarea name="Description" rows="3" id="" placeholder="Description" class="form-control mt-3 mb-3"></textarea>
