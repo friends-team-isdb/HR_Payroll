@@ -25,6 +25,8 @@ date_default_timezone_set("Asia/Dhaka");
     <link href="assets/css/icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
 
     <!-- loader-->
     <link href="assets/css/pace.min.css" rel="stylesheet" />
@@ -104,7 +106,11 @@ date_default_timezone_set("Asia/Dhaka");
 
                                         </div>
                                         <div class="col-md-3">
+<<<<<<< HEAD
                                             <select class="form-select" name="empnam" id="empt">
+=======
+                                            <select class="form-control selects" data-live-search="true" name="empnam" id="empt">
+>>>>>>> 3bfebdd96712ef89cf90edab4886b277082a54a8
                                             </select>
 
                                         </div>
@@ -404,6 +410,8 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
     <script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
     <script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
     <script src="assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
     <!--app-->
     <script src="assets/js/app.js"></script>
     <script src="assets/js/index.js"></script>
@@ -449,6 +457,8 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
         }
 
     </script>
+    
+    
 
 </body>
 

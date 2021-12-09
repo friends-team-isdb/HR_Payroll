@@ -396,6 +396,7 @@ if(!isset($_SESSION['userName'])){
             $(".datepickers").datepicker({
                 changeMonth: true,
                 changeYear: true,
+                 yearRange: "1900:2050",
                 dateFormat: 'yy-mm-dd'
 
             });
