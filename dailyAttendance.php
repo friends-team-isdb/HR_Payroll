@@ -18,8 +18,8 @@ date_default_timezone_set("Asia/Dhaka");
     <link href="assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
     <link href="assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
     <link href="assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
-   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-   
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+
     <!-- Bootstrap CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/bootstrap-extended.css" rel="stylesheet" />
@@ -87,7 +87,7 @@ date_default_timezone_set("Asia/Dhaka");
                                 $query = mysqli_query($conn, $sql);
                                 $rowcount = mysqli_num_rows($query);
                                 ?>
-                                <select class="form-control" name="select_employee" id="">
+                                <select class="form-control" name="select_employee" id="select_employee" onchange="dailyAtten()">
 
                                     <option value="">Select Employee</option>
 
@@ -108,7 +108,7 @@ date_default_timezone_set("Asia/Dhaka");
                                 <input class="form-control" name="" id="" value="<?php echo date("Y-m-d");?>">
                             </div>
                             <div class="col-md-4">
-                                <input class="btn btn-primary" type="submit" name="submit" id="" value="Get Employee List">
+<!--                                <input class="btn btn-primary" type="submit" name="submit" id="" value="Get Employee List">-->
                             </div>
 
 
@@ -129,57 +129,30 @@ date_default_timezone_set("Asia/Dhaka");
                         <div class="col-md-12">
 
 
-                            <?php 
-                            @$name=$_POST['select_employee'];
-                    if(isset($_POST['submit'])){
-                        
-                     
-                        
-                        $a="SELECT * FROM employee Where employee_name='$name'";
-                        $b=mysqli_query($conn, $a);
-                        while($c=mysqli_fetch_array($b)){
-                            
-                        ?>
+                            <form action="" method="post">
+                                <table class="table table-bordered">
+                                    <thead>
 
-                            <table class="table table-bordered">
-                                <tr>
-                                    <th>Name</th>
-                                    <th>SingIn</th>
-                                    <th>Singout</th>
-                                    <th>Late count</th>
-                                    <th>Status</th>
-                                </tr>
-                                <tr>
-                                    <form action="" method="post">
-                                        <input class="form-control" type="hidden" name="n" id="" value="<?php echo $c['employee_name'];?>">
-                                        <td>
-                                            <input class="form-control" type="text" name="n" id="" value="<?php echo $c['employee_name'];?>" disabled>
 
-                                        </td>
-                                        <td>
-                                            <input class="form-control timepickers" type="time" name="signi" id="">
-                                        </td>
-                                        <td>
-                                            <input class="form-control timepickers" type="time" name="sinut" id="">
-                                        </td>
-                                        <td>
-                                            <input class="form-control timepickers" type="time" name="lateCount" id="">
-                                        </td>
-                                        <td>
-                                            <select class="form-control" name="status" id="">
-                                                <option value="Present">Present</option>
-                                                <option value="Absent">Absent</option>
-                                                <option value="On Leave">On Leave</option>
-                                            </select>
-                                        </td>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>SingIn</th>
+                                            <th>Singout</th>
+                                            <th>Late count</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
 
-                                        <td> <input class="btn btn-primary" type="submit" name="attendance" id="" value="Submit"></td>
+                                    <tbody id="dataShow">
 
-                                    </form>
 
-                                </tr>
-                            </table>
-                            <?php }}?>
+                                    </tbody>
+
+                                </table>
+                            </form>
+
+
+
 
                         </div>
                     </div>
@@ -241,8 +214,8 @@ date_default_timezone_set("Asia/Dhaka");
     <script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
     <script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
     <script src="assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>  
-    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+
     <script src="jquery-clock-timepicker.min.js"></script>
     <!--app-->
     <script src="assets/js/app.js"></script>
@@ -253,26 +226,23 @@ date_default_timezone_set("Asia/Dhaka");
         new PerfectScrollbar(".top-sellers-list")
 
     </script>
-    
+
     <script>
-//   $(document).ready(function(){  
-// $('.timepickers').timepicker({
-//    timeFormat: 'hh:mm:ss',
-//    interval: 1,
-//    minTime: '9',
-//    maxTime: '8:00pm',
-//    defaultTime: '10',
-//    startTime: '10:00',
-//    dynamic: false,
-//    dropdown: true,
-//    scrollbar: true
-//}); 
-       
-       
-       
-       
-});  
-    
+        function dailyAtten() {
+            var dailyAtt = $('#select_employee').val();
+            $.ajax({
+                url: 'getdailyAttendace.php',
+                method: 'POST',
+                dataType: 'html',
+                data: {
+                    dailyAtt: dailyAtt
+                },
+                success: function(data) {
+                    $('#dataShow').html(data);
+                }
+            })
+        }
+
     </script>
 
 </body>
