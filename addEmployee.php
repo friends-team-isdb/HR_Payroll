@@ -162,7 +162,7 @@ if(!isset($_SESSION['userName'])){
                                 <div class="modal-body">
                                     <input class="form-control" type="text" name="employ_email" id="useremail" onkeyup="CheckEmail()" onchange="CheckEmail()" placeholder="Employee Email">
                                     <span id="user"></span>
-                                    <input class="form-control" type="password" name="employeepass" id="" placeholder="Employee Password">
+                                    <input class="form-control mt-3" type="password" name="employeepass" id="" placeholder="Employee Password">
                                 </div>
                             </div>
                             <hr>
