@@ -122,13 +122,13 @@ if(!isset($_SESSION['userName'])){
                                 <div class="modal-body">
                                     <input class="form-control" type="text" name="employ_name" id="" placeholder="Employee Name"><br>
 
-                                    <select class="form-control" name="gen" id="">
+                                    <select class="form-select" name="gen" id="">
                                         <option value="">Select Gender</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                     </select><br>
 
-                                    <label class="form-control" for="marital_status">Marital Status: <select name="marital_status">
+                                    <label class="form-control" for="marital_status">Marital Status: <select name="marital_status" class="form-select">
                                             <option value="">Select</option>
                                             <option value="married">Married</option>
                                             <option value="unmarried">Unmarried</option>
@@ -179,7 +179,7 @@ if(!isset($_SESSION['userName'])){
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-                                    <select class="form-control" name="employment_id" id="">
+                                    <select class="form-select" name="employment_id" id="">
 
                                         <option value="">Select Employee Type</option>
 
@@ -200,7 +200,7 @@ if(!isset($_SESSION['userName'])){
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-                                    <select class="form-control" name="department_id" id="">
+                                    <select class="form-select" name="department_id" id="">
 
                                         <option value="">Select Department</option>
 
@@ -222,7 +222,7 @@ if(!isset($_SESSION['userName'])){
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-                                    <select class="form-control" name="designation" id="">
+                                    <select class="form-select" name="designation" id="">
 
                                         <option value="">Select Designaton</option>
 
