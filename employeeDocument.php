@@ -63,7 +63,7 @@
 <!--           Enter Your Code here-->
     <div class="modal-content">
 <div class="forms-body">
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="" method="post" enctype="multipart/form-data" id="myform">
        
        <div class="row">
            <div class="col-md-12">
@@ -82,7 +82,8 @@
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-select" name="employee" id="">
+            <select class="form-select" name="employee" id="employee" onkeyup="change(this.id,'erremployee')" onblur="change(this.id,'erremployee')" >
+                <span id="erremployee"></span>
                 
                 <option value="">Select Employee</option>
                 
@@ -97,9 +98,10 @@
                 ?>
                 
             </select>
-              <input type="text" name="document_name" id="" class="form-control mt-3" placeholder="Document Name" required><br>
-              
-              <select class="form-select" name="document_status" id="">
+              <input type="text" name="document_name" id="document_name" class="form-control mt-3" placeholder="Document Name" onkeyup="change(this.id,'errdocument_name')" onblur="change(this.id,'errdocument_name')"  ><br>
+              <span id="errdocument_name"></span>
+              <select class="form-select" name="document_status" id="document_status" onkeyup="change(this.id,'errdocument_status')" onblur="change(this.id,'errdocument_status')" >
+                    <span id="errdocument_status"></span>
                     <option value="">Select Document_Status</option>
                     <option value="Valid">Valid</option>
                     <option value="Invalid">Invalid</option>
@@ -122,6 +124,66 @@
     </div>
     </div>
     
+<script type="text/JavaScript">
+   $("#myform").submit(function(){
+        var Employee= $("#employee").val();
+        var Document_name= $("#document_name").val();
+        var Document_status= $("#document_status").val();
+       
+        
+      if(Employee==""){
+            $("#employee").attr("style","border: 3px solid red");
+            $("#erremployee").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#employee").attr("style","border:");
+            $("#erremployee").html("");
+        }
+      if(Document_name==""){
+            $("#document_name").attr("style","border: 3px solid red");
+            $("#errdocument_name").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#document_name").attr("style","border:");
+            $("#errdocument_name").html("");
+        }
+      if(Document_status==""){
+            $("#document_status").attr("style","border: 3px solid red");
+            $("#errdocument_status").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#document_status").attr("style","border:");
+           $("#errdocument_status").html("");
+       }
+      
+    });
+    
+    function change(id,msg,type=null){
+        var get=$("#"+id).val();
+        
+        if(type==null){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("This field must not be empty!");
+            
+        }else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+        
+       
+     
+    }
+    
+</script>                      
+           
+
+
+
+
         <?php
             
         if(isset($_POST['submit'])){
