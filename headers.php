@@ -1,6 +1,8 @@
 <?php require "connect.php";
-session_start();
-
+@session_start();
+if(!isset($_SESSION['userName'])){
+  header("location:Login.php");  
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
