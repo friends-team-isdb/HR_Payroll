@@ -106,7 +106,7 @@ if(isset($_POST['submit'])){
                                    $query=mysqli_query($conn,$sql);
                                     $rowcount=mysqli_num_rows($query);
                                     ?>
-                                    <select class="form-select" name="employee" id="employee" onkeyup="change(this.id,'erremploye')" onblur="change(this.id,'erremploye')">
+                                    <select class="form-select" name="employee" id="employee" onkeyup="change(this.id,'erremploye','data')" onblur="change(this.id,'erremploye','data')">
                                         <span id="erremploye"></span>
 
                                         <option value="">Select Employee</option>
