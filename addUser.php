@@ -90,7 +90,7 @@ if(isset($_POST['submit'])){
 <!--           Enter Your Code here-->
     <div class="modal-content">
       <div class="forms-body">
-        <form action="" method="post" enctype="multipart/form-data">      
+        <form action="" method="post" enctype="multipart/form-data" id="myform">      
             <div class="row">
                 <div class="col-md-12">
                   <h3 style="margin:10px;">Add Users</h3>
@@ -103,7 +103,8 @@ if(isset($_POST['submit'])){
                     <hr>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" name="username" class="form-control mt-3" id="" placeholder="Please Write Your User Name" required> <br>
+                            <input type="text" name="username" class="form-control mt-3" id="username" placeholder="Please Write Your User Name" onkeyup="change(this.id,'errusername')" onblur="change(this.id,'errusername')" > <br>
+                            <span id="errusername"></span>
                         </div>
                     </div>
                     <div class="row">
@@ -114,7 +115,8 @@ if(isset($_POST['submit'])){
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-select" name="roleId" id="">
+            <select class="form-select" name="roleId" id="roleId" onkeyup="change(this.id,'errroleId')" onblur="change(this.id,'errroleId')" >
+                <span id="errroleId"></span>
                 
                 <option value="">Select Role</option>
                 
@@ -133,28 +135,33 @@ if(isset($_POST['submit'])){
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" name="fullname" class="form-control mt-3" id="" required placeholder="Please Write Your Full Name"> 
+                            <input type="text" name="fullname" class="form-control mt-3" id="fullname"  placeholder="Please Write Your Full Name" onkeyup="change(this.id,'errfullname')" onblur="change(this.id,'errfullname')"  > 
+                            <span id="errfullname"></span>
                         </div>
                     </div>
                     
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="number" name="phone" class="form-control mt-3" id="" placeholder="Please Write Your Phone Number" required> 
+                            <input type="number" name="phone" class="form-control mt-3" id="phone" placeholder="Please Write Your Phone Number" onkeyup="change(this.id,'errphone','mobile')" onblur="change(this.id,'errphone','mobile')" > 
+                            <span id="errphone"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                        <input type="email" name="email" class="form-control mt-3" id="" placeholder="Please Write Your Email Address" required> 
+                        <input type="email" name="email" class="form-control mt-3" id="email" placeholder="Please Write Your Email Address" onkeyup="change(this.id,'erremail')" onblur="change(this.id,'erremail')" > 
+                        <span id="erremail"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="password" class="form-control mt-3" name="password" id="" placeholder="Please Write Your Password" required> 
+                            <input type="password" class="form-control mt-3" name="password" id="password" placeholder="Please Write Your Password" onkeyup="change(this.id,'errpassword')" onblur="change(this.id,'errpassword')" > 
+                            <span id="errpassword"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                               <select name="status" class="form-select mt-3"id="">
+                               <select name="status" class="form-select mt-3"id="status" onkeyup="change(this.id,'errstatus')" onblur="change(this.id,'errstatus')" >
+                                   <span id="errstatus"></span>
                                     <option value="">Select Your Status</option>
                                     <option value="active" selected>Active</option>
                                     <option value="inactive">Inactive</option>
@@ -238,7 +245,115 @@ if(isset($_POST['submit'])){
 
            
            
-           
+<script type="text/JavaScript">
+   $("#myform").submit(function(){
+        var Username= $("#username").val();
+        var RoleId= $("#roleId").val();
+        var Fullname= $("#fullname").val();
+        var Phone= $("#phone").val();
+        var Email= $("#email").val();
+        var Password= $("#password").val();
+        var Status= $("#status").val();
+        
+        
+        if(Username==""){
+            $("#username").attr("style","border: 3px solid red");
+            $("#errusername").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#username").attr("style","border:");
+            $("#errusername").html("");
+        }
+      if(RoleId==""){
+            $("#roleId").attr("style","border: 3px solid red");
+            $("#errroleId").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#roleId").attr("style","border:");
+           $("#errroleId").html("");
+       }
+      if(Fullname==""){
+            $("#fullname").attr("style","border: 3px solid red");
+            $("#errfullname").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#fullname").attr("style","border:");
+            $("#errfullname").html("");
+        }
+        if(Phone==""){
+            $("#phone").attr("style","border: 3px solid red");
+            $("#errphone").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#phone").attr("style","border:");
+            $("#errphone").html("");
+        }
+      if(Email==""){
+            $("#email").attr("style","border: 3px solid red");
+            $("#erremail").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#email").attr("style","border:");
+           $("#erremail").html("");
+       }
+      if(Password==""){
+            $("#password").attr("style","border: 3px solid red");
+            $("#errpassword").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#password").attr("style","border:");
+            $("#errpassword").html("");
+        }
+      if(Status==""){
+            $("#status").attr("style","border: 3px solid red");
+            $("#errstatus").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#status").attr("style","border:");
+            $("#errstatus").html("");
+        }
+        
+    });
+    
+    function change(id,msg,type=null){
+        var get=$("#"+id).val();
+        
+        if(type==null){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("This field must not be empty!");
+            
+        }else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+        if(type=="mobile"){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("This field must not be empty!");
+            
+        }else if(get.length!==11){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("Mobile number must be 11 digit");
+        }
+        else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+       
+     
+    }
+    
+</script>           
            
            
            
