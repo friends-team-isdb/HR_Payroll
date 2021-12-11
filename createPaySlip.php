@@ -1,6 +1,49 @@
 <?php require "connect.php";
 date_default_timezone_set("Asia/Dhaka");
+if(isset($_POST['submit'])){
+@$empName=$_POST['empnam'];
+@$Year=$_POST['year'];
+@$Month=$_POST['dob-month'];
+$sqls="SELECT * FROM salary_setup Where employe_Name='$empName'";
+    $q=mysqli_query($conn,$sqls);
+    $r=mysqli_fetch_array($q);
+    @$basicSalary=$r['basic_salary'];
+    @$medical=$r['medical'];
+    @$houseRent=$r['house_rent'];
+    @$food=$r['food'];
+    @$provident=$r['provident_fund'];
+    @$medicalAmount=($basicSalary*$medical)/100;
+    @$houseRentAmount=($basicSalary*$houseRent)/100;
+    @$foodAmount=($basicSalary*$food)/100;
+    
+    @$totalAllownes=($medicalAmount+$houseRentAmount+$foodAmount);
+    
+    @$providentFund=($basicSalary*$provident)/100;
+    
+    
+    @$workdays = array();
+    @$type = CAL_GREGORIAN;
 
+@$months = date('n',strtotime($Month)); // Month ID, 1 through to 12.
+@$years = date('Y',strtotime($Year)); // Year in 4 digit 2009 format.
+@$day_count = cal_days_in_month($type, $months, $years); // Get the amount of days
+
+//loop through all days
+for ($i = 1; $i <= $day_count; $i++) {
+
+        $date = $years.'/'.$months.'/'.$i; //format date
+        $get_name = date('l', strtotime($date)); //get week day
+        $day_name = substr($get_name, 0, 3); // Trim day name to 3 chars
+
+        //if not a weekend add day to array
+        if($day_name != 'Fri' && $day_name != 'Sat'){
+            $workdays[] = $i;
+        }
+
+}
+echo count($workdays);
+    
+}
 ?>
 
 
@@ -107,7 +150,7 @@ date_default_timezone_set("Asia/Dhaka");
                                         </div>
                                         <div class="col-md-3">
 
-                                            
+
 
                                             <select class="form-select selects" data-live-search="true" name="empnam" id="empt">
 
@@ -226,38 +269,37 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
                                 <div class="modal-body">
                                     <h6 class="modal-title text-primary">Allownes</h6>
                                     <hr>
-
-                                    <div class="addmores_div">
-
-
-                                        <div class="row">
-
-
-
-                                            <div class="col-md-5">
-                                                <select class="form-control" name="deductions" id="">
-                                                    <option value="" selected> Select Allownes</option>
-                                                    <option value=""> Home Allownes</option>
-                                                    <option value=""> Medical Allownes</option>
-                                                    <option value=""> Rent Allownes</option>
-
-                                                </select>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <input class="form-control" type="text" name="" id="">
-
-                                            </div>
-
-                                            <div class="col-md-2">
-                                                <p class="btn btn-primary" id="addnew">+</p>
-                                            </div>
-
-
-
-
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h4>House rent:</h4>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input class="form-control" type="text" name="" id="" value="<?php echo @$houseRentAmount?>" readonly>
 
                                         </div>
-                                    </div>
+
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h4>Medical Allownes :</h4>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input class="form-control" type="text" name="" id="" value="<?php echo @$medicalAmount;?>" readonly>
+
+                                        </div>
+
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h4>Food Allownes:</h4>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input class="form-control" type="text" name="" id="" value="<?php echo @$foodAmount;?>" readonly>
+
+                                        </div>
+
+                                    </div><br>
+
 
 
                                     <div class="row">
@@ -274,12 +316,13 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
                                             <input class="form-control" type="text" placeholder="amount" name="amount" id="">
                                         </div>
                                     </div>
-
-
                                 </div>
 
 
                             </div>
+
+
+
                         </div>
 
 
@@ -288,20 +331,26 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
                                 <div class="modal-body">
                                     <h6 class="modal-title text-primary">Deductions</h6>
                                     <hr>
-                                    <div class="row" id="doublehobe">
-                                        <div class="col-md-5">
-                                            <select class="form-control" name="deductions" id="">
-                                                <option class="form-control" value="" selected> Select Deductions</option>
-
-                                            </select>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h4>Provident Fund:</h4>
                                         </div>
-                                        <div class="col-md-5">
+                                        <div class="col-md-6">
+                                            <input class="form-control" type="text" name="" id="" value="<?php echo @$providentFund?>" readonly>
+
+                                        </div>
+
+                                    </div><br>
+                                    
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                            <h4>Late Attendence:</h4>
+                                        </div>
+                                        <div class="col-md-6">
                                             <input class="form-control" type="text" name="" id="">
 
                                         </div>
-                                        <div class="col-md-2">
-                                            <p class="">+</p>
-                                        </div>
+
                                     </div>
 
 
@@ -330,6 +379,7 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
                     </div>
 
 
+
                     <hr>
                     <div class="modal-content">
                         <div class="forms-body">
@@ -344,17 +394,22 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
                                 <div class="col-md-3"></div>
                                 <div class="col-md-6">
 
-                                    <input type="text" placeholder="Basic" class="form-control" name="" id=""><br>
-                                    <input type="text" placeholder="Total Allowances" class="form-control" name=""><br>
-                                    <input type="text" placeholder="Total Deductions" class="form-control" name="" id=""><br>
-                                    <input type="text" placeholder="Net Salary" class="form-control" name="" id=""><br>
+                                    <input type="text" placeholder="Basic" class="form-control" name="" id="" value="<?php echo @$r['basic_salary'];?>" readonly><br>
+                                    <input type="text" placeholder="Total Allowances" class="form-control" name="" readonly value="<?php echo @$totalAllownes?>"><br>
+                                    <input type="text" placeholder="Total Deductions" class="form-control" name="" id="" readonly><br>
+                                    <input type="text" placeholder="Net Salary" class="form-control" name="" id="" readonly><br>
+                                    <input type="text" placeholder="Gross Salary" class="form-control" name="" id="" readonly><br>
                                     <select class="form-select" name="deductions" id="">
                                         <option class="form-control" value="" selected> Payment Method</option>
-                                        <option class="form-control" value="">Item</option>
+                                        <option class="form-control" value="">Bank payment</option>
+                                        <option class="form-control" value="">Cash payment</option>
                                     </select><br>
                                     <select class="form-select" name="deductions" id="">
-                                        <option class="form-control" value="" selected> Status</option>
-                                        <option class="form-control" value="">Item</option>
+                                        <option class="form-control" value="" selected>Select Status</option>
+                                        <option class="form-control" value="Paid">Paid</option>
+                                        <option class="form-control" value="Unpaid">Unpaid</option>
+                                        <option class="form-control" value="Pending">Pending</option>
+                                        <option class="form-control" value="Processing">Processing</option>
                                     </select><br>
 
 
@@ -457,8 +512,8 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
         }
 
     </script>
-    
-    
+
+
 
 </body>
 
