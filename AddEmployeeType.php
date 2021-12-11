@@ -90,7 +90,7 @@ if(isset($_POST['submit'])){
 <!--           Enter Your Code here-->
     <div class="modal-content">
       <div class="forms-body">
-        <form action="" method="post" enctype="multipart/form-data">      
+        <form action="" method="post" enctype="multipart/form-data" id="myform">      
             <div class="row">
                 <div class="col-md-12">
                   <h3 style="margin:10px;">Add Employee Type</h3>
@@ -100,7 +100,8 @@ if(isset($_POST['submit'])){
               <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                <input type="text" name="employeeType" id="" class="form-control mt-3" placeholder="Add Employee Type">
+                <input type="text" name="employeeType" id="employeeType" class="form-control mt-3" onkeyup="change(this.id,'errempltype')" onblur="change(this.id,'errempltype')" placeholder="Add Employee Type">
+                <span id="errempltype"> </span>
                 
                 </div>
                 <div class="col-md-3">
@@ -111,7 +112,38 @@ if(isset($_POST['submit'])){
       </div>
     </div>
 
-
+<script type="text/JavaScript">
+   $("#myform").submit(function(){
+        var EmployeeTypeName= $("#employeeType").val();
+        if(EmployeeTypeName==""){
+            $("#employeeType").attr("style","border: 3px solid red");
+            $("#errempltype").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#employeeType").attr("style","border:");
+            $("#errempltype").html("");
+        }
+     
+    });
+    
+    function change(id,msg,type=null){
+        var get=$("#"+id).val();
+        
+        if(type==null){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("This field must not be empty!");
+            
+        }else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+     
+    }
+    
+</script>
            
            
            
