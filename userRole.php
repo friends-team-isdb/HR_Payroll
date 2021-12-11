@@ -80,7 +80,7 @@ if(isset($_POST['submit'])){
 <!--           Enter Your Code here-->
     <div class="modal-content">
 <div class="forms-body">
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="" method="post" enctype="multipart/form-data" id="myform">
        
        <div class="row">
            <div class="col-md-12">
@@ -92,24 +92,27 @@ if(isset($_POST['submit'])){
       <div class="row">  
 <!--         jakir vai code here-->
             <div class="col-md-4 ">
-                <input type="text" class="form-control" name="rolename"  id="" placeholder="Please Write User Role Name" required> 
+                <input type="text" class="form-control" name="rolename"  id="rolename" placeholder="Please Write User Role Name" onkeyup="change(this.id,'errrolename')" onblur="change(this.id,'errrolename')"  > 
+                <span id="errrolename"></span>
             </div>
             <div class="col-md-3">
-                <select  name="permission" class="form-select" id="">
+                <select  name="permission" class="form-select" id="permission" onkeyup="change(this.id,'errpermission','data')" onblur="change(this.id,'errpermission','data')"  >
+                    <span id="errpermission"></span>
                     <option >Select Your Permission</option>
                     <option value="employe">Employe</option>
                     <option value="administratot">Admin</option>
                 </select>
             </div>
             <div class="col-md-3">
-                <select  name="status" class="form-select" id="">
+                <select  name="status" class="form-select" id="status" onkeyup="change(this.id,'errstatus','data')" onblur="change(this.id,'errstatus','data')"  >
+                    <span id="errstatus"></span>
                     <option >Select Your Status</option>
                     <option value="active" >Active</option>
                     <option value="inactive">Inactive</option>
                 </select>
             </div>
             <div class="col-md-2">
-                <input class="btn btn-primary  " type="submit" name="submit" id="" >
+                <input class="btn btn-primary  " type="submit" name="submit" value="Submit" >
             </div>
        </div>
         
@@ -117,7 +120,71 @@ if(isset($_POST['submit'])){
     </div>
     </div>
 
-
+<script type="text/JavaScript">
+   $("#myform").submit(function(){
+        var Rolename= $("#rolename").val();
+        var Permission= $("#permission").val();
+        var Status= $("#status").val();
+        
+      if(Rolename==""){
+            $("#rolename").attr("style","border: 3px solid red");
+            $("#errrolename").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#rolename").attr("style","border:");
+            $("#errrolename").html("");
+        }
+      if(Permission==""){
+            $("#permission").attr("style","border: 3px solid red");
+            $("#errpermission").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#permission").attr("style","border:");
+           $("#errpermission").html("");
+       }
+     if(Status==""){
+            $("#status").attr("style","border: 3px solid red");
+            $("#errstatus").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#status").attr("style","border:");
+            $("#errstatus").html("");
+        }
+    });
+    
+    function change(id,msg,type=null){
+        var get=$("#"+id).val();
+        
+        if(type==null){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("This field must not be empty!");
+            
+        }else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+        if(type=="data"){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("This field must not be empty!");
+            
+        }
+        else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+       
+     
+    }
+    
+</script>           
            
            
            
