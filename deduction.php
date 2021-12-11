@@ -86,7 +86,7 @@ if(isset($_POST['submit'])){
 <!--           Enter Your Code here-->
     <div class="modal-content">
 <div class="forms-body">
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="" method="post" enctype="multipart/form-data" id="myform">
        
        <div class="row">
            <div class="col-md-12">
@@ -105,7 +105,8 @@ if(isset($_POST['submit'])){
              $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-select" name="employee" id="">
+            <select class="form-select" name="employee" id="employee" onkeyup="change(this.id,'erremployee')" onblur="change(this.id,'erremployee')" >
+                <span id="erremployee"></span>
                 
                 <option value="">Select Employee</option>
                 
@@ -121,15 +122,19 @@ if(isset($_POST['submit'])){
                 
             </select>
             
-          <input class="form-control mt-3" type="number" name="Deductioncode" id="" placeholder="Deduction Code">
-          <textarea class="form-control mt-3" name="Description" placeholder="Description"></textarea>
-          <input class="form-control mt-3" type="number" name="Amount" id="" placeholder="Amount" required="required">
+          <input class="form-control mt-3" type="number" name="Deductioncode" id="Deductioncode" placeholder="Deduction Code" onkeyup="change(this.id,'errDeductioncode')" onblur="change(this.id,'errDeductioncode')" >
+          <span id="errDeductioncode"></span>
+          <textarea class="form-control mt-3" name="Description" id="Description" placeholder="Description" onkeyup="change(this.id,'errDescription')" onblur="change(this.id,'errDescription')"></textarea>
+          <span id="errDescription"></span>
+          <input class="form-control mt-3" type="number" name="Amount" id="Amount" placeholder="Amount" onkeyup="change(this.id,'errAmount')" onblur="change(this.id,'errAmount')" >
+          <span id="errAmount"></span>
 
           <div class="row">
             <div class="col-md-12">
               <div class="row">
               <div class="col-md-6">
-                <select class="form-select mt-3" name="month" id="">
+                <select class="form-select mt-3" name="month" id="month" onkeyup="change(this.id,'errmonth')" onblur="change(this.id,'errmonth')" >
+                    <span id="errmonth"></span>
                   <option value="">Select Month</option>
                   <option value="January">January</option>
                   <option value="February">February</option>
@@ -146,7 +151,8 @@ if(isset($_POST['submit'])){
                 </select>
               </div>
               <div class="col-md-6">
-                <select class="form-select mt-3" name="year" id="">
+                <select class="form-select mt-3" name="year" id="year" onkeyup="change(this.id,'erryear')" onblur="change(this.id,'erryear')" >
+                    <span id="erryear"></span>
                   <option value="">Select Year</option>
                   <option value="2020">2020</option>
                   <option value="2021">2021</option>
@@ -166,7 +172,8 @@ if(isset($_POST['submit'])){
             </div>
             
           </div>
-          <select class="form-select mt-3" name="Status" id="">
+          <select class="form-select mt-3" name="Status" id="Status" onkeyup="change(this.id,'errStatus')" onblur="change(this.id,'errStatus')">
+              <span id="errStatus"></span>
             <option value="">Status</option>
             <option value="Aproved">Aproved</option>
             <option value="Pending">Pending</option>
@@ -185,7 +192,99 @@ if(isset($_POST['submit'])){
     </div>
 
 
-           
+<script type="text/JavaScript">
+   $("#myform").submit(function(){
+        var Employee= $("#employee").val();
+        var Deductioncodes= $("#Deductioncode").val();
+        var Descriptions= $("#Description").val();
+        var Amounts= $("#Amount").val();
+        var Month= $("#month").val();
+        var Year= $("#year").val();
+        var Statuss= $("#Status").val();
+        
+      if(Employee==""){
+            $("#employee").attr("style","border: 3px solid red");
+            $("#erremployee").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#employee").attr("style","border:");
+            $("#erremployee").html("");
+        }
+      if(Deductioncodes==""){
+            $("#Deductioncode").attr("style","border: 3px solid red");
+            $("#errDeductioncode").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#Deductioncode").attr("style","border:");
+            $("#errDeductioncode").html("");
+        }
+      if(Descriptions==""){
+            $("#Description").attr("style","border: 3px solid red");
+            $("#errDescription").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#Description").attr("style","border:");
+           $("#errDescription").html("");
+       }
+      if(Amounts==""){
+            $("#Amount").attr("style","border: 3px solid red");
+            $("#errAmount").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#Amount").attr("style","border:");
+            $("#errAmount").html("");
+        }
+     if(Month==""){
+            $("#month").attr("style","border: 3px solid red");
+            $("#errmonth").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#month").attr("style","border:");
+            $("#errmonth").html("");
+        }
+      if(Year==""){
+            $("#year").attr("style","border: 3px solid red");
+            $("#erryear").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#year").attr("style","border:");
+            $("#erryear").html("");
+        }
+      if(Statuss==""){
+            $("#Status").attr("style","border: 3px solid red");
+            $("#errStatus").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#Status").attr("style","border:");
+           $("#errStatus").html("");
+       }
+     
+       
+    });
+    
+    function change(id,msg,type=null){
+        var get=$("#"+id).val();
+        
+        if(type==null){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("This field must not be empty!");
+            
+        }else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+        
+       
+     
+    }
+    
+</script>           
            
            
            
