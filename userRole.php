@@ -96,7 +96,7 @@ if(isset($_POST['submit'])){
                 <span id="errrolename"></span>
             </div>
             <div class="col-md-3">
-                <select  name="permission" class="form-select" id="permission" onkeyup="change(this.id,'errpermission','data')" onblur="change(this.id,'errpermission','data')"  >
+                <select  name="permission" class="form-select" id="permission" onkeyup="change(this.id,'errpermission')" onblur="change(this.id,'errpermission')"  >
                     <span id="errpermission"></span>
                     <option >Select Your Permission</option>
                     <option value="employe">Employe</option>
@@ -104,7 +104,7 @@ if(isset($_POST['submit'])){
                 </select>
             </div>
             <div class="col-md-3">
-                <select  name="status" class="form-select" id="status" onkeyup="change(this.id,'errstatus','data')" onblur="change(this.id,'errstatus','data')"  >
+                <select  name="status" class="form-select" id="status" onkeyup="change(this.id,'errstatus')" onblur="change(this.id,'errstatus')"  >
                     <span id="errstatus"></span>
                     <option >Select Your Status</option>
                     <option value="active" >Active</option>
@@ -168,20 +168,7 @@ if(isset($_POST['submit'])){
         }
         
         }
-        if(type=="data"){
-            if(get==""){
-            $("#"+id).attr("style","border: 3px solid red");
-            $("#"+msg).html("This field must not be empty!");
-            
-        }
-        else{
-            $("#"+id).attr("style","border:");
-            $("#"+msg).html("");
-        }
         
-        }
-       
-     
     }
     
 </script>           
