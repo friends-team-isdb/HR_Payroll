@@ -92,7 +92,7 @@ if(isset($_POST['submit'])){
 <!--           Enter Your Code here-->
     <div class="modal-content">
 <div class="forms-body">
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="" method="post" enctype="multipart/form-data" id="myform">
        
        <div class="row">
            <div class="col-md-12">
@@ -110,7 +110,8 @@ if(isset($_POST['submit'])){
                     $query=mysqli_query($conn,$sql);
                     $rowcount=mysqli_num_rows($query);
                     ?>
-                    <select class="form-select" name="employee" id="">
+                    <select class="form-select" name="employee" id="employee" onkeyup="change(this.id,'errselect','data')" onblur="change(this.id,'errselect','data')">
+                        <span id="errselect"></span>
 
                         <option value="">Select Employee</option>
 
@@ -125,15 +126,22 @@ if(isset($_POST['submit'])){
                         ?>
 
                     </select>
-          <input class="form-control mt-3" type="number" name="Additioncode" id="" placeholder="Addition Code">
-          <textarea class="form-control mt-3" name="Description" placeholder="Description"></textarea>
-          <input class="form-control mt-3" type="number" name="Amount" id="" placeholder="Amount" required="required">
+          <input class="form-control mt-3" type="number" name="Additioncode" id="Additioncode" placeholder="Addition Code" onkeyup="change(this.id,'errnumber')" onblur="change(this.id,'errnumber')">
+                                  <span id="errnumber"></span>
+
+          <textarea class="form-control mt-3" name="Description" id="Description" placeholder="Description" onkeyup="change(this.id,'errdescription')" onblur="change(this.id,'errdescription')"></textarea>
+                                  <span id="errdescription"></span>
+
+          <input class="form-control mt-3" type="number" name="Amount" id="Amount" placeholder="Amount" onkeyup="change(this.id,'erramount')" onblur="change(this.id,'erramount')" >
+                                  <span id="erramount"></span>
+
 
           <div class="row">
             <div class="col-md-12">
               <div class="row">
               <div class="col-md-6">
-                <select class="form-select mt-3" name="month" id="">
+                <select class="form-select mt-3" name="month" id="month" onkeyup="change(this.id,'errselect1','data')" onblur="change(this.id,'errselect1','data')">
+                    <span id="errselect1"></span>
                   <option value="">Select Month</option>
                   <option value="January">January</option>
                   <option value="February">February</option>
@@ -150,7 +158,8 @@ if(isset($_POST['submit'])){
                 </select>
               </div>
               <div class="col-md-6">
-                <select class="form-select mt-3" name="year" id="">
+                <select class="form-select mt-3" name="year" id="year" onkeyup="change(this.id,'errselect2','data')" onblur="change(this.id,'errselect2','data')">
+                     <span id="errselect2"></span>
                   <option value="">Select Year</option>
                   <option value="2020">2020</option>
                   <option value="2021">2021</option>
@@ -170,7 +179,8 @@ if(isset($_POST['submit'])){
             </div>
             
           </div>
-          <select class="form-select mt-3" name="Status" id="">
+          <select class="form-select mt-3" name="Status" id="Status" onkeyup="change(this.id,'errselect3','data')" onblur="change(this.id,'errselect3','data')">
+               <span id="errselect3"></span>
             <option value="">Status</option>
             <option value="Aproved">Aproved</option>
             <option value="Pending">Pending</option>
@@ -188,6 +198,111 @@ if(isset($_POST['submit'])){
     </div>
     </div>
 
+<script type="text/JavaScript">
+   $("#myform").submit(function(){
+        var Employee= $("#employee").val();
+        var Additioncodes= $("#Additioncode").val();
+        var Descriptions= $("#Description").val();
+        var Amounts= $("#Amount").val();
+        var Months= $("#month").val();
+        var Years= $("#year").val();
+        var Statuss= $("#Status").val();
+        
+        if(Employee==""){
+            $("#employee").attr("style","border: 3px solid red");
+            $("#errselect").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#employee").attr("style","border:");
+            $("#errselect").html("");
+        }
+      if(Additioncodes==""){
+            $("#Additioncode").attr("style","border: 3px solid red");
+            $("#errnumber").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#Additioncode").attr("style","border:");
+           $("#errnumber").html("");
+       }
+      if(Descriptions==""){
+            $("#Description").attr("style","border: 3px solid red");
+            $("#errdescription").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#Description").attr("style","border:");
+            $("#errdescription").html("");
+        }
+        if(Amounts==""){
+            $("#Amount").attr("style","border: 3px solid red");
+            $("#erramount").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#Amount").attr("style","border:");
+            $("#erramount").html("");
+        }
+      if(Months==""){
+            $("#month").attr("style","border: 3px solid red");
+            $("#errselect1").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#month").attr("style","border:");
+           $("#errselect1").html("");
+       }
+      if(Years==""){
+            $("#year").attr("style","border: 3px solid red");
+            $("#errselect2").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#year").attr("style","border:");
+            $("#errselect2").html("");
+        }
+         if(Statuss==""){
+            $("#Status").attr("style","border: 3px solid red");
+            $("#errselect3").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#Status").attr("style","border:");
+           $("#errselect3").html("");
+       }
+       
+    });
+    
+    function change(id,msg,type=null){
+        var get=$("#"+id).val();
+        
+        if(type==null){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("This field must not be empty!");
+            
+        }else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+        if(type=="data"){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("Please select any option");
+            
+        }
+        else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+       
+     
+    }
+    
+</script>
 
            
            
