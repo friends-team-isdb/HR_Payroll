@@ -6,18 +6,8 @@ if(isset($_POST['submit'])){
     $signout=$_POST['signout'];
     $latecount=$_POST['latecount'];
     $absent=$_POST['absent'];
-
-
- 
-
-
-    
-   
-    
-   
-    
-        $sql="INSERT INTO `attendance_schedule` (`Signin_in_time_setup`, `Sign_out_time_setup`, `Late_Count_time`, `Absent_time`) VALUES ('$signin', '$signout', '$latecount', '$absent')";
-        $qureyss=mysqli_query($conn,$sql);
+    $sql="INSERT INTO `attendance_schedule` (`Signin_in_time_setup`, `Sign_out_time_setup`, `Late_Count_time`, `Absent_time`) VALUES ('$signin', '$signout', '$latecount', '$absent')";
+    $qureyss=mysqli_query($conn,$sql);
     header("location:attendanceschedulemanage.php");
                      
        
@@ -86,7 +76,7 @@ if(isset($_POST['submit'])){
             <!--           Enter Your Code here-->
             <div class="modal-content">
                 <div class="forms-body">
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form action="" method="post" enctype="multipart/form-data" id="myform" >
 
                         <div class="row">
                             <div class="col-md-12">
@@ -101,22 +91,26 @@ if(isset($_POST['submit'])){
                             <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        Signin Time Setup:<input type="time" name="signin" class="form-control mt-3 mb-3 ">
+                                        Signin Time Setup:<input type="time" name="signin" id="signin" class="form-control mt-3 mb-3 " onkeyup="change(this.id,'errsignin')" onblur="change(this.id,'errsignin')" >
+                                        <span id="errsignin"></span>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        Signout Time Setup:<input type="time" name="signout" class="form-control mt-3 mb-3 ">
+                                        Signout Time Setup:<input type="time" name="signout" id="signout" class="form-control mt-3 mb-3 " onkeyup="change(this.id,'errsignout')" onblur="change(this.id,'errsignout')" >
+                                        <span id="errsignout"></span>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        Late Count Time:<input type="time" name="latecount" class="form-control mt-3 mb-3 ">
+                                        Late Count Time:<input type="time" name="latecount" id="latecount" class="form-control mt-3 mb-3 " onkeyup="change(this.id,'errlatecount')" onblur="change(this.id,'errlatecount')" >
+                                        <span id="errlatecount"></span> 
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        Absent Time: <input type="time" name="absent" class="form-control mt-3 mb-3 ">
+                                        Absent Time: <input type="time" name="absent" id="absent" class="form-control mt-3 mb-3 " onkeyup="change(this.id,'errabsent')" onblur="change(this.id,'errabsent')" >
+                                        <span id="errabsent"></span>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -134,7 +128,71 @@ if(isset($_POST['submit'])){
             </div>
 
 
-
+<script type="text/JavaScript">
+   $("#myform").submit(function(){
+        var Signin= $("#signin").val();
+        var Signout= $("#signout").val();
+        var Latecount= $("#latecount").val();
+        var Absent= $("#absent").val();
+        
+      if(Signin==""){
+            $("#signin").attr("style","border: 3px solid red");
+            $("#errsignin").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#signin").attr("style","border:");
+            $("#errsignin").html("");
+        }
+      if(Signout==""){
+            $("#signout").attr("style","border: 3px solid red");
+            $("#errsignout").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#signout").attr("style","border:");
+            $("#errsignout").html("");
+        }
+      if(Latecount==""){
+            $("#latecount").attr("style","border: 3px solid red");
+            $("#errlatecount").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#latecount").attr("style","border:");
+           $("#errlatecount").html("");
+       }
+      if(Absent==""){
+            $("#absent").attr("style","border: 3px solid red");
+            $("#errabsent").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#absent").attr("style","border:");
+            $("#errabsent").html("");
+        }
+     
+       
+    });
+    
+    function change(id,msg,type=null){
+        var get=$("#"+id).val();
+        
+        if(type==null){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("This field must not be empty!");
+            
+        }else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+        
+       
+     
+    }
+    
+</script>                      
 
 
 
