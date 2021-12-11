@@ -81,7 +81,7 @@ if(isset($_POST['submit'])){
 <!--           Enter Your Code here-->
     <div class="modal-content">
 <div class="forms-body">
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="" method="post" enctype="multipart/form-data" id="myform">
        
        <div class="row">
            <div class="col-md-12">
@@ -102,7 +102,8 @@ if(isset($_POST['submit'])){
                                 $query=mysqli_query($conn,$sql);
                                 $rowcount=mysqli_num_rows($query);
                                 ?>
-                                <select class="form-select" name="SelectEmployee" id="">
+                                <select class="form-select" name="SelectEmployee" id="SelectEmployee" onkeyup="change(this.id,'errSelectEmployee')" onblur="change(this.id,'errSelectEmployee')" >
+                                    <span id="errSelectEmployee"></span>
 
                                     <option value="">Select Employee</option>
 
@@ -121,27 +122,32 @@ if(isset($_POST['submit'])){
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                       <input type="date" name="dates" class="form-control mt-3 mb-3 " >
+                       <input type="date" name="dates" id="dates" class="form-control mt-3 mb-3 " onkeyup="change(this.id,'errdates')" onblur="change(this.id,'errdates')" >
+                       <span id="errdates"></span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <input type="text" name="expensename" class="form-control mt-3 mb-3 " placeholder="Please enter your expense type" >
+                        <input type="text" name="expensename" id="expensename" class="form-control mt-3 mb-3 " placeholder="Please enter your expense type" onkeyup="change(this.id,'errexpensename')" onblur="change(this.id,'errexpensename')" >
+                        <span id="errexpensename"></span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <input type="number" name="amount" class="form-control mt-3 mb-3 " placeholder="Please enter your amount" >
+                        <input type="number" name="amount" id="amount" class="form-control mt-3 mb-3 " placeholder="Please enter your amount" onkeyup="change(this.id,'erramount')" onblur="change(this.id,'erramount')" >
+                        <span id="erramount"></span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <input type="file" name="files" class="form-control mt-3 mb-3 " >
+                        <input type="file" name="files" id="files" class="form-control mt-3 mb-3 " onkeyup="change(this.id,'errfiles')" onblur="change(this.id,'errfiles')" >
+                        <span id="errfiles"></span>
                     </div>
                 </div>
                 <div class="row">
                      <div class="col-md-12">
-                         <select class="form-select mt-3 mb-3" name="status" id="">
+                         <select class="form-select mt-3 mb-3" name="status" id="status" onkeyup="change(this.id,'errstatus')" onblur="change(this.id,'errstatus')" >
+                             <span id="errstatus"></span>
                              <option value="Select">Select Claims Status</option>
                              <option value="Paid">Paid</option>
                              <option value="Unpaid">Unpaid</option>
@@ -161,6 +167,95 @@ if(isset($_POST['submit'])){
     </form>
     </div>
     </div>
+
+<script type="text/JavaScript">
+   $("#myform").submit(function(){
+        var SelectEmployees= $("#SelectEmployee").val();
+        var Dates= $("#dates").val();
+        var Expensename= $("#expensename").val();
+        var Amount= $("#amount").val();
+        var Files= $("#files").val();
+        var Statuss= $("#status").val();
+        
+      if(SelectEmployees==""){
+            $("#SelectEmployee").attr("style","border: 3px solid red");
+            $("#errSelectEmployee").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#SelectEmployee").attr("style","border:");
+            $("#errSelectEmployee").html("");
+        }
+      if(Dates==""){
+            $("#dates").attr("style","border: 3px solid red");
+            $("#errdates").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#dates").attr("style","border:");
+            $("#errdates").html("");
+        }
+      if(Expensename==""){
+            $("#expensename").attr("style","border: 3px solid red");
+            $("#errexpensename").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#expensename").attr("style","border:");
+           $("#errexpensename").html("");
+       }
+      if(Amount==""){
+            $("#amount").attr("style","border: 3px solid red");
+            $("#erramount").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#amount").attr("style","border:");
+            $("#erramount").html("");
+        }
+     if(Files==""){
+            $("#files").attr("style","border: 3px solid red");
+            $("#errfiles").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#files").attr("style","border:");
+            $("#errfiles").html("");
+        }
+      if(Statuss==""){
+            $("#status").attr("style","border: 3px solid red");
+            $("#errstatus").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#status").attr("style","border:");
+            $("#errstatus").html("");
+        }
+     
+       
+    });
+    
+    function change(id,msg,type=null){
+        var get=$("#"+id).val();
+        
+        if(type==null){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("This field must not be empty!");
+            
+        }else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+        
+       
+     
+    }
+    
+</script>
+
+
+
+
+
 <?php 
        
     if(isset($_POST['submit'])){
