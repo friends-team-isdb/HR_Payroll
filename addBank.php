@@ -88,7 +88,7 @@ if(isset($_POST['submit'])){
 <!--           Enter Your Code here-->
     <div class="modal-content">
       <div class="forms-body">
-        <form action="" method="post" enctype="multipart/form-data">      
+        <form action="" method="post" enctype="multipart/form-data" id="myform">      
             <div class="row">
                 <div class="col-md-12">
                   <h3 style="margin:10px;">Bank Details</h3>
@@ -106,7 +106,8 @@ if(isset($_POST['submit'])){
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-            <select class="form-select" name="employee" id="">
+            <select class="form-select" name="employee" id="employee" onkeyup="change(this.id,'erremployee','data')" onblur="change(this.id,'erremployee','data')" >
+                <span id="erremployee"></span>
                 
                 <option value="">Select Employee</option>
                 
@@ -125,19 +126,22 @@ if(isset($_POST['submit'])){
                         </div>
                     </div>
                 
-                  <input type="text" name="BankName" id="" class="form-control mt-3" placeholder="Bank Name">
+                  <input type="text" name="BankName" id="BankName" class="form-control mt-3" placeholder="Bank Name" onkeyup="change(this.id,'errBankName')" onblur="change(this.id,'errBankName')" >
+                   <span id="errBankName"></span>
                 
-                  <input type="text" name="BranchName" id="" class="form-control mt-3" placeholder="Branch Name">
+                  <input type="text" name="BranchName" id="BranchName" class="form-control mt-3" placeholder="Branch Name" onkeyup="change(this.id,'errBranchName')" onblur="change(this.id,'errBranchName')" >
+                   <span id="errBranchName"></span>
                 
-                  <input type="text" name="City" id="" class="form-control mt-3" placeholder="City">
+                  <input type="text" name="City" id="City" class="form-control mt-3" placeholder="City" onkeyup="change(this.id,'errCity')" onblur="change(this.id,'errCity')" >
+                   <span id="errCity"></span>
 
-                  <input type="number" name="AccountNo" id="" class="form-control mt-3" placeholder="Account No">
-              
+                  <input type="number" name="AccountNo" id="AccountNo" class="form-control mt-3" placeholder="Account No" onkeyup="change(this.id,'errAccountNo')" onblur="change(this.id,'errAccountNo')" >
+                   <span id="errAccountNo"></span>
+                   
+                  <input type="text" name="SwiftCode" id="SwiftCode" class="form-control mt-3" placeholder="Swift Code" onkeyup="change(this.id,'errSwiftCode')" onblur="change(this.id,'errSwiftCode')" >
+                   <span id="errSwiftCode"></span>
                 
-                  <input type="text" name="SwiftCode" id="" class="form-control mt-3" placeholder="Swift Code">
-                
-                
-                  <input type="submit" name="submit" id="" class="btn btn-primary pull-right mt-3" value="Save">
+                  <input type="submit" name="submit" id="" class="btn btn-primary bx-pull-right mt-3" value="Save">
                
                   
               </div>
@@ -149,7 +153,101 @@ if(isset($_POST['submit'])){
     </div>
 
 
-           
+        <script type="text/JavaScript">
+   $("#myform").submit(function(){
+        var Employee= $("#employee").val();
+        var BankNames= $("#BankName").val();
+        var BranchNames= $("#BranchName").val();
+        var Citys= $("#City").val();
+        var AccountNos= $("#AccountNo").val();
+        var SwiftCodes= $("#SwiftCode").val();
+        
+        if(Employee==""){
+            $("#employee").attr("style","border: 3px solid red");
+            $("#erremployee").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#employee").attr("style","border:");
+            $("#erremployee").html("");
+        }
+      if(BankNames==""){
+            $("#BankName").attr("style","border: 3px solid red");
+            $("#errBankName").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#BankName").attr("style","border:");
+           $("#errBankName").html("");
+       }
+      if(BranchNames==""){
+            $("#BranchName").attr("style","border: 3px solid red");
+            $("#errBranchName").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#BranchName").attr("style","border:");
+            $("#errBranchName").html("");
+        }
+        if(Citys==""){
+            $("#City").attr("style","border: 3px solid red");
+            $("#errCity").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#City").attr("style","border:");
+            $("#errCity").html("");
+        }
+      if(AccountNos==""){
+            $("#AccountNo").attr("style","border: 3px solid red");
+            $("#errAccountNo").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#AccountNo").attr("style","border:");
+           $("#errAccountNo").html("");
+       }
+      if(SwiftCodes==""){
+            $("#SwiftCode").attr("style","border: 3px solid red");
+            $("#errSwiftCode").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#SwiftCode").attr("style","border:");
+            $("#errSwiftCode").html("");
+        }
+         
+    });
+    
+    function change(id,msg,type=null){
+        var get=$("#"+id).val();
+        
+        if(type==null){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("This field must not be empty!");
+            
+        }else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+        if(type=="data"){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("Please select any option");
+            
+        }
+        else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+       
+     
+    }
+    
+</script>   
            
            
            
