@@ -90,7 +90,7 @@ if(isset($_POST['submit'])){
 <!--           Enter Your Code here-->
     <div class="modal-content">
 <div class="forms-body">
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="" method="post" enctype="multipart/form-data" id="myform">
        
        <div class="row">
            <div class="col-md-12">
@@ -102,12 +102,14 @@ if(isset($_POST['submit'])){
       <div class="row">
         <div class="col-md-4">
           <div class="col">
-            <input type="text" name="department" class="form-control" placeholder="Department" required>
+            <input type="text" name="department" id="department" class="form-control" placeholder="Department" onkeyup="change(this.id,'errdepartment')" onblur="change(this.id,'errdepartment')" >
+            <span id="errdepartment"></span>
           </div>
         </div>
         <div class="col-md-4">
           <div class="col">
-            <input type="text" name="degination" class="form-control" placeholder="Designation" required>
+            <input type="text" name="degination" id="degination" class="form-control" placeholder="Designation" onkeyup="change(this.id,'errdegination')" onblur="change(this.id,'errdegination')" >
+            <span id="errdegination"></span>
           </div>
         </div>
         <div class="col-md-4">
@@ -123,7 +125,52 @@ if(isset($_POST['submit'])){
     </div>
 
 
-           
+<script type="text/JavaScript">
+   $("#myform").submit(function(){
+        var Department= $("#department").val();
+        var Degination= $("#degination").val();
+        
+        
+        if(Department==""){
+            $("#department").attr("style","border: 3px solid red");
+            $("#errdepartment").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#department").attr("style","border:");
+            $("#errdepartment").html("");
+        }
+      if(Degination==""){
+            $("#degination").attr("style","border: 3px solid red");
+            $("#errdegination").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#degination").attr("style","border:");
+           $("#errdegination").html("");
+       }
+     
+    });
+    
+    function change(id,msg,type=null){
+        var get=$("#"+id).val();
+        
+        if(type==null){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("This field must not be empty!");
+            
+        }else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+        
+     
+    }
+    
+</script>
+   
            
            
            
