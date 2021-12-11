@@ -70,7 +70,7 @@ if(!isset($_SESSION['userName'])){
       <!--           Enter Your Code here-->
       <div class="modal-content">
         <div class="forms-body">
-          <form action="" method="post" enctype="multipart/form-data">
+          <form action="" method="post" enctype="multipart/form-data" id="myform">
             <div class="row">
               <div class="col-md-12">
                 <h3 style="margin:10px;">Add Leave</h3>
@@ -87,7 +87,8 @@ if(!isset($_SESSION['userName'])){
                   $query = mysqli_query($conn, $sql);
                   $rowcount = mysqli_num_rows($query);
                   ?>
-                  <select class="form-select" name="select_employee" id="">
+                  <select class="form-select" name="select_employee" id="select_employee" onkeyup="change(this.id,'errselect_employee')" onblur="change(this.id,'errselect_employee')" >
+                      <span id="errselect_employee"></span>
 
                     <option value="">Select Employee</option>
 
@@ -111,7 +112,8 @@ if(!isset($_SESSION['userName'])){
                   $query = mysqli_query($conn, $sql);
                   $rowcount = mysqli_num_rows($query);
                   ?>
-                  <select class="form-select" name="leave_type" id="">
+                  <select class="form-select" name="leave_type" id="leave_type" onkeyup="change(this.id,'errleave_type')" onblur="change(this.id,'errleave_type')" >
+                       <span id="errleave_type"></span>
 
                     <option value="">Select Leave Type</option>
 
@@ -130,14 +132,17 @@ if(!isset($_SESSION['userName'])){
 
                 <div class="form-group">
                   Leave Start Date
-                  <input class="form-control mt-1 mb-1 " name="leave_start_date" id="" type="date">
+                  <input class="form-control mt-1 mb-1 " name="leave_start_date" id="leave_start_date" type="date" onkeyup="change(this.id,'errleave_start_date')" onblur="change(this.id,'errleave_start_date')" >
+                   <span id="errleave_start_date"></span>
                 </div>
                 <div class="form-group">
                   Leave Ends Date
-                  <input class="form-control mt-1  " name="leave_ends_date" id="" type="date">
+                  <input class="form-control mt-1  " name="leave_ends_date" id="leave_ends_date" type="date" onkeyup="change(this.id,'errleave_ends_date')" onblur="change(this.id,'errleave_ends_date')" >
+                   <span id="errleave_ends_date"></span>
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control mt-3" name="description" id="" cols="10" rows="2" placeholder="Please enter your message"></textarea><br>
+                  <textarea class="form-control mt-3" name="description" id="description" cols="10" rows="2" placeholder="Please enter your message" onkeyup="change(this.id,'errdescription')" onblur="change(this.id,'errdescription')" ></textarea><br>
+                   <span id="errdescription"></span>
                 </div>
                 <div class="form-group">
                   <?php
@@ -146,7 +151,8 @@ if(!isset($_SESSION['userName'])){
                   $query = mysqli_query($conn, $sql);
                   $rowcount = mysqli_num_rows($query);
                   ?>
-                  <select class="form-select" name="support_document" id="">
+                  <select class="form-select" name="support_document" id="support_document" onkeyup="change(this.id,'errsupport_document')" onblur="change(this.id,'errsupport_document')" >
+                       <span id="errsupport_document"></span>
 
                     <option value="">Select Support Document</option>
 
@@ -162,7 +168,8 @@ if(!isset($_SESSION['userName'])){
                   </select>
                 </div>
                 <div class="form-group">
-                  <select class="form-select mt-3" name="leave_status" id="">
+                  <select class="form-select mt-3" name="leave_status" id="leave_status" onkeyup="change(this.id,'errleave_status')" onblur="change(this.id,'errleave_status')" >
+                       <span id="errleave_status"></span>
                     <option value="">Select Status</option>
                     <option value="pending">Pending</option>
                     <option value="aproved">Aproved</option>
@@ -179,6 +186,100 @@ if(!isset($_SESSION['userName'])){
       </div>
 
 
+ <script type="text/JavaScript">
+   $("#myform").submit(function(){
+        var Select_employee= $("#select_employee").val();
+        var Leave_type= $("#leave_type").val();
+        var Leave_start_date= $("#leave_start_date").val();
+        var Leave_ends_date= $("#leave_ends_date").val();
+        var Description= $("#description").val();
+        var Support_document= $("#support_document").val();
+        var Leave_status= $("#leave_status").val();
+        
+      if(Select_employee==""){
+            $("#select_employee").attr("style","border: 3px solid red");
+            $("#errselect_employee").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#select_employee").attr("style","border:");
+            $("#errselect_employee").html("");
+        }
+      if(Leave_type==""){
+            $("#leave_type").attr("style","border: 3px solid red");
+            $("#errleave_type").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#leave_type").attr("style","border:");
+            $("#errleave_type").html("");
+        }
+      if(Leave_start_date==""){
+            $("#leave_start_date").attr("style","border: 3px solid red");
+            $("#errleave_start_date").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#leave_start_date").attr("style","border:");
+           $("#errleave_start_date").html("");
+       }
+      if(Leave_ends_date==""){
+            $("#leave_ends_date").attr("style","border: 3px solid red");
+            $("#errleave_ends_date").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#leave_ends_date").attr("style","border:");
+            $("#errleave_ends_date").html("");
+        }
+     if(Description==""){
+            $("#description").attr("style","border: 3px solid red");
+            $("#errdescription").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#description").attr("style","border:");
+            $("#errdescription").html("");
+        }
+      if(Support_document==""){
+            $("#support_document").attr("style","border: 3px solid red");
+            $("#errsupport_document").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#support_document").attr("style","border:");
+            $("#errsupport_document").html("");
+        }
+      if(Leave_status==""){
+            $("#leave_status").attr("style","border: 3px solid red");
+            $("#errleave_status").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#leave_status").attr("style","border:");
+           $("#errleave_status").html("");
+       }
+     
+       
+    });
+    
+    function change(id,msg,type=null){
+        var get=$("#"+id).val();
+        
+        if(type==null){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("This field must not be empty!");
+            
+        }else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+        
+       
+     
+    }
+    
+</script>
+      
       <!--  php insert code-->>
 
       <?php
