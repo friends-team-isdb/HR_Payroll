@@ -103,7 +103,7 @@ if(!isset($_SESSION['userName'])){
             <!--Enter Your Code here-->
 
             <div class="forms-body">
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="" method="post" enctype="multipart/form-data" id="myform">
 
                     <div class="row">
                         <div class="col-md-12">
@@ -120,31 +120,46 @@ if(!isset($_SESSION['userName'])){
                                 </div>
 
                                 <div class="modal-body">
-                                    <input class="form-control" type="text" name="employ_name" id="" placeholder="Employee Name"><br>
+                                    <input class="form-control" type="text" name="employ_name" id="employ_name" placeholder="Employee Name" onkeyup="change(this.id,'erremploy_name')" onblur="change(this.id,'erremploy_name')" ><br>
+                                    <span id="erremploy_name"></span>
 
-                                    <select class="form-select" name="gen" id="">
+                                    <select class="form-select" name="gen" id="gen" onkeyup="change(this.id,'errgen')" onblur="change(this.id,'errgen')" >
+                                        <span id="errgen"></span>
                                         <option value="">Select Gender</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                     </select><br>
 
-                                    <label class="form-control" for="marital_status">Marital Status: <select name="marital_status" class="form-select">
+                                    <label class="form-control" for="marital_status">Marital Status: <select name="marital_status" id="marital_status" class="form-select" onkeyup="change(this.id,'errmarital_status','data')" onblur="change(this.id,'errmarital_status','data')" >
+                                            <span id="errmarital_status"></span>
                                             <option value="">Select</option>
                                             <option value="married">Married</option>
                                             <option value="unmarried">Unmarried</option>
                                         </select> </label><br>
-                                    <label class="form-control" for="">Birth Date: <input autocomplete="off" class="form-control datepickers" type="text" name="employ_date_of_birth"></label><br>
-                                    <label class="form-control" for="">Photo: <input type="file" name="employmet_picture" id=""> </label><br>
-                                    <input class="form-control" type="text" name="employ_religion" id="" placeholder="Employee Religion"><br>
-                                    <input class="form-control" type="text" name="employ_district" id="distc" autocomplete="off" placeholder="Employee District"><br>
-                                    <input class="form-control coun" type="text" name="employ_countris" id="" placeholder="Employee Countris"><br>
-                                    <input class="form-control" type="text" name="phone" id="" placeholder="Employee Phone"><br>
-                                    <input class="form-control" type="text" name="employ_postal_code" id="" placeholder="Employee Postal Code"><br>
-                                    <input class="form-control coun" type="text" name="employ_nationality" id="" placeholder="Employee Nationality"><br>
-                                    <textarea class="form-control" name="present_address" placeholder="Present Address" cols="" rows=""></textarea><br>
-                                    <textarea class="form-control" name="permanent_address" placeholder="Permanent Address" cols="" rows=""></textarea><br>
-                                    <input class="form-control" type="text" name="employ_nid" id="" placeholder="Pasport/NID"><br>
-                                    <input class="form-control" type="text" name="employment_status" id="" placeholder="Employment Status"><br>
+                                    <label class="form-control" for="">Birth Date: <input autocomplete="off" class="form-control datepickers" type="text" name="employ_date_of_birth" id="employ_date_of_birth" onkeyup="change(this.id,'erremploy_date_of_birth')" onblur="change(this.id,'erremploy_date_of_birth')" ></label><br>
+                                    <span id="erremploy_date_of_birth"></span>
+                                    <label class="form-control" for="">Photo: <input type="file" name="employmet_picture" id="employmet_picture" onkeyup="change(this.id,'erremploymet_picture')" onblur="change(this.id,'erremploymet_picture')" > </label><br>
+                                    <span id="erremploymet_picture"></span>
+                                    <input class="form-control" type="text" name="employ_religion" id="employ_religion" placeholder="Employee Religion" onkeyup="change(this.id,'erremploy_religion')" onblur="change(this.id,'erremploy_religion')" ><br>
+                                    <span id="erremploy_religion"></span>
+                                    <input class="form-control" type="text" name="employ_district" id="employ_district" autocomplete="off" placeholder="Employee District" onkeyup="change(this.id,'erremploy_district')" onblur="change(this.id,'erremploy_district')" ><br>
+                                    <span id="erremploy_district"></span>
+                                    <input class="form-control coun" type="text" name="employ_countris" id="employ_countris" placeholder="Employee Countris" onkeyup="change(this.id,'erremploy_countris')" onblur="change(this.id,'erremploy_countris')" ><br>
+                                    <span id="erremploy_countris"></span>
+                                    <input class="form-control" type="text" name="phone" id="phone" placeholder="Employee Phone" onkeyup="change(this.id,'errphone','mobile')" onblur="change(this.id,'errphone','mobile')" ><br>
+                                    <span id="errphone"></span>
+                                    <input class="form-control" type="text" name="employ_postal_code" id="employ_postal_code" placeholder="Employee Postal Code" onkeyup="change(this.id,'erremploy_postal_code')" onblur="change(this.id,'erremploy_postal_code')" ><br>
+                                    <span id="erremploy_postal_code"></span>
+                                    <input class="form-control coun" type="text" name="employ_nationality" id="employ_nationality" placeholder="Employee Nationality" onkeyup="change(this.id,'erremploy_nationality')" onblur="change(this.id,'erremploy_nationality')" ><br>
+                                    <span id="erremploy_nationality"></span>
+                                    <textarea class="form-control" name="present_address" id="present_address" placeholder="Present Address" cols="" rows="" onkeyup="change(this.id,'errpresent_address')" onblur="change(this.id,'errpresent_address')" ></textarea><br>
+                                    <span id="errpresent_address"></span>
+                                    <textarea class="form-control" name="permanent_address" id="permanent_address" placeholder="Permanent Address" cols="" rows="" onkeyup="change(this.id,'errpermanent_address')" onblur="change(this.id,'errpermanent_address')" ></textarea><br>
+                                    <span id="errpermanent_address"></span>
+                                    <input class="form-control" type="text" name="employ_nid" id="employ_nid" placeholder="Pasport/NID" onkeyup="change(this.id,'erremploy_nid')" onblur="change(this.id,'erremploy_nid')" ><br>
+                                    <span id="erremploy_nid"></span>
+                                    <input class="form-control" type="text" name="employment_status" id="employment_status" placeholder="Employment Status" onkeyup="change(this.id,'erremployment_status')" onblur="change(this.id,'erremployment_status')" ><br>
+                                    <span id="erremployment_status"></span>
                                 </div>
 
 
@@ -160,9 +175,11 @@ if(!isset($_SESSION['userName'])){
                                     <h4 class="modal-title text-info">Login Information</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <input class="form-control" type="text" name="employ_email" id="useremail" onkeyup="CheckEmail()" onchange="CheckEmail()" placeholder="Employee Email">
+                                    <input class="form-control" type="text" name="employ_email" class="email" id="useremail" onkeyup="CheckEmail(),change(this.id,'erruseremail')" onchange="CheckEmail()" placeholder="Employee Email"  onblur="change(this.id,'erruseremail')">
                                     <span id="user"></span>
-                                    <input class="form-control mt-3" type="password" name="employeepass" id="" placeholder="Employee Password">
+                                    <span id="erruseremail"></span>
+                                    <input class="form-control mt-3" type="password" name="employeepass" id="employeepass" placeholder="Employee Password" onkeyup="change(this.id,'erremployeepass')" onblur="change(this.id,'erremployeepass')" >
+                                    <span id="erremployeepass"></span>
                                 </div>
                             </div>
                             <hr>
@@ -179,7 +196,8 @@ if(!isset($_SESSION['userName'])){
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-                                    <select class="form-select" name="employment_id" id="">
+                                    <select class="form-select" name="employment_id" id="employment_id" onkeyup="change(this.id,'erremployment_id','data')" onblur="change(this.id,'erremployment_id','data')" >
+                                        <span id="erremployment_id"></span>
 
                                         <option value="">Select Employee Type</option>
 
@@ -200,7 +218,8 @@ if(!isset($_SESSION['userName'])){
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-                                    <select class="form-select" name="department_id" id="">
+                                    <select class="form-select" name="department_id" id="department_id" onkeyup="change(this.id,'errdepartment_id','data')" onblur="change(this.id,'errdepartment_id','data')" >
+                                        <span id="errdepartment_id"></span>
 
                                         <option value="">Select Department</option>
 
@@ -222,7 +241,8 @@ if(!isset($_SESSION['userName'])){
                                                 $query=mysqli_query($conn,$sql);
             $rowcount=mysqli_num_rows($query);
             ?>
-                                    <select class="form-select" name="designation" id="">
+                                    <select class="form-select" name="designation" id="designation" onkeyup="change(this.id,'errdesignation','data')" onblur="change(this.id,'errdesignation','data')" >
+                                        <span id="errdesignation"></span>
 
                                         <option value="">Select Designaton</option>
 
@@ -241,9 +261,11 @@ if(!isset($_SESSION['userName'])){
 
 
                                     <label for="">Appointment Date:</label>
-                                    <input class="form-control datepickers" type="text" name="appointment_date" autocomplete="off" placeholder="Select Date"><br>
+                                    <input class="form-control datepickers" type="text" name="appointment_date" id="appointment_date" autocomplete="off" placeholder="Select Date" onkeyup="change(this.id,'errappointment_date')" onblur="change(this.id,'errappointment_date')" ><br>
+                                    <span id="errappointment_date"></span>
                                     <label for="">Joining Date: </label>
-                                    <input class="form-control datepickers" type="text" name="joining_date" autocomplete="off" placeholder="Select Date"><br>
+                                    <input class="form-control datepickers" type="text" name="joining_date" id="joining_date" autocomplete="off" placeholder="Select Date" onkeyup="change(this.id,'errjoining_date')" onblur="change(this.id,'errjoining_date')" ><br>
+                                    <span id="errjoining_date"></span>
                                     <?php 
                                     $xyz="SELECT * FROM employee  
                                     ORDER BY employee_id DESC limit 1";
@@ -258,7 +280,8 @@ if(!isset($_SESSION['userName'])){
                                     ?>
                                     <input class="form-control" type="hidden" name="employee_code" id="" placeholder="Employee Code" value="<?php echo $result?>">
                                     <input class="form-control" type="text" name="" id="" placeholder="Employee Code" value="<?php echo $result?>" disabled><br>
-                                    <input class="form-control" type="text" name="employee_status" id="" placeholder="Employee Status"><br>
+                                    <input class="form-control" type="text" name="employee_status" id="employee_status" placeholder="Employee Status" onkeyup="change(this.id,'erremployee_status')" onblur="change(this.id,'erremployee_status')" ><br>
+                                    <span id="erremployee_status"></span>
 
                                 </div>
                                 <div class="modal-footer">
@@ -272,6 +295,288 @@ if(!isset($_SESSION['userName'])){
 
                 </form>
             </div>
+            
+<script type="text/JavaScript">
+   $("#myform").submit(function(){
+        var Employ_name= $("#employ_name").val();
+        var Gen= $("#gen").val();
+        var Marital_status= $("#marital_status").val();
+        var Employ_date_of_birth= $("#employ_date_of_birth").val();
+        var Employmet_picture= $("#employmet_picture").val();
+        var Employ_religion= $("#employ_religion").val();
+        var Employ_district= $("#employ_district").val();
+        var Employ_countris= $("#employ_countris").val();
+        var Phone= $("#phone").val();
+        var Employ_postal_code= $("#employ_postal_code").val();
+        var Employ_nationality= $("#employ_nationality").val();
+        var Present_address= $("#present_address").val();
+        var Permanent_address= $("#permanent_address").val();
+        var Employ_nid= $("#employ_nid").val();
+        var Employment_status= $("#employment_status").val();
+        var Email= $(".email").val();
+        var Employeepass= $("#employeepass").val();
+        var Employment_id= $("#employment_id").val();
+        var Department_id= $("#department_id").val();
+        var Designation= $("#designation").val();
+        var Appointment_date= $("#appointment_date").val();
+        var Joining_date= $("#joining_date").val();
+        var Employee_status= $("#employee_status").val();
+        
+        
+        if(Employ_name==""){
+            $("#employ_name").attr("style","border: 3px solid red");
+            $("#erremploy_name").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#employ_name").attr("style","border:");
+            $("#erremploy_name").html("");
+        }
+      if(Gen==""){
+            $("#gen").attr("style","border: 3px solid red");
+            $("#errgen").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#gen").attr("style","border:");
+           $("#errgen").html("");
+       }
+      if(Marital_status==""){
+            $("#marital_status").attr("style","border: 3px solid red");
+            $("#errmarital_status").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#marital_status").attr("style","border:");
+            $("#errmarital_status").html("");
+        }
+        if(Employ_date_of_birth==""){
+            $("#employ_date_of_birth").attr("style","border: 3px solid red");
+            $("#erremploy_date_of_birth").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#employ_date_of_birth").attr("style","border:");
+            $("#erremploy_date_of_birth").html("");
+        }
+      if(Employmet_picture==""){
+            $("#employmet_picture").attr("style","border: 3px solid red");
+            $("#erremploymet_picture").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#employmet_picture").attr("style","border:");
+           $("#erremploymet_picture").html("");
+       }
+      if(Employ_religion==""){
+            $("#employ_religion").attr("style","border: 3px solid red");
+            $("#erremploy_religion").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#employ_religion").attr("style","border:");
+            $("#erremploy_religion").html("");
+        }
+      if(Employ_district==""){
+            $("#employ_district").attr("style","border: 3px solid red");
+            $("#erremploy_district").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#employ_district").attr("style","border:");
+           $("#erremploy_district").html("");
+       }
+     if(Employ_countris==""){
+            $("#employ_countris").attr("style","border: 3px solid red");
+            $("#erremploy_countris").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#employ_countris").attr("style","border:");
+            $("#erremploy_countris").html("");
+        }
+      if(Phone==""){
+            $("#phone").attr("style","border: 3px solid red");
+            $("#errphone").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#phone").attr("style","border:");
+           $("#errphone").html("");
+       }
+       
+       if(Employ_postal_code==""){
+            $("#employ_postal_code").attr("style","border: 3px solid red");
+            $("#erremploy_postal_code").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#employ_postal_code").attr("style","border:");
+            $("#erremploy_postal_code").html("");
+        }
+      if(Employ_nationality==""){
+            $("#employ_nationality").attr("style","border: 3px solid red");
+            $("#erremploy_nationality").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#employ_nationality").attr("style","border:");
+           $("#erremploy_nationality").html("");
+       }
+      if(Present_address==""){
+            $("#present_address").attr("style","border: 3px solid red");
+            $("#errpresent_address").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#present_address").attr("style","border:");
+            $("#errpresent_address").html("");
+        }
+        if(Permanent_address==""){
+            $("#permanent_address").attr("style","border: 3px solid red");
+            $("#errpermanent_address").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#permanent_address").attr("style","border:");
+            $("#errpermanent_address").html("");
+        }
+      if(Employ_nid==""){
+            $("#employ_nid").attr("style","border: 3px solid red");
+            $("#erremploy_nid").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#employ_nid").attr("style","border:");
+           $("#erremploy_nid").html("");
+       }
+      if(Employment_status==""){
+            $("#employment_status").attr("style","border: 3px solid red");
+            $("#erremployment_status").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#employment_status").attr("style","border:");
+            $("#erremployment_status").html("");
+        }
+      if(Email==""){
+            $(".email").attr("style","border: 3px solid red");
+            $("#erruseremail").html("This field must not be empty!");
+            return false;
+        }else{
+           $(".email").attr("style","border:");
+           $("#erruseremail").html("");
+       }
+      if(Employeepass==""){
+            $("#employeepass").attr("style","border: 3px solid red");
+            $("#erremployeepass").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#employeepass").attr("style","border:");
+           $("#erremployeepass").html("");
+       }
+     if(Employment_id==""){
+            $("#employment_id").attr("style","border: 3px solid red");
+            $("#erremployment_id").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#employment_id").attr("style","border:");
+            $("#erremployment_id").html("");
+        }
+      if(Department_id==""){
+            $("#department_id").attr("style","border: 3px solid red");
+            $("#errdepartment_id").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#department_id").attr("style","border:");
+           $("#errdepartment_id").html("");
+       }
+       
+       if(Designation==""){
+            $("#designation").attr("style","border: 3px solid red");
+            $("#errdesignation").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#designation").attr("style","border:");
+            $("#errdesignation").html("");
+        }
+      if(Appointment_date==""){
+            $("#appointment_date").attr("style","border: 3px solid red");
+            $("#errappointment_date").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#appointment_date").attr("style","border:");
+           $("#errappointment_date").html("");
+       }
+      if(Joining_date==""){
+            $("#joining_date").attr("style","border: 3px solid red");
+            $("#errjoining_date").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#joining_date").attr("style","border:");
+            $("#errjoining_date").html("");
+        }
+        if(Employee_status==""){
+            $("#employee_status").attr("style","border: 3px solid red");
+            $("#erremployee_status").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#employee_status").attr("style","border:");
+            $("#erremployee_status").html("");
+        }
+       
+    });
+    
+    function change(id,msg,type=null){
+        var get=$("#"+id).val();
+        
+        if(type==null){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("This field must not be empty!");
+            
+        }else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+        if(type=="mobile"){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("This field must not be empty!");
+            
+        }else if(get.length!==11){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("Mobile number must be 11 digit");
+        }
+        else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+      if(type=="data"){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("Please select any option");
+            
+        }
+        else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+     
+    }
+    
+</script>    
+            
+            
+            
+            
 
             <?php 
     if(isset($_POST['submit'])){
