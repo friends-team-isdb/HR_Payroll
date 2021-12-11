@@ -88,7 +88,7 @@ if(isset($_POST['submit'])){
 <!--           Enter Your Code here-->
     <div class="modal-content">
 <div class="forms-body">
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="" method="post" enctype="multipart/form-data" id="myform">
        
        <div class="row">
            <div class="col-md-12">
@@ -100,7 +100,8 @@ if(isset($_POST['submit'])){
        <div class="row">
                <div class="col-md-3"></div>
                <div class="col-md-6">
-                   <input class="form-control" type="text" name="leavetype" id="" placeholder="Add Leave Type">
+                   <input class="form-control" type="text" name="leavetype" id="leavetype" placeholder="Add Leave Type" onkeyup="change(this.id,'errleavetype')" onblur="change(this.id,'errleavetype')">
+                   <span id="errleavetype"></span>
                </div>
                <div class="col-md-3">
                    <input class="btn btn-primary" type="submit" name="submit" id="" value="Add">
@@ -114,7 +115,42 @@ if(isset($_POST['submit'])){
     </div>
     </div>
 
-
+<script type="text/JavaScript">
+   $("#myform").submit(function(){
+        var Leavetype= $("#leavetype").val();
+        
+        
+      if(Leavetype==""){
+            $("#leavetype").attr("style","border: 3px solid red");
+            $("#errleavetype").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#leavetype").attr("style","border:");
+           $("#errleavetype").html("");
+       }
+     
+    });
+    
+    function change(id,msg,type=null){
+        var get=$("#"+id).val();
+        
+        if(type==null){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("This field must not be empty!");
+            
+        }else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+        
+     
+    }
+    
+</script>
            
            
            
