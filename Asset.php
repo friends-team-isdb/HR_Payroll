@@ -87,7 +87,7 @@ if(isset($_POST['submit'])){
       <!--           Enter Your Code here-->
       <div class="modal-content">
         <div class="forms-body">
-          <form action="" method="post" enctype="multipart/form-data">
+          <form action="" method="post" enctype="multipart/form-data" id="myform">
 
             <div class="row">
                 <div class="col-md-12">
@@ -106,7 +106,8 @@ if(isset($_POST['submit'])){
                                    $query=mysqli_query($conn,$sql);
                                     $rowcount=mysqli_num_rows($query);
                                     ?>
-                                    <select class="form-select" name="employee" id="">
+                                    <select class="form-select" name="employee" id="employee" onkeyup="change(this.id,'erremploye')" onblur="change(this.id,'erremploye')">
+                                        <span id="erremploye"></span>
 
                                         <option value="">Select Employee</option>
 
@@ -125,37 +126,44 @@ if(isset($_POST['submit'])){
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" placeholder="Asset Code" class="form-control mt-3 mb-3" name="assetcode" id="">
+                            <input type="text" placeholder="Asset Code" class="form-control mt-3 mb-3" name="assetcode" id="assetcode" onkeyup="change(this.id,'errassetcode')" onblur="change(this.id,'errassetcode')">
+                            <span id="errassetcode"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" placeholder="Asset Name" class="form-control mt-3 mb-3" name="assetname" id="">
+                            <input type="text" placeholder="Asset Name" class="form-control mt-3 mb-3" name="assetname" id="assetname" onkeyup="change(this.id,'errassetname')" onblur="change(this.id,'errassetname')">
+                            <span id="errassetname"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" placeholder="Invoce No" class="form-control mt-3 mb-3" name="inviceno" id="">
+                            <input type="text" placeholder="Invoce No" class="form-control mt-3 mb-3" name="inviceno" id="inviceno" onkeyup="change(this.id,'errinviceno')" onblur="change(this.id,'errinviceno')">
+                            <span id="errinviceno"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" placeholder="Manufacturee" class="form-control mt-3 mb-3" name="Manufacturee" id="">
+                            <input type="text" placeholder="Manufacturee" class="form-control mt-3 mb-3" name="Manufacturee" id="Manufacturee" onkeyup="change(this.id,'errManufacturee')" onblur="change(this.id,'errManufacturee')">
+                            <span id="errManufacturee"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" placeholder="Serial" class="form-control mt-3 mb-3" name="Serial" id="">
+                            <input type="text" placeholder="Serial" class="form-control mt-3 mb-3" name="Serial" id="Serial" onkeyup="change(this.id,'errSerial')" onblur="change(this.id,'errSerial')">
+                            <span id="errSerial"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            Purchase Date: <input class="form-control mt-3 mb-3" type="date" name="Purchasedate">
+                            Purchase Date: <input class="form-control mt-3 mb-3" type="date" name="Purchasedate" id="Purchasedate" onkeyup="change(this.id,'errPurchasedate')" onblur="change(this.id,'errPurchasedate')">
+                            <span id="errPurchasedate"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <select class="form-select mt-3 mb-3" name="Warrenty" id="">
+                            <select class="form-select mt-3 mb-3" name="Warrenty" id="Warrenty" onkeyup="change(this.id,'errWarrenty','data')" onblur="change(this.id,'errWarrenty','data')">
+                                <span id="errWarrenty"></span>
                                 <option  value="" selected>Select Product Warrenty</option>
                                 <option  value="1 Year">1 year</option>
                             </select>
@@ -163,7 +171,8 @@ if(isset($_POST['submit'])){
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <select class="form-select mt-3 mb-3" name="SalaryStatus" id="">
+                            <select class="form-select mt-3 mb-3" name="SalaryStatus" id="SalaryStatus" onkeyup="change(this.id,'errSalaryStatus','data')" onblur="change(this.id,'errSalaryStatus','data')">
+                                <span id="errSalaryStatus"></span>
                                 <option  value="" selected>Select Salary Status</option>
                                 <option  value="Paid">Paid</option>
                             </select>
@@ -182,7 +191,132 @@ if(isset($_POST['submit'])){
 
 
 
-
+<script type="text/JavaScript">
+   $("#myform").submit(function(){
+        var Employee= $("#employee").val();
+        var Assetcode= $("#assetcode").val();
+        var Assetname= $("#assetname").val();
+        var Inviceno= $("#inviceno").val();
+        var Manufacturees= $("#Manufacturee").val();
+        var Serials= $("#Serial").val();
+        var Purchasedates= $("#Purchasedate").val();
+        var Warrentys= $("#Warrenty").val();
+        var SalaryStatuss= $("#SalaryStatus").val();
+        
+        
+        if(Employee==""){
+            $("#employee").attr("style","border: 3px solid red");
+            $("#erremploye").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#employee").attr("style","border:");
+            $("#erremploye").html("");
+        }
+      if(Assetcode==""){
+            $("#assetcode").attr("style","border: 3px solid red");
+            $("#errassetcode").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#assetcode").attr("style","border:");
+           $("#errassetcode").html("");
+       }
+      if(Assetname==""){
+            $("#assetname").attr("style","border: 3px solid red");
+            $("#errassetname").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#assetname").attr("style","border:");
+            $("#errassetname").html("");
+        }
+        if(Inviceno==""){
+            $("#inviceno").attr("style","border: 3px solid red");
+            $("#errinviceno").html("This field must not be empty!");
+            return false;
+        }else{
+            $("#inviceno").attr("style","border:");
+            $("#errinviceno").html("");
+        }
+      if(Manufacturees==""){
+            $("#Manufacturee").attr("style","border: 3px solid red");
+            $("#errManufacturee").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#Manufacturee").attr("style","border:");
+           $("#errManufacturee").html("");
+       }
+      if(Serials==""){
+            $("#Serial").attr("style","border: 3px solid red");
+            $("#errSerial").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#Serial").attr("style","border:");
+            $("#errSerial").html("");
+        }
+      if(Purchasedates==""){
+            $("#Purchasedate").attr("style","border: 3px solid red");
+            $("#errPurchasedate").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#Purchasedate").attr("style","border:");
+           $("#errPurchasedate").html("");
+       }
+     if(Warrentys==""){
+            $("#Warrenty").attr("style","border: 3px solid red");
+            $("#errWarrenty").html("This field must not be empty!");
+            return false;
+        }
+        else{
+            $("#Warrenty").attr("style","border:");
+            $("#errWarrenty").html("");
+        }
+      if(SalaryStatuss==""){
+            $("#SalaryStatus").attr("style","border: 3px solid red");
+            $("#errSalaryStatus").html("This field must not be empty!");
+            return false;
+        }
+       else{
+           $("#SalaryStatus").attr("style","border:");
+           $("#errSalaryStatus").html("");
+       }
+       
+    });
+    
+    function change(id,msg,type=null){
+        var get=$("#"+id).val();
+        
+        if(type==null){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("This field must not be empty!");
+            
+        }else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+        if(type=="data"){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).html("Please select any option");
+            
+        }
+        else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+       
+     
+    }
+    
+</script>
 
 
 
