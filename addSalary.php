@@ -91,7 +91,7 @@ if(!isset($_SESSION['userName'])){
             $rowcount=mysqli_num_rows($query);
             ?>
                                 <select class="form-select" name="empNam" id="empNam" onkeyup="change(this.id,'errempNam')" onblur="change(this.id,'errempNam')" >
-                                    <span id="errempNam"></span>
+                                    
 
                                     <option value="">Select Employee</option>
 
@@ -105,7 +105,8 @@ if(!isset($_SESSION['userName'])){
                 
                 ?>
 
-                                </select><br>
+                                </select>
+                                <span id="errempNam"></span><br>
 
                                 <?php 
     
@@ -114,7 +115,7 @@ if(!isset($_SESSION['userName'])){
             $rowcount=mysqli_num_rows($query);
             ?>
                                 <select class="form-select" name="salaryTyp" id="salaryTyp" onkeyup="change(this.id,'errsalaryTyp')" onblur="change(this.id,'errsalaryTyp')" >
-                                    <span id="errsalaryTyp"></span> 
+                                    
 
                                     <option value="">Select Selary Type</option>
 
@@ -129,6 +130,7 @@ if(!isset($_SESSION['userName'])){
                 ?>
 
                                 </select>
+                                <span id="errsalaryTyp"></span> 
                                 <input type="number" name="basicSalary" id="basicSalary" class="form-control mt-3" placeholder="Basic Salary" onkeyup="change(this.id,'errbasicSalary')" onblur="change(this.id,'errbasicSalary')" >
                                 <span id="errbasicSalary"></span>
                                 <input type="number" name="medical" id="medical" class="form-control mt-3" placeholder="Medical" onkeyup="change(this.id,'errmedical')" onblur="change(this.id,'errmedical')" >
@@ -162,7 +164,8 @@ if(!isset($_SESSION['userName'])){
         
       if(EmpNam==""){
             $("#empNam").attr("style","border: 3px solid red");
-            $("#errempNam").html("This field must not be empty!");
+            $("#errempNam").css("color","red");
+            $("#errempNam").html("Please select any employee name");
             return false;
         }else{
             $("#empNam").attr("style","border:");
@@ -170,7 +173,8 @@ if(!isset($_SESSION['userName'])){
         }
       if(SalaryTyp==""){
             $("#salaryTyp").attr("style","border: 3px solid red");
-            $("#errsalaryTyp").html("This field must not be empty!");
+            $("#errsalaryTyp").css("color","red");
+            $("#errsalaryTyp").html("Please enter employee salary type");
             return false;
         }else{
             $("#salaryTyp").attr("style","border:");
@@ -178,7 +182,8 @@ if(!isset($_SESSION['userName'])){
         }
       if(BasicSalary==""){
             $("#basicSalary").attr("style","border: 3px solid red");
-            $("#errbasicSalary").html("This field must not be empty!");
+            $("#errbasicSalary").css("color","red");
+            $("#errbasicSalary").html("Please enter basic salary of an employee");
             return false;
         }
        else{
@@ -187,7 +192,8 @@ if(!isset($_SESSION['userName'])){
        }
       if(Medical==""){
             $("#medical").attr("style","border: 3px solid red");
-            $("#errmedical").html("This field must not be empty!");
+            $("#errmedical").css("color","red");
+            $("#errmedical").html("Please enter percentage of medical allowrance");
             return false;
         }
         else{
@@ -196,7 +202,8 @@ if(!isset($_SESSION['userName'])){
         }
      if(House==""){
             $("#house").attr("style","border: 3px solid red");
-            $("#errhouse").html("This field must not be empty!");
+            $("#errhouse").css("color","red");
+            $("#errhouse").html("Please enter percentage of house allowrance");
             return false;
         }else{
             $("#house").attr("style","border:");
@@ -204,7 +211,8 @@ if(!isset($_SESSION['userName'])){
         }
       if(Food==""){
             $("#food").attr("style","border: 3px solid red");
-            $("#errfood").html("This field must not be empty!");
+            $("#errfood").css("color","red");
+            $("#errfood").html("Please enter percentage of food allowrance");
             return false;
         }else{
             $("#food").attr("style","border:");
@@ -212,7 +220,8 @@ if(!isset($_SESSION['userName'])){
         }
       if(Provi==""){
             $("#provi").attr("style","border: 3px solid red");
-            $("#errprovi").html("This field must not be empty!");
+            $("#errprovi").css("color","red");
+            $("#errprovi").html("Please enter provident percentange");
             return false;
         }
        else{
@@ -229,6 +238,7 @@ if(!isset($_SESSION['userName'])){
         if(type==null){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("This field must not be empty!");
             
         }else{
