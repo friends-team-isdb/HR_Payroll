@@ -108,7 +108,7 @@ if(isset($_POST['submit'])){
                             $rowcount=mysqli_num_rows($query);
                             ?>
                             <select class="form-select" name="employee" id="employee" onkeyup="change(this.id,'erremployee')" onblur="change(this.id,'erremployee')" >
-                                <span id="erremployee"></span>
+                                
 
                                 <option value="">Select Employee</option>
 
@@ -123,6 +123,7 @@ if(isset($_POST['submit'])){
                         ?>
 
                             </select>
+                        <span id="erremployee"></span>
                     </div>
                 </div>
                <div class="row">
@@ -169,7 +170,8 @@ if(isset($_POST['submit'])){
         
       if(Employee==""){
             $("#employee").attr("style","border: 3px solid red");
-            $("#erremployee").html("This field must not be empty!");
+            $("#erremployee").css("color","red");
+            $("#erremployee").html("Please select any employee");
             return false;
         }else{
             $("#employee").attr("style","border:");
@@ -177,7 +179,8 @@ if(isset($_POST['submit'])){
         }
       if(Dates==""){
             $("#dates").attr("style","border: 3px solid red");
-            $("#errdates").html("This field must not be empty!");
+            $("#errdates").css("color","red");
+            $("#errdates").html("Please select your expense date");
             return false;
         }else{
             $("#dates").attr("style","border:");
@@ -185,7 +188,8 @@ if(isset($_POST['submit'])){
         }
       if(ExpenseDescriptions==""){
             $("#ExpenseDescription").attr("style","border: 3px solid red");
-            $("#errExpenseDescription").html("This field must not be empty!");
+            $("#errExpenseDescription").css("color","red");
+            $("#errExpenseDescription").html("Please write your expense message");
             return false;
         }
        else{
@@ -194,7 +198,8 @@ if(isset($_POST['submit'])){
        }
       if(ExpenseAmounts==""){
             $("#ExpenseAmount").attr("style","border: 3px solid red");
-            $("#errExpenseAmount").html("This field must not be empty!");
+            $("#errExpenseAmount").css("color","red");
+            $("#errExpenseAmount").html("Please enter your expense amount");
             return false;
         }
         else{
@@ -211,6 +216,7 @@ if(isset($_POST['submit'])){
         if(type==null){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("This field must not be empty!");
             
         }else{
