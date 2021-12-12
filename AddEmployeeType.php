@@ -118,7 +118,7 @@ if(isset($_POST['submit'])){
         if(EmployeeTypeName==""){
             $("#employeeType").attr("style","border: 3px solid red");
             $("#errempltype").css("color"," red");
-            $("#errempltype").html("Please select any employee.");
+            $("#errempltype").html("Please enter your employee type.");
             return false;
         }else{
             $("#employeeType").attr("style","border:");
@@ -134,7 +134,7 @@ if(isset($_POST['submit'])){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
             $("#"+msg).css("color"," red");
-            $("#"+msg).html("Please enter your employee type.");
+            $("#"+msg).html("This field  must not be empty.");
             
         }else{
             $("#"+id).attr("style","border:");
