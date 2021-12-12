@@ -107,7 +107,7 @@ if(isset($_POST['submit'])){
                                     $rowcount=mysqli_num_rows($query);
                                     ?>
                                     <select class="form-select" name="employee" id="employee" onkeyup="change(this.id,'erremploye','data')" onblur="change(this.id,'erremploye','data')">
-                                        <span id="erremploye"></span>
+                                        
 
                                         <option value="">Select Employee</option>
 
@@ -122,6 +122,7 @@ if(isset($_POST['submit'])){
                                         ?>
 
                                     </select>
+                                    <span id="erremploye"></span>
                         </div>
                     </div>
                     <div class="row">
@@ -163,19 +164,21 @@ if(isset($_POST['submit'])){
                     <div class="row">
                         <div class="col-md-12">
                             <select class="form-select mt-3 mb-3" name="Warrenty" id="Warrenty" onkeyup="change(this.id,'errWarrenty','data')" onblur="change(this.id,'errWarrenty','data')">
-                                <span id="errWarrenty"></span>
+                                
                                 <option  value="" selected>Select Product Warrenty</option>
                                 <option  value="1 Year">1 year</option>
                             </select>
+                            <span id="errWarrenty"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <select class="form-select mt-3 mb-3" name="SalaryStatus" id="SalaryStatus" onkeyup="change(this.id,'errSalaryStatus','data')" onblur="change(this.id,'errSalaryStatus','data')">
-                                <span id="errSalaryStatus"></span>
+                                
                                 <option  value="" selected>Select Salary Status</option>
                                 <option  value="Paid">Paid</option>
                             </select>
+                            <span id="errSalaryStatus"></span>
                         </div>
                     </div>
                     <div class="row">
@@ -206,7 +209,8 @@ if(isset($_POST['submit'])){
         
         if(Employee==""){
             $("#employee").attr("style","border: 3px solid red");
-            $("#erremploye").html("This field must not be empty!");
+            $("#erremploye").css("color","red");
+            $("#erremploye").html("Please select any employee");
             return false;
         }else{
             $("#employee").attr("style","border:");
@@ -214,7 +218,8 @@ if(isset($_POST['submit'])){
         }
       if(Assetcode==""){
             $("#assetcode").attr("style","border: 3px solid red");
-            $("#errassetcode").html("This field must not be empty!");
+            $("#errassetcode").css("color","red");
+            $("#errassetcode").html("Please write your assetcode ");
             return false;
         }
        else{
@@ -223,7 +228,8 @@ if(isset($_POST['submit'])){
        }
       if(Assetname==""){
             $("#assetname").attr("style","border: 3px solid red");
-            $("#errassetname").html("This field must not be empty!");
+            $("#errassetname").css("color","red");
+            $("#errassetname").html("Please write your asset name");
             return false;
         }
         else{
@@ -232,7 +238,8 @@ if(isset($_POST['submit'])){
         }
         if(Inviceno==""){
             $("#inviceno").attr("style","border: 3px solid red");
-            $("#errinviceno").html("This field must not be empty!");
+            $("#errinviceno").css("color","red");
+            $("#errinviceno").html("Please write your invoice number");
             return false;
         }else{
             $("#inviceno").attr("style","border:");
@@ -240,7 +247,8 @@ if(isset($_POST['submit'])){
         }
       if(Manufacturees==""){
             $("#Manufacturee").attr("style","border: 3px solid red");
-            $("#errManufacturee").html("This field must not be empty!");
+            $("#errManufacturee").css("color","red");
+            $("#errManufacturee").html("Please add your manufactures");
             return false;
         }
        else{
@@ -249,7 +257,8 @@ if(isset($_POST['submit'])){
        }
       if(Serials==""){
             $("#Serial").attr("style","border: 3px solid red");
-            $("#errSerial").html("This field must not be empty!");
+            $("#errSerial").css("color","red");
+            $("#errSerial").html("Please write your product serial");
             return false;
         }
         else{
@@ -258,7 +267,8 @@ if(isset($_POST['submit'])){
         }
       if(Purchasedates==""){
             $("#Purchasedate").attr("style","border: 3px solid red");
-            $("#errPurchasedate").html("This field must not be empty!");
+            $("#errPurchasedate").css("color","red");
+            $("#errPurchasedate").html("Please select  your purchase date");
             return false;
         }
        else{
@@ -267,7 +277,8 @@ if(isset($_POST['submit'])){
        }
      if(Warrentys==""){
             $("#Warrenty").attr("style","border: 3px solid red");
-            $("#errWarrenty").html("This field must not be empty!");
+            $("#errWarrenty").css("color","red");
+            $("#errWarrenty").html("Please write your warrentty");
             return false;
         }
         else{
@@ -276,7 +287,8 @@ if(isset($_POST['submit'])){
         }
       if(SalaryStatuss==""){
             $("#SalaryStatus").attr("style","border: 3px solid red");
-            $("#errSalaryStatus").html("This field must not be empty!");
+            $("#errSalaryStatus").css("color","red");
+            $("#errSalaryStatus").html("Please select your salary status");
             return false;
         }
        else{
@@ -292,6 +304,7 @@ if(isset($_POST['submit'])){
         if(type==null){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("This field must not be empty!");
             
         }else{
@@ -303,6 +316,7 @@ if(isset($_POST['submit'])){
         if(type=="data"){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("Please select any option");
             
         }
