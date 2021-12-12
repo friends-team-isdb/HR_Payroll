@@ -111,7 +111,7 @@ if(isset($_POST['submit'])){
                             $rowcount=mysqli_num_rows($query);
                             ?>
                             <select class="form-select" name="employee" id="employee" onkeyup="change(this.id,'erremployee','data')" onblur="change(this.id,'erremployee','data')" >
-                                <span id="erremployee"></span>
+                                
 
                                 <option value="">Select Employee</option>
 
@@ -126,6 +126,7 @@ if(isset($_POST['submit'])){
                         ?>
 
                             </select>
+                        <span id="erremployee"></span>
                     </div>
                 </div>
                 <div class="row">
@@ -186,7 +187,8 @@ if(isset($_POST['submit'])){
         
         if(Employee==""){
             $("#employee").attr("style","border: 3px solid red");
-            $("#erremployee").html("This field must not be empty!");
+            $("#erremployee").css("color","red");
+            $("#erremployee").html("Please select any employee");
             return false;
         }else{
             $("#employee").attr("style","border:");
@@ -194,7 +196,8 @@ if(isset($_POST['submit'])){
         }
       if(Awarddate==""){
             $("#awarddate").attr("style","border: 3px solid red");
-            $("#errawarddate").html("This field must not be empty!");
+            $("#errawarddate").css("color","red");
+            $("#errawarddate").html("Please select award date");
             return false;
         }
        else{
@@ -203,7 +206,8 @@ if(isset($_POST['submit'])){
        }
       if(EmployeeNames==""){
             $("#EmployeeName").attr("style","border: 3px solid red");
-            $("#errEmployeeName").html("This field must not be empty!");
+            $("#errEmployeeName").css("color","red");
+            $("#errEmployeeName").html("Please write award name");
             return false;
         }
         else{
@@ -212,7 +216,8 @@ if(isset($_POST['submit'])){
         }
         if(AwardAmounts==""){
             $("#AwardAmount").attr("style","border: 3px solid red");
-            $("#errAwardAmount").html("This field must not be empty!");
+            $("#errAwardAmount").css("color","red");
+            $("#errAwardAmount").html("Please write your award amount");
             return false;
         }else{
             $("#AwardAmount").attr("style","border:");
@@ -220,7 +225,8 @@ if(isset($_POST['submit'])){
         }
       if(Descriptions==""){
             $("#Description").attr("style","border: 3px solid red");
-            $("#errDescription").html("This field must not be empty!");
+            $("#errDescription").css("color","red");
+            $("#errDescription").html("Please write your award message");
             return false;
         }
        else{
@@ -229,7 +235,8 @@ if(isset($_POST['submit'])){
        }
       if(Dates==""){
             $("#dates").attr("style","border: 3px solid red");
-            $("#errdates").html("This field must not be empty!");
+            $("#errdates").css("color","red");
+            $("#errdates").html("Please select your award date");
             return false;
         }
         else{
@@ -244,6 +251,7 @@ if(isset($_POST['submit'])){
         if(type==null){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("This field must not be empty!");
             
         }else{
@@ -255,6 +263,7 @@ if(isset($_POST['submit'])){
         if(type=="data"){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("Please select any option");
             
         }
