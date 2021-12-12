@@ -97,19 +97,21 @@ if(isset($_POST['submit'])){
             </div>
             <div class="col-md-3">
                 <select  name="permission" class="form-select" id="permission" onkeyup="change(this.id,'errpermission')" onblur="change(this.id,'errpermission')"  >
-                    <span id="errpermission"></span>
+                    
                     <option >Select Your Permission</option>
                     <option value="employe">Employe</option>
                     <option value="administratot">Admin</option>
                 </select>
+                <span id="errpermission"></span>
             </div>
             <div class="col-md-3">
                 <select  name="status" class="form-select" id="status" onkeyup="change(this.id,'errstatus')" onblur="change(this.id,'errstatus')"  >
-                    <span id="errstatus"></span>
+                   
                     <option >Select Your Status</option>
                     <option value="active" >Active</option>
                     <option value="inactive">Inactive</option>
                 </select>
+                 <span id="errstatus"></span>
             </div>
             <div class="col-md-2">
                 <input class="btn btn-primary  " type="submit" name="submit" value="Submit" >
@@ -128,7 +130,8 @@ if(isset($_POST['submit'])){
         
       if(Rolename==""){
             $("#rolename").attr("style","border: 3px solid red");
-            $("#errrolename").html("This field must not be empty!");
+            $("#errrolename").css("color","red");
+            $("#errrolename").html("Please enter your user role name");
             return false;
         }else{
             $("#rolename").attr("style","border:");
@@ -136,7 +139,8 @@ if(isset($_POST['submit'])){
         }
       if(Permission==""){
             $("#permission").attr("style","border: 3px solid red");
-            $("#errpermission").html("This field must not be empty!");
+            $("#errpermission").css("color","red");
+            $("#errpermission").html("Please select user permission");
             return false;
         }
        else{
@@ -145,7 +149,8 @@ if(isset($_POST['submit'])){
        }
      if(Status==""){
             $("#status").attr("style","border: 3px solid red");
-            $("#errstatus").html("This field must not be empty!");
+            $("#errstatus").css("color","red");
+            $("#errstatus").html("Please select your user role status");
             return false;
         }
         else{
@@ -160,6 +165,7 @@ if(isset($_POST['submit'])){
         if(type==null){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("This field must not be empty!");
             
         }else{
