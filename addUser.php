@@ -98,13 +98,12 @@ if(isset($_POST['submit'])){
             </div><hr>
 <!--            Jakir vai code here-->
             <div class="row">
+                <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <h4 style="margin:10px;">Profile Details</h4>
-                    <hr>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" name="username" class="form-control mt-3" id="username" placeholder="Please Write Your User Name" onkeyup="change(this.id,'errusername')" onblur="change(this.id,'errusername')" > <br>
-                            <span id="errusername"></span>
+                            <input type="text" name="username" class="form-control mt-3" id="username" placeholder="Please Write Your User Name" onkeyup="change(this.id,'errusername')" onblur="change(this.id,'errusername')" > 
+                            <span id="errusername"></span><br>
                         </div>
                     </div>
                     <div class="row">
@@ -116,7 +115,7 @@ if(isset($_POST['submit'])){
             $rowcount=mysqli_num_rows($query);
             ?>
             <select class="form-select" name="roleId" id="roleId" onkeyup="change(this.id,'errroleId')" onblur="change(this.id,'errroleId')" >
-                <span id="errroleId"></span>
+                
                 
                 <option value="">Select Role</option>
                 
@@ -131,6 +130,7 @@ if(isset($_POST['submit'])){
                 ?>
                 
             </select>
+             <span id="errroleId"></span>               
                         </div>
                     </div>
                     <div class="row">
@@ -161,81 +161,22 @@ if(isset($_POST['submit'])){
                     <div class="row">
                         <div class="col-md-12">
                                <select name="status" class="form-select mt-3"id="status" onkeyup="change(this.id,'errstatus')" onblur="change(this.id,'errstatus')" >
-                                   <span id="errstatus"></span>
+                                   
                                     <option value="">Select Your Status</option>
                                     <option value="active" selected>Active</option>
                                     <option value="inactive">Inactive</option>
                                </select>
+                            <span id="errstatus"></span>
                         </div>
                     </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <h4 style="margin:10px;">Module Access</h4>
-                    <hr>
                     <div class="row">
-                        <div class="col-md-12">
-                            Employee: <input type="checkbox"  name="" id="" value="">View
-                            <input type="checkbox"  name="" id="" value="">Add
-                            <input type="checkbox"  name="" id="" value="">Edit
-                            <input type="checkbox"  name="" id="" value="">Delete
-                        </div>
+                    <div class="col-md-12">
+                         <input class="btn btn-primary mt-3 bx-pull-right " type="submit" name="submit" id="" value="Save">
                     </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            Department: <input type="checkbox"  name="" id="" value="">View
-                            <input type="checkbox"  name="" id="" value="">Add
-                            <input type="checkbox"  name="" id="" value="">Edit
-                            <input type="checkbox"  name="" id="" value="">Delete
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            Attendance: <input type="checkbox"  name="" id="" value="">View
-                            <input type="checkbox"  name="" id="" value="">Add
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            Leave: <input type="checkbox"  name="" id="" value="">View
-                            <input type="checkbox"  name="" id="" value="">Add
-                            <input type="checkbox"  name="" id="" value="">Edit
-                            <input type="checkbox"  name="" id="" value="">Delete
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            Payslip: <input type="checkbox"  name="" id="" value="">View
-                            <input type="checkbox"  name="" id="" value="">Add
-                            <input type="checkbox"  name="" id="" value="">Delete
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            Holiday: <input type="checkbox"  name="" id="" value="">View
-                            <input type="checkbox"  name="" id="" value="">Add
-                            <input type="checkbox"  name="" id="" value="">Edit
-                            <input type="checkbox"  name="" id="" value="">Delete
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    
-                </div>
-                <div class="col-md-4">
-                    <input class="btn btn-primary mt-3 " type="submit" name="submit" id="" value="Save">
-                </div>
-                <div class="col-md-4">
                    
+                    </div>
                 </div>
+                <div class="col-md-3"></div>
             </div>
                
         </form>
@@ -258,7 +199,8 @@ if(isset($_POST['submit'])){
         
         if(Username==""){
             $("#username").attr("style","border: 3px solid red");
-            $("#errusername").html("This field must not be empty!");
+            $("#errusername").css("color","red");
+            $("#errusername").html("Please write your user name");
             return false;
         }else{
             $("#username").attr("style","border:");
@@ -266,7 +208,8 @@ if(isset($_POST['submit'])){
         }
       if(RoleId==""){
             $("#roleId").attr("style","border: 3px solid red");
-            $("#errroleId").html("This field must not be empty!");
+            $("#errroleId").css("color","red");
+            $("#errroleId").html("Please enter your user roleid");
             return false;
         }
        else{
@@ -275,7 +218,8 @@ if(isset($_POST['submit'])){
        }
       if(Fullname==""){
             $("#fullname").attr("style","border: 3px solid red");
-            $("#errfullname").html("This field must not be empty!");
+            $("#errfullname").css("color","red");
+            $("#errfullname").html("Please enter your full name");
             return false;
         }
         else{
@@ -284,7 +228,8 @@ if(isset($_POST['submit'])){
         }
         if(Phone==""){
             $("#phone").attr("style","border: 3px solid red");
-            $("#errphone").html("This field must not be empty!");
+            $("#errphone").css("color","red");
+            $("#errphone").html("Please enter your mobile number");
             return false;
         }else{
             $("#phone").attr("style","border:");
@@ -292,7 +237,8 @@ if(isset($_POST['submit'])){
         }
       if(Email==""){
             $("#email").attr("style","border: 3px solid red");
-            $("#erremail").html("This field must not be empty!");
+            $("#erremail").css("color","red");
+            $("#erremail").html("Please write your user email address");
             return false;
         }
        else{
@@ -301,7 +247,8 @@ if(isset($_POST['submit'])){
        }
       if(Password==""){
             $("#password").attr("style","border: 3px solid red");
-            $("#errpassword").html("This field must not be empty!");
+            $("#errpassword").css("color","red");
+            $("#errpassword").html("Please enter your user password");
             return false;
         }
         else{
@@ -310,7 +257,8 @@ if(isset($_POST['submit'])){
         }
       if(Status==""){
             $("#status").attr("style","border: 3px solid red");
-            $("#errstatus").html("This field must not be empty!");
+            $("#errstatus").css("color","red");
+            $("#errstatus").html("Please select your user status");
             return false;
         }
         else{
@@ -326,6 +274,7 @@ if(isset($_POST['submit'])){
         if(type==null){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("This field must not be empty!");
             
         }else{
@@ -337,10 +286,12 @@ if(isset($_POST['submit'])){
         if(type=="mobile"){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("This field must not be empty!");
             
         }else if(get.length!==11){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("Mobile number must be 11 digit");
         }
         else{
