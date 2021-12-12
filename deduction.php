@@ -106,7 +106,7 @@ if(isset($_POST['submit'])){
             $rowcount=mysqli_num_rows($query);
             ?>
             <select class="form-select" name="employee" id="employee" onkeyup="change(this.id,'erremployee')" onblur="change(this.id,'erremployee')" >
-                <span id="erremployee"></span>
+                
                 
                 <option value="">Select Employee</option>
                 
@@ -121,6 +121,7 @@ if(isset($_POST['submit'])){
                 ?>
                 
             </select>
+            <span id="erremployee"></span>
             
           <input class="form-control mt-3" type="number" name="Deductioncode" id="Deductioncode" placeholder="Deduction Code" onkeyup="change(this.id,'errDeductioncode')" onblur="change(this.id,'errDeductioncode')" >
           <span id="errDeductioncode"></span>
@@ -134,7 +135,7 @@ if(isset($_POST['submit'])){
               <div class="row">
               <div class="col-md-6">
                 <select class="form-select mt-3" name="month" id="month" onkeyup="change(this.id,'errmonth')" onblur="change(this.id,'errmonth')" >
-                    <span id="errmonth"></span>
+                    
                   <option value="">Select Month</option>
                   <option value="January">January</option>
                   <option value="February">February</option>
@@ -149,10 +150,11 @@ if(isset($_POST['submit'])){
                   <option value="November">November</option>
                   <option value="December">December</option>
                 </select>
+                  <span id="errmonth"></span>
               </div>
               <div class="col-md-6">
                 <select class="form-select mt-3" name="year" id="year" onkeyup="change(this.id,'erryear')" onblur="change(this.id,'erryear')" >
-                    <span id="erryear"></span>
+                    
                   <option value="">Select Year</option>
                   <option value="2020">2020</option>
                   <option value="2021">2021</option>
@@ -166,19 +168,21 @@ if(isset($_POST['submit'])){
                   <option value="2029">2029</option>
                   <option value="2030">2030</option>
                   
-                </select>  
+                </select> 
+                  <span id="erryear"></span>
               </div>             
             </div>
             </div>
             
           </div>
           <select class="form-select mt-3" name="Status" id="Status" onkeyup="change(this.id,'errStatus')" onblur="change(this.id,'errStatus')">
-              <span id="errStatus"></span>
+              
             <option value="">Status</option>
             <option value="Aproved">Aproved</option>
             <option value="Pending">Pending</option>
 
           </select>
+          <span id="errStatus"></span>
           
           <input type="submit" class="btn btn-primary mt-3 bx-pull-right" name="submit" id="" value="Save">
 
@@ -204,7 +208,8 @@ if(isset($_POST['submit'])){
         
       if(Employee==""){
             $("#employee").attr("style","border: 3px solid red");
-            $("#erremployee").html("This field must not be empty!");
+            $("#erremployee").css("color","red");
+            $("#erremployee").html("Please select any employee");
             return false;
         }else{
             $("#employee").attr("style","border:");
@@ -212,7 +217,8 @@ if(isset($_POST['submit'])){
         }
       if(Deductioncodes==""){
             $("#Deductioncode").attr("style","border: 3px solid red");
-            $("#errDeductioncode").html("This field must not be empty!");
+            $("#errDeductioncode").css("color","red");
+            $("#errDeductioncode").html("Please enter your deduction code");
             return false;
         }else{
             $("#Deductioncode").attr("style","border:");
@@ -220,7 +226,8 @@ if(isset($_POST['submit'])){
         }
       if(Descriptions==""){
             $("#Description").attr("style","border: 3px solid red");
-            $("#errDescription").html("This field must not be empty!");
+            $("#errDescription").css("color","red");
+            $("#errDescription").html("Please write deduction message");
             return false;
         }
        else{
@@ -229,7 +236,8 @@ if(isset($_POST['submit'])){
        }
       if(Amounts==""){
             $("#Amount").attr("style","border: 3px solid red");
-            $("#errAmount").html("This field must not be empty!");
+            $("#errAmount").css("color","red");
+            $("#errAmount").html("Please write your deduction amount");
             return false;
         }
         else{
@@ -238,7 +246,8 @@ if(isset($_POST['submit'])){
         }
      if(Month==""){
             $("#month").attr("style","border: 3px solid red");
-            $("#errmonth").html("This field must not be empty!");
+            $("#errmonth").css("color","red");
+            $("#errmonth").html("Please select your deduction month");
             return false;
         }else{
             $("#month").attr("style","border:");
@@ -246,7 +255,8 @@ if(isset($_POST['submit'])){
         }
       if(Year==""){
             $("#year").attr("style","border: 3px solid red");
-            $("#erryear").html("This field must not be empty!");
+            $("#erryear").css("color","red");
+            $("#erryear").html("Please select your deduction year");
             return false;
         }else{
             $("#year").attr("style","border:");
@@ -254,7 +264,8 @@ if(isset($_POST['submit'])){
         }
       if(Statuss==""){
             $("#Status").attr("style","border: 3px solid red");
-            $("#errStatus").html("This field must not be empty!");
+            $("#errStatus").css("color","red");
+            $("#errStatus").html("Please select your status");
             return false;
         }
        else{
@@ -271,6 +282,7 @@ if(isset($_POST['submit'])){
         if(type==null){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("This field must not be empty!");
             
         }else{
