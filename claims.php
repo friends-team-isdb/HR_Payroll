@@ -103,7 +103,7 @@ if(isset($_POST['submit'])){
                                 $rowcount=mysqli_num_rows($query);
                                 ?>
                                 <select class="form-select" name="SelectEmployee" id="SelectEmployee" onkeyup="change(this.id,'errSelectEmployee')" onblur="change(this.id,'errSelectEmployee')" >
-                                    <span id="errSelectEmployee"></span>
+                                    
 
                                     <option value="">Select Employee</option>
 
@@ -118,6 +118,7 @@ if(isset($_POST['submit'])){
                                     ?>
 
                                 </select>
+                        <span id="errSelectEmployee"></span>
                     </div>
                 </div>
                 <div class="row">
@@ -146,12 +147,13 @@ if(isset($_POST['submit'])){
                 </div>
                 <div class="row">
                      <div class="col-md-12">
-                         <select class="form-select mt-3 mb-3" name="status" id="status" onkeyup="change(this.id,'errstatus')" onblur="change(this.id,'errstatus')" >
-                             <span id="errstatus"></span>
+                         <select class="form-select mt-3 mb-3" name="status" id="claimstatus" onkeyup="change(this.id,'errclaimstatus','Claim')" onblur="change(this.id,'errclaimstatus','Claim')" >
+                             
                              <option value="Select">Select Claims Status</option>
                              <option value="Paid">Paid</option>
                              <option value="Unpaid">Unpaid</option>
                          </select>
+                         <span id="errclaimstatus"></span>
                     </div>
                 </div>
                 <div class="row">
@@ -175,11 +177,12 @@ if(isset($_POST['submit'])){
         var Expensename= $("#expensename").val();
         var Amount= $("#amount").val();
         var Files= $("#files").val();
-        var Statuss= $("#status").val();
+        var Claimstatus= $("#claimstatus").val();
         
       if(SelectEmployees==""){
             $("#SelectEmployee").attr("style","border: 3px solid red");
-            $("#errSelectEmployee").html("This field must not be empty!");
+            $("#errSelectEmployee").css("color","red");
+            $("#errSelectEmployee").html("Please select any employee");
             return false;
         }else{
             $("#SelectEmployee").attr("style","border:");
@@ -187,7 +190,8 @@ if(isset($_POST['submit'])){
         }
       if(Dates==""){
             $("#dates").attr("style","border: 3px solid red");
-            $("#errdates").html("This field must not be empty!");
+            $("#errdates").css("color","red");
+            $("#errdates").html("please select your claim date");
             return false;
         }else{
             $("#dates").attr("style","border:");
@@ -195,7 +199,8 @@ if(isset($_POST['submit'])){
         }
       if(Expensename==""){
             $("#expensename").attr("style","border: 3px solid red");
-            $("#errexpensename").html("This field must not be empty!");
+            $("#errexpensename").css("color","red");
+            $("#errexpensename").html("Please write your claim type");
             return false;
         }
        else{
@@ -204,7 +209,8 @@ if(isset($_POST['submit'])){
        }
       if(Amount==""){
             $("#amount").attr("style","border: 3px solid red");
-            $("#erramount").html("This field must not be empty!");
+            $("#erramount").css("color","red");
+            $("#erramount").html("Please write your claim amount");
             return false;
         }
         else{
@@ -213,19 +219,21 @@ if(isset($_POST['submit'])){
         }
      if(Files==""){
             $("#files").attr("style","border: 3px solid red");
-            $("#errfiles").html("This field must not be empty!");
+            $("#errfiles").css("color","red");
+            $("#errfiles").html("Please select claim files");
             return false;
         }else{
             $("#files").attr("style","border:");
             $("#errfiles").html("");
         }
-      if(Statuss==""){
-            $("#status").attr("style","border: 3px solid red");
-            $("#errstatus").html("This field must not be empty!");
+      if(Claimstatus==""){
+            $("#claimstatus").attr("style","border: 3px solid red");
+            $("#errclaimstatus").css("color","red");
+            $("#errclaimstatus").html("Please select your claim status");
             return false;
         }else{
-            $("#status").attr("style","border:");
-            $("#errstatus").html("");
+            $("#claimstatus").attr("style","border:");
+            $("#errclaimstatus").html("");
         }
      
        
@@ -237,7 +245,21 @@ if(isset($_POST['submit'])){
         if(type==null){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("This field must not be empty!");
+            
+        }else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+        
+        if(type=="Claim"){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
+            $("#"+msg).html("Please select any claim status");
             
         }else{
             $("#"+id).attr("style","border:");
