@@ -83,7 +83,7 @@
             $rowcount=mysqli_num_rows($query);
             ?>
             <select class="form-select" name="employee" id="employee" onkeyup="change(this.id,'erremployee')" onblur="change(this.id,'erremployee')" >
-                <span id="erremployee"></span>
+                
                 
                 <option value="">Select Employee</option>
                 
@@ -98,15 +98,17 @@
                 ?>
                 
             </select>
-              <input type="text" name="document_name" id="document_name" class="form-control mt-3" placeholder="Document Name" onkeyup="change(this.id,'errdocument_name')" onblur="change(this.id,'errdocument_name')"  ><br>
-              <span id="errdocument_name"></span>
+              <span id="erremployee"></span>
+              <input type="text" name="document_name" id="document_name" class="form-control mt-3" placeholder="Document Name" onkeyup="change(this.id,'errdocument_name')" onblur="change(this.id,'errdocument_name')"  >
+              <span id="errdocument_name"></span><br>
               <select class="form-select" name="document_status" id="document_status" onkeyup="change(this.id,'errdocument_status')" onblur="change(this.id,'errdocument_status')" >
-                    <span id="errdocument_status"></span>
+                    
                     <option value="">Select Document_Status</option>
                     <option value="Valid">Valid</option>
                     <option value="Invalid">Invalid</option>
                     
                 </select>
+              <span id="errdocument_status"></span>
           </div>
           <div class="col-md-3"></div>
            
@@ -133,7 +135,8 @@
         
       if(Employee==""){
             $("#employee").attr("style","border: 3px solid red");
-            $("#erremployee").html("This field must not be empty!");
+            $("#erremployee").css("color","red");
+            $("#erremployee").html("Please select any employee");
             return false;
         }else{
             $("#employee").attr("style","border:");
@@ -141,7 +144,8 @@
         }
       if(Document_name==""){
             $("#document_name").attr("style","border: 3px solid red");
-            $("#errdocument_name").html("This field must not be empty!");
+            $("#errdocument_name").css("color","red");
+            $("#errdocument_name").html("Please write document name");
             return false;
         }else{
             $("#document_name").attr("style","border:");
@@ -149,7 +153,8 @@
         }
       if(Document_status==""){
             $("#document_status").attr("style","border: 3px solid red");
-            $("#errdocument_status").html("This field must not be empty!");
+            $("#errdocument_status").css("color","red");
+            $("#errdocument_status").html("Please select your document status");
             return false;
         }
        else{
@@ -165,6 +170,7 @@
         if(type==null){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("This field must not be empty!");
             
         }else{
