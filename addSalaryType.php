@@ -113,7 +113,8 @@ if(isset($_POST['submit'])){
         
       if(SalaryType==""){
             $("#salaryType").attr("style","border: 3px solid red");
-            $("#errsalaryType").html("This field must not be empty!");
+            $("#errsalaryType").css("color","red");
+            $("#errsalaryType").html("Please enter salary type");
             return false;
         }
        else{
@@ -129,6 +130,7 @@ if(isset($_POST['submit'])){
         if(type==null){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("This field must not be empty!");
             
         }else{
