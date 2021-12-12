@@ -137,7 +137,8 @@ if(isset($_POST['submit'])){
         
       if(Signin==""){
             $("#signin").attr("style","border: 3px solid red");
-            $("#errsignin").html("This field must not be empty!");
+            $("#errsignin").css("color","red");
+            $("#errsignin").html("Please select signin time");
             return false;
         }else{
             $("#signin").attr("style","border:");
@@ -145,7 +146,8 @@ if(isset($_POST['submit'])){
         }
       if(Signout==""){
             $("#signout").attr("style","border: 3px solid red");
-            $("#errsignout").html("This field must not be empty!");
+            $("#errsignout").css("color","red");
+            $("#errsignout").html("Please select signout time");
             return false;
         }else{
             $("#signout").attr("style","border:");
@@ -153,7 +155,8 @@ if(isset($_POST['submit'])){
         }
       if(Latecount==""){
             $("#latecount").attr("style","border: 3px solid red");
-            $("#errlatecount").html("This field must not be empty!");
+            $("#errlatecount").css("color","red");
+            $("#errlatecount").html("Please select late count time");
             return false;
         }
        else{
@@ -162,7 +165,8 @@ if(isset($_POST['submit'])){
        }
       if(Absent==""){
             $("#absent").attr("style","border: 3px solid red");
-            $("#errabsent").html("This field must not be empty!");
+            $("#errabsent").css("color","red");
+            $("#errabsent").html("Please select absent count time");
             return false;
         }
         else{
@@ -179,6 +183,7 @@ if(isset($_POST['submit'])){
         if(type==null){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("This field must not be empty!");
             
         }else{
