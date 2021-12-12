@@ -111,7 +111,7 @@ if(isset($_POST['submit'])){
                     $rowcount=mysqli_num_rows($query);
                     ?>
                     <select class="form-select" name="employee" id="employee" onkeyup="change(this.id,'errselect','data')" onblur="change(this.id,'errselect','data')">
-                        <span id="errselect"></span>
+                        
 
                         <option value="">Select Employee</option>
 
@@ -124,8 +124,9 @@ if(isset($_POST['submit'])){
                         }
 
                         ?>
-
+                            
                     </select>
+            <span id="errselect"></span>
           <input class="form-control mt-3" type="number" name="Additioncode" id="Additioncode" placeholder="Addition Code" onkeyup="change(this.id,'errnumber')" onblur="change(this.id,'errnumber')">
                                   <span id="errnumber"></span>
 
@@ -141,7 +142,7 @@ if(isset($_POST['submit'])){
               <div class="row">
               <div class="col-md-6">
                 <select class="form-select mt-3" name="month" id="month" onkeyup="change(this.id,'errselect1','data')" onblur="change(this.id,'errselect1','data')">
-                    <span id="errselect1"></span>
+                    
                   <option value="">Select Month</option>
                   <option value="January">January</option>
                   <option value="February">February</option>
@@ -156,10 +157,11 @@ if(isset($_POST['submit'])){
                   <option value="November">November</option>
                   <option value="December">December</option>
                 </select>
+                  <span id="errselect1"></span>
               </div>
               <div class="col-md-6">
                 <select class="form-select mt-3" name="year" id="year" onkeyup="change(this.id,'errselect2','data')" onblur="change(this.id,'errselect2','data')">
-                     <span id="errselect2"></span>
+                     
                   <option value="">Select Year</option>
                   <option value="2020">2020</option>
                   <option value="2021">2021</option>
@@ -174,19 +176,20 @@ if(isset($_POST['submit'])){
                   <option value="2030">2030</option>
                   
                 </select>  
+                  <span id="errselect2"></span>
               </div>             
             </div>
             </div>
             
           </div>
           <select class="form-select mt-3" name="Status" id="Status" onkeyup="change(this.id,'errselect3','data')" onblur="change(this.id,'errselect3','data')">
-               <span id="errselect3"></span>
+               
             <option value="">Status</option>
             <option value="Aproved">Aproved</option>
             <option value="Pending">Pending</option>
 
           </select>
-          
+          <span id="errselect3"></span>
           <input type="submit" class="btn btn-primary mt-3 bx-pull-right" name="submit" id="" value="Save">
 
         </div>
@@ -210,7 +213,8 @@ if(isset($_POST['submit'])){
         
         if(Employee==""){
             $("#employee").attr("style","border: 3px solid red");
-            $("#errselect").html("This field must not be empty!");
+            $("#errselect").css("color","red");
+            $("#errselect").html("Please select employee name");
             return false;
         }else{
             $("#employee").attr("style","border:");
@@ -218,7 +222,8 @@ if(isset($_POST['submit'])){
         }
       if(Additioncodes==""){
             $("#Additioncode").attr("style","border: 3px solid red");
-            $("#errnumber").html("This field must not be empty!");
+            $("#errnumber").css("color","red");
+            $("#errnumber").html("Please enter your addition code");
             return false;
         }
        else{
@@ -227,7 +232,8 @@ if(isset($_POST['submit'])){
        }
       if(Descriptions==""){
             $("#Description").attr("style","border: 3px solid red");
-            $("#errdescription").html("This field must not be empty!");
+            $("#errdescription").css("color","red");
+            $("#errdescription").html("Please write your addition message");
             return false;
         }
         else{
@@ -236,7 +242,8 @@ if(isset($_POST['submit'])){
         }
         if(Amounts==""){
             $("#Amount").attr("style","border: 3px solid red");
-            $("#erramount").html("This field must not be empty!");
+            $("#erramount").css("color","red");
+            $("#erramount").html("Please write your additon amount");
             return false;
         }else{
             $("#Amount").attr("style","border:");
@@ -244,7 +251,8 @@ if(isset($_POST['submit'])){
         }
       if(Months==""){
             $("#month").attr("style","border: 3px solid red");
-            $("#errselect1").html("This field must not be empty!");
+            $("#errselect1").css("color","red");
+            $("#errselect1").html("Please select additon month");
             return false;
         }
        else{
@@ -253,7 +261,8 @@ if(isset($_POST['submit'])){
        }
       if(Years==""){
             $("#year").attr("style","border: 3px solid red");
-            $("#errselect2").html("This field must not be empty!");
+            $("#errselect2").css("color","red");
+            $("#errselect2").html("Please select additon year");
             return false;
         }
         else{
@@ -262,7 +271,8 @@ if(isset($_POST['submit'])){
         }
          if(Statuss==""){
             $("#Status").attr("style","border: 3px solid red");
-            $("#errselect3").html("This field must not be empty!");
+            $("#errselect3").css("color","red");
+            $("#errselect3").html("Please select your status");
             return false;
         }
        else{
@@ -278,6 +288,7 @@ if(isset($_POST['submit'])){
         if(type==null){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("This field must not be empty!");
             
         }else{
@@ -289,6 +300,7 @@ if(isset($_POST['submit'])){
         if(type=="data"){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("Please select any option");
             
         }
