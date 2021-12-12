@@ -68,55 +68,55 @@ date_default_timezone_set("Asia/Dhaka");
             <!--Enter Your Code here-->
             <div class="modal-content">
                 <div class="forms-body">
-<!--                    <form action="" method="post" enctype="multipart/form-data">-->
+                    <!--                    <form action="" method="post" enctype="multipart/form-data">-->
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3 style="margin:10px;">Pay Slip List</h3>
-                            </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 style="margin:10px;">Pay Slip List</h3>
                         </div>
-                        <hr>
-                        <div class="row">
-                           <div class="col-md-3"></div>
-                            <div class="col-md-3">
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3">
 
-                                <select class="form-select" name="year" id="year">
-                                    <?php 
+                            <select class="form-select" name="year" id="year">
+                                <?php 
                                                 for($i=1900;$i<=date("Y");$i++){
                                                 
                                                 ?>
-                                    <option class="form-control" value="<?php echo $i;?>" selected><?php echo $i;?></option>
-                                    <?php }?>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-
-                                <select name="month" class=" form-select" id="month" onchange="paySlip()">
-                                    <option value="">Select Month</option>
-                                    <option value="Jan">Jan</option>
-                                    <option value="Feb">Feb</option>
-                                    <option value="Mar">Mar</option>
-                                    <option value="Apr">Apr</option>
-                                    <option value="May">May</option>
-                                    <option value="Jun">Jun</option>
-                                    <option value="Jul">Jul</option>
-                                    <option value="Aug">Aug</option>
-                                    <option value="Sep">Sep</option>
-                                    <option value="Oct">Oct</option>
-                                    <option value="Nov">Nov</option>
-                                    <option value="Dec">Dec</option>
-                                </select>
-
-                            </div>
-                            <div class="col-md-3"></div>
+                                <option class="form-control" value="<?php echo $i;?>" selected><?php echo $i;?></option>
+                                <?php }?>
+                            </select>
                         </div>
+                        <div class="col-md-3">
 
-                        <!-- <div class="row">
+                            <select name="month" class=" form-select" id="month" onchange="paySlip()">
+                                <option value="">Select Month</option>
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                    <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+
+                    <!-- <div class="row">
                             <div class="col-md-12">                                
                             </div>
                         </div> -->
 
-                    
+
                 </div>
             </div>
             <hr>
@@ -126,7 +126,7 @@ date_default_timezone_set("Asia/Dhaka");
                     <div class="modal-content">
                         <div class="forms-body">
 
-                            <table class="table table-striped table-bordered" >
+                            <table class="table table-striped table-bordered">
 
                                 <thead>
                                     <tr>
@@ -139,8 +139,8 @@ date_default_timezone_set("Asia/Dhaka");
                                     </tr>
                                 </thead>
                                 <tbody id="payslipShow">
-                                    
-                                    
+
+
                                 </tbody>
 
 
@@ -212,7 +212,7 @@ date_default_timezone_set("Asia/Dhaka");
                 },
                 success: function(data) {
 
-                  $('#payslipShow').html(data);
+                    $('#payslipShow').html(data);
 
                 }
 

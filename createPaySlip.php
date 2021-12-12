@@ -23,6 +23,7 @@ $sqls="SELECT * FROM salary_setup Where employe_Name='$empName'";
     
     @$workdays = array();
     @$type = CAL_GREGORIAN;
+   
 
 @$months = date('n',strtotime($Month)); // Month ID, 1 through to 12.
 @$years = date('Y',strtotime($Year)); // Year in 4 digit 2009 format.
@@ -41,8 +42,8 @@ for ($i = 1; $i <= $day_count; $i++) {
         }
 
 }
-echo count($workdays);
-    
+echo $count=count($workdays);
+     $perDaySalary=($basicSalary/$count);
 }
 ?>
 
@@ -220,7 +221,7 @@ from attendance WHERE attendaneStatus='Present' && employee_id='$empName' Group 
                         ?>
 
 
-                            Present Count:<input class="form-control" type="text" name="" id="" disabled value="<?php echo @$u['ct'] ?>">
+                            Present Count:<input class="form-control" type="text" name="" id="" readonly value="<?php echo @$u['ct'] ?>">
 
                         </div>
 
@@ -239,7 +240,7 @@ from attendance WHERE attendaneStatus='Present' && employee_id='$empName' Group 
                             
                           }  
                         ?>
-                            Absent Count:<input class="form-control" type="text" name="" id="" disabled value="<?php echo @$z['ct'];?>">
+                            Absent Count:<input class="form-control" type="text" name="" id="" readonly value="<?php echo @$z['ct'];?>">
                         </div>
                         <div class="col-md-4">
                             <?php 
@@ -344,7 +345,7 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
                                     
                                       <div class="row">
                                         <div class="col-md-6">
-                                            <h4>Late Attendence:</h4>
+                                            <h4>Absent:</h4>
                                         </div>
                                         <div class="col-md-6">
                                             <input class="form-control" type="text" name="" id="">
@@ -395,9 +396,9 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
                                 <div class="col-md-6">
 
                                     <input type="text" placeholder="Basic" class="form-control" name="" id="" value="<?php echo @$r['basic_salary'];?>" readonly><br>
-                                    <input type="text" placeholder="Total Allowances" class="form-control" name="" readonly value="<?php echo @$totalAllownes?>"><br>
+                                    <input type="text" placeholder="Total Allowances" class="form-control" name="" readonly value="<?php echo @$totalAllownes;?>"><br>
                                     <input type="text" placeholder="Total Deductions" class="form-control" name="" id="" readonly><br>
-                                    <input type="text" placeholder="Net Salary" class="form-control" name="" id="" readonly><br>
+                                    <input type="text" placeholder="Net Salary" class="form-control" name="" id="" value="<?php echo @$perDaySalary;?>" readonly><br>
                                     <input type="text" placeholder="Gross Salary" class="form-control" name="" id="" readonly><br>
                                     <select class="form-select" name="deductions" id="">
                                         <option class="form-control" value="" selected> Payment Method</option>
