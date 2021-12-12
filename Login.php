@@ -155,6 +155,9 @@ margin-left: 4px;
     if(isset($_POST['submit'])){
         $emails=$_POST['email'];
         $pass=$_POST['password'];
+        if(empty($emails) && empty($pass)){
+           echo "<script>alert(' Enter Email and Password')</script>";
+        }else{
         
         $sql="Select * from user_table where email='$emails' && password='$pass'";
         $query=mysqli_query($conn,$sql);
@@ -165,6 +168,7 @@ margin-left: 4px;
             header("location:Desboard.php");
         }else{
             echo "<script>alert('Email and Password not match')</script>";
+        }
         }
     }
     

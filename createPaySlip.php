@@ -203,7 +203,7 @@ echo $count=count($workdays);
                     <hr>
                     <div class="row">
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
 
                             <?php 
                             if(isset($_POST['submit'])){
@@ -225,7 +225,7 @@ from attendance WHERE attendaneStatus='Present' && employee_id='$empName' Group 
 
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <?php 
                             if(isset($_POST['submit'])){
                             @$empName=$_POST['empnam'];
@@ -242,7 +242,7 @@ from attendance WHERE attendaneStatus='Present' && employee_id='$empName' Group 
                         ?>
                             Absent Count:<input class="form-control" type="text" name="" id="" readonly value="<?php echo @$z['ct'];?>">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <?php 
                             if(isset($_POST['submit'])){
                             @$empName=$_POST['empnam'];
@@ -257,8 +257,12 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
                             
                           }  
                         ?>
-                            Leave Count:<input class="form-control" type="text" name="" id="" disabled value="<?php echo @$j['ct'];?>">
+                            Leave Count:<input class="form-control" type="text" name="" id="" readonly value="<?php echo @$j['ct'];?>">
                         </div>
+                        <div class="col-md-3">
+                           Late Count:<input class="form-control" type="text" name="" id="" readonly value="">
+                        </div>
+                        
                     </div>
 
                     <hr>
