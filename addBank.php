@@ -107,7 +107,7 @@ if(isset($_POST['submit'])){
             $rowcount=mysqli_num_rows($query);
             ?>
             <select class="form-select" name="employee" id="employee" onkeyup="change(this.id,'erremployee','data')" onblur="change(this.id,'erremployee','data')" >
-                <span id="erremployee"></span>
+                
                 
                 <option value="">Select Employee</option>
                 
@@ -122,6 +122,7 @@ if(isset($_POST['submit'])){
                 ?>
                 
             </select>
+            <span id="erremployee"></span>             
 
                         </div>
                     </div>
@@ -164,7 +165,8 @@ if(isset($_POST['submit'])){
         
         if(Employee==""){
             $("#employee").attr("style","border: 3px solid red");
-            $("#erremployee").html("This field must not be empty!");
+            $("#erremployee").css("color","red");
+            $("#erremployee").html("Please select any employee");
             return false;
         }else{
             $("#employee").attr("style","border:");
@@ -172,7 +174,8 @@ if(isset($_POST['submit'])){
         }
       if(BankNames==""){
             $("#BankName").attr("style","border: 3px solid red");
-            $("#errBankName").html("This field must not be empty!");
+            $("#errBankName").css("color","red");
+            $("#errBankName").html("Please select your bank name");
             return false;
         }
        else{
@@ -181,7 +184,8 @@ if(isset($_POST['submit'])){
        }
       if(BranchNames==""){
             $("#BranchName").attr("style","border: 3px solid red");
-            $("#errBranchName").html("This field must not be empty!");
+            $("#errBranchName").css("color","red");
+            $("#errBranchName").html("Please your branch name");
             return false;
         }
         else{
@@ -190,7 +194,8 @@ if(isset($_POST['submit'])){
         }
         if(Citys==""){
             $("#City").attr("style","border: 3px solid red");
-            $("#errCity").html("This field must not be empty!");
+            $("#errCity").css("color","red");
+            $("#errCity").html("Please select your city");
             return false;
         }else{
             $("#City").attr("style","border:");
@@ -198,7 +203,8 @@ if(isset($_POST['submit'])){
         }
       if(AccountNos==""){
             $("#AccountNo").attr("style","border: 3px solid red");
-            $("#errAccountNo").html("This field must not be empty!");
+            $("#errAccountNo").css("color","red");
+            $("#errAccountNo").html("Please write your account number");
             return false;
         }
        else{
@@ -207,7 +213,8 @@ if(isset($_POST['submit'])){
        }
       if(SwiftCodes==""){
             $("#SwiftCode").attr("style","border: 3px solid red");
-            $("#errSwiftCode").html("This field must not be empty!");
+            $("#errSwiftCode").css("color","red");
+            $("#errSwiftCode").html("Please write your swiftcode");
             return false;
         }
         else{
@@ -223,6 +230,7 @@ if(isset($_POST['submit'])){
         if(type==null){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("This field must not be empty!");
             
         }else{
@@ -234,6 +242,7 @@ if(isset($_POST['submit'])){
         if(type=="data"){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("Please select any option");
             
         }
