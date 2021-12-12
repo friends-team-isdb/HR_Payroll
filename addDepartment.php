@@ -133,7 +133,8 @@ if(isset($_POST['submit'])){
         
         if(Department==""){
             $("#department").attr("style","border: 3px solid red");
-            $("#errdepartment").html("This field must not be empty!");
+            $("#errdepartment").css("color","red");
+            $("#errdepartment").html("Please write your department name");
             return false;
         }else{
             $("#department").attr("style","border:");
@@ -141,7 +142,8 @@ if(isset($_POST['submit'])){
         }
       if(Degination==""){
             $("#degination").attr("style","border: 3px solid red");
-            $("#errdegination").html("This field must not be empty!");
+            $("#errdegination").css("color","red");
+            $("#errdegination").html("Please write your designation name");
             return false;
         }
        else{
@@ -157,6 +159,7 @@ if(isset($_POST['submit'])){
         if(type==null){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("This field must not be empty!");
             
         }else{
