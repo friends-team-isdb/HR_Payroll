@@ -103,7 +103,7 @@
                       <td><?php echo $row['food'];?></td>
                       <td><?php echo $row['provident_fund'];?></td>
                       <td>                       
-                        <a class="btn btn-success" href="#?aid=<?php echo $row[0]?>">Update</a>
+                        <a class="btn btn-success" href="salarysetupupdate.php?aid=<?php echo $row[0]?>">Update</a>
                       </td>
                     </tr>
                     <?php }?> 

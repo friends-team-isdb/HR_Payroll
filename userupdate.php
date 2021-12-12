@@ -70,7 +70,7 @@
             $Id=$_GET['aid'];
             $sql=" SELECT * FROM user_table WHERE user_id='$Id'";
             $query= mysqli_query($conn, $sql);
-            while ($row= mysqli_fetch_array($query)){
+            $num= mysqli_fetch_array($query)
           
           
           ?>
@@ -89,11 +89,11 @@
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="hidden" name="Id" value="<?php echo $row['user_id'];?>">
-                            <input type="text" name="username" class="form-control mt-3" value="<?php echo $row['user_name'];?>" > <br>
+                            <input type="hidden" name="Id" value="<?php echo $num['user_id'];?>">
+                            <input type="text" name="username" class="form-control mt-3" value="<?php echo $num['user_name'];?>" > <br>
                         </div>
                     </div>
-            <?php }?>
+            
                     <div class="row">
                         <div class="col-md-12">
                         <?php 
@@ -102,9 +102,9 @@
                             $query=mysqli_query($conn,$sql);
                             $rowcount=mysqli_num_rows($query);
                         ?>
-                        <select class="form-select" name="roleId" value="<?php echo $row['role_id'];?>">
+                        <select class="form-select" name="roleId" >
 
-                            <option value="">Select Role</option>
+                            <option value="<?php echo $num['role_id'];?>"><?php echo $num['role_id'];?></option>
 
                                 <?php 
                                 for($i=1;$i<=$rowcount;$i++){
@@ -119,47 +119,37 @@
                             </select>
                         </div>
                     </div>
-                    <?php 
-          
-            
-
-                        $Id=$_GET['aid'];
-                        $sql=" SELECT * FROM user_table WHERE user_id='$Id'";
-                        $query= mysqli_query($conn, $sql);
-                        while ($row= mysqli_fetch_array($query)){
-
-
-                    ?>
+                    
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" name="fullname" class="form-control mt-3" value="<?php echo $row['full_name'];?>"> 
+                            <input type="text" name="fullname" class="form-control mt-3" value="<?php echo $num['full_name'];?>"> 
                         </div>
                     </div>
                     
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="number" name="phone" class="form-control mt-3" value="<?php echo $row['phone'];?>"> 
+                            <input type="number" name="phone" class="form-control mt-3" value="<?php echo $num['phone'];?>"> 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                        <input type="email" name="email" class="form-control mt-3" value="<?php echo $row['email'];?>"> 
+                        <input type="email" name="email" class="form-control mt-3" value="<?php echo $num['email'];?>"> 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="password" class="form-control mt-3" name="password" value="<?php echo $row['password'];?>"> 
+                            <input type="password" class="form-control mt-3" name="password" value="<?php echo $num['password'];?>"> 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="date" class="form-control mt-3" name="date" value="<?php echo $row['account_creation_date'];?>"> 
+                            <input type="date" class="form-control mt-3" name="date" value="<?php echo $num['account_creation_date'];?>"> 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                               <select name="status" class="form-select mt-3" value="<?php echo $row['status'];?>">
-                                    <option value="">Select Your Status</option>
+                               <select name="status" class="form-select mt-3" value="<?php echo $num['status'];?>">
+                                    <option value="<?php echo $num['status'];?>"><?php echo $num['status'];?></option>
                                     <option value="active" selected>Active</option>
                                     <option value="inactive">Inactive</option>
                                </select>
@@ -171,7 +161,7 @@
                 </div>
                 <div class="col-md-3"></div>
         </form>
-            <?php } ?>
+            
       </div>
     </div>
 
