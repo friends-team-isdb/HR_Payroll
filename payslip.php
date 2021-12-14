@@ -40,20 +40,10 @@ require "inwordsFunction.php";
             margin: 10px;
         }
 
-        th {
-            background-color: blue;
-            color: white;
-            font-weight: bold;
-        }
-
-        .emply {
-            margin-left: 250px;
-        }
-
     </style>
 </head>
 
-<body>
+<body id="body">
 
 
     <!--start wrapper-->
@@ -75,8 +65,8 @@ require "inwordsFunction.php";
 
             <!--           Enter Your Code here-->
 
-            <div class="modal-content">
-                <div class="forms-body">
+            <div class="modal-content" >
+                <div class="forms-body" id="myDiv">
                     <div class="container mt-5 mb-5">
                         <div class="row">
                             <?php 
@@ -215,7 +205,7 @@ require "inwordsFunction.php";
                     ?>
                                         <div class="d-flex flex-column"> <span>In Words</span> <span><?php echo $class_obj->convert_number($rowss['net_salary'])." "."Taka Only."; ?></span> </div>
                                     </div>
-                                </div>
+                                </div><br>
                                 <div class="d-flex justify-content-end">
                                    <?php 
                                     $sql=" SELECT * FROM company";
@@ -227,11 +217,22 @@ require "inwordsFunction.php";
                                     <div class="d-flex flex-column mt-2"> <span class="fw-bolder"><?php echo $row['Name'];?></span> <span class="mt-4">Authorised Signature</span> </div>
                                 </div>
                             </div>
+                            
+        
                         </div>
                     </div>
                 </div>
-
-
+                    <div class="row">
+                     <div class="col-md-5"></div> 
+                     <div class="col-md-4">
+                         <button class="btn btn-primary" onclick="payslipprint()">Print</button>
+                     </div> 
+                     <div class="col-md-3"></div> 
+    
+  
+                    </div>
+                     
+            </div>
 
 
 
@@ -276,6 +277,17 @@ require "inwordsFunction.php";
         new PerfectScrollbar(".best-product")
         new PerfectScrollbar(".top-sellers-list")
 
+    </script>
+    <script>
+    function payslipprint(){
+        var body=document.getElementById('body').innerHTML;
+        var mydiv=document.getElementById('myDiv').innerHTML;
+        document.getElementById('body').innerHTML=mydiv;
+        window.print(mydiv);
+        document.getElementById('body').innerHTML=body;
+    }
+    
+    
     </script>
 
 </body>
