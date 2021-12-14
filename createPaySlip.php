@@ -42,8 +42,39 @@ for ($i = 1; $i <= $day_count; $i++) {
         }
 
 }
-echo $count=count($workdays);
-     $perDaySalary=($basicSalary/$count);
+    $count=count($workdays);
+    $perDaySalary=round($basicSalary/$count,2);
+     @$w="Select MonthName(attendancedate) as mnth,
+                                Year(attendancedate) as yar, 
+                                COUNT(attendaneStatus)as ct
+                                from attendance WHERE attendaneStatus='Absent' && employee_id='$empName' Group BY Month(attendancedate) && Year(attendancedate) HAVING mnth='$Month' AND yar='$Year'";
+                            @$x=mysqli_query($conn,$w);
+                            @$z=mysqli_fetch_array($x);
+    @$absent=$z['ct'];
+    @$s="Select MonthName(attendancedate) as mnth,
+                            Year(attendancedate) as yar, 
+                            COUNT(`lateCountTime`)as ct
+                            from attendance WHERE  employee_id='$empName' Group BY Month(attendancedate) && Year(attendancedate)
+                            HAVING mnth='$Month' AND yar='$Year'";
+                            @$t=mysqli_query($conn,$s);
+                            @$u=mysqli_fetch_array($t);
+    
+  
+    @$late=$u['ct'];
+    $latecountAbsent=0;
+    for($i=0;$i<=$late;$i=$i+3){
+        if($i>=3){
+            $latecountAbsent++;
+        }
+    }
+    $totalAbsent=$absent+$latecountAbsent;
+    $salaryBad=$totalAbsent*$perDaySalary;
+    $totalDeduction=$salaryBad+$providentFund;
+
+    $netSalary=$basicSalary+$totalAllownes-$totalDeduction;
+    
+    $grossSalary=$basicSalary+$totalAllownes+$totalDeduction;
+    
 }
 ?>
 
@@ -86,7 +117,6 @@ echo $count=count($workdays);
         .forms-body {
             margin: 10px;
         }
-
     </style>
 </head>
 
@@ -142,9 +172,9 @@ echo $count=count($workdays);
                                                 ?>
                                                 <option value="<?php echo $row['department_Name'];?>"><?php echo $row['department_Name'];?></option>
                                                 <?php
-                }
+                                                    }
                 
-                ?>
+                                                    ?>
 
                                             </select><br>
 
@@ -200,6 +230,7 @@ echo $count=count($workdays);
                             </div>
                         </div><!-- col-md-12 end -->
                     </div><!-- row end -->
+
                     <hr>
                     <div class="row">
 
@@ -211,9 +242,9 @@ echo $count=count($workdays);
                             @$Year=$_POST['year'];
                             @$Month=$_POST['dob-month'];
                             $s="Select MonthName(attendancedate) as mnth,
-Year(attendancedate) as yar, 
-COUNT(attendaneStatus)as ct
-from attendance WHERE attendaneStatus='Present' && employee_id='$empName' Group BY Month(attendancedate) && Year(attendancedate) HAVING mnth='$Month' AND yar='$Year'";
+                            Year(attendancedate) as yar, 
+                            COUNT(attendaneStatus)as ct
+                            from attendance WHERE attendaneStatus='Present' && employee_id='$empName' Group                         BY Month(attendancedate) && Year(attendancedate) HAVING mnth='$Month' AND                           yar='$Year'";
                             @$t=mysqli_query($conn,$s);
                             @$u=mysqli_fetch_array($t);
                             
@@ -221,7 +252,7 @@ from attendance WHERE attendaneStatus='Present' && employee_id='$empName' Group 
                         ?>
 
 
-                            Present Count:<input class="form-control" type="text" name="" id="" readonly value="<?php echo @$u['ct'] ?>">
+                            Present Count:<input class="form-control" type="text" name="presentCount" id="" readonly value="<?php echo @$u['ct']; ?>">
 
                         </div>
 
@@ -240,7 +271,7 @@ from attendance WHERE attendaneStatus='Present' && employee_id='$empName' Group 
                             
                           }  
                         ?>
-                            Absent Count:<input class="form-control" type="text" name="" id="" readonly value="<?php echo @$z['ct'];?>">
+                            Absent Count:<input class="form-control" type="text" name="absentCount" id="" readonly value="<?php echo @$z['ct'];?>">
                         </div>
                         <div class="col-md-3">
                             <?php 
@@ -249,25 +280,45 @@ from attendance WHERE attendaneStatus='Present' && employee_id='$empName' Group 
                             @$Year=$_POST['year'];
                             @$Month=$_POST['dob-month'];
                             @$h="Select MonthName(attendancedate) as mnth,
-Year(attendancedate) as yar, 
-COUNT(attendaneStatus)as ct
-from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group BY Month(attendancedate) && Year(attendancedate) HAVING mnth='$Month' AND yar='$Year'";
+                            Year(attendancedate) as yar, 
+                            COUNT(attendaneStatus)as ct
+                            from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group                         BY Month(attendancedate) && Year(attendancedate) HAVING mnth='$Month' AND                       yar='$Year'";
                             @$i=mysqli_query($conn,$h);
                             @$j=mysqli_fetch_array($i);
                             
                           }  
                         ?>
-                            Leave Count:<input class="form-control" type="text" name="" id="" readonly value="<?php echo @$j['ct'];?>">
+                            Leave Count:<input class="form-control" type="text" name="leaveCount" id="" readonly value="<?php echo @$j['ct'];?>">
                         </div>
                         <div class="col-md-3">
-                           Late Count:<input class="form-control" type="text" name="" id="" readonly value="">
-                        </div>
-                        
-                    </div>
 
-                    <hr>
+                            <?php 
+                            if(isset($_POST['submit'])){
+                            @$empName=$_POST['empnam'];
+                            @$Year=$_POST['year'];
+                            @$Month=$_POST['dob-month'];
+                            $s="Select MonthName(attendancedate) as mnth,
+                            Year(attendancedate) as yar, 
+                            COUNT(`lateCountTime`)as ct
+                            from attendance WHERE  employee_id='$empName' Group BY Month(attendancedate) && Year(attendancedate)
+                            HAVING mnth='$Month' AND yar='$Year'";
+                            @$t=mysqli_query($conn,$s);
+                            @$u=mysqli_fetch_array($t);
+                            
+                          }  
+                        ?>
+                            Late Count:<input class="form-control" type="text" name="lateCount" id="" readonly value="<?php echo @$u['ct'];?>">
+                        </div>
+
+                    </div>
                 </form>
+                <hr>
+
                 <form action="" method="post" enctype="multipart/form-data">
+                   <input type="hidden" name="empnam" id="" value="<?php echo @$empName;?>" >
+                   <input type="hidden" name="year" id="" value="<?php echo @$Year;?>">
+                   <input type="hidden" name="dob-month" id="" value="<?php echo @$Month;?>" >
+                   
                     <div class="row">
                         <div class="col-md-6">
                             <div class="modal-content">
@@ -276,17 +327,17 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
                                     <hr>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h4>House rent:</h4>
+                                            <h6>House rent:</h6>
                                         </div>
                                         <div class="col-md-6">
-                                            <input class="form-control" type="text" name="" id="" value="<?php echo @$houseRentAmount?>" readonly>
+                                            <input class="form-control" type="text" name="" id="" value="<?php echo @$houseRentAmount;?>" readonly>
 
                                         </div>
 
                                     </div><br>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h4>Medical Allownes :</h4>
+                                            <h6>Medical Allownes :</h6>
                                         </div>
                                         <div class="col-md-6">
                                             <input class="form-control" type="text" name="" id="" value="<?php echo @$medicalAmount;?>" readonly>
@@ -296,7 +347,7 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
                                     </div><br>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h4>Food Allownes:</h4>
+                                            <h6>Food Allownes:</h6>
                                         </div>
                                         <div class="col-md-6">
                                             <input class="form-control" type="text" name="" id="" value="<?php echo @$foodAmount;?>" readonly>
@@ -338,21 +389,21 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
                                     <hr>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h4>Provident Fund:</h4>
+                                            <h6>Provident Fund:</h6>
                                         </div>
                                         <div class="col-md-6">
-                                            <input class="form-control" type="text" name="" id="" value="<?php echo @$providentFund?>" readonly>
+                                            <input class="form-control" type="text" name="" id="" value="<?php echo @$providentFund;?>" readonly>
 
                                         </div>
 
                                     </div><br>
-                                    
-                                      <div class="row">
+
+                                    <div class="row">
                                         <div class="col-md-6">
-                                            <h4>Absent:</h4>
+                                            <h6>By Absent:</h6>
                                         </div>
                                         <div class="col-md-6">
-                                            <input class="form-control" type="text" name="" id="">
+                                            <input class="form-control" type="text" name="" id="" value="<?php echo @$salaryBad;?>" readonly>
 
                                         </div>
 
@@ -401,15 +452,15 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
 
                                     <input type="text" placeholder="Basic" class="form-control" name="" id="" value="<?php echo @$r['basic_salary'];?>" readonly><br>
                                     <input type="text" placeholder="Total Allowances" class="form-control" name="" readonly value="<?php echo @$totalAllownes;?>"><br>
-                                    <input type="text" placeholder="Total Deductions" class="form-control" name="" id="" readonly><br>
-                                    <input type="text" placeholder="Net Salary" class="form-control" name="" id="" value="<?php echo @$perDaySalary;?>" readonly><br>
-                                    <input type="text" placeholder="Gross Salary" class="form-control" name="" id="" readonly><br>
+                                    <input type="text" placeholder="Total Deductions" class="form-control" name="" id="" readonly value="<?php echo @$totalDeduction;?>"><br>
+                                    <input type="text" placeholder="Net Salary" class="form-control" name="" id="" value="<?php echo @$netSalary;?>" readonly><br>
+                                    <input type="text" placeholder="Gross Salary" class="form-control" name="" id="" readonly value="<?php echo @$grossSalary;?>"><br>
                                     <select class="form-select" name="deductions" id="">
                                         <option class="form-control" value="" selected> Payment Method</option>
                                         <option class="form-control" value="">Bank payment</option>
                                         <option class="form-control" value="">Cash payment</option>
                                     </select><br>
-                                    <select class="form-select" name="deductions" id="">
+                                    <select class="form-select" name="salarystatus" id="">
                                         <option class="form-control" value="" selected>Select Status</option>
                                         <option class="form-control" value="Paid">Paid</option>
                                         <option class="form-control" value="Unpaid">Unpaid</option>
@@ -423,9 +474,160 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
                                 <div class="col-md-3"></div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6">
+                                <input class="btn btn-primary bx-pull-right mb-3" type="submit" name="CratePaySlip" id="" value="Create PaySlip">
+                            </div>
+                            <div class="col-md-3"></div>
+                        </div>
                     </div>
+
+
                 </form>
             </div>
+
+            <?php 
+            if(isset($_POST['CratePaySlip'])){
+                @$empName=$_POST['empnam'];
+                @$Year=$_POST['year'];
+                @$Month=$_POST['dob-month'];
+                $sqls="SELECT * FROM salary_setup Where employe_Name='$empName'";
+                $today=date("Y-m-d");
+                $salaryStatus=$_POST['salarystatus'];
+                
+    $q=mysqli_query($conn,$sqls);
+    $r=mysqli_fetch_array($q);
+    @$basicSalary=$r['basic_salary'];
+    @$medical=$r['medical'];
+    @$houseRent=$r['house_rent'];
+    @$food=$r['food'];
+    @$provident=$r['provident_fund'];
+    @$medicalAmount=($basicSalary*$medical)/100;
+    @$houseRentAmount=($basicSalary*$houseRent)/100;
+    @$foodAmount=($basicSalary*$food)/100;
+    
+    @$totalAllownes=($medicalAmount+$houseRentAmount+$foodAmount);
+    
+    @$providentFund=($basicSalary*$provident)/100;
+    
+    
+    @$workdays = array();
+    @$type = CAL_GREGORIAN;
+   
+
+@$months = date('n',strtotime($Month)); // Month ID, 1 through to 12.
+@$years = date('Y',strtotime($Year)); // Year in 4 digit 2009 format.
+@$day_count = cal_days_in_month($type, $months, $years); // Get the amount of days
+
+//loop through all days
+for ($i = 1; $i <= $day_count; $i++) {
+
+        $date = $years.'/'.$months.'/'.$i; //format date
+        $get_name = date('l', strtotime($date)); //get week day
+        $day_name = substr($get_name, 0, 3); // Trim day name to 3 chars
+
+        //if not a weekend add day to array
+        if($day_name != 'Fri' && $day_name != 'Sat'){
+            $workdays[] = $i;
+        }
+
+}
+    $count=count($workdays);
+    $perDaySalary=round($basicSalary/$count,2);
+     @$w="Select MonthName(attendancedate) as mnth,
+                                Year(attendancedate) as yar, 
+                                COUNT(attendaneStatus)as ct
+                                from attendance WHERE attendaneStatus='Absent' && employee_id='$empName' Group BY Month(attendancedate) && Year(attendancedate) HAVING mnth='$Month' AND yar='$Year'";
+                            @$x=mysqli_query($conn,$w);
+                            @$z=mysqli_fetch_array($x);
+    $absent=$z['ct'];
+    $s="Select MonthName(attendancedate) as mnth,
+                            Year(attendancedate) as yar, 
+                            COUNT(`lateCountTime`)as ct
+                            from attendance WHERE  employee_id='$empName' Group BY Month(attendancedate) && Year(attendancedate)
+                            HAVING mnth='$Month' AND yar='$Year'";
+                            @$t=mysqli_query($conn,$s);
+                            @$u=mysqli_fetch_array($t);
+    
+  
+    $late=$u['ct'];
+                 @$h="Select MonthName(attendancedate) as mnth,
+                            Year(attendancedate) as yar, 
+                            COUNT(attendaneStatus)as ct
+                            from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group                         BY Month(attendancedate) && Year(attendancedate) HAVING mnth='$Month' AND                       yar='$Year'";
+                            @$i=mysqli_query($conn,$h);
+                            @$j=mysqli_fetch_array($i);
+                @$leave=$j['ct'];
+                
+                $s="Select MonthName(attendancedate) as mnth,
+                            Year(attendancedate) as yar, 
+                            COUNT(attendaneStatus)as ct
+                            from attendance WHERE attendaneStatus='Present' && employee_id='$empName' Group                         BY Month(attendancedate) && Year(attendancedate) HAVING mnth='$Month' AND                           yar='$Year'";
+                            @$t=mysqli_query($conn,$s);
+                            @$uS=mysqli_fetch_array($t);
+                $present=$uS['ct'];
+                
+    $latecountAbsent=0;
+    for($i=0;$i<=$late;$i=$i+3){
+        if($i>=3){
+            $latecountAbsent++;
+        }
+    }
+    $totalAbsent=$absent+$latecountAbsent;
+    $salaryBad=$totalAbsent*$perDaySalary;
+    $totalDeduction=$salaryBad+$providentFund;
+
+    $netSalary=$basicSalary+$totalAllownes-$totalDeduction;
+    
+    $grossSalary=$basicSalary+$totalAllownes+$totalDeduction;
+                
+$payrollTablescheckSql="Select * from payroll Where employee_id='$empName' && salary_Month='$Month' && Salary_Year='$Year'";
+                $payrollTableCheckQuery=mysqli_query($conn,$payrollTablescheckSql);
+                $payrollcheckResults=mysqli_num_rows($payrollTableCheckQuery);
+                if($payrollcheckResults==1){
+                    echo "<script>alert('Payroll Slip Already Exits')</script>";
+                }else{
+                    $payrollInsert="INSERT INTO `payroll` (`employee_id`, `salary_id`, `addition_id`, `deduction_id`, `salary_Date`, `salary_Month`, `total_Attendance`, `total_Absent`, `total_Leave`, `total_Leave_withoutpay`, `salary_Status`, `Salary_Year`) VALUES ('$empName', '$empName', '$empName', '$empName', '$today', '$Month', '$present', '$totalAbsent', '$leave', NULL, '$salaryStatus', '$Year')";
+                    $payrollInsertQuery=mysqli_query($conn,$payrollInsert);
+                    
+                    echo "<script>alert('Create Payroll Slip Successfully ')</script>";
+                }
+                
+                $salaryTablescheckSql="Select * from salary Where employe_id='$empName' && salary_Month='$Month' && salary_year='$Year'";
+                $salaryTableCheckQuery=mysqli_query($conn,$salaryTablescheckSql);
+                $salarycheckResults=mysqli_num_rows($salaryTableCheckQuery);
+                if($salarycheckResults==1){
+                    
+                }else{
+                    $salaryInsert="INSERT INTO `salary` (`salary_type_id`, `employe_id`, `basic_salary`, `medical`, `house_rent`, `food`, `provident_fund`, `net_salary`, `gross_salary`, `salary_date`,`salary_year`, `salary_Month`) VALUES (NULL,'$empName','$basicSalary', '$medicalAmount', '$houseRentAmount', '$foodAmount', '$providentFund', '$netSalary', '$grossSalary', '$today','$Year','$Month')";
+                    $salayQuery=mysqli_query($conn,$salaryInsert);
+                }
+                 $additionTablescheckSql="Select * from addition Where employee_id='$empName' && month='$Month' && addition_year='$Year'";
+                $additionTableCheckQuery=mysqli_query($conn,$additionTablescheckSql);
+                $additoncheckResults=mysqli_num_rows($additionTableCheckQuery);
+                if($additoncheckResults==1){
+                    
+                }else{
+                   $additionInsert= "INSERT INTO `addition` (`employee_id`, `addition_code`, `description`, `amount`, `month`, `addition_year`, `addition_status`) VALUES ('$empName', NULL, NULL, '$providentFund','$Month','$Year','$salaryStatus')";
+                    $additionQuery=mysqli_query($conn,$additionInsert);
+                }
+                
+                
+                 $deductionTablescheckSql="Select * from deduction Where employee_id='$empName' && month='$Month' && deduction_year='$Year'";
+               $deductionTableCheckQuery=mysqli_query($conn,$deductionTablescheckSql);
+                $deductioncheckResults=mysqli_num_rows($deductionTableCheckQuery);
+                if($deductioncheckResults==1){
+                    
+                }else{
+                 $dedcutionInsert="INSERT INTO `deduction` (`employee_id`, `deduction_code`, `description`, `amount`, `month`, `deduction_year`, `deduction_status`) VALUES ('$empName', NULL, NULL, '$salaryBad', '$Month', '$Year', '$salaryStatus')";
+                    $deductionQury=mysqli_query($conn,$dedcutionInsert);
+                }
+                
+            }
+            
+            
+            ?>
 
 
 
@@ -479,7 +681,6 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
     <script>
         new PerfectScrollbar(".best-product")
         new PerfectScrollbar(".top-sellers-list")
-
     </script>
 
     <script type="text/javascript">
@@ -493,7 +694,6 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
             });
 
         });
-
     </script>
     <script>
         function department() {
@@ -515,7 +715,6 @@ from attendance WHERE attendaneStatus='On Leave' && employee_id='$empName' Group
 
             });
         }
-
     </script>
 
 
