@@ -314,7 +314,7 @@ for ($i = 1; $i <= $day_count; $i++) {
                 </form>
                 <hr>
 
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="" method="post" enctype="multipart/form-data" id="myform">
                    <input type="hidden" name="empnam" id="" value="<?php echo @$empName;?>" >
                    <input type="hidden" name="year" id="" value="<?php echo @$Year;?>">
                    <input type="hidden" name="dob-month" id="" value="<?php echo @$Month;?>" >
@@ -455,18 +455,22 @@ for ($i = 1; $i <= $day_count; $i++) {
                                     <input type="text" placeholder="Total Deductions" class="form-control" name="" id="" readonly value="<?php echo @$totalDeduction;?>"><br>
                                     <input type="text" placeholder="Net Salary" class="form-control" name="" id="" value="<?php echo @$netSalary;?>" readonly><br>
                                     <input type="text" placeholder="Gross Salary" class="form-control" name="" id="" readonly value="<?php echo @$grossSalary;?>"><br>
-                                    <select class="form-select" name="deductions" id="">
+                                    <select class="form-select" name="deductions" id="deductions" onkeyup="change(this.id,'errdeductions','method')" onblur="change(this.id,'errdeductions','method')"  >
                                         <option class="form-control" value="" selected> Payment Method</option>
                                         <option class="form-control" value="">Bank payment</option>
                                         <option class="form-control" value="">Cash payment</option>
-                                    </select><br>
-                                    <select class="form-select" name="salarystatus" id="">
+                                    </select>
+                                    <span id="errdeductions"></span>
+                                    <br>
+                                    <select class="form-select" name="salarystatus" id="salarystatus" onkeyup="change(this.id,'errsalarystatus','status')" onblur="change(this.id,'errsalarystatus','status')" >
                                         <option class="form-control" value="" selected>Select Status</option>
                                         <option class="form-control" value="Paid">Paid</option>
                                         <option class="form-control" value="Unpaid">Unpaid</option>
                                         <option class="form-control" value="Pending">Pending</option>
                                         <option class="form-control" value="Processing">Processing</option>
-                                    </select><br>
+                                    </select>
+                                    <span id="errsalarystatus"></span>
+                                    <br>
 
 
                                 </div>
@@ -486,6 +490,84 @@ for ($i = 1; $i <= $day_count; $i++) {
 
                 </form>
             </div>
+            
+ <script type="text/JavaScript">
+   $("#myform").submit(function(){
+        var Deductions= $("#deductions").val();
+        var Salarystatus= $("#salarystatus").val();
+        
+        
+      if(Deductions==""){
+            $("#deductions").attr("style","border: 3px solid red");
+            $("#errdeductions").css("color","red");
+            $("#errdeductions").html("Please select any payment method");
+            return false;
+        }else{
+            $("#deductions").attr("style","border:");
+            $("#errdeductions").html("");
+        }
+      if(Salarystatus==""){
+            $("#salarystatus").attr("style","border: 3px solid red");
+            $("#errsalarystatus").css("color","red");
+            $("#errsalarystatus").html("Please select any payment status");
+            return false;
+        }else{
+            $("#salarystatus").attr("style","border:");
+            $("#errsalarystatus").html("");
+        }
+    });
+    
+    function change(id,msg,type=null){
+        var get=$("#"+id).val();
+        
+        if(type==null){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
+            $("#"+msg).html("This field must not be empty!");
+            
+        }else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+        
+        if(type=="method"){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
+            $("#"+msg).html("Please select any payment method");
+            
+        }else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+        
+        if(type=="status"){
+            if(get==""){
+            $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
+            $("#"+msg).html("Please select any payment status");
+            
+        }else{
+            $("#"+id).attr("style","border:");
+            $("#"+msg).html("");
+        }
+        
+        }
+        
+       
+     
+    }
+    
+</script>                      
+            
+            
+            
+            
 
             <?php 
             if(isset($_POST['CratePaySlip'])){
