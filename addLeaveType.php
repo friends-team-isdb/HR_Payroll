@@ -122,7 +122,8 @@ if(isset($_POST['submit'])){
         
       if(Leavetype==""){
             $("#leavetype").attr("style","border: 3px solid red");
-            $("#errleavetype").html("This field must not be empty!");
+            $("#errleavetype").css("color","red");
+            $("#errleavetype").html("Please enter your leave type");
             return false;
         }
        else{
@@ -138,6 +139,7 @@ if(isset($_POST['submit'])){
         if(type==null){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("This field must not be empty!");
             
         }else{

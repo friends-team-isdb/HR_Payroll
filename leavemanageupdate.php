@@ -63,7 +63,16 @@
       <!--           Enter Your Code here-->
       <div class="modal-content">
         <div class="forms-body">
+            <?php 
             
+                        $Id=$_GET['id'];
+                        $sql="SELECT * FROM leaves WHERE leave_id='$Id'";
+                        $query= mysqli_query($conn, $sql);
+
+                        $num= mysqli_fetch_array($query)
+         
+         
+            ?>   
           <form action="leavemanageupdatedetails.php" method="post" enctype="multipart/form-data">
             <div class="row">
               <div class="col-md-12">
@@ -84,7 +93,7 @@
                   ?>
                   <select class="form-select" name="select_employee" >
 
-                    <option value="">Select Employee</option>
+                    <option value="<?php echo $num['employee_id'];?>"><?php echo $num['employee_id'];?></option>
 
                     <?php
                     for ($i = 1; $i <= $rowcount; $i++) {
@@ -108,7 +117,7 @@
                   ?>
                   <select class="form-select" name="leave_type" id="">
 
-                    <option value="">Select Leave Type</option>
+                    <option value="<?php echo $num['leave_type_id'];?>"><?php echo $num['leave_type_id'];?></option>
 
                     <?php
                     for ($i = 1; $i <= $rowcount; $i++) {
@@ -122,30 +131,21 @@
 
                   </select>
                 </div>
-                    <?php 
-            
-                        $Id=$_GET['id'];
-                        $sql="SELECT * FROM leaves WHERE leave_id='$Id'";
-                        $query= mysqli_query($conn, $sql);
-
-                        while ($row= mysqli_fetch_array($query)){
-         
-         
-                    ?>   
+                    
 
                 <div class="form-group">
-                    <input type="hidden" name="Id" value="<?php echo $row['0'];?>">
+                    <input type="hidden" name="Id" value="<?php echo $num['0'];?>">
                   Leave Start Date
-                  <input class="form-control mt-1 mb-1 " name="leave_start_date" type="date" value="<?php echo $row['leave_start_date'];?>">
+                  <input class="form-control mt-1 mb-1 " name="leave_start_date" type="date" value="<?php echo $num['leave_start_date'];?>">
                 </div>
                 <div class="form-group">
                   Leave Ends Date
-                  <input class="form-control mt-1  " name="leave_ends_date"  type="date" value="<?php echo $row['leave_end_date'];?>">
+                  <input class="form-control mt-1  " name="leave_ends_date"  type="date" value="<?php echo $num['leave_end_date'];?>">
                 </div>
                 <div class="form-group">
-                  <input class="form-control mt-3" name="description" value="<?php echo $row['leave_for'];?>"><br>
+                  <input class="form-control mt-3" name="description" value="<?php echo $num['leave_for'];?>"><br>
                 </div>
-                <?php } ?>
+               
                 <div class="form-group">
                   <?php
 
@@ -155,7 +155,7 @@
                   ?>
                   <select class="form-select" name="support_document" id="">
 
-                    <option value="">Select Support Document</option>
+                    <option value="<?php echo $num['supported_document'];?>"><?php echo $num['supported_document'];?></option>
 
                     <?php
                     for ($i = 1; $i <= $rowcount; $i++) {
@@ -168,19 +168,10 @@
                     ?>
                   </select>
                 </div>
-                <?php 
-            
-                    $Id=$_GET['id'];
-                    $sql="SELECT * FROM leaves WHERE leave_id='$Id'";
-                    $query= mysqli_query($conn, $sql);
-
-                    while ($row= mysqli_fetch_array($query)){
-         
-         
-                ?>   
+                  
                 <div class="form-group">
-                  <select class="form-select mt-3" name="leave_status" value="<?php echo $row['leave_status'];?>">
-                    <option value="">Select Status</option>
+                  <select class="form-select mt-3" name="leave_status" value="">
+                    <option value="<?php echo $num['leave_status'];?>"><?php echo $num['leave_status'];?></option>
                     <option value="pending">Pending</option>
                     <option value="aproved">Aproved</option>
                   </select>
@@ -192,7 +183,7 @@
               <div class="col-md-3"></div>
             </div>
           </form>
-            <?php } ?>
+           
         </div>
       </div>
 

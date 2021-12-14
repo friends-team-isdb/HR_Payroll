@@ -27,13 +27,13 @@
         $employee_code=$_POST['employee_code'];
         $employee_status=$_POST['employee_status'];
         
-        $sql="UPDATE   employee SET employee_name='$employ_name', email='$employ_email', gender='$gen', maritial_Status='marital_status', date_of_birth='employ_date_of_birth', picture='$employmet_picture', religion='$employ_religion', district='$employ_district',  Countries='$employ_countris', phone='$phone', postal_code='$employ_postal_code', nationality='$employ_nationality', present_address='$present_address', permanent_address='$permanent_address', Passport_or_NID='$employ_nid', employement_status='$employment_status', appointment_date='$appointment_date', joining_date='$joining_date', employee_code='$employee_code', employee_status='$employee_status'    WHERE employee_id ='$Id'";
+        $sql="UPDATE   employee SET employee_name='$employ_name', email='$employeeemail', gender='$gen', maritial_Status='marital_status', date_of_birth='employ_date_of_birth', picture='$employmet_picture', religion='$employ_religion', district='$employ_district',  Countries='$employ_countris', phone='$phone', postal_code='$employ_postal_code', nationality='$employ_nationality', present_address='$present_address', permanent_address='$permanent_address', Passport_or_NID='$employ_nid', employement_status='$employment_status', appointment_date='$appointment_date', joining_date='$joining_date', employee_code='$employee_code', employee_status='$employee_status'    WHERE employee_id ='$Id'";
         $query= mysqli_query($conn, $sql);
         
         $id=$_POST['id'];
         $employeeemail=$_POST['employeeemail'];
         $employeepass=$_POST['employeepass'];
-        $sqls="UPDATE   user_table SET email='$employeeemail', password='employeepass' WHERE user_id='$id'";
+        $sqls="UPDATE   user_table SET email='$employeeemail', password='$employeepass' WHERE user_id='$id'";
         $querys= mysqli_query($conn, $sqls);
         header("Location:employeeManage.php");
         

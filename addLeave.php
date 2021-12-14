@@ -88,7 +88,7 @@ if(!isset($_SESSION['userName'])){
                   $rowcount = mysqli_num_rows($query);
                   ?>
                   <select class="form-select" name="select_employee" id="select_employee" onkeyup="change(this.id,'errselect_employee')" onblur="change(this.id,'errselect_employee')" >
-                      <span id="errselect_employee"></span>
+                      
 
                     <option value="">Select Employee</option>
 
@@ -102,7 +102,8 @@ if(!isset($_SESSION['userName'])){
 
                     ?>
 
-                  </select><br>
+                  </select>
+                    <span id="errselect_employee"></span><br>
 
                 </div>
                 <div class="form-group">
@@ -113,7 +114,7 @@ if(!isset($_SESSION['userName'])){
                   $rowcount = mysqli_num_rows($query);
                   ?>
                   <select class="form-select" name="leave_type" id="leave_type" onkeyup="change(this.id,'errleave_type')" onblur="change(this.id,'errleave_type')" >
-                       <span id="errleave_type"></span>
+                       
 
                     <option value="">Select Leave Type</option>
 
@@ -128,6 +129,7 @@ if(!isset($_SESSION['userName'])){
                     ?>
 
                   </select>
+                    <span id="errleave_type"></span>
                 </div>
 
                 <div class="form-group">
@@ -152,7 +154,7 @@ if(!isset($_SESSION['userName'])){
                   $rowcount = mysqli_num_rows($query);
                   ?>
                   <select class="form-select" name="support_document" id="support_document" onkeyup="change(this.id,'errsupport_document')" onblur="change(this.id,'errsupport_document')" >
-                       <span id="errsupport_document"></span>
+                       
 
                     <option value="">Select Support Document</option>
 
@@ -166,14 +168,16 @@ if(!isset($_SESSION['userName'])){
 
                     ?>
                   </select>
+                    <span id="errsupport_document"></span>
                 </div>
                 <div class="form-group">
                   <select class="form-select mt-3" name="leave_status" id="leave_status" onkeyup="change(this.id,'errleave_status')" onblur="change(this.id,'errleave_status')" >
-                       <span id="errleave_status"></span>
+                       
                     <option value="">Select Status</option>
                     <option value="pending">Pending</option>
                     <option value="aproved">Aproved</option>
                   </select>
+                    <span id="errleave_status"></span>
                 </div>
                 <div class="form-group">
                   <input class="btn btn-primary bx-pull-right mt-3" type="submit" name="submit" value="save">
@@ -198,7 +202,8 @@ if(!isset($_SESSION['userName'])){
         
       if(Select_employee==""){
             $("#select_employee").attr("style","border: 3px solid red");
-            $("#errselect_employee").html("This field must not be empty!");
+            $("#errselect_employee").css("color","red");
+            $("#errselect_employee").html("Please select employee name");
             return false;
         }else{
             $("#select_employee").attr("style","border:");
@@ -206,7 +211,8 @@ if(!isset($_SESSION['userName'])){
         }
       if(Leave_type==""){
             $("#leave_type").attr("style","border: 3px solid red");
-            $("#errleave_type").html("This field must not be empty!");
+            $("#errleave_type").css("color","red");
+            $("#errleave_type").html("Please select your leave type");
             return false;
         }else{
             $("#leave_type").attr("style","border:");
@@ -214,7 +220,8 @@ if(!isset($_SESSION['userName'])){
         }
       if(Leave_start_date==""){
             $("#leave_start_date").attr("style","border: 3px solid red");
-            $("#errleave_start_date").html("This field must not be empty!");
+            $("#errleave_start_date").css("color","red");
+            $("#errleave_start_date").html("Please select leave start date");
             return false;
         }
        else{
@@ -223,7 +230,8 @@ if(!isset($_SESSION['userName'])){
        }
       if(Leave_ends_date==""){
             $("#leave_ends_date").attr("style","border: 3px solid red");
-            $("#errleave_ends_date").html("This field must not be empty!");
+            $("#errleave_ends_date").css("color","red");
+            $("#errleave_ends_date").html("Please select leave end date");
             return false;
         }
         else{
@@ -232,7 +240,8 @@ if(!isset($_SESSION['userName'])){
         }
      if(Description==""){
             $("#description").attr("style","border: 3px solid red");
-            $("#errdescription").html("This field must not be empty!");
+            $("#errdescription").css("color","red");
+            $("#errdescription").html("Please enter your leave message");
             return false;
         }else{
             $("#description").attr("style","border:");
@@ -240,7 +249,8 @@ if(!isset($_SESSION['userName'])){
         }
       if(Support_document==""){
             $("#support_document").attr("style","border: 3px solid red");
-            $("#errsupport_document").html("This field must not be empty!");
+            $("#errsupport_document").css("color","red");
+            $("#errsupport_document").html("Please select your support document");
             return false;
         }else{
             $("#support_document").attr("style","border:");
@@ -248,7 +258,8 @@ if(!isset($_SESSION['userName'])){
         }
       if(Leave_status==""){
             $("#leave_status").attr("style","border: 3px solid red");
-            $("#errleave_status").html("This field must not be empty!");
+            $("#errleave_status").css("color","red");
+            $("#errleave_status").html("Please select leave status");
             return false;
         }
        else{
@@ -265,6 +276,7 @@ if(!isset($_SESSION['userName'])){
         if(type==null){
             if(get==""){
             $("#"+id).attr("style","border: 3px solid red");
+            $("#"+msg).css("color","red");
             $("#"+msg).html("This field must not be empty!");
             
         }else{

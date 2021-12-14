@@ -74,7 +74,7 @@
                 $Id=$_GET['aid'];
                 $sql="SELECT * FROM employee WHERE employee_id='$Id';";
                 $query= mysqli_query($conn,$sql);
-                while ($row= mysqli_fetch_array($query)){
+                $num= mysqli_fetch_array($query)
 
 
         ?>
@@ -95,40 +95,39 @@
                 </div>
 
                 <div class="modal-body">
-                   <input type="hidden" name="Id" value="<?php echo $row['0'];?>" >
-                  <input class="form-control" type="text" name="employ_name" value="<?php echo $row['employee_name'];?>"><br>
+                   <input type="hidden" name="Id" value="<?php echo $num['0'];?>" >
+                  <input class="form-control" type="text" name="employ_name" value="<?php echo $num['employee_name'];?>"><br>
                   
-                <select class="form-control" name="gen" value="<?php echo $row['gender'];?>">
-                    <option value="">Select Gender</option>
+                <select class="form-control" name="gen" >
+                    <option value="<?php echo $num['gender'];?>"><?php echo $num['gender'];?></option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select><br>
 
-                  <label class="form-control" for="marital_status">Marital Status: <select class="form-control" name="marital_status" value="<?php echo $row['maritial_Status'];?>">
-                      <option value="">Select</option>
+                  <label class="form-control" for="marital_status">Marital Status: <select class="form-control" name="marital_status" value="">
+                      <option value="<?php echo $num['maritial_Status'];?>"><?php echo $num['maritial_Status'];?></option>
                       <option value="married">Married</option>
                       <option value="unmarried">Unmarried</option>
                     </select> </label><br>
-                  <label class="form-control" for="">Birth Date: <input class="form-control" type="date" name="employ_date_of_birth" value="<?php echo $row['date_of_birth'];?>"></label><br>
-                  <label class="form-control" for="">Photo: <input class="form-control" type="file" name="employmet_picture" value="<?php echo $row['picture'];?>"> </label><br>
-                  <input class="form-control" type="text" name="employ_religion" value="<?php echo $row['religion'];?>"><br>
-                  <input class="form-control" type="text" name="employ_district" value="<?php echo $row['district'];?>"><br>
-                  <input class="form-control" type="text" name="employ_countris" value="<?php echo $row['Countries'];?>"><br>
-                  <input class="form-control" type="text" name="phone" value="<?php echo $row['phone'];?>"><br>
-                  <input class="form-control" type="text" name="employ_postal_code" value="<?php echo $row['postal_code'];?>"><br>
-                  <input class="form-control" type="text" name="employ_nationality" value="<?php echo $row['nationality'];?>"><br>
-                  <input class="form-control" type="text" name="present_address" value="<?php echo $row['present_address'];?>" ><br>
-                  <input class="form-control" type="text" name="permanent_address" value="<?php echo $row['permanent_address'];?>" ><br>
-                  <input class="form-control" type="text" name="employ_nid" value="<?php echo $row['Passport_or_NID'];?>"><br>
-                  <select class="form-control" name="employment_status" value="<?php echo $row['employement_status'];?>" >
-                      <option value="">Select Employee Status</option>
+                  <label class="form-control" for="">Birth Date: <input class="form-control" type="date" name="employ_date_of_birth" value="<?php echo $num['date_of_birth'];?>"></label><br>
+                  <label class="form-control" for="">Photo: <input class="form-control" type="file" name="employmet_picture" value="<?php echo $num['picture'];?>"> </label><br>
+                  <input class="form-control" type="text" name="employ_religion" value="<?php echo $num['religion'];?>"><br>
+                  <input class="form-control" type="text" name="employ_district" value="<?php echo $num['district'];?>"><br>
+                  <input class="form-control" type="text" name="employ_countris" value="<?php echo $num['Countries'];?>"><br>
+                  <input class="form-control" type="text" name="phone" value="<?php echo $num['phone'];?>"><br>
+                  <input class="form-control" type="text" name="employ_postal_code" value="<?php echo $num['postal_code'];?>"><br>
+                  <input class="form-control" type="text" name="employ_nationality" value="<?php echo $num['nationality'];?>"><br>
+                  <input class="form-control" type="text" name="present_address" value="<?php echo $num['present_address'];?>" ><br>
+                  <input class="form-control" type="text" name="permanent_address" value="<?php echo $num['permanent_address'];?>" ><br>
+                  <input class="form-control" type="text" name="employ_nid" value="<?php echo $num['Passport_or_NID'];?>"><br>
+                  <select class="form-control" name="employment_status" value="" >
+                      <option value="<?php echo $num['employement_status'];?>"><?php echo $num['employement_status'];?></option>
                       <option value="Active">Active</option>
                       <option value="Inactive">Inactive</option>
                   </select>
                   <br>
                 </div>
-                <?php }?>
-
+                
               </div>
 
             </div>
@@ -148,7 +147,7 @@
                 </div>
                 <div class="modal-body">
                   <input type="hidden" name="id" value="<?php echo $row['0'];?>" >
-                  <input class="form-control" type="text" name="employeeemail" value="<?php echo $row['email'];?>"><br>
+                  <input class="form-control" type="text" name="employeeemail" value="<?php echo $num['email'];?>"><br>
                   <input class="form-control" type="password" name="employeepass" value="<?php echo $row['password'];?>">
                 </div>
               </div>
@@ -169,7 +168,7 @@
             ?>
             <select class="form-control" name="employment_id" >
                 
-                <option value="">Select Employee Type</option>
+                <option value="<?php echo $num['employee_type_id'];?>"><?php echo $num['employee_type_id'];?></option>
                 
                 <?php 
                 for($i=1;$i<=$rowcount;$i++){
@@ -190,7 +189,7 @@
             ?>
             <select class="form-control" name="department_id" >
                 
-                <option value="">Select Department</option>
+                <option value="<?php echo $num['department_id'];?>"><?php echo $num['department_id'];?></option>
                 
                 <?php 
                 for($i=1;$i<=$rowcount;$i++){
@@ -212,7 +211,7 @@
             ?>
             <select class="form-control" name="designation" >
                 
-                <option value="">Select Designaton</option>
+                <option value="<?php echo $num['designation_id'];?>"><?php echo $num['designation_id'];?></option>
                 
                 <?php 
                 for($i=1;$i<=$rowcount;$i++){
@@ -225,21 +224,10 @@
                 ?>
                 
             </select><br>
-                  
-                  <?php
-
-                $Id=$_GET['aid'];
-                $sql="SELECT * FROM employee WHERE employee_id='$Id';";
-                $query= mysqli_query($conn,$sql);
-                while ($row= mysqli_fetch_array($query)){
-
-
-        ?>
-                  
-                  <label class="form-control" for="">Appointment Date: <input class="form-control" type="date"name="appointment_date" value="<?php echo $row['appointment_date'];?>"></label><br>
-                  <label class="form-control" for="">Joining Date: <input class="form-control" type="date"name="joining_date" value="<?php echo $row['joining_date'];?>" ></label><br>
-                  <input class="form-control" type="text" name="employee_code" value="<?php echo $row['employee_code'];?>"><br>
-                  <input class="form-control" type="text" name="employee_status" value="<?php echo $row['employee_status'];?>"><br>
+                  <label class="form-control" for="">Appointment Date: <input class="form-control" type="date"name="appointment_date" value="<?php echo $num['appointment_date'];?>"></label><br>
+                  <label class="form-control" for="">Joining Date: <input class="form-control" type="date"name="joining_date" value="<?php echo $num['joining_date'];?>" ></label><br>
+                  <input class="form-control" type="text" name="employee_code" value="<?php echo $num['employee_code'];?>"><br>
+                  <input class="form-control" type="text" name="employee_status" value="<?php echo $num['employee_status'];?>"><br>
 
                 </div>
                 <div class="modal-footer">
@@ -251,7 +239,7 @@
           </div>
 
         </form>
-            <?php }?>
+          
       </div>
       
       
