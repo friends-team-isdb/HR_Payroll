@@ -1,16 +1,16 @@
 <?php require "connect.php";
+@session_start();
+
 $sl=1;
 $year=$_REQUEST['year'];
 $Month=$_REQUEST['Month'];
+$_SESSION['selectMonth']=$Month;
+$_SESSION['selectYear']=$year;
 $sql="SELECT * From payroll Where Salary_Year='$year' && salary_Month='$Month'";
 $query=mysqli_query($conn,$sql);
 while($row=mysqli_fetch_array($query)){
     
 ?>
-
-
-
-
 <tr>
     <td><?php echo $sl++;?></td>
     <td><?php echo $row['employee_id'];?></td>

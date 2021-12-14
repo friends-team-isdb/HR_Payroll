@@ -1,4 +1,8 @@
-<?php require "connect.php";?>
+<?php require "connect.php";
+require "inwordsFunction.php";
+@session_start();
+?>
+
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -35,12 +39,14 @@
         .forms-body {
             margin: 10px;
         }
-        th{
+
+        th {
             background-color: blue;
             color: white;
             font-weight: bold;
         }
-        .emply{
+
+        .emply {
             margin-left: 250px;
         }
 
@@ -71,184 +77,159 @@
 
             <div class="modal-content">
                 <div class="forms-body">
-                    <div class="container">
+                    <div class="container mt-5 mb-5">
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="company">
-                                <?php
+                            <?php 
+        $id=$_GET["aid"];
+            $month=$_SESSION['selectMonth'];
+            $Year=$_SESSION['selectYear'];
 
-                                            require "connect.php";
-                                            
-                                            $id=$_GET["aid"];
-
-                                            $sqls=" SELECT * FROM company";
-                                            $querrys= mysqli_query($conn, $sqls);
-                                            while ($rows= mysqli_fetch_array($querrys)){
-                                        ?>
-                                    <h3 style="color:blue;"><?php echo $rows['Name'];?></h3>
-                                    <p><?php echo $rows['Address'];?></p>
-                                    <p><?php echo $rows['phone'];?></p>
-                                    <p><?php echo $rows['email'];?></p>
-                                </div>
-                                <?php } ?>
-
-                            </div>
-                            <div class="col-md-6">
-                               <h3 style="color:blue; margin-left:250px;">PaySlip</h3>
-                            </div>
-
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="employee_details">
-                                <?php
-                                            require "connect.php";
-                                            $idd=$_GET["aid"];
+                    $idd=$_GET["aid"];
                                             $sqlssss=" SELECT * FROM employee WHERE employee_name='$idd'";
                                             $querryssss= mysqli_query($conn, $sqlssss);
-                                            while ($rowssss= mysqli_fetch_array($querryssss)){
-                                        ?>
-                                    <h3 style="color:white;background-color:blue; padding:5px; width:300px; height:auto;">Employee Details</h3>
-                                    <p>Name: <?php echo $rowssss['employee_name'];?></p>
-                                    <p>Designation: <?php echo $rowssss['employee_status'];?></p>
-                                    <p>Phone: <?php echo $rowssss['phone'];?></p>
-                                    <p>Email: <?php echo $rowssss['email'];?></p>
+                                    $rows=mysqli_fetch_array($querryssss) ;                       
+        
+        
+        ?>
+                            <div class="col-md-12">
+                                <div class="text-center lh-1 mb-2">
+                                    <h6 class="fw-bold">Payslip</h6> <span class="fw-normal">Payment slip for the month of <?php echo $month." ".$Year;?></span>
                                 </div>
-                                <?php } ?>
-                            </div>
-                            <div class="col-md-6">
-                                <table class="table-sm table-bordered emply">
-                                <?php
-                                            require "connect.php";
-                                             $idd=$_GET["aid"];
-                                            $sqlss=" SELECT * FROM salary Where employe_id='$idd'";
-                                            $querryss= mysqli_query($conn, $sqlss);
-                                            while ($rowss= mysqli_fetch_array($querryss)){
-                                        ?>
-                                    <tr>
-                                        <th>Salary Date</th>
-                                        <th>Salary Type</th>
-                                       
-                                    </tr>
-                                    <tr>
-                                        
-                                        <td><?php echo $rowss['salary_date']?></td>	
-                                        <td><?php echo $rowss['salary_type_id']?></td>
-                                    </tr>
-                               <?php } ?>
-                               
-                                    <tr>
-                                        <th>Salary Month</th>
-                                        <th>Salary Year</th>
-                                       
-                                    </tr>
-                                    <?php
-                                            require "connect.php";
-                                            
-                                            $sqlsss=" SELECT * FROM payroll";
-                                            $querrysss= mysqli_query($conn, $sqlsss);
-                                            while ($rowsss= mysqli_fetch_array($querrysss)){
-                                        ?>
 
-                                    <tr>
-                                        
-                                        <td><?php echo $rowsss['salary_Month'];?></td>
-                                        <td><?php echo $rowsss['Salary_Year'];?></td>
-                                    </tr>
-                                    <?php } ?>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <div class="span"><h3>Payslip Table</h3></div>
-                            <div class="col-md-12">
-                                <table class="table table-striped">            
-                                        <tr>
-                                            <th>Details</th>
-                                            <th>Amount</th>
-                                        </tr>
-                                        <?php
-                                            require "connect.php";
-                                            
-                                            $sql=" SELECT * FROM salary";
-                                            $querry= mysqli_query($conn, $sql);
-                                            while ($row= mysqli_fetch_array($querry)){
-                                        ?>
-                                        <tr>
-                                            <td>Basic Salary</td>
-                                            <td><?php echo $row['basic_salary']; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Medical</td>
-                                            <td><?php echo $row['medical']; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>House Rent</td>
-                                            <td><?php echo $row['house_rent']; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Food</td>
-                                            <td><?php echo $row['food']; ?></td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <td>Net Salary</td>
-                                            <td><?php echo $row['net_salary']; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gross Salary</td>
-                                            <td><?php echo $row['gross_salary']; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="table-info">
-                                            <td>Total</td>
-                                            <td>#</td>
-                                        </tr>
-                                   
-                                </table>
-                            </div>
-                        </div>
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div> <span class="fw-bolder">EMP Code</span> <small class="ms-3"><?php echo $rows['employee_code'];?></small> </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div> <span class="fw-bolder">EMP Name</span> <small class="ms-3"><?php echo $rows['employee_name'];?></small> </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div> <span class="fw-bolder">Phone No.</span> <small class="ms-3"><?php echo $rows['phone'];?></small> </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div> <span class="fw-bolder">NOD</span> <small class="ms-3">28</small> </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div> <span class="fw-bolder">ESI No.</span> <small class="ms-3"></small> </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div> <span class="fw-bolder">Mode of Pay</span> <small class="ms-3">SBI</small> </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div> <span class="fw-bolder">Designation</span> <small class="ms-3"><?php echo $rows['designation_id'];?></small> </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div> <span class="fw-bolder">Ac No.</span> <small class="ms-3">*******0701</small> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <table class="mt-4 table table-bordered">
+                                        <thead class="bg-dark text-white">
+
+                                            <?php 
                         
-                        <div class="row">
-                        <div class="span"><h3>Deduction Table</h3></div>
-                            <div class="col-md-12">
-                                <table class="table table-striped">            
-                                        <tr>
-                                            <th>Details</th>
-                                            <th>Amount</th>
-                                        </tr>
+                         $idd=$_GET["aid"];
+                                      $month=$_SESSION['selectMonth'];
+                                       $Year=$_SESSION['selectYear'];
+                                            $sqlss=" SELECT * FROM salary Where employe_id='$idd' && salary_year='$Year' && salary_Month='$month'";
+                                            $querryss= mysqli_query($conn, $sqlss);
+                                        $rowss= mysqli_fetch_array($querryss);
+                                            $basic=$rowss['basic_salary'];
+                                            $medical=$rowss['medical'];
+                                            $house=$rowss['house_rent'];
+                                            $food=$rowss['food'];
+                                            $provident=$rowss['provident_fund'];
+                                            $totalEng=$basic+$medical+$house+$food;
+                                       
+                        
+                        ?>
+                                            <tr>
+                                                <th scope="col">Earnings</th>
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Deductions</th>
+                                                <th scope="col">Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td scope="row">Basic Salary</td>
+                                                <td><?php echo $rowss['basic_salary']; ?></td>
+                                                <td>Provident Fund</td>
+                                                <td><?php echo $rowss['provident_fund']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">Medical</td>
+                                                <td><?php echo $rowss['medical']; ?></td>
+                                                <?php 
+                                                $idd=$_GET["aid"];
+                                      $month=$_SESSION['selectMonth'];
+                                       $Year=$_SESSION['selectYear'];
+                                            $sqlsss=" SELECT * FROM deduction Where employee_id='$idd' && deduction_year='$Year' && month='$month'";
+                                            $querrysss= mysqli_query($conn, $sqlsss);
+                                        $rowsss= mysqli_fetch_array($querrysss);
+                                                $absentAmount=$rowsss['amount'];
+                                                $totalDeduction=$provident+$absentAmount;
+                                                
+                                                ?>
+                                                
+                                                <td>By Absent</td>
+                                                <td><?php echo @$rowsss['amount']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">House Rent</td>
+                                                <td><?php echo $rowss['house_rent']; ?></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">Food</td>
+                                                <td><?php echo $rowss['food']; ?></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            
+
+                                            <tr class="border-top">
+                                                <td scope="row" class="fw-bold">Total Income</td>
+                                                <td class="fw-bold"><?php echo @$totalEng; ?></td>
+                                                <td class="fw-bold">Total Deductions</td>
+                                                <td class="fw-bold"><?php echo @$totalDeduction?></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4"> <br> <span class="fw-bold">Net Pay :<?php echo $rowss['net_salary'];?> </span> </div>
+                                    <div class="border col-md-8">
+                                        <?php
+                   $class_obj = new numbertowordconvertsconver();
+                    $class_obj->convert_number($rowss['net_salary']);
+                    ?>
+                                        <div class="d-flex flex-column"> <span>In Words</span> <span><?php echo $class_obj->convert_number($rowss['net_salary'])." "."Taka Only."; ?></span> </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                   <?php 
+                                    $sql=" SELECT * FROM company";
+                                            $querrys= mysqli_query($conn, $sql);
+                                          $row= mysqli_fetch_array($querrys)
                                     
-                                        <tr>
-                                            <td>Provident Fund</td>
-                                            <td><?php echo $row['provident_fund']; ?></td>
-                                        </tr>
-                                        <?php } ?>
-                                        <tr>
-                                            <td>Description</td>
-                                            <td>#</td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="table-info">
-                                            <td>Total</td>
-                                            <td>#</td>
-                                        </tr>
-                                   
-                                </table>
+                                    
+                                    ?>
+                                    <div class="d-flex flex-column mt-2"> <span class="fw-bolder"><?php echo $row['Name'];?></span> <span class="mt-4">Authorised Signature</span> </div>
+                                </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
-            </div>
 
 
 

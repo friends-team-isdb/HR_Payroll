@@ -1,6 +1,7 @@
 <?php require "connect.php";
 
 date_default_timezone_set("Asia/Dhaka");
+session_start();
 
 ?>
 
@@ -76,6 +77,7 @@ date_default_timezone_set("Asia/Dhaka");
                         </div>
                     </div>
                     <hr>
+                    <form action="" method="post">
                     <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-3">
@@ -110,6 +112,14 @@ date_default_timezone_set("Asia/Dhaka");
                         </div>
                         <div class="col-md-3"></div>
                     </div>
+                    </form>
+                    
+                    
+                    <?php 
+                    $_SESSION
+                    
+                    
+                    ?>
 
                     <!-- <div class="row">
                             <div class="col-md-12">                                
