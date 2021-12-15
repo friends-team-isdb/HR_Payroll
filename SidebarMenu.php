@@ -135,19 +135,35 @@ if(!isset($_SESSION['userName'])){
                 
               </ul>
             </li>
+             <li>
+              <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class="bi bi-cloud-arrow-down"></i>
+                </div>
+                <div class="menu-title">Report Management</div>
+              </a>
+              <ul>
+                <li> <a href="#"><i class="bi bi-arrow-right-short"></i>Attendence Report</a>
+                </li>
+                <li> <a href="#"><i class="bi bi-arrow-right-short"></i>Salary Report</a>
+                </li>
+                <li> <a href="#"><i class="bi bi-arrow-right-short"></i>Payroll Report</a>
+                </li>
+                
+              </ul>
+            </li>
             
             <li>
               <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class="bi bi-file-earmark-break"></i>
+                <div class="parent-icon"><i class="bi bi-lock"></i>
                 </div>
                 <div class="menu-title">User Management</div>
               </a>
               <ul>
                 <li> <a href="addUser.php"><i class="bi bi-arrow-right-short"></i>Add User</a>
                 </li>
-                <li> <a href="userRole.php"><i class="bi bi-arrow-right-short"></i>User Role</a>
-                </li>
                 <li> <a href="userManage.php"><i class="bi bi-arrow-right-short"></i>Manage User</a>
+                </li>
+                <li> <a href="userRole.php"><i class="bi bi-arrow-right-short"></i>User Role</a>
                 </li>
               </ul>
             </li>
@@ -172,53 +188,8 @@ if(!isset($_SESSION['userName'])){
                 
               </ul>
             </li>
-            
-            <li>
-              <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class="bi bi-lock"></i>
-                </div>
-                <div class="menu-title">Authentication</div>
-              </a>
-              <ul>
-                <li> <a href="authentication-signin.html" target="_blank"><i class="bi bi-arrow-right-short"></i>Sign In</a>
-                </li>
-                <li> <a href="authentication-signup.html" target="_blank"><i class="bi bi-arrow-right-short"></i>Sign Up</a>
-                </li>
-                <li> <a href="authentication-signin-with-header-footer.html" target="_blank"><i class="bi bi-arrow-right-short"></i>Sign In with Header & Footer</a>
-                </li>
-                <li> <a href="authentication-signup-with-header-footer.html" target="_blank"><i class="bi bi-arrow-right-short"></i>Sign Up with Header & Footer</a>
-                </li>
-                <li> <a href="authentication-forgot-password.html" target="_blank"><i class="bi bi-arrow-right-short"></i>Forgot Password</a>
-                </li>
-                <li> <a href="authentication-reset-password.html" target="_blank"><i class="bi bi-arrow-right-short"></i>Reset Password</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="pages-user-profile.html">
-                <div class="parent-icon"><i class="bi bi-person-check"></i>
-                </div>
-                <div class="menu-title">User Profile</div>
-              </a>
-            </li>
            
-            <li>
-              <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class="bx bx-error"></i>
-                </div>
-                <div class="menu-title">Asset</div>
-              </a>
-              <ul>
-                <li> <a href="pages-errors-404-error.html" target="_blank"><i class="bi bi-arrow-right-short"></i>404 Error</a>
-                </li>
-                <li> <a href="pages-errors-500-error.html" target="_blank"><i class="bi bi-arrow-right-short"></i>500 Error</a>
-                </li>
-                <li> <a href="pages-errors-coming-soon.html" target="_blank"><i class="bi bi-arrow-right-short"></i>Coming Soon</a>
-                </li>
-                <li> <a href="pages-blank-page.html" target="_blank"><i class="bi bi-arrow-right-short"></i>Blank Page</a>
-                </li>
-              </ul>
-            </li>
+           
             <li>
               <a href="pages-faq.html">
                 <div class="parent-icon"><i class="bi bi-exclamation-triangle"></i>
@@ -226,27 +197,8 @@ if(!isset($_SESSION['userName'])){
                 <div class="menu-title">FAQ</div>
               </a>
             </li>
+        
            
-
-            <li>
-              <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class="bi bi-list-task"></i>
-                </div>
-                <div class="menu-title">Menu Levels</div>
-              </a>
-              <ul>
-                <li> <a class="has-arrow" href="javascript:;"><i class="bi bi-arrow-right-short"></i>Level One</a>
-                  <ul>
-                    <li> <a class="has-arrow" href="javascript:;"><i class="bi bi-arrow-right-short"></i>Level Two</a>
-                      <ul>
-                        <li> <a href="javascript:;"><i class="bi bi-arrow-right-short"></i>Level Three</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
             <li>
               <a href="https://codervent.com/skodash/documentation/index.html" target="_blank">
                 <div class="parent-icon"><i class="bi bi-file-earmark-code"></i>
