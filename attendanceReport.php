@@ -1,8 +1,9 @@
 <?php require "connect.php";
 date_default_timezone_set("Asia/Dhaka");
 session_start();
-if(!isset($_SESSION['userName'])){
-  header("location:Login.php");  
+if (!isset($_SESSION['userName']))
+{
+    header("location:Login.php");
 }
 
 ?>
@@ -46,20 +47,20 @@ if(!isset($_SESSION['userName'])){
     </style>
 </head>
 
-<body>
+<body id="body">
 
 
     <!--start wrapper-->
     <div class="wrapper">
         <!--start top header-->
         <header class="top-header">
-            <?php require "headers.php"?>
+            <?php require "headers.php" ?>
         </header>
         <!--end top header-->
 
         <!--start sidebar -->
         <aside class="sidebar-wrapper" data-simplebar="true">
-            <?php require "SidebarMenu.php"?>
+            <?php require "SidebarMenu.php" ?>
         </aside>
         <!--end sidebar -->
 
@@ -80,24 +81,25 @@ if(!isset($_SESSION['userName'])){
                         <div class="row">
                             <div class="col-md-4">
                                 <?php
-
-                $sql = "SELECT employee_name FROM employee";
-                $query = mysqli_query($conn, $sql);
-                $rowcount = mysqli_num_rows($query);
-                ?>
+$sql = "SELECT employee_name FROM employee";
+$query = mysqli_query($conn, $sql);
+$rowcount = mysqli_num_rows($query);
+?>
                                 <select class="form-select" name="select_employee" id="">
 
                                     <option value="">Select Employee</option>
+                                    <option value="AllEmp"> All Employee</option>
 
                                     <?php
-                for ($i = 1; $i <= $rowcount; $i++) {
-                    $row = mysqli_fetch_array($query);
-                ?>
+for ($i = 1;$i <= $rowcount;$i++)
+{
+    $row = mysqli_fetch_array($query);
+?>
                                     <option value="<?php echo $row['employee_name']; ?>"><?php echo $row['employee_name']; ?></option>
                                     <?php
-                }
+}
 
-                ?>
+?>
 
                                 </select>
                             </div>
@@ -122,41 +124,141 @@ if(!isset($_SESSION['userName'])){
             <hr>
 
             <div class="modal-content">
-                <div class="forms-body">
+                <div class="forms-body" id="printArea">
                     <div class="row">
                         <div class="col-md-12">
-                            <table class="table table-bordered">
-                                <tr>
+                            
+
+                                <?php
+if (isset($_POST['report']))
+{
+    $emp = $_POST['select_employee'];
+    $start = $_POST['startdate'];
+    $end = $_POST['enddate'];
+    $days = date_diff(date_create($start) , date_create($end));
+    if ($emp == 'AllEmp')
+        
+    {
+        echo '<caption><center><h3>Attendance Report</h3></center></caption>';
+        echo "<hr>";
+        echo '<table class="table table-bordered"><tr><th>Name</th><th>Date</th><th>Days</th><th>Absent</th></tr>';
+        $sqlls = "Select `employee_id`,
+COUNT(attendaneStatus)as Absent
+from attendance WHERE attendaneStatus='Absent' && attendancedate Between '$start' AND  '$end' GROUP BY employee_id";
+
+        $qurrs = mysqli_query($conn, $sqlls);
+       while($rows = mysqli_fetch_array($qurrs)){ 
+
+?>
+                               <tr>
+                                   <td><?php echo $rows['employee_id']; ?></td>
+                                    
+                                    
+                                    <td><?php echo $start . " " . "<strong>To</strong>" . " " . $end; ?></td>
+                                    <td><?php echo $days->format("%a"); ?></td>
+                                    <td><?php echo $rows['Absent']; ?></td>
+                            </tr>
+                                    <?php }?>
+                                    
+                                    
+                                    
+                           
+                           <?php echo " </table>"?>
+
+
+                                <?php
+    }
+    else
+    {
+        echo '<caption><center><h3> Individual Attendance Report</h3></center></caption>';
+                echo "<hr>";
+        echo '<table class="table table-bordered"><tr>
                                     <th>Name</th>
                                     <th>Date</th>
                                     <th>SignIn Time</th>
                                     <th>SignOut Time</th>
                                     <th>Status</th>
-                                </tr>
-                                <?php 
-            if(isset($_POST['report'])){
-            $emp=$_POST['select_employee'];
-            $start=$_POST['startdate'];
-            $end=$_POST['enddate'];
-            
-                $sqll="Select * from attendance Where employee_id='$emp' && attendancedate Between '$start' AND  '$end'";
-                $qurr=mysqli_query($conn,$sqll);
-               while($row=mysqli_fetch_array($qurr)) {
-                   
-              
-            ?>
+                                </tr>';
+        $sqll = "Select * from attendance Where employee_id='$emp' && attendancedate Between '$start' AND '$end'";
+        $qurr = mysqli_query($conn, $sqll);
+        while ($row = mysqli_fetch_array($qurr))
+        {
+
+?>
                                 <tr>
-                                    <td><?php echo $row['employee_id'];?></td>
-                                    <td><?php echo $row['attendancedate'];?></td>
-                                    <td><?php echo $row['singInTime'];?></td>
-                                    <td><?php echo $row['singOutTime'];?></td>
-                                    <td><?php echo $row['attendaneStatus'];?></td>
+                                    <td><?php echo $row['employee_id']; ?></td>
+                                    <td><?php echo $row['attendancedate']; ?></td>
+                                    <td><?php echo $row['singInTime']; ?></td>
+                                    <td><?php echo $row['singOutTime']; ?></td>
+                                    <td><?php echo $row['attendaneStatus']; ?></td>
                                 </tr>
-                                <?php }} ?>
-                            </table>
+                           
+                                <?php 
+        }?>
+        <?php echo "</table>";?>
+        <?php 
+        
+        
+        
+        echo '<table class="table table-bordered"><tr><th>Date</th><th>Days</th><th>Present</th><th>Absent</th><th>Leave</th></tr>';
+        $sqlls = "Select `employee_id`,
+COUNT(attendaneStatus)as Present
+from attendance WHERE employee_id='$emp' && attendaneStatus='Present' && attendancedate Between '$start' AND  '$end'";
+
+        $qurrs = mysqli_query($conn, $sqlls);
+        $rows = mysqli_fetch_array($qurrs);
+                $sqllss = "Select `employee_id`,
+COUNT(attendaneStatus)as Abst
+from attendance WHERE employee_id='$emp' && attendaneStatus='Absent' && attendancedate Between '$start' AND  '$end'";
+
+        $qurrss = mysqli_query($conn, $sqllss);
+        $rowss = mysqli_fetch_array($qurrss);
+         $sqllsss = "Select `employee_id`, COUNT(attendaneStatus)as lev from attendance WHERE employee_id='$emp' && attendaneStatus='On Leave' && attendancedate Between '$start' AND '$end'";
+
+        $qurrsss = mysqli_query($conn, $sqllsss);
+        $rowsss = mysqli_fetch_array($qurrsss);
+        
+            
+       
+
+?>
+                               <tr>
+                                    <td><?php echo $start . " " . "<strong>To</strong>" . " " . $end; ?></td>
+                                    <td><?php echo $days->format("%a"); ?></td>
+                                    <td><?php echo $rows['Present']; ?></td>
+                                 
+
+
+
+                                    <td><?php echo $rowss['Abst']; ?></td>
+
+                                
+
+                                    <td><?php echo $rowsss['lev']; ?></td>
+                       </tr>
+                      <?php echo  "</table>";?>
+        
+        
+<?php
+    }
+} ?>
+
+                          
                         </div>
                     </div>
 
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                       <?php 
+                        if (isset($_POST['report'])){
+                          echo  '<button class="btn btn-primary bx-pull-right m-3" onclick=attenPrint()>Print Report
+                        </button>' ;
+                        }
+                        ?>
+                        
+                    </div>
                 </div>
             </div>
 
@@ -205,7 +307,18 @@ if(!isset($_SESSION['userName'])){
         new PerfectScrollbar(".top-sellers-list")
 
     </script>
-
+<script>
+    function attenPrint(){
+        var body=document.getElementById('body').innerHTML;
+        var printArea=document.getElementById('printArea').innerHTML;
+        document.getElementById('body').innerHTML=printArea;
+        window.print(printArea);
+         document.getElementById('body').innerHTML=body;
+        
+    }
+    
+    
+    </script>
 </body>
 
 </html>

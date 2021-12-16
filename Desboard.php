@@ -94,7 +94,7 @@ if(!isset($_SESSION['userName'])){
                                     @$present="Present";
                                     $today=date("Y-m-d");
                               $sql="SELECT COUNT(attendaneStatus) as presnt From attendance WHERE attendaneStatus='$present' && attendancedate='$today'";
-                              $query=mysqli_query($conn,$sql);
+                                $query=mysqli_query($conn,$sql);
                             $num=mysqli_fetch_array($query);
                               
                               ?>
