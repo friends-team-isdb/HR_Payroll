@@ -142,9 +142,9 @@ if(!isset($_SESSION['userName'])){
                 <div class="menu-title">Report Management</div>
               </a>
               <ul>
-                <li> <a href="#"><i class="bi bi-arrow-right-short"></i>Attendence Report</a>
+                <li> <a href="attendanceReport.php"><i class="bi bi-arrow-right-short"></i>Attendence Report</a>
                 </li>
-                <li> <a href="#"><i class="bi bi-arrow-right-short"></i>Salary Report</a>
+                <li> <a href="payslipReport.php"><i class="bi bi-arrow-right-short"></i>Salary Report</a>
                 </li>
                 <li> <a href="#"><i class="bi bi-arrow-right-short"></i>Payroll Report</a>
                 </li>
