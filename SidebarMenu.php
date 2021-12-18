@@ -83,8 +83,6 @@ if(!isset($_SESSION['userName'])){
               <ul>
                 <li> <a href="dailyAttendance.php"><i class="bi bi-arrow-right-short"></i>Daily Attendance</a>
                 </li>
-                <li> <a href="attendanceReport.php"><i class="bi bi-arrow-right-short"></i>Attendance Report</a>
-                </li>
                 <li> <a href="attendanceSchedule.php"><i class="bi bi-arrow-right-short"></i>Attendance Schedule</a>
                 </li>
               </ul>
@@ -144,9 +142,13 @@ if(!isset($_SESSION['userName'])){
               <ul>
                 <li> <a href="attendanceReport.php"><i class="bi bi-arrow-right-short"></i>Attendence Report</a>
                 </li>
-                <li> <a href="payslipReport.php"><i class="bi bi-arrow-right-short"></i>Salary Report</a>
+                <li> <a href="salaryReport.php"><i class="bi bi-arrow-right-short"></i>Salary Report</a>
                 </li>
-                <li> <a href="#"><i class="bi bi-arrow-right-short"></i>Payroll Report</a>
+                <li> <a href="payslipReport.php"><i class="bi bi-arrow-right-short"></i>Payroll Report</a>
+                </li>
+                <li> <a href="expenseReport.php"><i class="bi bi-arrow-right-short"></i>Expense Report</a>
+                </li>
+                <li> <a href="claimReport.php"><i class="bi bi-arrow-right-short"></i>Claim Report</a>
                 </li>
                 
               </ul>
