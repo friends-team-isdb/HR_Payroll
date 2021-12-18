@@ -77,15 +77,15 @@ if (!isset($_SESSION['userName']))
                             </div>
                         </div>
                         <hr>
-                        <!--            Jakir vai code here-->
+                        
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <?php
 $sql = "SELECT employee_name FROM employee";
 $query = mysqli_query($conn, $sql);
 $rowcount = mysqli_num_rows($query);
 ?>
-                                <select class="form-select" name="select_employee" id="">
+                                <select class="form-select" name="select_employee" id="emptype">
 
                                     <option value="">Select Employee</option>
                                     <option value="AllEmp"> All Employee</option>
@@ -102,6 +102,15 @@ for ($i = 1;$i <= $rowcount;$i++)
 ?>
 
                                 </select>
+                              
+                                
+                            </div>
+                              <div class="col-md-2" id="hiddenDiv">
+                                <select class="form-select" name="statusp" id="">
+                                    <option value="Present">Present</option>
+                                    <option value="Absent">Absent</option>
+                                    <option value="On Leave">Leave</option>
+                                </select>
                             </div>
                             <div class="col-md-3">
                                 <input class="form-control" type="date" name="startdate" id="" placeholder="Start date">
@@ -111,8 +120,8 @@ for ($i = 1;$i <= $rowcount;$i++)
                                 <input class="form-control" type="date" name="enddate" id="" placeholder="End date">
 
                             </div>
-                            <div class="col-md-2">
-                                <input class="btn btn-primary" type="submit" name="report" id="" value="Show Report">
+                            <div class="col-md-1">
+                                <input class="btn btn-primary bx-pull-right" type="submit" name="report" id="" value="show">
                             </div>
                         </div>
 
@@ -135,16 +144,17 @@ if (isset($_POST['report']))
     $emp = $_POST['select_employee'];
     $start = $_POST['startdate'];
     $end = $_POST['enddate'];
+    @$status=$_POST['statusp'];
     $days = date_diff(date_create($start) , date_create($end));
     if ($emp == 'AllEmp')
         
     {
         echo '<caption><center><h3>Attendance Report</h3></center></caption>';
         echo "<hr>";
-        echo '<table class="table table-bordered"><tr><th>Name</th><th>Date</th><th>Days</th><th>Absent</th></tr>';
+        echo '<table class="table table-bordered"><tr><th>Name</th><th>Date</th><th>Days</th><th>'.$status.'</th></tr>';
         $sqlls = "Select `employee_id`,
 COUNT(attendaneStatus)as Absent
-from attendance WHERE attendaneStatus='Absent' && attendancedate Between '$start' AND  '$end' GROUP BY employee_id";
+from attendance WHERE attendaneStatus='$status' && attendancedate Between '$start' AND  '$end' GROUP BY employee_id";
 
         $qurrs = mysqli_query($conn, $sqlls);
        while($rows = mysqli_fetch_array($qurrs)){ 
@@ -188,8 +198,8 @@ from attendance WHERE attendaneStatus='Absent' && attendancedate Between '$start
                                 <tr>
                                     <td><?php echo $row['employee_id']; ?></td>
                                     <td><?php echo $row['attendancedate']; ?></td>
-                                    <td><?php echo $row['singInTime']; ?></td>
-                                    <td><?php echo $row['singOutTime']; ?></td>
+                                    <td><?php $sign=date_create($row['singInTime']);echo date_format($sign, 'g:i A') ; ?></td>
+                                    <td><?php  $singOut=date_create($row['singOutTime']);echo date_format($singOut , 'g:i A') ; ?></td>
                                     <td><?php echo $row['attendaneStatus']; ?></td>
                                 </tr>
                            
@@ -318,6 +328,21 @@ from attendance WHERE employee_id='$emp' && attendaneStatus='Absent' && attendan
     }
     
     
+    </script>
+    <script>
+    $(document).ready(function(){
+         $('#hiddenDiv').hide();
+        $('#emptype').change(function(){
+        var emptype=$('#emptype').val();
+      if(emptype=='AllEmp'){
+          $('#hiddenDiv').show();
+      }else{
+           $('#hiddenDiv').hide();
+      }
+        });
+       
+       
+    });
     </script>
 </body>
 
