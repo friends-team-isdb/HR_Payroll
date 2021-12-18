@@ -10,13 +10,13 @@ if(isset($_POST['submit'])){
     $ExpenseDescription=$_POST['ExpenseDescription'];
     $ExpenseAmount=$_POST['ExpenseAmount'];
     
-    $s="SELECT expense_description FROM expense_list WHERE expense_description='$ExpenseDescription'";
+    $s="SELECT expense_description FROM expense_list WHERE expense_description='$ExpenseDescription' && dates='$date'";
     $qurey=mysqli_query($conn,$s);
     $num=mysqli_num_rows($qurey);
     if($num==1){
         echo "Expense Already Exits";
     }else{
-        $sql="INSERT INTO `expense_list` (`employee_id`, `expense_date`, `expense_description`, `amount`,`Month`) VALUES ( '$employee', '$date', '$ExpenseDescription', '$ExpenseAmount','$month')";
+        $sql="INSERT INTO `expense_list` (`employee_id`, `expense_date`, `expense_description`, `amount`,`Month`,`dates`) VALUES ( '$employee', '$date', '$ExpenseDescription', '$ExpenseAmount','$month','$date')";
         $qurey=mysqli_query($conn,$sql);
         echo "Expense Added!";
     }   
