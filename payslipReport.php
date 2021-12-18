@@ -73,7 +73,7 @@ if (!isset($_SESSION['userName']))
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-12">
-                                <h3 style="margin:10px;">Attendance Report</h3>
+                                <h3 style="margin:10px;">PaySlip Report</h3>
                             </div>
                         </div>
                         <hr>
@@ -139,7 +139,7 @@ if (isset($_POST['report']))
     if ($emp == 'AllEmp')
         
     {
-        echo '<caption><center><h3>Attendance Report</h3></center></caption>';
+        echo '<caption><center><h3>PaySlip Report</h3></center></caption>';
         echo "<hr>";
         echo '<table class="table table-bordered"><tr><th>Name</th><th>Date</th><th>Days</th><th>Absent</th></tr>';
         $sqlls = "Select `employee_id`,

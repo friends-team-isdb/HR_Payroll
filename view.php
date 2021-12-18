@@ -138,7 +138,7 @@ session_start();
     </style>
 </head>
 
-<body>
+<body id="body">
 
 
     <!--start wrapper-->
@@ -171,6 +171,11 @@ session_start();
                 </div>
             </div>
             <hr>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-primary bx-pull-right" onclick="viewPrint()" >Print</button>
+                </div>
+            </div>
             <?php 
 
             @$info=$_GET['email'];
@@ -184,7 +189,7 @@ session_start();
             ?>
             <!-- main body start -->
 
-            <div class="container emp-profile">
+            <div class="container emp-profile" id="printarea">
             <form method="post">
                 <div class="row">
                     <div class="col-md-4">
@@ -215,7 +220,7 @@ session_start();
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+<!--                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>-->
                     </div>
                 </div>
                 <div class="row">
@@ -370,6 +375,17 @@ session_start();
         new PerfectScrollbar(".best-product")
         new PerfectScrollbar(".top-sellers-list")
 
+    </script>
+    <script>
+    
+    function viewPrint(){
+        var body=document.getElementById('body').innerHTML;
+        var printarea=document.getElementById('printarea').innerHTML;
+        document.getElementById('body').innerHTML=printarea;
+        window.print(printarea);
+        document.getElementById('body').innerHTML=body;
+    }
+    
     </script>
 
 </body>

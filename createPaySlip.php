@@ -1,4 +1,5 @@
 <?php require "connect.php";
+@session_start();
 date_default_timezone_set("Asia/Dhaka");
 if(isset($_POST['submit'])){
 @$empName=$_POST['empnam'];
@@ -481,9 +482,19 @@ for ($i = 1; $i <= $day_count; $i++) {
                         <div class="row">
                             <div class="col-md-3"></div>
                             <div class="col-md-6">
-                                <input class="btn btn-primary bx-pull-right mb-3" type="submit" name="CratePaySlip" id="" value="Create PaySlip">
+                               
+                               <?php 
+                                    $payrollTablescheckSql="Select * from payroll Where employee_id='$empName' && salary_Month='$Month' && Salary_Year='$Year'";
+                $payrollTableCheckQuery=mysqli_query($conn,$payrollTablescheckSql);
+                $payrollcheckResults=mysqli_num_rows($payrollTableCheckQuery);
+              ?>
+                    
+                    
+                               
+                                <input class="btn btn-primary bx-pull-right mb-3" type="submit"<?php if ($payrollcheckResults == 1){ ?> disabled <?php   } ?> name="CratePaySlip" id="" value="Create PaySlip">
                             </div>
-                            <div class="col-md-3"></div>
+                            <div class="col-md-3">
+                            </div>
                         </div>
                     </div>
 

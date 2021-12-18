@@ -109,7 +109,13 @@ require "inwordsFunction.php";
                                                 <div> <span class="fw-bolder">ESI No.</span> <small class="ms-3"></small> </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div> <span class="fw-bolder">Mode of Pay</span> <small class="ms-3">SBI</small> </div>
+                                               <?php 
+                                                $bankSql="SELECT * FROM  bank Where employee_id='$idd'";
+                                                $bankQurey=mysqli_query($conn, $bankSql);
+                                                $bankresult=mysqli_fetch_array($bankQurey);
+                                                
+                                                ?>
+                                                <div> <span class="fw-bolder">Method of Pay</span> <small class="ms-3"> <?php echo $bankresult['bank_name'];?></small> </div>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -117,7 +123,7 @@ require "inwordsFunction.php";
                                                 <div> <span class="fw-bolder">Designation</span> <small class="ms-3"><?php echo $rows['designation_id'];?></small> </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div> <span class="fw-bolder">Ac No.</span> <small class="ms-3">*******0701</small> </div>
+                                                <div> <span class="fw-bolder">Ac No.</span> <small class="ms-3"><?php echo $bankresult['account_no'];?></small> </div>
                                             </div>
                                         </div>
                                     </div>
