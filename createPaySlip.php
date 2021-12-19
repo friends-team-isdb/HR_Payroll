@@ -456,7 +456,7 @@ for ($i = 1; $i <= $day_count; $i++) {
                                     <input type="text" placeholder="Total Deductions" class="form-control" name="" id="" readonly value="<?php echo @$totalDeduction;?>"><br>
                                     <input type="text" placeholder="Net Salary" class="form-control" name="" id="" value="<?php echo @$netSalary;?>" readonly><br>
                                     <input type="text" placeholder="Gross Salary" class="form-control" name="" id="" readonly value="<?php echo @$grossSalary;?>"><br>
-                                    <select class="form-select" name="deductions" id="deductions" onkeyup="change(this.id,'errdeductions','method')" onblur="change(this.id,'errdeductions','method')"  >
+                                    <select class="form-select" name="deductions">
                                         <option class="form-control" value="" selected> Payment Method</option>
                                         <option class="form-control" value="">Bank payment</option>
                                         <option class="form-control" value="">Cash payment</option>
@@ -484,14 +484,19 @@ for ($i = 1; $i <= $day_count; $i++) {
                             <div class="col-md-6">
                                
                                <?php 
-                                    $payrollTablescheckSql="Select * from payroll Where employee_id='$empName' && salary_Month='$Month' && Salary_Year='$Year'";
-                $payrollTableCheckQuery=mysqli_query($conn,$payrollTablescheckSql);
-                $payrollcheckResults=mysqli_num_rows($payrollTableCheckQuery);
+                                 if(isset($_POST['submit'])){
+                            @$empName=$_POST['empnam'];
+                            @$Year=$_POST['year'];
+                            @$Month=$_POST['dob-month'];
+                                    @$payrollTablescheckSql="Select * from payroll Where employee_id='$empName' && salary_Month='$Month' && Salary_Year='$Year'";
+                @$payrollTableCheckQuery=mysqli_query($conn,$payrollTablescheckSql);
+                @$payrollcheckResults=mysqli_num_rows($payrollTableCheckQuery);
+                                 }
               ?>
                     
                     
                                
-                                <input class="btn btn-primary bx-pull-right mb-3" type="submit"<?php if ($payrollcheckResults == 1){ ?> disabled <?php   } ?> name="CratePaySlip" id="" value="Create PaySlip">
+                                <input class="btn btn-primary bx-pull-right mb-3" type="submit"<?php if (@$payrollcheckResults == 1){ ?> disabled <?php   } ?> name="CratePaySlip" id="" value="Create PaySlip">
                             </div>
                             <div class="col-md-3">
                             </div>

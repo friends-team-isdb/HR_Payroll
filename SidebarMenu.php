@@ -193,7 +193,7 @@ if(!isset($_SESSION['userName'])){
            
            
             <li>
-              <a href="pages-faq.html">
+              <a href="#">
                 <div class="parent-icon"><i class="bi bi-exclamation-triangle"></i>
                 </div>
                 <div class="menu-title">FAQ</div>
@@ -202,7 +202,7 @@ if(!isset($_SESSION['userName'])){
         
            
             <li>
-              <a href="https://codervent.com/skodash/documentation/index.html" target="_blank">
+              <a href="#" target="_blank">
                 <div class="parent-icon"><i class="bi bi-file-earmark-code"></i>
                 </div>
                 <div class="menu-title">Documentation</div>
